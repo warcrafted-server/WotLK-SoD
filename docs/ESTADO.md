@@ -16,8 +16,12 @@ servidor Debian.
 - **Última acción del usuario (2026-10-05):** instalación nueva de `acore-test`. Ha hecho solo el
   **paso 1** de `docs/guias/compilar-en-linux.md` §7: **crear las 3 bases `*_test` vacías**
   (según él; **no lo he verificado**). **Quedan pendientes, y los hace él:** el paso 2 (`cmake`), el
-  3 (`make`) y el 4 (`make install`). El `build/` anterior y las bases viejas ya se borraron por su
-  cuenta. **No sabemos aún si compila.**
+  3 (`make`) y el 4 (`make install`). **No sabemos aún si compila.**
+- **Verificado a las 19:15 del 2026-10-05 (solo lectura):** las 3 bases `*_test` existen y están
+  **vacías** (0 tablas). **El `build/` ANTIGUO sigue en `acore-test/build/`** (del 8 de septiembre,
+  3,9 GB, con su `CMakeCache.txt`, sin nuestros módulos): el usuario aún no lo ha borrado. Si ejecuta
+  `cmake ..` ahí, **reutilizará esa caché** y la instalación no será «nueva». Es decisión suya
+  borrarlo antes del paso 2; recuérdaselo si procede, pero **no lo borres tú**.
 - **Copia de Windows:** era el sitio de trabajo anterior. La del servidor es idéntica (commit
   `3946088`, 140 archivos). El usuario la borrará a mano cuando compruebe que esta sesión funciona.
   A partir de ahora **la fuente de verdad es esta**.
