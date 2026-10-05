@@ -2,6 +2,12 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-05 (sesión de continuación)
+
+### Cambiado
+- `ESTADO.md`: `agentrelay` ya está instalado y operativo (corrige lo anterior); el `build/` antiguo
+  de `acore-test` ya lo ha borrado el usuario.
+
 ## 2026-10-05 (traspaso al servidor)
 
 ### Añadido
@@ -14,7 +20,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 ### Notas
 - El usuario ha hecho el paso 1 de la guía (3 bases `*_test` vacías); `cmake`, `make` e `install`
   siguen pendientes y los hace él.
-- `agentrelay` **no está instalado** en el servidor: hasta que lo esté, se delega con subagentes.
+- (Corregido después: `agentrelay` sí estaba instalado; ver la entrada de la sesión de continuación.)
 
 ## 2026-10-05 (servidor de pruebas)
 

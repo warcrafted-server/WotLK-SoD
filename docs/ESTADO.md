@@ -17,11 +17,8 @@ servidor Debian.
   **paso 1** de `docs/guias/compilar-en-linux.md` §7: **crear las 3 bases `*_test` vacías**
   (según él; **no lo he verificado**). **Quedan pendientes, y los hace él:** el paso 2 (`cmake`), el
   3 (`make`) y el 4 (`make install`). **No sabemos aún si compila.**
-- **Verificado a las 19:15 del 2026-10-05 (solo lectura):** las 3 bases `*_test` existen y están
-  **vacías** (0 tablas). **El `build/` ANTIGUO sigue en `acore-test/build/`** (del 8 de septiembre,
-  3,9 GB, con su `CMakeCache.txt`, sin nuestros módulos): el usuario aún no lo ha borrado. Si ejecuta
-  `cmake ..` ahí, **reutilizará esa caché** y la instalación no será «nueva». Es decisión suya
-  borrarlo antes del paso 2; recuérdaselo si procede, pero **no lo borres tú**.
+- **Build antiguo:** el usuario ya ha borrado `acore-test/build/` (confirmado por él el 2026-10-05),
+  así que el paso 2 (`cmake`) partirá de cero.
 - **Copia de Windows:** era el sitio de trabajo anterior. La del servidor es idéntica (commit
   `3946088`, 140 archivos). El usuario la borrará a mano cuando compruebe que esta sesión funciona.
   A partir de ahora **la fuente de verdad es esta**.
@@ -49,12 +46,10 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
 
 1. **Esperar a que el usuario haga los pasos 2–4** (`cmake`, `make`, `make install`) **y traiga el
    resultado.** Lo útil que puede traer es el *primer* error (`grep -n "error:" ~/sod-build.log | head`). Corregirlo delegando (§5).
-2. **Instalar `agentrelay` en este servidor.** Hoy **no está instalado** (ni `cline` ni `codex`),
-   aunque existe `~/.agentrelay/`. Lo instala el usuario (pide login interactivo): clonar
-   `https://github.com/catlinux/AgentRelay.git`, `npm install`, `npm link`, `agentrelay login
-   --device`, `agentrelay doctor`, `agentrelay setup`; ejecutores con `agentrelay executors add
-   <nombre>`. Detalle en el `INSTALL.md` de ese repositorio. Hasta entonces, ver §5.
-3. **Crear el repositorio `warcrafted-server/WotLK-SoD` en GitHub** (el usuario: no hay `gh` ni
+2. **`agentrelay` ya está instalado** (v0.2.0 en `~/.local/bin`; `agentrelay doctor` todo `[ok]`,
+   ejecutor Codex con gpt-6-luna, sesión de ChatGPT iniciada; comprobado el 2026-10-05). Se delega
+   con `agentrelay run` (§5).
+3. **Crear el repositorio `warcrafted-server/WotLK-SoD` en GitHub** (es ESTE proyecto, no el core; el core ya vive en su fork `warcrafted-server/azerothcore-wotlk`, rama `Playerbot-SoD`, y `core/` ya apunta a él) (el usuario: no hay `gh` ni
    token) y **subirlo desde aquí**. El `origin` de este clon apunta a un bundle que ya no existe
    (`/tmp/wotlk-sod.bundle`): cambiarlo a `git@github-warcrafted:warcrafted-server/WotLK-SoD.git`
    (alias SSH ya configurado en este servidor). Verificado que ese repositorio **no existía** el
@@ -111,11 +106,11 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
 El objetivo del usuario es **ahorrar tokens de Claude** dejando al orquestador la planificación, el
 diseño y la revisión. **Delega por defecto**; ver `AGENTS.md`.
 
-- **Con `agentrelay`** (cuando esté instalado, §3.2): `agentrelay run`, y revisión con
+- **Con `agentrelay`** (instalado, §3.2): `agentrelay run`, y revisión con
   `agentrelay review`. En Linux el comando es `agentrelay`.
-- **Sin `agentrelay`** (hoy): usa subagentes de Claude Code con un modelo más barato para lo
-  mecánico (búsquedas, lectura de código, informes, ediciones repetitivas), y **dilo al usuario**
-  junto con cómo instalar `agentrelay`. No hagas tú en silencio el trabajo no trivial.
+- **Si `agentrelay` no estuviera disponible** (`command -v agentrelay`): usa subagentes de Claude
+  Code con un modelo más barato para lo mecánico y **dilo al usuario**. No hagas tú en silencio el
+  trabajo no trivial.
 - **Cómo encargar bien una tarea** (lección cara: el 2026-10-05 una tarea abierta consumió 7,5 M
   de tokens y 40 minutos sin escribir un archivo): un objetivo cerrado y pocos archivos; **tú aportas
   los datos ya masticados** (IDs, valores, URLs) en vez de pedir que los busque; validaciones que
