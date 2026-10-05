@@ -82,6 +82,14 @@ Reglas duras:
 - Un concepto, un directorio. Si dudas de dónde va un archivo, pregunta antes de inventar
   una carpeta nueva.
 
+### 3.2. Código propio en `server/`
+
+Cada módulo propio que parta de un proyecto de terceros va en **su propio subdirectorio de
+`server/`** y lleva un `ORIGEN.md` con: URL de origen, **commit de partida**, licencia y una
+lista fechada de los cambios respecto al original. Los commits de `upstream/` se fijan en
+`tools/clonar-upstream.sh`, que reconstruye esa carpeta en cualquier máquina; si cambias de
+commit de partida, actualiza ese script y el `ORIGEN.md`.
+
 ### 3.1. Organización de `upstream/`
 
 Los clones de terceros **nunca se dejan sueltos en la raíz de `upstream/`**: van agrupados

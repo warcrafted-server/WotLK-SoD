@@ -1,0 +1,25 @@
+name: Publish Wiki
+
+# Thin caller — the wiki-publishing logic lives in the org-wide reusable workflow
+# (mod-sod/.github). Change it there once to update every repo; here we only pass
+# this repo's curated sidebar nav. Requires the mod-sod/.github repo to be published.
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/publish-wiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    uses: mod-sod/.github/.github/workflows/publish-wiki.yml@main
+    secrets: inherit
+    with:
+      sidebar: |
+        Guide: architecture adding-a-spell deploy-and-verify
+        Reference: spell-generator spells healer-kit-reference pulling-sod-data gotchas testing
