@@ -101,43 +101,56 @@ Los jugadores tendrán que instalarlo.
 
 ## 7. Pasos concretos en el servidor `warcrafted`
 
-Aplica la [decisión 0005](../decisiones/0005-entorno-de-pruebas-en-debian.md). Ya preparado (no
-hay que repetirlo): `acore-sod` clonado con `core/` y `upstream/`, `acore-test` en la rama
-`Playerbot-SoD` y los dos módulos enlazados en `acore-test/modules/`. El servidor cumple los
-requisitos (Debian 13, Clang 19, MySQL 8.4, CMake 3.31).
+Aplica la [decisión 0005](../decisiones/0005-entorno-de-pruebas-en-debian.md). **Instalación nueva
+del reino de desarrollo, hecha por el usuario**; el orquestador no borra ni compila.
 
-**Importante:** `make install` sustituye los binarios del reino de **desarrollo** (id 2,
-`Servers/acore-test`), que pasará a ser el de SoD. El reino de producción no se toca.
+Ya preparado: `acore-sod` clonado con `core/` y `upstream/`; `acore-test` en la rama
+`Playerbot-SoD`, con los módulos `mod-rune-engraving` y `mod-sod-content` enlazados en `modules/`.
+El servidor cumple los requisitos (Debian 13, Clang 19, MySQL 8.4, CMake 3.31).
 
-```bash
-# 0. Antes de nada: copia de seguridad de lo que se va a sustituir y de la BD de pruebas
-mkdir -p ~/backups
-cp -a /home/stark/Servers/acore-test/bin ~/backups/acore-test-bin-$(date +%F)
-mysqldump acore_world_test | gzip > ~/backups/acore_world_test-$(date +%F).sql.gz
+Cosas que **no se deben tocar** al limpiar: `acore_auth` (compartida con producción, con la fila
+del reino 2), las bases sin sufijo `_test`, `Servers/acore-playerbots`, y de `Servers/acore-test`
+conservar `data/` (3,1 GB de datos del cliente) y `etc/` (configuración).
 
-# 1. Configurar: el build ya existe, cmake solo detecta los 2 módulos nuevos
-cd /home/stark/Repos/acore-test/build
-cmake ..
+**1. Bases de datos vacías** (las tres del reino 2). Según la wiki de Playerbots, la de bots hay
+que crearla a mano o aparecen errores de tablas; las otras puede crearlas el importador de
+AzerothCore si el usuario tiene permiso (no verificado aquí). Con el mismo usuario que ya usa el
+reino 2 en `worldserver.conf`:
 
-# 2. Compilar, con poca prioridad para no perjudicar al reino en producción
-nice -n 19 make -j3 2>&1 | tee ~/sod-build.log
-
-# 3. SOLO si compila sin errores, y con el worldserver de DESARROLLO parado:
-make install
+```sql
+CREATE DATABASE IF NOT EXISTS acore_world_test      DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS acore_characters_test DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS acore_playerbots_test DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- GRANT ALL PRIVILEGES ON acore_<...>_test.* TO '<usuario>'@'localhost';  (si hiciera falta)
 ```
 
-Sobre `-j3`: es criterio propio, sin verificar. La máquina tiene 4 núcleos y 15 GB de RAM y
-sirve un reino en vivo; con 3 hilos queda un núcleo libre. Si falla por memoria, bájalo a 2.
+**2. Configurar.** El `build/` anterior tenía estas opciones, leídas de su `CMakeCache.txt` antes
+de que desaparezca: `CMAKE_INSTALL_PREFIX=/home/stark/Servers/acore-test`, compilador
+`/usr/bin/clang++`, `CMAKE_BUILD_TYPE=RelWithDebInfo`, `APPS_BUILD=all`, `TOOLS_BUILD=all`,
+`SCRIPTS=static`, `MODULES=static`. (El compilador de C no figuraba; se usa `clang`, en
+coherencia con la guía de AzerothCore.)
 
-Si algo falla, lo más útil que se puede traer de vuelta es el **primer error** de
-`~/sod-build.log` (`grep -n "error:" ~/sod-build.log | head`).
+```bash
+cd /home/stark/Repos/acore-test && mkdir -p build && cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/home/stark/Servers/acore-test   -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++   -DCMAKE_BUILD_TYPE=RelWithDebInfo -DAPPS_BUILD=all -DTOOLS_BUILD=all   -DSCRIPTS=static -DMODULES=static
+```
 
-**No se aplica SQL todavía.** Primero se compila y se comprueba que el servidor arranca; el orden
-y las guardas del SQL se preparan juntos después.
+**3. Compilar**, con poca prioridad para no perjudicar al reino en producción:
 
-Para volver atrás: `cd /home/stark/Repos/acore-test && git checkout Playerbot` y
-`rm modules/mod-rune-engraving modules/mod-sod-content`; si ya se instaló, restaurar `bin/` desde
-la copia de seguridad del paso 0.
+```bash
+nice -n 19 make -j3 2>&1 | tee ~/sod-build.log
+```
+
+`-j3` es criterio propio, sin verificar: la máquina tiene 4 núcleos y 15 GB de RAM y sirve un
+reino en vivo; con 3 hilos queda un núcleo libre. Si falla por memoria, bájalo a 2.
+
+**4. Instalar**, solo si compila sin errores y con el worldserver de **desarrollo** parado:
+`make install`.
+
+Si algo falla, lo más útil es el **primer error**: `grep -n "error:" ~/sod-build.log | head`.
+
+**No se aplica SQL de SoD todavía.** Primero se compila y se comprueba que el servidor arranca; el
+orden y las guardas del SQL se preparan juntos después.
 
 ## Fuentes
 

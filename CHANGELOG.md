@@ -17,8 +17,9 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 - 0 colisiones de ids entre nuestro SQL y `acore_world_test` (67 ids comprobados).
 
 ### Notas
-- El reino de desarrollo (id 2) pasará a ser el de SoD al instalar.
-- El orquestador no compila: lo hace el usuario.
+- El reino de desarrollo (id 2) pasará a ser el de SoD, con **instalación nueva**: el usuario borra
+  el `build/` y las bases `*_test` anteriores. El orquestador no compila **ni borra** nada.
+- Anotadas en la guía las opciones de CMake del `build/` anterior, que se pierden al borrarlo.
 
 ## 2026-10-05
 

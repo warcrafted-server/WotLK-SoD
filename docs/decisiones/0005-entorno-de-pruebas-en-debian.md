@@ -21,10 +21,13 @@ estable; antes de tocar algo en vivo, comprobar a qué reino pertenece.
 ## Decisión
 
 - **Directorio del proyecto:** `/home/stark/Repos/acore-sod` (clon de este repositorio).
-- **Compilación:** dentro de `/home/stark/Repos/acore-test`, **tal cual está**, es decir:
-  con sus módulos propios y su `build/` existente, que instala en `/home/stark/Servers/acore-test`.
-- **Quién compila:** **solo el usuario.** El orquestador nunca ejecuta `cmake`, `make` ni
-  `make install`: los pide y el usuario los lanza.
+- **Compilación:** dentro de `/home/stark/Repos/acore-test`, con sus módulos propios, que
+  instala en `/home/stark/Servers/acore-test`. **Instalación nueva**: el usuario borra el `build/`
+  y las bases `*_test` de instalaciones anteriores «para no mezclar conceptos».
+- **Quién compila y quién borra:** **solo el usuario.** El orquestador nunca ejecuta `cmake`,
+  `make` ni `make install`, y **no borra ni vacía nada** en el servidor (ni build, ni bases, ni
+  binarios): lo pide y el usuario lo lanza. Se ofreció una copia de seguridad previa; el usuario
+  prefirió gestionarlo él.
 - **Core:** `acore-test` pasa a la rama `Playerbot-SoD` de nuestro fork (mismo commit
   `23e26289a` que tenía en `Playerbot`, así que no cambia ningún archivo). `origin` sigue siendo
   `mod-playerbots/azerothcore-wotlk`; el fork es un remoto nuevo llamado `sod`.
@@ -36,8 +39,12 @@ estable; antes de tocar algo en vivo, comprobar a qué reino pertenece.
 
 ## Consecuencias que el usuario conoce y acepta
 
-- **El reino de pruebas (id 2) pasa a ser el de SoD.** `make install` sustituye los binarios de
-  `Servers/acore-test`, y el SQL de SoD se aplicaría a `acore_world_test`.
+- **El reino de pruebas (id 2) pasa a ser el de SoD**, sobre bases `*_test` nuevas: lo que había
+  en ellas se pierde por decisión del usuario (eran 448 MB en `acore_world_test`, 37 MB en
+  `acore_characters_test`, con 1004 personajes, y 74 MB en `acore_playerbots_test`).
+- **Nunca se tocan** `acore_auth` (compartida con producción, incluida la fila del reino 2), las
+  bases sin sufijo `_test`, ni `Servers/acore-playerbots`. Se conservan `Servers/acore-test/data/`
+  (3,1 GB de datos del cliente) y `etc/` (configuración).
 - SoD se compila **junto a los otros 11 módulos** de `acore-test` (`mod-individual-progression`,
   `mod-guildhouse`, …). **No se ha comprobado que convivan.** Un conflicto de símbolos o de scripts
   aparecería al compilar o al arrancar.
@@ -61,6 +68,6 @@ estable; antes de tocar algo en vivo, comprobar a qué reino pertenece.
 
 ## Cómo volver atrás
 
-`cd /home/stark/Repos/acore-test && git checkout Playerbot` y quitar los dos enlaces de `modules/`
-(`rm modules/mod-rune-engraving modules/mod-sod-content`). Si ya se hizo `make install`, restaurar
-la copia de `bin/` que se recomienda hacer antes (ver la guía).
+Para el código: `cd /home/stark/Repos/acore-test && git checkout Playerbot` y quitar los dos
+enlaces (`rm modules/mod-rune-engraving modules/mod-sod-content`). **Lo borrado de las bases y
+del `build/` no se recupera** salvo que el usuario haya hecho su propia copia.
