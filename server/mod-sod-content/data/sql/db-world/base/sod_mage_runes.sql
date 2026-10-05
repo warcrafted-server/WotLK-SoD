@@ -61,6 +61,27 @@
 --     learn the real Living Bomb, then a cast-redirect fires the Scorch-tagged copy.
 --     icon `ability_mage_livingbomb` matches the granted ability (the `icon_living_bomb`
 --     texture in tools/sod_spells.py).
+--
+-- Mapping for rune 7000009 (Fingers of Frost -> spell 400647):
+--   class_mask 128 = Mage
+--   slot_mask   16 = Chest          (1 << RUNE_SLOT_CHEST  = 1 << 4)
+--   400647 is the passive proc aura cloned from the core's Fingers of Frost talent (44543).
+--
+-- Mapping for rune 7000010 (Burnout -> spell 412286):
+--   class_mask 128 = Mage
+--   slot_mask   16 = Chest          (1 << RUNE_SLOT_CHEST  = 1 << 4)
+--   412286 is the passive cloned from the core's Burnout talent (44449); its script
+--   charges 1% of base mana on non-periodic crits.
+--
+-- Mapping for rune 7000011 (Icy Veins -> spell 425121):
+--   class_mask 128 = Mage
+--   slot_mask  256 = Legs           (1 << RUNE_SLOT_LEGS   = 1 << 8)
+--   425121 is the active ability cloned from the core's Icy Veins talent (12472).
+--
+-- Mapping for rune 7000012 (Ice Lance -> spell 400640):
+--   class_mask 128 = Mage
+--   slot_mask   64 = Hands          (1 << RUNE_SLOT_HANDS  = 1 << 6)
+--   400640 clones the core's Ice Lance rank 1 (30455); rune icon is unverified.
 
 SET @rune_tbl := (SELECT COUNT(*) FROM information_schema.tables
                   WHERE table_schema = DATABASE() AND table_name = 'rune_template');
@@ -92,6 +113,18 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-mage'', 1),
     (7000008, 900006, 128, 64, ''Living Bomb'', ''ability_mage_livingbomb'',
      ''Grants Living Spark (a no-aggro delayed explosion) until you learn the real Living Bomb; afterward your Living Bomb additionally benefits from all talents and effects that trigger from or modify Scorch.'',
+     ''mod-sod-mage'', 1),
+    (7000009, 400647, 128, 16, ''Fingers of Frost'', ''spell_frost_chillingblast'',
+     ''Gives your Chill effects a 25% chance to grant you Fingers of Frost, which treats your next 2 spells cast as if the target were Frozen.'',
+     ''mod-sod-mage'', 1),
+    (7000010, 412286, 128, 16, ''Burnout'', ''spell_fire_burnout'',
+     ''Increases your spell critical strike chance with all spells by 15%, but your non-periodic spell critical strikes cost an additional 1% of your base mana.'',
+     ''mod-sod-mage'', 1),
+    (7000011, 425121, 128, 256, ''Icy Veins'', ''spell_frost_coldhearted'',
+     ''Hastens your spellcasting, increasing spell casting speed by 20% and reducing pushback suffered from damaging attacks by 100% for 20 sec.'',
+     ''mod-sod-mage'', 1),
+    (7000012, 400640, 128, 64, ''Ice Lance'', ''spell_frost_frostblast'',
+     ''Deals 55 to 65 Frost damage to an enemy target. Deals triple damage against Frozen targets.'',
      ''mod-sod-mage'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

@@ -10,4 +10,6 @@ https://github.com/mod-sod/sod-client.
 
 ## Cambios respecto al original
 
-- 2026-10-05 — Eliminado `.github/` (flujo de publicación de la wiki del repo original). Sin más cambios.
+- 2026-10-05 — Eliminado `.github/` (flujo de publicación de la wiki del repo original).
+- 2026-10-05 — Añadido `stormlib_shim.py` (ctypes sobre libstorm) y rutas insensibles a mayúsculas para ejecutar en Linux.
+- 2026-10-05 — Añadida la clave inherit_server (SQL del servidor con todas las columnas de la plantilla clonada).

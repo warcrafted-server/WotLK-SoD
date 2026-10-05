@@ -4,6 +4,12 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-05 (sesión de continuación)
 
+- Generador de cliente en Linux: `tools/sod-client/stormlib_shim.py` (ctypes sobre `libstorm`) y rutas
+  insensibles a mayúsculas; `--dry-run` ejecutado con éxito sobre una copia del cliente.
+- Clave `inherit_server` en los specs: el SQL del servidor de un hechizo clonado lleva todas las
+  columnas de su plantilla. Activada en 400647, 412286, 425121 y 400640. `sod_content_spell_dbc.sql`
+  regenerado con ellos.
+
 ### Cambiado
 - `ESTADO.md`: `agentrelay` ya está instalado y operativo (corrige lo anterior); el `build/` antiguo
   de `acore-test` ya lo ha borrado el usuario.

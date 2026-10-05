@@ -54,14 +54,28 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
    (`/tmp/wotlk-sod.bundle`): cambiarlo a `git@github-warcrafted:warcrafted-server/WotLK-SoD.git`
    (alias SSH ya configurado en este servidor). Verificado que ese repositorio **no existía** el
    2026-10-05. **Mientras no se suba, este clon es la única copia fuera de Windows.**
-4. **Las 4 runas de escarcha del mago** que faltan de sus 12 de fase 1: **Fingers of Frost,
-   Burnout** (pecho), **Ice Lance** (manos), **Icy Veins** (piernas). Detalle de cómo encargarlo
-   en §5.
+4. **Las 12 runas de fase 1 del mago están escritas** (2026-10-05), **ninguna compilada ni probada**.
+   Las 4 nuevas, ordenadas por `rune_id`: Fingers of Frost 7000009 (pecho, pasivo 400647 clon del
+   talento 44543), Burnout 7000010 (pecho, 412286, clon de 44449 + script C++
+   `spell_sod_mage_burnout`), Icy Veins 7000011 (piernas, 425121, clon de 12472) e Ice Lance 7000012
+   (manos, 400640, clon de 30455). **Sin verificar:** los nombres de icono de las 4
+   (`spell_frost_chillingblast`, `spell_fire_burnout`, `spell_frost_coldhearted`,
+   `spell_frost_frostblast`). Los clones heredan sus efectos en el servidor con `inherit_server`
+   (verificado en el SQL generado, no en juego). **Diferencias con SoD:** el chill de Blizzard no activa
+   Fingers of Frost; Ice Lance hace x3 contra congelados (core) y no x5; sin Winter's Chill; con
+   Icy Veins e Ice Lance reales (talento / nivel 66) el mago tendrá dos copias del hechizo.
 5. **Aplicar el SQL de SoD.** No se ha aplicado nada. Falta decidir el orden y comprobar si el
    importador de AzerothCore aplica solo `data/sql/db-world/base/` de los módulos (no verificado).
-6. **Parche de cliente.** `tools/sod-client/build_patch.py` necesita los DBC y MPQ del cliente
-   3.3.5a, que **no están en este servidor** (el cliente de WoW está en otra máquina del usuario).
-   Decidir dónde se genera. No se ha ejecutado con la estructura nueva.
+6. **Parche de cliente y addon:** pasos, copia de seguridad y distribución en
+   `docs/guias/preparar-cliente.md`. Los DBC del cliente **no están en este servidor**: el usuario
+   decide dónde se genera. Nunca se ha ejecutado.
+6b. **Textos en esES** (el usuario juega en español). El generador (`tools/sod-client/sod_dbc.py`, ~l.588)
+   solo rellena las columnas `enUS` de `Spell.dbc`: en un cliente `esES` los hechizos nuevos saldrían
+   **sin nombre ni descripción**. Fuente de los textos, sin inventar: wago.tools con `&locale=esES`
+   (comprobado el 2026-10-05: 'Dedos de Escarcha', 'Lanza de hielo', 'Consunción' = Burnout, 'Venas
+   heladas'); los tokens `$<power>`/`$<frostdamage>` no existen en 3.3.5a: hay que sustituirlos por
+   las cifras reales. Falta ampliar el generador (campos `*_es` en cada spec + columna esES) y
+   revisar items (`item_template_locale`) y las runas (`rune_template` y el addon, hoy en inglés).
 7. **Licencia del código original** del repositorio. Lo coherente es GPL v2 o posterior; decide el
    usuario.
 8. **Más clases** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.

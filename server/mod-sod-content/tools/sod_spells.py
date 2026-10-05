@@ -76,6 +76,7 @@ def build_spells(idx):
     dur_3s = idx["dur"][3000]
     dur_8s = idx["dur"][8000]
     dur_12s = idx["dur"][12000]
+    dur_20s = idx["dur"][20000]
     dur_30s = idx["dur"][30000]
     dur_30min = idx["dur"][1800000]
     dur_perm = idx["dur"][-1]
@@ -575,6 +576,97 @@ def build_spells(idx):
                 "EffectRadiusIndex_1": 0,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # 400647 Fingers of Frost: the SoD passive reuses the core talent's
+           # proc aura and its existing triggered Fingers of Frost effect.
+            "id": 400647, "client": True, "template": 44543,  # clone Fingers of Frost talent
+            "inherit_server": True,
+            "skill_line": 6,  # spellbook tab: Frost (SKILL_FROST is not defined)
+            "name": "Fingers of Frost",
+            "desc": "Gives your Chill effects a 25% chance to grant you the Fingers of Frost effect, "
+                    "which treats your next 2 spells cast as if the target were Frozen. Lasts 15 sec.",
+            "aura_desc": "Gives your Chill effects a 25% chance to grant you the Fingers of Frost effect, "
+                         "which treats your next 2 spells cast as if the target were Frozen. Lasts 15 sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": dur_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "EquippedItemClass": -1, "SpellLevel": 0,
+                "ProcChance": 25,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 3,
+                "SpellFamilyMask0": 1049120, "SpellFamilyMask1": 4096,
+                "SpellFamilyMask2": 0, "ProcFlags": 0,
+                "SpellTypeMask": 0, "SpellPhaseMask": 1,
+                "HitMask": 0, "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 25, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # 412286 Burnout: +15% de crítico mágico y 1% del maná base en los
+           # críticos directos. El disparador 44450 del core quita el maná.
+            "id": 412286, "client": True, "template": 44449,  # clona el talento Burnout
+            "inherit_server": True,
+            "skill_line": 8,  # pestaña de hechizos: Fuego
+            "name": "Burnout", "script": "spell_sod_mage_burnout",
+            "desc": "Increases your spell critical strike chance with all spells by 15%, but your non-periodic spell critical strikes now have an additional mana cost of 1% of your base mana.",
+            "aura_desc": "Increases your spell critical strike chance with all spells by 15%, but your non-periodic spell critical strikes now have an additional mana cost of 1% of your base mana.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": dur_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": SCHOOL_MASK_FIRE, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": 57, "EffectBasePoints_1": 15,
+                "EffectDieSides_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA,
+                "EffectAura_2": AURA_DUMMY, "EffectBasePoints_2": 1,
+                "EffectDieSides_2": 0, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0, "ProcFlags": PROC_DONE_MAGIC_NEG,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # 425121 Icy Veins: the active SoD rune spell cloned from the core talent.
+            "id": 425121, "client": True, "template": 12472,  # clone Icy Veins
+            "inherit_server": True,
+            "skill_line": 6,  # spellbook tab: Frost (SKILL_FROST is not defined)
+            "name": "Icy Veins",
+            "desc": "Hastens your spellcasting, increasing spell casting speed by 20% and "
+                    "reduces the pushback suffered from damaging attacks while casting "
+                    "by 100%. Lasts 20 sec.",
+            "aura_desc": "Casting speed of all spells increased by 20% and pushback "
+                         "suffered from damaging attacks while casting reduced by 100%.",
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": dur_20s,
+                "RangeIndex": range_self, "ManaCostPct": 3, "ManaCost": 0,
+                "PowerType": 0, "SchoolMask": 16, "EquippedItemClass": -1,
+                "SpellLevel": 0, "RecoveryTime": 180000,
+                "CategoryRecoveryTime": 0,
+            },
+        },
+        {  # 400640 Ice Lance: clone the core rank-1 spell; keep its Mage family and icon
+           # so the core's Frozen-target multiplier and Fingers of Frost mask still apply.
+            "id": 400640, "client": True, "template": 30455,  # clone Ice Lance rank 1
+            "inherit_server": True,
+            "skill_line": 6,  # spellbook tab: Frost (SKILL_FROST is not defined)
+            "name": "Ice Lance",
+            "desc": "Deals 55 to 65 Frost damage to an enemy target. Deals triple damage against Frozen targets.",
+            "bonus": {"direct": 0.1429, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "RangeIndex": range_30,
+                "ManaCostPct": 8, "ManaCost": 0, "PowerType": 0,
+                "SchoolMask": 16, "EquippedItemClass": -1, "SpellLevel": 0,
+                "Speed": 38,
+                "EffectBasePoints_1": 54, "EffectDieSides_1": 11,
             },
         },
         {  # 412326 Enlightenment (high-mana sub-buff): +10% spell damage. Pure DBC,

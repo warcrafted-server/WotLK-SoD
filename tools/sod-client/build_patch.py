@@ -19,7 +19,8 @@ written to BOTH the locale chain (patch-<locale>-z.mpq) and the base chain
 (patch-z.mpq). Stateless: always rebuilt from the clean client + all present
 modules in one pass, so order doesn't matter and partial installs work.
 
-Requires `pympq` (StormLib binding) for the MPQ paths.
+Requires `pympq` or the local ctypes wrapper around `libstorm` (StormLib) for
+the MPQ paths.
 
 Usage:
     python build_patch.py [--server DIR] [--client DIR] [--dry-run]
@@ -44,8 +45,8 @@ import sod_dbc as dbc  # noqa: E402  (after sys.path setup)
 #     SERVER = r"C:\path\to\azerothcore"             # has modules/ and data/sql/base/
 #     CLIENT = r"C:\path\to\World of Warcraft 3.3.5a"  # has Data/
 # With it present, runs are flag-free; without it, --server / --client are required.
-# The build needs Windows Python (pympq/StormLib); if the AzerothCore repo lives under
-# WSL, point SERVER at its `\\wsl.localhost\<distro>\...` share.
+# MPQ I/O uses `pympq` when available, otherwise `stormlib_shim.py` calls
+# `libstorm` through ctypes on Linux.
 DEFAULT_SERVER = None
 DEFAULT_CLIENT = None
 try:
@@ -155,6 +156,7 @@ def main():
             extract(name)
         idx = dbc.resolve_indexes(args.workdir)
         cols = dbc.load_columns(table_def)
+        column_types = dbc.load_column_types(table_def)
         for module_name, mod in specs:
             spells = mod.build_spells(idx) if hasattr(mod, "build_spells") else []
             if not spells:
@@ -177,7 +179,8 @@ def main():
     factiontpl_patched = dbc.build_faction_template(args.workdir, factions)
     spell_patched = sla_patched = sv_patched = None
     if all_spells:
-        spell_patched = dbc.build_spell_dbc(args.workdir, cols, all_spells)
+        spell_patched = dbc.build_spell_dbc(args.workdir, cols, all_spells,
+                                            column_types)
         sla_patched = dbc.build_skill_line_ability(args.workdir, all_spells)
         sv_patched = dbc.build_spell_visual(args.workdir, all_visuals)
 
@@ -222,8 +225,9 @@ def main():
         # Faction.dbc is localized (Name_Lang) -> locale chain only.
         locale_files.append((faction_patched, dbc.FACTION_INNER))
 
-    data_dir = os.path.join(args.client, "data")
-    locale_mpq = os.path.join(data_dir, locale,
+    data_dir = dbc.ci_join(args.client, "data")
+    locale_dir = dbc.ci_join(data_dir, locale)
+    locale_mpq = os.path.join(locale_dir,
                               "patch-%s-%s.mpq" % (locale, PATCH_LETTER))
     dbc.pack_mpq(locale_files, locale_mpq)
     print("[*] wrote locale patch -> %s (%d DBC file(s))"

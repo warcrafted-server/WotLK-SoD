@@ -81,6 +81,7 @@ constexpr uint32 SOD_MAGE_LIVING_BOMB_COPY_BOOMS[] = { 900012, 900013, 900014 };
 // (trainable from level 64) decide the rune's mode; Slow is what Nether Vortex applies.
 constexpr uint32 SPELL_MAGE_ARCANE_BLAST_RANKS[] = { 30451, 42894, 42896, 42897 };
 constexpr uint32 SPELL_MAGE_SLOW = 31589;
+constexpr uint32 SPELL_MAGE_BURNOUT_TRIGGER_CORE = 44450; // Disparador de consumo de maná del core.
 
 // The real WotLK Living Bomb ranks the Living Bomb rune keys on. While the player knows
 // none, the driver grants Living Spark; once they do, the cast-redirect (bound to these

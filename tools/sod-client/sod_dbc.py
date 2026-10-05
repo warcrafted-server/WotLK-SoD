@@ -18,12 +18,13 @@ module's *declarative data* into the one consolidated client patch:
 never import this directly except their spell spec's `from sod_dbc import *`
 (for the shared WoW enum constants below).
 
-Requires `pympq` (StormLib binding) for the MPQ read/write paths only; the pure
-DBC/SQL paths work without it.
+Requires `pympq` or the local `libstorm` shim for the MPQ read/write paths
+only; the pure DBC/SQL paths work without either.
 """
 
 import glob
 import json
+import math
 import os
 import re
 import struct
@@ -126,6 +127,9 @@ class WDBC:
     def get_int(self, rec, field):
         return struct.unpack_from("<i", rec, field * 4)[0]
 
+    def get_float(self, rec, field):
+        return struct.unpack_from("<f", rec, field * 4)[0]
+
     def set_int(self, rec, field, value):
         struct.pack_into("<i", rec, field * 4, int(value))
 
@@ -186,6 +190,31 @@ def load_columns(table_sql_path):
     if len(cols) < 200:
         raise RuntimeError("failed to parse spell_dbc columns (%d)" % len(cols))
     return cols
+
+
+def load_column_types(table_sql_path):
+    """Return the SQL type and signedness for each spell_dbc column."""
+    types = {}
+    with open(table_sql_path, encoding="utf-8") as fh:
+        in_table = False
+        for line in fh:
+            if "CREATE TABLE" in line and "spell_dbc" in line:
+                in_table = True
+                continue
+            if in_table:
+                if line.lstrip().startswith("PRIMARY KEY") or \
+                        line.lstrip().startswith(")"):
+                    break
+                m = re.match(
+                    r"\s*`([A-Za-z0-9_]+)`\s+([A-Za-z]+(?:\(\d+\))?)"
+                    r"(?:\s+(unsigned))?(?=\s|,)", line, re.IGNORECASE)
+                if m:
+                    types[m.group(1)] = (m.group(2).lower(),
+                                         bool(m.group(3)))
+    if len(types) < 200:
+        raise RuntimeError("failed to parse spell_dbc column types (%d)"
+                           % len(types))
+    return types
 
 
 # ---------------------------------------------------------------------------
@@ -255,10 +284,10 @@ def detect_locale(client_dir):
     """Return the client's locale folder token under Data/ (the one holding the
     `locale-*.mpq` archives), e.g. 'enus' or 'dede'. Preserves the on-disk case
     so derived patch names match the client. Defaults to 'enus' if none found."""
-    data = os.path.join(client_dir, "data")
+    data = ci_join(client_dir, "data")
     try:
         for d in sorted(os.listdir(data)):
-            p = os.path.join(data, d)
+            p = ci_join(data, d)
             if os.path.isdir(p) and any(
                     f.lower().startswith("locale-") and f.lower().endswith(".mpq")
                     for f in os.listdir(p)):
@@ -266,6 +295,20 @@ def detect_locale(client_dir):
     except OSError:
         pass
     return "enus"
+
+
+def ci_join(base, name):
+    """Join a path component using the on-disk casing when it exists."""
+    exact = os.path.join(base, name)
+    if os.path.exists(exact):
+        return exact
+    try:
+        for child in os.listdir(base):
+            if child.lower() == name.lower():
+                return os.path.join(base, child)
+    except OSError:
+        pass
+    return os.path.join(base, name)
 
 
 def our_patch_names(locale, custom_letters):
@@ -282,11 +325,11 @@ def our_patch_names(locale, custom_letters):
 def extract_client_dbc(client_dir, name, dest, locale, custom_letters):
     """Extract `name` from the highest-priority archive that is not one of our
     own patches (so we build on the clean client base)."""
-    import pympq
+    pympq = _mpq()
     inner = "DBFilesClient\\" + name
     ignore = our_patch_names(locale, custom_letters)
-    base = os.path.join(client_dir, "data")
-    locale_dir = os.path.join(base, locale)
+    base = ci_join(client_dir, "data")
+    locale_dir = ci_join(base, locale)
     search = []
     for d in (base, locale_dir):
         if os.path.isdir(d):
@@ -318,7 +361,7 @@ def extract_client_dbc(client_dir, name, dest, locale, custom_letters):
 
 def pack_mpq(files, out_mpq):
     """files: list of (src_path, inner_mpq_path) to add to a fresh patch MPQ."""
-    import pympq
+    pympq = _mpq()
     if os.path.exists(out_mpq):
         os.remove(out_mpq)
     m = pympq.create_archive(
@@ -333,6 +376,15 @@ def pack_mpq(files, out_mpq):
                        [pympq.MPQ_COMPRESSION_ZLIB])
     finally:
         m.close()
+
+
+def _mpq():
+    try:
+        import pympq
+        return pympq
+    except ImportError:
+        import stormlib_shim
+        return stormlib_shim
 
 
 # ---------------------------------------------------------------------------
@@ -562,21 +614,29 @@ def build_faction_template(workdir, factions):
 # ---------------------------------------------------------------------------
 # Spell.dbc / SkillLineAbility.dbc / SpellVisual.dbc builders (spell specs).
 # ---------------------------------------------------------------------------
-def build_spell_dbc(workdir, cols, spells):
+def build_spell_dbc(workdir, cols, spells, column_types=None):
     """Clone each `client` spell's `template` row, apply `overrides` (+ client-
     only tooltip overrides), set ID/Name/Description, and append it. Returns the
     patched file path."""
     spell = WDBC.load(os.path.join(workdir, "Spell.dbc"))
     field_of = {c: i for i, c in enumerate(cols)}
+    if spell.nfield != len(cols):
+        raise RuntimeError("Spell.dbc has %d fields but spell_dbc schema has %d"
+                           % (spell.nfield, len(cols)))
     existing = {spell.get_int(r, 0) for r in spell.records}
     for s in spells:
         if not s["client"]:
             continue
         if s["id"] in existing:
             raise RuntimeError("ID already exists in Spell.dbc: %d" % s["id"])
+        if s.get("inherit_server") and column_types is None:
+            raise RuntimeError("inherit_server requires spell_dbc column types")
         base = bytearray(spell.find(s["template"]))
         for col, val in s["overrides"].items():
-            spell.set_int(base, field_of[col], val)
+            if s.get("inherit_server") and column_types[col][0] == "float":
+                spell.set_float(base, field_of[col], val)
+            else:
+                spell.set_int(base, field_of[col], val)
         # Client-only tooltip level-scaling fields: written to the client DBC so
         # the client can render a dynamic tooltip, but kept out of the server SQL
         # row (emit_spell_sql ignores these) so server behavior stays scripted.
@@ -595,6 +655,35 @@ def build_spell_dbc(workdir, cols, spells):
             spell.set_int(base, field_of["AuraDescription_Lang_enUS"],
                           spell.add_string(s["aura_desc"]))
             spell.set_int(base, field_of["AuraDescription_Lang_Mask"], NAME_MASK)
+        if s.get("inherit_server"):
+            server_row = {}
+            for col in cols:
+                if "_Lang_" in col:
+                    if col == "Name_Lang_enUS":
+                        server_row[col] = s["name"]
+                    elif col == "Name_Lang_Mask":
+                        server_row[col] = spell.get_int(base, field_of[col])
+                    continue
+                if col not in column_types:
+                    raise RuntimeError("spell_dbc column has no SQL type: %s" % col)
+                sql_type, unsigned = column_types[col]
+                if sql_type == "float":
+                    value = spell.get_float(base, field_of[col])
+                    if not math.isfinite(value):
+                        raise RuntimeError("non-finite Spell.dbc float in %s" % col)
+                    literal = repr(value)
+                    if struct.pack("<f", float(literal)) != \
+                            struct.pack("<f", value):
+                        raise RuntimeError("Spell.dbc float does not round-trip: %s"
+                                           % col)
+                    server_row[col] = value
+                elif sql_type in ("int", "bigint"):
+                    value = spell.get_int(base, field_of[col])
+                    server_row[col] = value & 0xFFFFFFFF if unsigned else value
+                else:
+                    raise RuntimeError("unsupported spell_dbc type for %s: %s"
+                                       % (col, sql_type))
+            s["_server_row"] = server_row
         spell.records.append(base)
         print("[*] client row added: %d (%s) from template %d"
               % (s["id"], s["name"], s["template"]))
@@ -679,7 +768,7 @@ def emit_spell_sql(spells, cols, module, retired_ids=None):
         "",
     ]
     for s in spells:
-        row = dict(s["overrides"])
+        row = dict(s.get("_server_row", s["overrides"]))
         row["ID"] = s["id"]
         row["Name_Lang_enUS"] = s["name"]
         row["Name_Lang_Mask"] = NAME_MASK
@@ -689,8 +778,12 @@ def emit_spell_sql(spells, cols, module, retired_ids=None):
             if col in row:
                 colnames.append("`%s`" % col)
                 v = row[col]
-                values.append("'%s'" % v.replace("'", "''") if isinstance(v, str)
-                              else str(v))
+                if isinstance(v, str):
+                    values.append("'%s'" % v.replace("'", "''"))
+                elif isinstance(v, float):
+                    values.append(repr(v))
+                else:
+                    values.append(str(v))
         out.append("REPLACE INTO `spell_dbc` (%s) VALUES (%s);"
                    % (", ".join(colnames), ", ".join(values)))
 
