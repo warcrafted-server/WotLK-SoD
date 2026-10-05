@@ -1,7 +1,8 @@
 # 0001 — Core base y versión de cliente
 
 - **Fecha:** 2026-10-05
-- **Estado:** PROPUESTA — opción D (SoD sobre AzerothCore), pendiente de auditar `mod-sod`
+- **Estado:** ACEPTADA — opción D (SoD sobre AzerothCore), con el alcance corregido tras la
+  auditoría de `mod-sod`
 
 ## Contexto
 
@@ -40,12 +41,28 @@ y con el protocolo 1.14.0 → 1.15.9 sin portar).
 
 Se asume explícitamente que **SoD no es Classic Era fiel**: es contenido propio sobre WotLK.
 
-## Condición pendiente
+## Resultado de la auditoría (condición resuelta)
 
-La decisión se confirma cuando se audite el contenido real de los módulos de `mod-sod`. Están
-declarados como **«early / proof of concept», con 0 estrellas y 0 forks**: hay que medir cuánto
-contenido existe de verdad frente al SoD oficial antes de comprometer fases. Si resultara casi
-vacío, seguiría siendo la mejor base, pero el alcance sería mucho mayor de lo previsto.
+Hecha el 2026-10-05: [2026-10-05-auditoria-mod-sod.md](../investigacion/2026-10-05-auditoria-mod-sod.md).
+
+El contenido **sí estaba casi vacío**, como se temía: de las nueve clases de SoD **solo el mago
+tiene contenido** (~11 habilidades, 2.715 líneas); guerrero, druida y chamán son copias
+idénticas de la plantilla vacía (31 líneas). El proyecto está **parado desde el 22 de junio de
+2026**, con 0 estrellas y 0 forks: hay que asumir su mantenimiento.
+
+Aun así **se mantiene la opción D**, porque lo que se hereda es la parte difícil: un motor de
+runas sólido (~2.000 líneas, acoplado por base de datos y no por símbolos, con tests y bandas de
+IDs reservadas por clase), el pipeline de parcheo del cliente y un módulo de clase completo como
+referencia a imitar.
+
+Obstáculo descubierto en la auditoría: el cliente 3.3.5a **no puede aprender hechizos nuevos en
+tiempo de ejecución**, así que cada habilidad son dos mitades sincronizadas (servidor + parche
+MPQ del cliente). **Los jugadores tendrán que instalar un parche.**
+
+## Alcance acordado
+
+**No se intenta SoD completo.** Primer hito: **fase 1 (nivel máximo 25) con dos o tres clases**,
+partiendo del mago que ya funciona, para validar el pipeline entero antes de comprometer meses.
 
 ## Consecuencias
 

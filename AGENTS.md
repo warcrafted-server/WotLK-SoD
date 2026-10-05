@@ -67,7 +67,7 @@ exista una decisión registrada en `docs/decisiones/` sobre core base y versión
 |-----------------------|----------------------------------------------------------------------|---------------|
 | `docs/investigacion/` | Informes de investigación, comparativas, hallazgos con fuentes       | Sí            |
 | `docs/decisiones/`    | Decisiones tomadas, una por archivo, con fecha y motivo (tipo ADR)   | Sí            |
-| `upstream/`           | Clones de proyectos de terceros, **solo lectura** (uno por subdir)   | No (ignorado) |
+| `upstream/`           | Clones de proyectos de terceros, **solo lectura** (ver §3.1)          | No (ignorado) |
 | `server/`             | Nuestro código propio del emulador                                   | Sí            |
 | `tools/`              | Nuestros scripts de build, extracción y utilidades                   | Sí            |
 | `datos/`              | Datos extraídos del cliente de WoW (DBC, mapas, vmaps, MPQ)          | No (ignorado) |
@@ -81,6 +81,23 @@ Reglas duras:
   extraídos. Son propiedad de Blizzard y además pesan gigabytes. Ya están en `.gitignore`.
 - Un concepto, un directorio. Si dudas de dónde va un archivo, pregunta antes de inventar
   una carpeta nueva.
+
+### 3.1. Organización de `upstream/`
+
+Los clones de terceros **nunca se dejan sueltos en la raíz de `upstream/`**: van agrupados
+**por proyecto de origen**, porque con el tiempo convivirán varios cores (AzerothCore,
+TrinityCore, MaNGOS…) y sus módulos, y mezclarlos los haría indistinguibles.
+
+```
+upstream/
+  azerothcore/            El core y todo lo que es suyo
+    mod-sod/                Los módulos de la familia mod-sod
+  trinitycore/            Si algún día hace falta, aquí
+  herramientas/           Utilidades independientes de core (p. ej. wow-patcher)
+```
+
+Regla: antes de clonar, pregúntate **de qué proyecto es esto**, y crea o usa su directorio.
+Un módulo va dentro del core al que pertenece, no al lado.
 
 ### 4. Legalidad y procedencia
 
