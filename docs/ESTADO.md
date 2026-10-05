@@ -1,0 +1,139 @@
+# Estado del proyecto
+
+**Mantén este archivo al día con cada cambio relevante, no al final de la tarea.** Es lo primero que
+lee una sesión nueva. Última actualización: **2026-10-05**, traspaso del desarrollo desde Windows al
+servidor Debian.
+
+## 1. Dónde estamos
+
+- **Fase:** primer hito en construcción (fase 1 de SoD, nivel 25). **Nada se ha compilado ni
+  ejecutado jamás.** Todo lo verificado hasta ahora es estático (lectura de código, cabeceras,
+  firmas, hooks) o consultas `SELECT` de solo lectura.
+- **Dónde se trabaja:** `/home/stark/Repos/acore-sod`, en el servidor Debian `warcrafted`
+  (`192.168.1.150`, usuario `stark`). **Es una máquina de producción.**
+- **Dónde se compila:** `/home/stark/Repos/acore-test`, **solo lo hace el usuario**. Es el reino de
+  **desarrollo** (id 2, puerto 8086, bases `*_test`, instalación en `/home/stark/Servers/acore-test`).
+- **Última acción del usuario (2026-10-05):** instalación nueva de `acore-test`. Ha hecho solo el
+  **paso 1** de `docs/guias/compilar-en-linux.md` §7: **crear las 3 bases `*_test` vacías**
+  (según él; **no lo he verificado**). **Quedan pendientes, y los hace él:** el paso 2 (`cmake`), el
+  3 (`make`) y el 4 (`make install`). El `build/` anterior y las bases viejas ya se borraron por su
+  cuenta. **No sabemos aún si compila.**
+- **Copia de Windows:** era el sitio de trabajo anterior. La del servidor es idéntica (commit
+  `3946088`, 140 archivos). El usuario la borrará a mano cuando compruebe que esta sesión funciona.
+  A partir de ahora **la fuente de verdad es esta**.
+
+## 2. Qué hay
+
+| Pieza | Dónde | Notas |
+|---|---|---|
+| Core | `core/` → fork `warcrafted-server/azerothcore-wotlk`, rama `Playerbot-SoD` | Repo git independiente, ignorado por este. Commit `23e26289a`. |
+| Motor de runas | `server/mod-rune-engraving/` | Copia propia de `mod-sod`, sin cambios aún. |
+| Contenido | `server/mod-sod-content/` | Un solo módulo: mago (`src/mage/`) + mundo (`src/world/`). |
+| Parche de cliente | `tools/sod-client/` | Generador MPQ + SQL de hechizos. **Nunca ejecutado.** |
+| Bots | `upstream/mod-playerbots/` | **No se usa**: `acore-test` ya tiene su propio `mod-playerbots`. |
+| Referencias | `upstream/azerothcore/mod-sod/` | Solo lectura. |
+
+`acore-test/modules/` tiene dos enlaces simbólicos a nuestros módulos (`mod-rune-engraving`,
+`mod-sod-content`) y **11 módulos ajenos** (`mod-individual-progression`, `mod-guildhouse`, …).
+**No se ha comprobado que convivan con SoD.** `acore-test` está en la rama `Playerbot-SoD`
+(remoto `sod`; `origin` sigue siendo `mod-playerbots/azerothcore-wotlk`).
+
+Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/investigacion/`
+(viabilidad, opción SoD, **auditoría de `mod-sod`**), guía `docs/guias/compilar-en-linux.md`.
+
+## 3. Pendiente, por orden
+
+1. **Esperar a que el usuario haga los pasos 2–4** (`cmake`, `make`, `make install`) **y traiga el
+   resultado.** Lo útil que puede traer es el *primer* error (`grep -n "error:" ~/sod-build.log | head`). Corregirlo delegando (§5).
+2. **Instalar `agentrelay` en este servidor.** Hoy **no está instalado** (ni `cline` ni `codex`),
+   aunque existe `~/.agentrelay/`. Lo instala el usuario (pide login interactivo): clonar
+   `https://github.com/catlinux/AgentRelay.git`, `npm install`, `npm link`, `agentrelay login
+   --device`, `agentrelay doctor`, `agentrelay setup`; ejecutores con `agentrelay executors add
+   <nombre>`. Detalle en el `INSTALL.md` de ese repositorio. Hasta entonces, ver §5.
+3. **Crear el repositorio `warcrafted-server/WotLK-SoD` en GitHub** (el usuario: no hay `gh` ni
+   token) y **subirlo desde aquí**. El `origin` de este clon apunta a un bundle que ya no existe
+   (`/tmp/wotlk-sod.bundle`): cambiarlo a `git@github-warcrafted:warcrafted-server/WotLK-SoD.git`
+   (alias SSH ya configurado en este servidor). Verificado que ese repositorio **no existía** el
+   2026-10-05. **Mientras no se suba, este clon es la única copia fuera de Windows.**
+4. **Las 4 runas de escarcha del mago** que faltan de sus 12 de fase 1: **Fingers of Frost,
+   Burnout** (pecho), **Ice Lance** (manos), **Icy Veins** (piernas). Detalle de cómo encargarlo
+   en §5.
+5. **Aplicar el SQL de SoD.** No se ha aplicado nada. Falta decidir el orden y comprobar si el
+   importador de AzerothCore aplica solo `data/sql/db-world/base/` de los módulos (no verificado).
+6. **Parche de cliente.** `tools/sod-client/build_patch.py` necesita los DBC y MPQ del cliente
+   3.3.5a, que **no están en este servidor** (el cliente de WoW está en otra máquina del usuario).
+   Decidir dónde se genera. No se ha ejecutado con la estructura nueva.
+7. **Licencia del código original** del repositorio. Lo coherente es GPL v2 o posterior; decide el
+   usuario.
+8. **Más clases** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.
+
+## 4. Lo que ya sabemos (no lo vuelvas a investigar)
+
+- **Qué es el proyecto:** SoD recreado sobre AzerothCore (cliente 3.3.5a, build 12340) con módulos.
+  Ningún core soporta el cliente 1.15.x y el cliente WotLK Classic está retirado. HermesProxy se
+  valoró y se descartó por ahora (beta, cliente 3.4.3 no descargable, no resuelve el parche).
+- **El cliente 3.3.5a no puede aprender hechizos nuevos en tiempo de ejecución:** cada habilidad son
+  dos mitades sincronizadas (servidor + parche MPQ). **Los jugadores tendrán que instalar el parche.**
+- **`mod-sod` está parado desde 2026-06-22**, 0 estrellas y 0 forks: el mantenedor somos nosotros.
+  De las 9 clases solo el mago tiene contenido (~11 habilidades, 2.715 líneas); el resto eran
+  plantillas vacías. De las 12 runas de fase 1 del mago hay 8 hechas.
+- **Fase 1 de SoD:** 3 ranuras de grabado (pecho, piernas, manos), 4 runas cada una = 12 por clase.
+  SoD completo (8 fases, 218 runas mínimo, 9 raids) **no es objetivo**.
+- **Niveles:** se empieza en 60 y se llegará al 80 (decisión 0002). **Ningún tope de nivel va como
+  constante en el código**: siempre parámetro de configuración (patrón `SodMage.LivingBomb.ScalingCapLevel`).
+- **Hechizos sustitutos:** la runa de Arcane Blast concede un hechizo sustituto (Arcane Burst) hasta
+  que el mago aprende el real, a nivel 64. Las runas de escarcha probablemente tengan el mismo
+  problema (no verificado).
+- **Motor de runas:** se acopla al contenido **por base de datos, no por símbolos**, con SQL
+  dinámico condicional que es un no-op si el motor no está. Once ranuras; el nivel mínimo de cada
+  una es configurable. Rangos de `rune_id` reservados por clase (mago `7000000–7000999`).
+- **Arquitectura:** core + motor + **un solo módulo de contenido** (decisión 0004). Una clase = un
+  subdirectorio de `src/`. El SQL va plano en `data/sql/db-world/base/` con prefijo de clase.
+- **El fork de Playerbots no es el AzerothCore oficial:** p. ej. `Player::removeSpell` tiene allí 3
+  parámetros, sin `sendPacket`. **Comprueba siempre contra `core/`**, nunca contra el oficial.
+- **Requisitos de compilación:** Clang ≥ 18 y MySQL 8.4 LTS. **Este servidor los cumple** (Debian 13,
+  Clang 19.1.7, MySQL 8.4.11, CMake 3.31). 4 núcleos, 15 GB de RAM, con un reino en vivo.
+- **`sod-client`:** busca `modules/mod-sod-*/` y nombra su salida `sod_<módulo sin «mod-sod-»>_spell_dbc.sql`;
+  por eso `sod_content_spell_dbc.sql`. Los datos de SoD salen de **wago.tools** (receta y dos trampas
+  en `server/mod-sod-content/docs/pulling-sod-data.md`). Wowhead no se deja leer por scraping.
+- **Licencias:** todas las cabeceras de código dicen «GPL v2 o posterior» (core, Playerbots y
+  `mod-sod`), aunque `mod-sod` incluya un `LICENSE` con texto de v3.
+- **Comprobado:** 0 colisiones entre los 67 ids de nuestro SQL y `acore_world_test` (solo `SELECT`).
+- **Los informes de subagentes baratos contenían errores de bulto** (afirmaciones falsas sobre
+  proyectos, cifras sin fuente). **Verifica lo crítico en la fuente antes de darlo por bueno.**
+
+## 5. Cómo delegar (importante)
+
+El objetivo del usuario es **ahorrar tokens de Claude** dejando al orquestador la planificación, el
+diseño y la revisión. **Delega por defecto**; ver `AGENTS.md`.
+
+- **Con `agentrelay`** (cuando esté instalado, §3.2): `agentrelay run`, y revisión con
+  `agentrelay review`. En Linux el comando es `agentrelay`.
+- **Sin `agentrelay`** (hoy): usa subagentes de Claude Code con un modelo más barato para lo
+  mecánico (búsquedas, lectura de código, informes, ediciones repetitivas), y **dilo al usuario**
+  junto con cómo instalar `agentrelay`. No hagas tú en silencio el trabajo no trivial.
+- **Cómo encargar bien una tarea** (lección cara: el 2026-10-05 una tarea abierta consumió 7,5 M
+  de tokens y 40 minutos sin escribir un archivo): un objetivo cerrado y pocos archivos; **tú aportas
+  los datos ya masticados** (IDs, valores, URLs) en vez de pedir que los busque; validaciones que
+  funcionen en su shell, mejor `python -c`.
+- **Revisa siempre** el diff completo y el informe, y audita lo que importe. La autorrevisión del
+  ejecutor no sustituye la tuya.
+
+**Las 4 runas de escarcha:** encárgalas **de una en una**, tras sacar tú de wago.tools el ID real, la
+descripción y los valores de cada hechizo (receta en `pulling-sod-data.md`). Sigue el patrón de la
+runa de Arcane Blast (`server/mod-sod-content/src/mage/spell_sod_mage_arcane_blast_rune.cpp`,
+`data/sql/db-world/base/sod_mage_arcane_blast_unlock.sql`, su fila en `sod_mage_runes.sql` y su
+entrada en `tools/sod_spells.py`) y la receta de `docs/adding-a-spell.md` del módulo. **No
+inventes** IDs ni valores: si wago.tools no responde, párate y dilo.
+
+## 6. Qué NO hacer
+
+- **No compiles**: ni `cmake`, ni `make`, ni `make install`. Pídeselo al usuario con el comando exacto.
+- **No borres ni vacíes nada** en el servidor (build, bases de datos, binarios) sin que lo pida.
+- **No toques producción:** `Servers/acore-playerbots`, `acore_auth` (compartida; incluida la fila
+  del reino 2) ni las bases sin sufijo `_test`. Antes de tocar algo en vivo, comprueba a qué reino
+  pertenece. Normas del servidor en `/home/stark/Repos/CLAUDE.md` (en catalán).
+- **No pidas contraseñas ni tokens** ni cambies la configuración de usuario/correo/remoto de git.
+- **No modifiques `upstream/` ni `acore-test` más allá de lo documentado** en la decisión 0005.
+- **No hagas `git push`** sin que el usuario lo pida.
+- **No digas «compilado» ni «funciona»** sin que se haya ejecutado de verdad.

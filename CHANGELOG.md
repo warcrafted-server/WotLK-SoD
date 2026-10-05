@@ -2,6 +2,20 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-05 (traspaso al servidor)
+
+### Añadido
+- `docs/ESTADO.md`: estado vivo del proyecto (dónde estamos, pendiente por orden, lo ya sabido,
+  cómo delegar y qué no hacer). Es lo primero que lee una sesión nueva.
+- Sección 0 de `AGENTS.md`: normas de arranque del orquestador, con la obligación de delegar y
+  permiso para ampliar `AGENTS.md` y crear `.agents/`.
+- `docs/guias/prompt-de-arranque.md`: prompt para abrir una sesión nueva en este directorio.
+
+### Notas
+- El usuario ha hecho el paso 1 de la guía (3 bases `*_test` vacías); `cmake`, `make` e `install`
+  siguen pendientes y los hace él.
+- `agentrelay` **no está instalado** en el servidor: hasta que lo esté, se delega con subagentes.
+
 ## 2026-10-05 (servidor de pruebas)
 
 ### Añadido

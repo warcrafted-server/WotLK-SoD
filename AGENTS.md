@@ -44,6 +44,24 @@ Estas normas son de cumplimiento obligatorio para cualquier agente que trabaje e
 repositorio, tanto si actúa como orquestador (planifica y delega) como si actúa de ejecutor
 (recibe una tarea con `agentrelay run`). Léelas antes de tocar nada.
 
+### 0. Al empezar una sesión (orquestador)
+
+1. **Ponte al día:** lee `docs/ESTADO.md` (dónde estamos, qué toca y qué no hacer), después este
+   archivo, `CHANGELOG.md` y las decisiones `docs/decisiones/0001`–`0005`. Si el usuario no dice
+   otra cosa, continúa por el primer punto pendiente del estado.
+2. **Delega por defecto.** El objetivo del usuario es ahorrar tokens de Claude: tú planificas,
+   decides el diseño y revisas; lo mecánico lo hacen otros. Si `command -v agentrelay` no lo
+   encuentra, dilo al usuario (la instalación está en `docs/ESTADO.md` §3) y mientras tanto usa
+   subagentes de Claude Code con un modelo más barato. **No hagas tú en silencio el trabajo no
+   trivial.** Revisa siempre el diff y el informe de lo delegado.
+3. **Mantén `docs/ESTADO.md` y `CHANGELOG.md` al día con cada cambio relevante**, no al final: son
+   lo que lee la siguiente sesión.
+4. **Puedes ampliar este archivo** (siempre fuera del bloque de AgentRelay, que no se edita) y crear
+   un directorio **`.agents/`** si hace falta darle contexto a futuras sesiones o a los ejecutores;
+   sigue la estructura que usa AzerothCore en `/home/stark/Repos/acore-test/.agents/`
+   (`README.md`, `docs/`, `skills/`). Avisa al usuario cuando lo hagas.
+5. Habla en **castellano** y di siempre si algo está **compilado y probado o no**.
+
 ### 1. Idioma
 
 Todo en **castellano**: respuestas, documentación, comentarios del código, mensajes de commit
