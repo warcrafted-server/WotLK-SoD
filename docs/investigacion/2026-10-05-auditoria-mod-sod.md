@@ -191,13 +191,47 @@ El hito de **fase 1 con tres clases** son ~36 runas, de las cuales **8 ya existe
 **~28 habilidades por implementar**, siguiendo un patrón ya demostrado y con generador. Eso es
 un objetivo medible y acotado, no una incógnita.
 
-## 10. Pendiente
-- Comprobar que `mod-rune-engraving` compila contra un AzerothCore actual. **No verificado**:
-  no tiene `CMakeLists.txt` propio en la raíz, lo que es normal en módulos de AzerothCore, pero
-  hay que confirmarlo con un build real.
-- Confirmar si los otros cinco módulos de clase están igual de vacíos (asumido, no comprobado).
+## 10. Compatibilidad con el AzerothCore actual
 
-## 11. Fuentes
+Clonado `azerothcore-wotlk` (commit `1b4717c`, 2026-10-05) en
+`upstream/azerothcore/azerothcore-wotlk/` y comprobado **de forma estática** contra
+`mod-rune-engraving`:
+
+- **Cabeceras:** las 24 que incluye el módulo existen en el core (más la propia
+  `RuneEngravingMgr.h`).
+- **Firmas críticas:** `Player::learnSpell(uint32, bool temporary, bool)` y
+  `Player::removeSpell(uint32, uint8, bool onlyTemporary, bool)` coinciden con lo que el módulo
+  documenta en su arquitectura.
+- **Hooks:** los 10 métodos que sobrescribe (`OnPlayerLogin`, `OnPlayerLogout`,
+  `OnPlayerCompleteQuest`, `OnPlayerDeleteFromDB`, `OnPlayerBeforeSendChatMessage`,
+  `OnAfterConfigLoad`, `OnStartup`, `OnGossipHello`, `OnGossipSelect`, `OnUse`) siguen
+  existiendo en el core.
+
+**Esto NO es una compilación.** Descarta las roturas más probables (cabeceras o hooks
+renombrados), pero no detecta un cambio de tipo en un parámetro ni una incompatibilidad de
+plantillas. El módulo se publicó en junio de 2026 y el core ha seguido avanzando desde entonces.
+
+### Por qué no se ha compilado: el entorno
+
+| Entorno | Estado |
+|---|---|
+| Windows | Sin compilador, sin CMake, sin MySQL, sin Docker |
+| WSL Debian | **Vacío**: sin gcc/g++, cmake, make, git ni librerías `-dev`. Hay 16 núcleos, 7 GB de RAM y ~955 GB de disco |
+
+Instalar el toolchain requiere `sudo`, que pide contraseña. **No se le pide ni se intenta eludir**:
+queda como tarea del usuario. Cuando esté instalado, el build real se puede delegar.
+
+Nota de recursos: 7 GB de RAM son justos para compilar AzerothCore con 16 hilos en paralelo
+(cada unidad de compilación pesada puede pasar de 1 GB); habrá que limitar `-j` a 4-6 o el
+compilador se quedará sin memoria.
+
+## 11. Pendiente
+
+- Compilar de verdad (bloqueado por el toolchain de WSL, ver arriba).
+- Confirmar si los otros cinco módulos de clase están igual de vacíos (asumido, no comprobado).
+- Recuento de runas de las fases 2 a 8 (no necesario para el primer hito).
+
+## 12. Fuentes
 
 - [Warcraft Wiki — Season of Discovery](https://warcraft.wiki.gg/wiki/World_of_Warcraft_Classic:_Season_of_Discovery)
 - [Warcraft Tavern — runas de mago en SoD](https://www.warcrafttavern.com/wow-classic/guides/season-of-discovery-mage-rune-engravings/)

@@ -1,7 +1,7 @@
 # 0002 — Nivel máximo: ¿60 de Classic u 80 de WotLK?
 
 - **Fecha:** 2026-10-05
-- **Estado:** PROPUESTA — nivel 60, con la puerta al 80 deliberadamente abierta
+- **Estado:** ACEPTADA — se empieza en 60 y el 80 es un objetivo posterior previsto
 
 ## La duda
 
@@ -69,15 +69,23 @@ de partida.
 - Las ranuras del motor se configuran con los cortes de SoD (1/26/41/51), no abiertas desde
   nivel 1.
 
-## Lo que no se cierra
+## El 80: objetivo posterior, no puerta entreabierta
 
-**La puerta al 80 queda abierta a propósito.** Como el motor no presupone tope y los límites son
-configuración, subir a 80 más adelante es cambiar parámetros y añadir contenido, no rehacer nada.
-Si algún día interesa un «SoD extendido» hasta 80, se podrá hacer sin deshacer este trabajo.
+El usuario ha indicado (2026-10-05) que **se llegará al 80, si no ahora, más adelante**. Se
+toma como plan: el proyecto **empieza en 60 y crecerá hacia el 80** por etapas.
 
-Lo que no se debe hacer es **empezar** por ahí: sería asumir el coste de equilibrar dos
-expansiones antes de tener una sola fase jugable.
+Como el motor no presupone tope y los límites son configuración, esa ampliación es cambiar
+parámetros y añadir contenido, no rehacer nada. Lo que sí implica planificarla desde ahora:
+
+- **No cablear el 60 en el código propio.** Todo tope de nivel que escribamos en `server/` va
+  como parámetro de configuración, nunca como constante (como ya hace `ScalingCapLevel`).
+- **Diseñar el contenido por tramos de nivel**, para poder añadir el siguiente sin tocar el
+  anterior (1-25, 26-40, 41-50, 51-60, y luego los de 61-80).
+- **Esperar un trabajo de equilibrio propio** al pasar del 60: las runas de SoD están
+  calibradas para Classic y no hay equivalente oficial que copiar más allá del 60.
+- Lo que no se debe hacer es **adelantar** el 80: antes hace falta una fase jugable y
+  equilibrada.
 
 ## Revisar cuando
 
-Exista la fase 1 jugable y equilibrada, y haya ganas de extender el proyecto más allá de Classic.
+Exista la fase 1 jugable y equilibrada: será el momento de planificar el tramo 61-80.
