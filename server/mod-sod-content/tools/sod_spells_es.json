@@ -1,0 +1,67 @@
+{
+  "400647": {
+    "name": "Dedos de Escarcha",
+    "desc": "Da a tus efectos de enfriamiento un 25% de probabilidad de otorgarte el efecto de Dedos de Escarcha, que hace que tus siguientes 2 hechizos traten al objetivo como si estuviese congelado. Dura 15 s.",
+    "aura_desc": "Tus siguientes 2 hechizos tratan al objetivo como si estuviese congelado."
+  },
+  "412286": {
+    "name": "Consunción",
+    "desc": "Aumenta tu probabilidad de golpe crítico con todos los hechizos un 15%, pero ahora tus golpes críticos con hechizos no periódicos tienen un coste de maná extra igual al 1% de tu maná base."
+  },
+  "425121": {
+    "name": "Venas heladas",
+    "desc": "Acelera tu lanzamiento de hechizos, aumenta la velocidad con la que lanzas hechizos un 20% y reduce el retraso sufrido por los ataques dañinos mientras lanzas hechizos un 100%. Dura 20 s.",
+    "aura_desc": "Velocidad de lanzamiento de todos los hechizos aumentada un 20% y retroceso sufrido por los ataques dañinos mientras lanzas hechizos reducido un 100%."
+  },
+  "400640": {
+    "name": "Lanza de hielo",
+    "desc": "Inflige de 55 a 65 p. de daño de Escarcha al objetivo enemigo. Inflige el triple de daño contra objetivos congelados."
+  },
+  "401417": {
+    "name": "Regeneración",
+    "desc": "Sana $o1 p. de salud durante $d al objetivo y le aplica Baliza temporal durante 30 s."
+  },
+  "412510": {
+    "name": "Regeneración en masa",
+    "desc": "Sana $o1 p. de salud durante $d al objetivo y a los miembros de su grupo, y aplica Baliza temporal a cada uno durante 15 s."
+  },
+  "400735": {
+    "name": "Baliza temporal",
+    "desc": "Registra la posición espaciotemporal del sujeto. El daño infligido por el taumaturgo hará que este sujeto reciba sanación cronomántica.",
+    "aura_desc": "Registra la posición espaciotemporal del sujeto. El daño infligido por el taumaturgo hará que este sujeto reciba sanación cronomántica."
+  },
+  "401405": {
+    "name": "Sanación cronomántica"
+  },
+  "401462": {
+    "name": "Retroceder en el tiempo",
+    "desc": "El objetivo actual de tu Baliza temporal se sana al instante todo el daño recibido durante los últimos 5 s. No surte efecto sobre objetivos que no tuvieran una Baliza temporal hace 5 s."
+  },
+  "401556": {
+    "name": "Llama viva",
+    "desc": "Invoca una llama de Piroarcano que se mueve hacia el objetivo y deja un rastro de Piroarcano. Este rastro inflige $401558s1 p. de daño de Piroarcano cada segundo a los enemigos cercanos. Dura 10 s."
+  },
+  "401558": {
+    "name": "Llama viva"
+  },
+  "425124": {
+    "name": "Oleada Arcana",
+    "desc": "Lanzas todo el maná que te queda en una oleada de energía que inflige $s1 p. de daño Arcano. El daño aumenta hasta un 300% según el maná que te quede. Después, se activa tu regeneración de maná y aumenta un 300% durante $d."
+  },
+  "400574": {
+    "name": "Explosión Arcana",
+    "desc": "Ataca al objetivo con energía Arcana e inflige $s1 p. de daño Arcano."
+  },
+  "412324": {
+    "name": "Esclarecimiento",
+    "desc": "Infliges un 10% más de daño si tienes más de un 70% de maná. Mientras tu maná está por debajo del 30%, un 10% de la regeneración de maná continúa al lanzar hechizos."
+  },
+  "412326": {
+    "name": "Esclarecimiento",
+    "aura_desc": "Aumenta todo el daño con hechizos infligido un 10%."
+  },
+  "412325": {
+    "name": "Esclarecimiento",
+    "aura_desc": "Permite que un 10% de la regeneración de maná continúe mientras lanzas hechizos."
+  }
+}

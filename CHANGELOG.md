@@ -10,6 +10,9 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
   columnas de su plantilla. Activada en 400647, 412286, 425121 y 400640. `sod_content_spell_dbc.sql`
   regenerado con ellos.
 
+- Español (esES): opción `--locale` en el generador, columnas esES de `Spell.dbc` y `Faction.dbc`,
+  `sod_spells_es.json` (textos oficiales) y `sod_content_locale_es.sql` (25 objetos). Sin probar.
+
 ### Cambiado
 - `ESTADO.md`: `agentrelay` ya está instalado y operativo (corrige lo anterior); el `build/` antiguo
   de `acore-test` ya lo ha borrado el usuario.

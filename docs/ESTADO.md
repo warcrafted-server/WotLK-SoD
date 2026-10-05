@@ -69,13 +69,15 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
 6. **Parche de cliente y addon:** pasos, copia de seguridad y distribución en
    `docs/guias/preparar-cliente.md`. Los DBC del cliente **no están en este servidor**: el usuario
    decide dónde se genera. Nunca se ha ejecutado.
-6b. **Textos en esES** (el usuario juega en español). El generador (`tools/sod-client/sod_dbc.py`, ~l.588)
-   solo rellena las columnas `enUS` de `Spell.dbc`: en un cliente `esES` los hechizos nuevos saldrían
-   **sin nombre ni descripción**. Fuente de los textos, sin inventar: wago.tools con `&locale=esES`
-   (comprobado el 2026-10-05: 'Dedos de Escarcha', 'Lanza de hielo', 'Consunción' = Burnout, 'Venas
-   heladas'); los tokens `$<power>`/`$<frostdamage>` no existen en 3.3.5a: hay que sustituirlos por
-   las cifras reales. Falta ampliar el generador (campos `*_es` en cada spec + columna esES) y
-   revisar items (`item_template_locale`) y las runas (`rune_template` y el addon, hoy en inglés).
+6b. **Textos en esES (hecho, sin probar en juego).** El usuario juega en español: el generador acepta
+   `--locale esES` (lee y escribe en `Data/esES/`, partiendo del `Spell.dbc` español) y escribe las
+   columnas esES (posición `enUS + 6` del DBC, **no** la columna `Name_Lang_esES` del esquema SQL, que
+   es otra) desde `server/mod-sod-content/tools/sod_spells_es.json` (textos oficiales de wago.tools
+   `&locale=esES`, tokens resueltos como en el inglés). Sin texto oficial se ve el inglés
+   (900003, 900005 y los hechizos 9000xx). Objetos: `sod_content_locale_es.sql` (25 filas de
+   `item_template_locale`, oficiales). **Pendiente:** criaturas y objetos de mundo propios (ids no
+   están en wago.tools), facultades `rune_template` y el addon (en inglés), nombres de las 2
+   facciones (hoy en inglés), y aplicar el SQL de locale (no verificado que el importador lo haga).
 7. **Licencia del código original** del repositorio. Lo coherente es GPL v2 o posterior; decide el
    usuario.
 8. **Más clases** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.

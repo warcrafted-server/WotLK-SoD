@@ -31,6 +31,7 @@ Usage:
 import argparse
 import importlib.util
 import glob
+import json
 import os
 import sys
 
@@ -82,6 +83,19 @@ def load_spell_specs(modules_dir):
     return specs
 
 
+def load_spell_localizations(modules_dir):
+    """Load optional Spanish spell text from each content module."""
+    localizations = {}
+    pattern = os.path.join(modules_dir, "mod-sod-*", "tools",
+                           "sod_spells_es.json")
+    for path in sorted(glob.glob(pattern)):
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+        for spell_id, text in data.items():
+            localizations[int(spell_id)] = text
+    return localizations or None
+
+
 def module_class(module_name):
     """mod-sod-mage -> mage (the data/sql filename + SQL comment scope)."""
     return module_name[len("mod-sod-"):]
@@ -95,6 +109,8 @@ def main():
     ap.add_argument("--client", default=DEFAULT_CLIENT, required=DEFAULT_CLIENT is None,
                     help="WoW client root (contains Data/ or data/); "
                          "default from build_paths_local.py (CLIENT) if present")
+    ap.add_argument("--locale",
+                    help="locale folder under Data/ (defaults to detected locale)")
     ap.add_argument("--workdir", default=os.path.join(HERE, "_work"),
                     help="scratch dir for extracted DBCs / patched output")
     ap.add_argument("--dry-run", action="store_true",
@@ -111,6 +127,7 @@ def main():
     creature_displays = dbc.load_creature_displays(modules_dir)
     factions = dbc.load_factions(modules_dir)
     specs = load_spell_specs(modules_dir)
+    spell_localizations = load_spell_localizations(modules_dir)
 
     # Import-then-resolve: importing a spec only defines build_spells (no idx
     # needed); we extract + resolve indexes, then call build_spells(idx).
@@ -121,7 +138,14 @@ def main():
         return
 
     os.makedirs(args.workdir, exist_ok=True)
-    locale = dbc.detect_locale(args.client)
+    if args.locale:
+        data_dir = dbc.ci_join(args.client, "data")
+        locale_dir = dbc.ci_join(data_dir, args.locale)
+        if not os.path.isdir(locale_dir):
+            ap.error("locale folder does not exist under Data/: %s" % args.locale)
+        locale = os.path.basename(locale_dir)
+    else:
+        locale = dbc.detect_locale(args.client)
     print("[*] aggregated %d item(s), %d display(s), %d creature-display(s), "
           "%d faction(s), %d spell spec(s) (locale: %s)"
           % (len(items), len(displays), len(creature_displays), len(factions),
@@ -179,8 +203,9 @@ def main():
     factiontpl_patched = dbc.build_faction_template(args.workdir, factions)
     spell_patched = sla_patched = sv_patched = None
     if all_spells:
-        spell_patched = dbc.build_spell_dbc(args.workdir, cols, all_spells,
-                                            column_types)
+        spell_patched = dbc.build_spell_dbc(
+            args.workdir, cols, all_spells, column_types, spell_localizations,
+            write_esES=(locale.lower() == "eses" or bool(spell_localizations)))
         sla_patched = dbc.build_skill_line_ability(args.workdir, all_spells)
         sv_patched = dbc.build_spell_visual(args.workdir, all_visuals)
 

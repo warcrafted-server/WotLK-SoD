@@ -4,9 +4,9 @@ El cliente 3.3.5a no recibe hechizos, iconos ni interfaz del servidor: cada juga
 
 ## Generar el parche
 
-**Cliente necesario:** WoW **3.3.5a, build 12340**, instalación completa (`Data/` con sus MPQ y la carpeta de idioma, p. ej. `Data/enUS/`; el generador toma la primera carpeta de idioma por orden alfabético y solo escribe los textos en inglés (`enUS`): se juega con el cliente en `enUS`). Python 3 y el cliente cerrado. `pympq` solo existe para Windows: en Linux el generador usa `tools/sod-client/stormlib_shim.py` (ctypes sobre `libstorm`; paquete Debian `libstorm-dev`, ya instalado). Probado el 2026-10-05 solo en lectura y con un MPQ de prueba en `/tmp`; **el MPQ final aún no se ha escrito en un cliente**. `--server` debe contener `modules/` y `data/sql/base/db_world/`.
+**Cliente necesario:** WoW **3.3.5a, build 12340**, instalación completa (`Data/` con sus MPQ y la carpeta de idioma, p. ej. `Data/enUS/`; el idioma se elige con `--locale`). Python 3 y el cliente cerrado. `pympq` solo existe para Windows: en Linux el generador usa `tools/sod-client/stormlib_shim.py` (ctypes sobre `libstorm`; paquete Debian `libstorm-dev`, ya instalado). Probado el 2026-10-05 solo en lectura y con un MPQ de prueba en `/tmp`; **el MPQ final aún no se ha escrito en un cliente**. `--server` debe contener `modules/` y `data/sql/base/db_world/`.
 
-Hay un cliente en este servidor: `/home/stark/Documentos/Wow 3.3.5 IceTracks`; su copia de trabajo está en `datos/cliente-sod/` (20 GB) (20 GB, con `enUS` y `esES`, `Config.wtf` en `esES`, parches propios `patch-A.MPQ`, `patch-2/3.MPQ` y `patch.MPQ`). **Es el del reino de producción**: para SoD usar una copia, con `SET locale "enUS"` en `WTF/Config.wtf` y `Data/enUS/realmlist.wtf` apuntando a `logon.warcrafted.com`.
+Hay un cliente en este servidor: `/home/stark/Documentos/Wow 3.3.5 IceTracks`; su copia de trabajo está en `datos/cliente-sod/` (20 GB, con `enUS` y `esES`, `Config.wtf` en `esES`, parches propios `patch-A.MPQ`, `patch-2/3.MPQ` y `patch.MPQ`). **Es el del reino de producción**: para SoD usar una copia. Su `Data/esES/realmlist.wtf` ya apunta a `logon.warcrafted.com` y `Config.wtf` está en `esES`.
 
 Alternativa: generar en otra máquina con cliente.
 
@@ -14,7 +14,7 @@ Desde `tools/sod-client/`:
 
 ```
 pip install -r requirements.txt
-python build_patch.py --server <raíz de acore-test> --client "<raíz del cliente>"
+python build_patch.py --server <raíz de acore-test> --client "<raíz del cliente>" --locale esES
 ```
 
 Escribe `Data/patch-z.mpq` y `Data/<locale>/patch-<locale>-z.mpq`, y regenera `server/mod-sod-content/data/sql/db-world/base/sod_content_spell_dbc.sql`. `--dry-run` no escribe el MPQ pero **sí reescribe** el SQL del módulo; ya se ha ejecutado así sobre `datos/cliente-sod/`. Es sin estado: parte siempre del cliente limpio y no modifica los MPQ originales.
@@ -25,7 +25,7 @@ Tras cada hechizo nuevo: regenerar, subir ese SQL, aplicarlo al servidor y redis
 
 Los clones (`template` en `sod_spells.py`) solo heredan los efectos en el DBC del cliente; en el SQL del servidor hay que pedirlo con `"inherit_server": True` en el spec, o la fila queda sin efectos. Lo llevan 400647, 412286, 425121 y 400640 (comprobado en el SQL generado). Sin comprobar: los nombres de icono de las runas (`spell_frost_chillingblast`, `spell_fire_burnout`, `spell_frost_coldhearted`, `spell_frost_frostblast`).
 
-El generador solo escribe textos `enUS`: un cliente `esES` ve esos hechizos sin nombre (ver `docs/ESTADO.md` §3, punto 6b).
+**Idioma:** el cliente del usuario es `esES`, así que se genera con `--locale esES` (el parche va a `Data/esES/patch-esES-z.mpq`); los textos salen de `server/mod-sod-content/tools/sod_spells_es.json`. Sin `--locale` se toma la primera carpeta de idioma (`enUS`).
 
 ## Copia de seguridad
 

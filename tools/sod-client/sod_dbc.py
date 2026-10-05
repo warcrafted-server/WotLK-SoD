@@ -86,6 +86,8 @@ FACTIONTPL_INNER = "DBFilesClient\\FactionTemplate.dbc"
 
 # Faction.dbc (3.3.5a): Name_Lang_enUS is field 23, Name_Lang_Mask is field 39.
 FACTION_NAME_FIELD = 23
+# Client locale arrays use LOCALE_esES at slot 6.
+FACTION_NAME_ESES_CLIENT_FIELD = FACTION_NAME_FIELD + 6
 FACTION_NAME_MASK_FIELD = 39
 # Reputation fields (each *_FIELD is the first of 4 slots, except the parent
 # ones): ReputationIndex(1), RaceMask(2-5), ClassMask(6-9), Base(10-13),
@@ -559,6 +561,8 @@ def build_faction(workdir, factions):
         fac.set_int(rec, 0, f["id"])
         fac.set_int(rec, FACTION_REPIDX_FIELD, f.get("rep_index", -1))
         fac.set_int(rec, FACTION_NAME_FIELD, fac.add_string(f["name"]))
+        fac.set_int(rec, FACTION_NAME_ESES_CLIENT_FIELD,
+                    fac.add_string(f["name"]))
         fac.set_int(rec, FACTION_NAME_MASK_FIELD, NAME_MASK)
         rep = f.get("reputation")
         if rep:
@@ -614,7 +618,8 @@ def build_faction_template(workdir, factions):
 # ---------------------------------------------------------------------------
 # Spell.dbc / SkillLineAbility.dbc / SpellVisual.dbc builders (spell specs).
 # ---------------------------------------------------------------------------
-def build_spell_dbc(workdir, cols, spells, column_types=None):
+def build_spell_dbc(workdir, cols, spells, column_types=None,
+                    localizations=None, write_esES=False):
     """Clone each `client` spell's `template` row, apply `overrides` (+ client-
     only tooltip overrides), set ID/Name/Description, and append it. Returns the
     patched file path."""
@@ -655,6 +660,29 @@ def build_spell_dbc(workdir, cols, spells, column_types=None):
             spell.set_int(base, field_of["AuraDescription_Lang_enUS"],
                           spell.add_string(s["aura_desc"]))
             spell.set_int(base, field_of["AuraDescription_Lang_Mask"], NAME_MASK)
+        if write_esES:
+            localized = (localizations or {}).get(s["id"], {})
+            name_es = localized.get("name") or s["name"]
+            # The client locale array uses esES at slot 6.
+            spell.set_int(base, field_of["Name_Lang_enUS"] + 6,
+                          spell.add_string(name_es))
+            if "desc" in localized:
+                desc_es = localized["desc"]
+            else:
+                desc_es = s.get("desc")
+            if desc_es:
+                spell.set_int(base, field_of["Description_Lang_enUS"] + 6,
+                              spell.add_string(desc_es))
+                spell.set_int(base, field_of["Description_Lang_Mask"], NAME_MASK)
+            if "aura_desc" in localized:
+                aura_desc_es = localized["aura_desc"]
+            else:
+                aura_desc_es = s.get("aura_desc")
+            if aura_desc_es:
+                spell.set_int(base, field_of["AuraDescription_Lang_enUS"] + 6,
+                              spell.add_string(aura_desc_es))
+                spell.set_int(base, field_of["AuraDescription_Lang_Mask"],
+                              NAME_MASK)
         if s.get("inherit_server"):
             server_row = {}
             for col in cols:

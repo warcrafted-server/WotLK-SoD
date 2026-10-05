@@ -1,0 +1,28 @@
+-- Official SoD esES item names and descriptions from ItemSparse.
+-- This script is idempotent because REPLACE updates existing locale rows.
+REPLACE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES
+    (203746, 'esES', 'Notas sobre hechizos: Llama viviente', 'Te enseña una nueva facultad de talla de runas.', 0),
+    (203749, 'esES', 'Notas sobre hechizos: Esclarecimiento', 'Te enseña una nueva facultad de grabado.', 0),
+    (203752, 'esES', 'Notas sobre hechizos: LIAMV VLAA', NULL, 0),
+    (203756, 'esES', 'Notas de aprendiz de Azora: página 1', NULL, 0),
+    (203960, 'esES', 'Notas de aprendiz de Azora: página 2', NULL, 0),
+    (203961, 'esES', 'Notas de aprendiz de Azora: página 3', NULL, 0),
+    (203962, 'esES', 'Notas de aprendiz de Azora: página 4', NULL, 0),
+    (208753, 'esES', 'Notas sobre hechizos: Regeneración', 'Teaches you a new Engraving ability.', 0),
+    (208754, 'esES', 'Notas sobre hechizos: RAGENÓNERICE', NULL, 0),
+    (208799, 'esES', 'Notas sobre hechizos: Bomba viva', 'Te enseña una nueva facultad de grabado.', 0),
+    (210568, 'esES', 'Filacteria decrépita', 'El artefacto desprende un aura atroz.', 0),
+    (210654, 'esES', 'Notas sobre hechizos: Retroceder en el tiempo', 'Te enseña una nueva facultad de grabado.', 0),
+    (211367, 'esES', 'Envío de suministros', 'Entrégalo a un oficial de suministros a cambio de una generosa recompensa.', 0),
+    (211382, 'esES', 'Cartera de mensajero pequeña', NULL, 0),
+    (211384, 'esES', 'Bolsa de mensajero resistente', NULL, 0),
+    (211386, 'esES', 'Notas sobre hechizos: Oleada Arcana', 'Te enseña una nueva facultad de grabado.', 0),
+    (211514, 'esES', 'Notas sobre hechizos: Regeneración en masa', 'Te enseña una nueva facultad de grabado.', 0),
+    (211691, 'esES', 'Notas sobre hechizos: Explosión Arcana', 'Te enseña una nueva facultad de grabado.', 0),
+    (211779, 'esES', 'Amuleto de comprensión', 'Ayuda en la traducción de pergaminos y notas sobre hechizos.', 0),
+    (211839, 'esES', 'Envío de suministros', 'Entrégalo a un oficial de suministros a cambio de una generosa recompensa.', 0),
+    (212588, 'esES', 'Guantes de proveedor', NULL, 0),
+    (212589, 'esES', 'Botines de mensajero', NULL, 0),
+    (212590, 'esES', 'Cinta de elevación', NULL, 0),
+    (217337, 'esES', 'Envío de suministros', 'Entrégalo a un oficial de suministros a cambio de una generosa recompensa.', 0),
+    (221008, 'esES', 'Envío de suministros', 'Entrégalo a un oficial de suministros a cambio de una generosa recompensa.', 0);
