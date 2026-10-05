@@ -61,8 +61,17 @@ MPQ del cliente). **Los jugadores tendrán que instalar un parche.**
 
 ## Alcance acordado
 
-**No se intenta SoD completo.** Primer hito: **fase 1 (nivel máximo 25) con dos o tres clases**,
-partiendo del mago que ya funciona, para validar el pipeline entero antes de comprometer meses.
+**No se intenta SoD completo.** SoD oficial son 8 fases, 18 meses de contenido de Blizzard,
+**218 runas como mínimo** y nueve raids reescaladas. No es reproducible por este proyecto.
+
+Primer hito: **fase 1 (nivel máximo 25)**, que en SoD son **tres ranuras de grabado (pecho,
+piernas, manos) y 12 runas por clase**. Con **tres clases** son ~36 runas, de las cuales **8 ya
+están implementadas** en el módulo de mago (67 % de su fase 1): quedan **~28 habilidades**,
+siguiendo un patrón demostrado y con generador.
+
+Las cuatro que le faltan al mago son de escarcha: Fingers of Frost, Burnout, Ice Lance e
+Icy Veins. Completar el mago es el punto de entrada natural, porque valida el pipeline sobre
+código que ya funciona.
 
 ## Consecuencias
 

@@ -145,11 +145,68 @@ Propuesta de alcance: **no intentar SoD completo.** Un primer hito realista es
 **fase 1 (nivel máximo 25) con dos o tres clases**, partiendo del mago que ya funciona. Eso da
 un servidor jugable de verdad y valida el pipeline completo antes de comprometer meses.
 
-## 9. Pendiente
+## 9. Las cifras de SoD oficial: el esfuerzo por clase
 
-- Cifras exactas de runas de SoD oficial por clase y fase (delegado; sin resultado al cerrar
-  esta auditoría). Sin ese número no se puede estimar el esfuerzo por clase con rigor.
+Verificado tras cerrar las secciones anteriores. Esto permite estimar el trabajo con rigor.
+
+### Fase 1 (nivel máximo 25)
+
+- **Tres ranuras de grabado**: pecho, piernas y manos.
+- **12 runas por clase**: cuatro por ranura. Nueve clases ⇒ **108 runas en la fase 1**.
+- Contenido asociado: raid de **Blackfathom Deeps** (10 jugadores) y el evento PvP
+  **Battle for Ashenvale**.
+
+Las 12 del mago, cruzadas con lo que hay implementado en `mod-sod-mage`:
+
+| Ranura | Runas de SoD | Estado en `mod-sod-mage` |
+|---|---|---|
+| Pecho | Regeneration, Enlightenment | ✅ implementadas |
+| Pecho | Fingers of Frost, Burnout | ❌ faltan |
+| Manos | Rewind Time, Arcane Blast, Living Bomb | ✅ implementadas |
+| Manos | Ice Lance | ❌ falta |
+| Piernas | Living Flame, Mass Regeneration, Arcane Surge | ✅ implementadas |
+| Piernas | Icy Veins | ❌ falta |
+
+**8 de 12 (67 %) de la fase 1 del mago ya están hechas.** Las cuatro que faltan son de
+escarcha; el módulo cubrió el kit arcano y de fuego. Es un hueco pequeño y bien delimitado.
+
+### El conjunto de SoD completo
+
+| Fase | Nivel máx. | Fecha | Runas nuevas por clase |
+|---|---|---|---|
+| 1 | 25 | 30-11-2023 | 12 (verificado) |
+| 2 | 40 | 08-02-2024 | ~6 |
+| 3 | 50 | 04-04-2024 | 6 |
+| 4 | 60 | 11-07-2024 | + runas de anillo (15, compartidas) |
+| 5–8 | 60 | sep. 2024 – abr. 2025 | no verificado |
+
+SoD completo son **8 fases, 18 meses de contenido de Blizzard y 218 runas como mínimo**, más
+ocho raids reescaladas (Blackfathom, Gnomeregan, Sunken Temple, Molten Core, BWL, ZG, AQ,
+Naxxramas, Scarlet Enclave). Reproducir eso **no es un objetivo realista** para este proyecto, y
+conviene decirlo ahora.
+
+### Lo que esto implica para el alcance
+
+El hito de **fase 1 con tres clases** son ~36 runas, de las cuales **8 ya existen**: quedan
+**~28 habilidades por implementar**, siguiendo un patrón ya demostrado y con generador. Eso es
+un objetivo medible y acotado, no una incógnita.
+
+## 10. Pendiente
 - Comprobar que `mod-rune-engraving` compila contra un AzerothCore actual. **No verificado**:
   no tiene `CMakeLists.txt` propio en la raíz, lo que es normal en módulos de AzerothCore, pero
   hay que confirmarlo con un build real.
 - Confirmar si los otros cinco módulos de clase están igual de vacíos (asumido, no comprobado).
+
+## 11. Fuentes
+
+- [Warcraft Wiki — Season of Discovery](https://warcraft.wiki.gg/wiki/World_of_Warcraft_Classic:_Season_of_Discovery)
+- [Warcraft Tavern — runas de mago en SoD](https://www.warcrafttavern.com/wow-classic/guides/season-of-discovery-mage-rune-engravings/)
+  (de aquí salen las tres ranuras de la fase 1 y las 12 runas del mago, cuatro por ranura)
+- [Wowhead — guía de runas de SoD](https://www.wowhead.com/classic/guides/season-of-discovery/runes)
+- [Wowhead — preview de la fase 3: 6 runas por clase](https://www.wowhead.com/classic/news/season-of-discovery-phase-3-preview-6-runes-per-class-pve-event-8-raid-bosses-338252)
+- Repositorios auditados: [github.com/mod-sod](https://github.com/mod-sod), clonados en
+  `upstream/azerothcore/mod-sod/`.
+
+Nota de método: Wowhead no se deja leer por scraping (devuelve solo la navegación), así que las
+cifras por ranura se tomaron de Warcraft Tavern y **se cruzaron contra el código real** del
+módulo, que es la verificación que de verdad importa aquí.
