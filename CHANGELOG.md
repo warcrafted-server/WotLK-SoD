@@ -13,6 +13,19 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 - Español (esES): opción `--locale` en el generador, columnas esES de `Spell.dbc` y `Faction.dbc`,
   `sod_spells_es.json` (textos oficiales) y `sod_content_locale_es.sql` (25 objetos). Sin probar.
 
+- Primer parche de cliente generado (esES) en una copia del cliente y guardado en `datos/parche-cliente/`.
+  El MPQ contiene los DBC esperados; sin probar en juego.
+
+- Addon `RuneEngraver` clonado en `upstream/` (commit fijado en `preparar-entorno.sh`); guía de compilación con la opción de apartar los módulos ajenos.
+
+- Catálogo de runas de SoD: `tools/sod-data/extract_runes.py` y `docs/runas/` (JSON + una ficha por clase).
+- Iconos de las runas Fingers of Frost y Burnout corregidos (verificados con Wowhead).
+
+- `tools/sod-data/match_wotlk.py` y `docs/runas/equivalencias-wotlk.*`: equivalentes de las 106 runas en WotLK 3.3.5a.
+- Primera compilación completa de `acore-test` con nuestros módulos: sin errores (hecha por el usuario).
+
+- Piloto de runas de otra clase (brujo): Chaos Bolt y Haunt (`sod_spells_warlock.py`, `sod_warlock_runes.sql`); `sod_spells.py` carga los specs por clase.
+
 ### Cambiado
 - `ESTADO.md`: `agentrelay` ya está instalado y operativo (corrige lo anterior); el `build/` antiguo
   de `acore-test` ya lo ha borrado el usuario.

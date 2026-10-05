@@ -124,6 +124,26 @@ CREATE DATABASE IF NOT EXISTS acore_playerbots_test DEFAULT CHARACTER SET utf8mb
 -- GRANT ALL PRIVILEGES ON acore_<...>_test.* TO '<usuario>'@'localhost';  (si hiciera falta)
 ```
 
+**1b. Módulos (decisión del usuario, 2026-10-05).** En `acore-test/modules/` se compilan solo
+`mod-playerbots`, `mod-ollama-chat-es`, `mod-warcrafted-teleport` y los dos enlaces de SoD. Los otros
+ocho se apartan fuera de `modules/` (reversible; al devolverlos hay que repetir `cmake` y `make`).
+`mod-ollama-chat` y `mod-ollama-chat-es` son el mismo módulo (el segundo, traducido; declara las
+mismas clases): compilar los dos daría símbolos duplicados, así que solo uno.
+
+El checkout `acore-test/modules/mod-ollama-chat-es` estaba 9 commits por detrás de GitHub (commit
+`f3f6d47`) y no compilaba: usaba `Player::IsInChannel()`, que el core actual ya no tiene. `origin/main`
+(`c9f6862`, «Compilar contra el core de producción actual») ya lo arregla con `OllamaIsOnChannel`.
+Antes de compilar: `git pull --ff-only` en ese checkout y `cmake .` en `build/` (hay archivos nuevos).
+
+```bash
+cd /home/stark/Repos/acore-test && mkdir -p modules-apartados
+mv modules/mod-{ah-bot,aoe-loot,gathering-xp,guildbank-tax,guildhouse,individual-progression,levelsync,ollama-chat,weekend-xp} modules-apartados/
+```
+
+Del core no hay que añadir ni quitar nada: la rama `Playerbot-SoD` ya está en `acore-test` y nuestros
+módulos no parchean el core. `modules/mod-sod-content/mod-sod-mage.cmake` solo registra tests y no se
+incluye por el nombre; es inocuo.
+
 **2. Configurar.** El `build/` anterior tenía estas opciones, leídas de su `CMakeCache.txt` antes
 de que desaparezca: `CMAKE_INSTALL_PREFIX=/home/stark/Servers/acore-test`, compilador
 `/usr/bin/clang++`, `CMAKE_BUILD_TYPE=RelWithDebInfo`, `APPS_BUILD=all`, `TOOLS_BUILD=all`,

@@ -23,7 +23,7 @@ Escribe `Data/patch-z.mpq` y `Data/<locale>/patch-<locale>-z.mpq`, y regenera `s
 
 Tras cada hechizo nuevo: regenerar, subir ese SQL, aplicarlo al servidor y redistribuir el MPQ. Un desajuste da hechizos sin icono o sin efecto.
 
-Los clones (`template` en `sod_spells.py`) solo heredan los efectos en el DBC del cliente; en el SQL del servidor hay que pedirlo con `"inherit_server": True` en el spec, o la fila queda sin efectos. Lo llevan 400647, 412286, 425121 y 400640 (comprobado en el SQL generado). Sin comprobar: los nombres de icono de las runas (`spell_frost_chillingblast`, `spell_fire_burnout`, `spell_frost_coldhearted`, `spell_frost_frostblast`).
+Los clones (`template` en `sod_spells.py`) solo heredan los efectos en el DBC del cliente; en el SQL del servidor hay que pedirlo con `"inherit_server": True` en el spec, o la fila queda sin efectos. Lo llevan 400647, 412286, 425121 y 400640 (comprobado en el SQL generado). Los iconos de las runas están verificados con Wowhead (`ability_mage_wintersgrasp`, `ability_mage_burnout`, `spell_frost_coldhearted`, `spell_frost_frostblast`); falta comprobar que el generador los resuelva en el cliente.
 
 **Idioma:** el cliente del usuario es `esES`, así que se genera con `--locale esES` (el parche va a `Data/esES/patch-esES-z.mpq`); los textos salen de `server/mod-sod-content/tools/sod_spells_es.json`. Sin `--locale` se toma la primera carpeta de idioma (`enUS`).
 
@@ -39,7 +39,7 @@ Si se pierde el cliente: reinstalar uno limpio y copiar esos archivos (cada MPQ 
 
 ## Addon y jugador
 
-- **Addon RuneEngraver** (repo propio, MIT; URL sin anotar) en `Interface/AddOns/`. Sin él queda el NPC de grabado. Necesita `Addon.Channel` activo (lo está por defecto).
+- **Addon RuneEngraver** (`https://github.com/mod-sod/RuneEngraver`, MIT, v0.1; clonado en `upstream/azerothcore/mod-sod/RuneEngraver/`, commit `500f57e`): copiar esa carpeta a `Interface/AddOns/RuneEngraver/`. Solo Lua, sin parche; **sin traducción** (textos fijos en inglés). Sin él queda el NPC de grabado. Necesita `Addon.Channel` activo (lo está por defecto).
 - `patch-z.mpq` a `Data/` y `patch-<locale>-z.mpq` a `Data/<locale>/`; borrar `Cache/WDB` si ya se jugó antes.
 - `realmlist` a `logon.warcrafted.com`; el reino 2 (desarrollo) debe salir en la lista.
 

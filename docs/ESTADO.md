@@ -6,8 +6,10 @@ servidor Debian.
 
 ## 1. Dónde estamos
 
-- **Fase:** primer hito en construcción (fase 1 de SoD, nivel 25). **Nada se ha compilado ni
-  ejecutado jamás.** Todo lo verificado hasta ahora es estático (lectura de código, cabeceras,
+- **Fase:** primer hito en construcción (fase 1 de SoD, nivel 25). **2026-10-06: el usuario compiló e
+  instaló `acore-test` sin errores (log: 0 errores, 0 avisos; incluye nuestros módulos); aún no ha
+  arrancado el reino 2, así que nada se ha ejecutado en juego.** Compiló con `mod-playerbots`,
+  `mod-ollama-chat-es` (tras `git pull`), `mod-warcrafted-teleport` y los dos nuestros. Todo lo verificado hasta ahora es estático (lectura de código, cabeceras,
   firmas, hooks) o consultas `SELECT` de solo lectura.
 - **Dónde se trabaja:** `/home/stark/Repos/acore-sod`, en el servidor Debian `warcrafted`
   (`192.168.1.150`, usuario `stark`). **Es una máquina de producción.**
@@ -58,15 +60,27 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
    Las 4 nuevas, ordenadas por `rune_id`: Fingers of Frost 7000009 (pecho, pasivo 400647 clon del
    talento 44543), Burnout 7000010 (pecho, 412286, clon de 44449 + script C++
    `spell_sod_mage_burnout`), Icy Veins 7000011 (piernas, 425121, clon de 12472) e Ice Lance 7000012
-   (manos, 400640, clon de 30455). **Sin verificar:** los nombres de icono de las 4
-   (`spell_frost_chillingblast`, `spell_fire_burnout`, `spell_frost_coldhearted`,
-   `spell_frost_frostblast`). Los clones heredan sus efectos en el servidor con `inherit_server`
+   (manos, 400640, clon de 30455). Iconos de las 4 verificados con Wowhead el
+   2026-10-05 (`ability_mage_wintersgrasp`, `ability_mage_burnout`, `spell_frost_coldhearted`,
+   `spell_frost_frostblast`; los 2 primeros estaban mal y se corrigieron). Los clones heredan sus efectos en el servidor con `inherit_server`
    (verificado en el SQL generado, no en juego). **Diferencias con SoD:** el chill de Blizzard no activa
    Fingers of Frost; Ice Lance hace x3 contra congelados (core) y no x5; sin Winter's Chill; con
    Icy Veins e Ice Lance reales (talento / nivel 66) el mago tendrá dos copias del hechizo.
-5. **Aplicar el SQL de SoD.** No se ha aplicado nada. Falta decidir el orden y comprobar si el
-   importador de AzerothCore aplica solo `data/sql/db-world/base/` de los módulos (no verificado).
-6. **Parche de cliente y addon:** pasos, copia de seguridad y distribución en
+5. **SQL de SoD: se aplica solo al arrancar el worldserver** (leído en `core/src/server/database/Updater/`,
+   no ejecutado). El actualizador recorre `modules/<módulo>/data/sql/*db-world*/` (y `db-characters`)
+   en profundidad, aplica cada `.sql` por orden global de **nombre de archivo** (los nombres no pueden
+   repetirse entre módulos: es un error fatal) y lo reaplica si cambia su hash. Orden: `rune_engraving_schema.sql`
+   (r) va antes que `sod_*` (s), así que las guardas de `sod_mage_runes.sql` ven ya las tablas del motor;
+   no renombrar los de `sod_` a algo anterior a `rune_`. La configuración del reino de desarrollo
+   (`Servers/acore-test/etc/worldserver.conf`) está bien: `RealmID 2`, puerto 8086, SOAP 7879, bases
+   `acore_world_test`, `acore_characters_test`, `acore_playerbots_test` y `acore_auth` compartida;
+   `Updates.AutoSetup 1` y `Updates.EnableDatabases 7`. La base de bots se rellena con el propio
+   mecanismo de `mod-playerbots` (producción usa lo mismo; no verificado en este reino).
+6. **Parche de cliente generado (2026-10-05), sin probar en juego:** `patch-z.mpq` y
+   `patch-esES-z.mpq` escritos en la copia `datos/cliente-sod/` y guardados en
+   `datos/parche-cliente/20261005-9ea0206/` (con `LEEME.txt`). Falta copiarlos al cliente del usuario
+   (cada MPQ en su carpeta) y el addon RuneEngraver (`https://github.com/mod-sod/RuneEngraver`, clonado en `upstream/`). Detalle:
+   **Parche de cliente y addon:** pasos, copia de seguridad y distribución en
    `docs/guias/preparar-cliente.md`. Los DBC del cliente **no están en este servidor**: el usuario
    decide dónde se genera. Nunca se ha ejecutado.
 6b. **Textos en esES (hecho, sin probar en juego).** El usuario juega en español: el generador acepta
@@ -80,7 +94,42 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
    facciones (hoy en inglés), y aplicar el SQL de locale (no verificado que el importador lo haga).
 7. **Licencia del código original** del repositorio. Lo coherente es GPL v2 o posterior; decide el
    usuario.
-8. **Más clases** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.
+8. **Más clases (en curso, 2026-10-05).** Catálogo oficial de las runas (wago.tools, build final
+   1.15.9.70003): `tools/sod-data/extract_runes.py` genera `docs/runas/catalogo-sod.json` (661 runas de
+   todas las ranuras) y una ficha por clase (`docs/runas/<clase>.md`, solo Chest/Legs/Hands: 106
+   runas, entre 11 y 14 por clase). La clase sale de `SpellClassOptions` y tiene ruido: 4 correcciones
+   explícitas en el script (`CLASS_OVERRIDES`; *Nature's Fury* como chamán es **probable**, sin segunda
+   fuente). Decisiones del usuario: valores de la **versión final**, **escalados a nivel 80**,
+   orden de clases indiferente. **Escalado:** Wowhead publica la fórmula de SoD, p. ej. Lifebloom =
+   `4/100 × 7 × (38,95 + 0,607·L + 0,168·L²)` (poder de hechizo por nivel); permite evaluarla a L=80
+   (×1,71 respecto a L=60) y mantener el coeficiente. Los efectos en % no se escalan. Las 12 runas del
+   mago (valores de nivel 25) necesitan esa misma pasada. **Wowhead:** responde, pero cortó el acceso
+   (HTTP 403) tras ~25 páginas seguidas en pocos minutos: usarlo con pausas largas y pocas
+   peticiones, y dar por no verificada cualquier comprobación masiva. Falta la obtención de las
+   runas (objeto/NPC), que wago no trae. No se ha implementado ninguna runa de otra clase.
+   Equivalentes en WotLK 3.3.5a, solo por nombre exacto (`tools/sod-data/match_wotlk.py`,
+   `docs/runas/equivalencias-wotlk.md/.json`): de las 106, 27 tienen hechizo activo equivalente, 41 son
+   rango de un talento y 38 no existen en WotLK (Raging Blow, Starsurge, Sunfire, Skull Bash...). No
+   garantiza que el hechizo haga lo mismo que la runa.
+   **Política (decidida por el usuario, 2026-10-06): solo se implementan las runas que aportan algo**
+   (las que en WotLK exigen talento, 41, y las que no existen, 38); las ~27 redundantes (el hechizo ya
+   se aprende a esa clase) quedan fuera. El emparejamiento por nombre tiene falsos positivos (Lava
+   Burst, Shadowstrike, Overload, Shadow Bolt Volley apuntan a otros hechizos): validar a mano.
+   **Método:** un clon del rango más alto de WotLK (valores de nivel 80; un clon de rango máximo no
+   escala con el nivel del jugador) + solo las diferencias claras de SoD (lanzamiento, cooldown,
+   duración, coste), `inherit_server`, descripción heredada de la plantilla (concuerda siempre con los
+   valores y trae el español), script del core enlazado si lo necesita. Los specs por clase van en
+   `tools/sod_spells_<clase>.py` (lista `CLASS_SPEC_MODULES` en `sod_spells.py`), el SQL en
+   `sod_<clase>_runes.sql` (nombre con prefijo `sod_`, por el orden de aplicación) y las bandas de
+   `rune_id` salen de `server/mod-rune-engraving/docs/integrating-content.md`.
+   **Hecho:** piloto de brujo, Chaos Bolt 7008001 (403629, clon de 59172, escuela Caos) y Haunt
+   7008002 (403501, clon de 59164 con script `spell_warl_haunt`): solo SQL/Python/JSON, **sin
+   compilar el cambio** y sin probar en juego. Diferencia: la parte de Chaos Bolt que atraviesa
+   absorciones no se implementa. **Aviso:** el generador SALTA en silencio un `sod_spells.py` roto; los
+   módulos de clase se importan sin ese silencio.
+   Plan: primero las de nivel A (clon de un hechizo de WotLK, solo datos); el resto, tras compilar.
+   (Antes: solo después de que el mago compile y funcione.)
+8b. **Más clases (histórico):** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.
 
 ## 4. Lo que ya sabemos (no lo vuelvas a investigar)
 

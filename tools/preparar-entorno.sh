@@ -38,6 +38,7 @@ clonar azerothcore/mod-sod/mod-sod-world            https://github.com/mod-sod/m
 clonar azerothcore/mod-sod/sod-client               https://github.com/mod-sod/sod-client.git                      204627b008b3299948b63876fa949588d9522089
 clonar azerothcore/mod-sod/sod-class-templates      https://github.com/mod-sod/sod-class-templates.git             3727ea6f9658e8552bd13a139b23e4c48530aeb7
 clonar azerothcore/mod-sod/sod-installer            https://github.com/mod-sod/sod-installer.git                   7d5d23ed5443d52fe5b2647b69798243971746b7
+clonar azerothcore/mod-sod/RuneEngraver            https://github.com/mod-sod/RuneEngraver.git                    500f57e20d21309f89d7516da4eb22061f4e100a
 
 # Modulos que se compilan dentro del core (core/modules/ esta ignorado por git en el core).
 mkdir -p core/modules

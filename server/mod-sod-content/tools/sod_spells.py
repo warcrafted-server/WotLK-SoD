@@ -10,6 +10,13 @@ enum constants come from sod_dbc; only Mage-specific ids/curves live here.
 
 from sod_dbc import *  # noqa: F401,F403  (shared WoW enum constants)
 
+import importlib
+import os
+import sys
+
+# Additional class spell specs, loaded from this tools directory.
+CLASS_SPEC_MODULES = ["sod_spells_warlock"]
+
 # Mage skill lines — control the spellbook tab the client files a spell under.
 SKILL_ARCANE = 237
 SKILL_FIRE = 8
@@ -875,6 +882,14 @@ def build_spells(idx):
         spells.append(_living_bomb_copy_dot(_id))
     for _id in (900012, 900013, 900014):
         spells.append(_living_bomb_copy_boom(_id))
+
+    specs_dir = os.path.dirname(os.path.abspath(__file__))
+    if specs_dir not in sys.path:
+        sys.path.insert(0, specs_dir)
+    for module_name in CLASS_SPEC_MODULES:
+        module = importlib.import_module(module_name)
+        spells.extend(module.build(idx))
+
     return spells
 
 # Custom SpellVisual rows for sod-client to add (clone_from, zero listed fields).
