@@ -1,0 +1,22 @@
+[
+  {
+    "id": 99010,
+    "name": "Azora Apprentice Notes (inv_misc_note_06)",
+    "icon": "INV_Misc_Note_06"
+  },
+  {
+    "id": 99000,
+    "name": "Decrepit Phylactery (spell_shadow_devouringplague)",
+    "icon": "Spell_Shadow_DevouringPlague"
+  },
+  {
+    "id": 99001,
+    "name": "Small Courier Satchel (inv_misc_bag_05)",
+    "icon": "INV_Misc_Bag_05"
+  },
+  {
+    "id": 99002,
+    "name": "Sturdy Courier Bag (inv_misc_bag_07_black)",
+    "icon": "INV_Misc_Bag_07_Black"
+  }
+]

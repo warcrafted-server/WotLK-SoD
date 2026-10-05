@@ -193,9 +193,11 @@ un objetivo medible y acotado, no una incógnita.
 
 ## 10. Compatibilidad con el AzerothCore actual
 
-Clonado `azerothcore-wotlk` (commit `1b4717c`, 2026-10-05) en
-`upstream/azerothcore/azerothcore-wotlk/` y comprobado **de forma estática** contra
-`mod-rune-engraving`:
+Clonado `azerothcore-wotlk` oficial (commit `1b4717c`, 2026-10-05) y comprobado **de forma
+estática** contra `mod-rune-engraving`. *(Nota posterior: ese clon se retiró el mismo día al
+adoptarse el fork de Playerbots, [decisión 0003](../decisiones/0003-core-fork-de-playerbots.md);
+la comprobación se repitió contra nuestro `core/` y dio el mismo resultado, con la diferencia de
+que `removeSpell` tiene allí un parámetro menos.)*
 
 - **Cabeceras:** las 24 que incluye el módulo existen en el core (más la propia
   `RuneEngravingMgr.h`).

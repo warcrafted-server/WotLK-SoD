@@ -1,0 +1,102 @@
+#
+# This file is part of the AzerothCore Project. See AUTHORS file for Copyright information
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+
+########################################
+# mod-rune-engraving configuration
+########################################
+#
+#    RuneEngraving.Enable
+#        Description: Master switch for the rune engraving engine. When disabled,
+#                     the catalog is not loaded, the engraver NPC is inert, and no
+#                     rune spells are applied on login. The module is a no-op.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+#
+
+RuneEngraving.Enable = 1
+
+#
+#    RuneEngraving.DebugMenu
+#        Description: Adds a "[Debug] Reset my runes & quests" option to the Rune
+#                     Engraver NPC. It reverts the talking character's gated-rune
+#                     progress: resets every quest mapped in rune_quest_unlock,
+#                     locks every quest- and item-unlocked rune, clears any
+#                     engraving of a now-locked rune, and hands back the unlock item
+#                     for each relocked item-gated rune (e.g. deciphered notes) so
+#                     the discovery can be re-run. For testing; leave off on live.
+#        Default:     0 - (hidden)
+#                     1 - (shown)
+#
+
+RuneEngraving.DebugMenu = 0
+
+#
+#    RuneEngraving.RequiredSpell
+#        Description: Spell ID the character must have learned before they can
+#                     engrave anything (the Season of Discovery "learn Engraving
+#                     first" prerequisite). The engine only enforces it; granting
+#                     the ability is content's job (a quest reward, GM .learn, etc).
+#        Default:     0 - (no prerequisite)
+#
+
+RuneEngraving.RequiredSpell = 0
+
+#
+#    RuneEngraving.SlotMinLevel.*
+#        Description: Minimum character level to engrave into each slot, so slots
+#                     unlock as the character levels. One key per slot; a character
+#                     below the level sees the slot as "(unlocks at N)" and cannot
+#                     engrave it. Set to 1 to make a slot always available.
+#
+#                     The shipped defaults set every slot to 1 (all slots available
+#                     from level 1). The commented phase-gated block below maps each
+#                     SoD engraving slot to the START of its phase's level band (phase
+#                     caps were 25/40/50/60) -- uncomment it (and comment the level-1
+#                     block) to restore SoD-style progression:
+#                       Chest/Legs/Hands   = 1   (Phase 1)
+#                       Waist/Feet         = 26  (Phase 2)
+#                       Head/Wrist         = 41  (Phase 3)
+#                       Cloak/Ring         = 51  (Phase 4)
+#                       Neck/Shoulder      = 60  (not SoD slots; generic)
+#
+#                     Note: SoD itself gated slots by the server phase + rune
+#                     discovery, NOT character level (level-25 twinks in later
+#                     phases used higher-phase runes). On a single, non-phased
+#                     realm these levels approximate that progression; raise them
+#                     toward the phase caps, or set 1 to drop level gating.
+#
+
+# Default: every slot available at level 1 (no level gating).
+RuneEngraving.SlotMinLevel.Head     = 1
+RuneEngraving.SlotMinLevel.Neck     = 1
+RuneEngraving.SlotMinLevel.Shoulder = 1
+RuneEngraving.SlotMinLevel.Cloak    = 1
+RuneEngraving.SlotMinLevel.Chest    = 1
+RuneEngraving.SlotMinLevel.Wrist    = 1
+RuneEngraving.SlotMinLevel.Hands    = 1
+RuneEngraving.SlotMinLevel.Waist    = 1
+RuneEngraving.SlotMinLevel.Legs     = 1
+RuneEngraving.SlotMinLevel.Feet     = 1
+RuneEngraving.SlotMinLevel.Ring     = 1
+
+# SoD phase-gated values (uncomment this block and comment the one above to restore):
+#RuneEngraving.SlotMinLevel.Head     = 41
+#RuneEngraving.SlotMinLevel.Neck     = 60
+#RuneEngraving.SlotMinLevel.Shoulder = 60
+#RuneEngraving.SlotMinLevel.Cloak    = 51
+#RuneEngraving.SlotMinLevel.Chest    = 1
+#RuneEngraving.SlotMinLevel.Wrist    = 41
+#RuneEngraving.SlotMinLevel.Hands    = 1
+#RuneEngraving.SlotMinLevel.Waist    = 26
+#RuneEngraving.SlotMinLevel.Legs     = 1
+#RuneEngraving.SlotMinLevel.Feet     = 26
+#RuneEngraving.SlotMinLevel.Ring     = 51

@@ -53,42 +53,48 @@ convivimos. No mezcles idiomas dentro de una misma frase.
 
 ### 2. Qué es este proyecto
 
-Emulador de servidor de World of Warcraft para la rama **Classic** (vanilla 1.x / Classic Era),
-paralelo e independiente del AzerothCore (WotLK 3.3.5a, build 12340) que ya se mantiene aparte.
-En el futuro podría derivarse una variante para la versión «forever»; **eso está fuera de
-alcance hoy** y no se diseña por adelantado.
+Servidor de World of Warcraft tipo **Season of Discovery (SoD)**, en repositorio
+`warcrafted-server/WotLK-SoD`. **No es un emulador nuevo**: es **AzerothCore (WotLK 3.3.5a,
+cliente build 12340) con módulos propios**, sobre un fork nuestro del core con Playerbots. Es
+independiente del AzerothCore de WotLK que el usuario ya mantiene aparte y no debe mezclarse con él.
 
-Fase actual: **investigación de viabilidad**. No se escribe código del servidor hasta que
-exista una decisión registrada en `docs/decisiones/` sobre core base y versión de cliente.
+Decisiones que condicionan todo el trabajo (están razonadas en `docs/decisiones/`):
+
+- **Core:** fork `warcrafted-server/azerothcore-wotlk`, rama `Playerbot-SoD` (decisión 0003).
+- **Arquitectura:** core + motor de runas + **un solo módulo de contenido para todas las
+  clases** (decisión 0004). No se crea un módulo por clase.
+- **Niveles:** se empieza en 60 y **se llegará al 80** más adelante (decisión 0002). Por eso
+  ningún tope de nivel se escribe como constante en el código: va como parámetro de configuración.
+- **Alcance:** SoD completo (8 fases, 218 runas como mínimo) no es objetivo. Primer hito: fase 1
+  (nivel 25), tres ranuras y 12 runas por clase.
+- La variante «forever» está fuera de alcance.
+
+Fase actual: **construcción del primer hito**. Nada se ha compilado todavía: el build real queda
+pendiente (ver `docs/guias/compilar-en-linux.md`). **Di siempre en los informes si algo está
+compilado y probado o no; no lo des por hecho.**
 
 ### 3. Estructura de directorios: no mezcles conceptos
 
-| Directorio            | Qué contiene                                                         | ¿Se versiona? |
-|-----------------------|----------------------------------------------------------------------|---------------|
-| `docs/investigacion/` | Informes de investigación, comparativas, hallazgos con fuentes       | Sí            |
-| `docs/decisiones/`    | Decisiones tomadas, una por archivo, con fecha y motivo (tipo ADR)   | Sí            |
-| `upstream/`           | Clones de proyectos de terceros, **solo lectura** (ver §3.1)          | No (ignorado) |
-| `server/`             | Nuestro código propio del emulador                                   | Sí            |
-| `tools/`              | Nuestros scripts de build, extracción y utilidades                   | Sí            |
-| `datos/`              | Datos extraídos del cliente de WoW (DBC, mapas, vmaps, MPQ)          | No (ignorado) |
+| Directorio            | Qué contiene                                                          | ¿Se versiona? |
+|-----------------------|-----------------------------------------------------------------------|---------------|
+| `docs/investigacion/` | Informes de investigación, comparativas, hallazgos con fuentes        | Sí            |
+| `docs/decisiones/`    | Decisiones tomadas, una por archivo, con fecha y motivo (tipo ADR)    | Sí            |
+| `docs/guias/`         | Procedimientos operativos (cómo compilar, desplegar…)                 | Sí            |
+| `server/`             | **Nuestros módulos** de AzerothCore (ver §3.2)                        | Sí            |
+| `tools/`              | Nuestros scripts y herramientas (incluye `sod-client`)                | Sí            |
+| `core/`               | **Nuestro fork del core** (repositorio git independiente, ver §3.3)   | No (ignorado) |
+| `upstream/`           | Clones de terceros, **solo lectura** (ver §3.1)                       | No (ignorado) |
+| `datos/`              | Datos extraídos del cliente de WoW (DBC, mapas, vmaps, MPQ)           | No (ignorado) |
 
 Reglas duras:
 
 - **Nunca** modifiques nada dentro de `upstream/`. Es material de referencia de terceros. Si
-  hace falta cambiar código de un core, se hace en `server/` como parche o fork propio, y se
-  documenta de dónde viene.
+  hace falta cambiar un módulo de terceros, se copia a `server/` (con su `ORIGEN.md`); si hace
+  falta cambiar el core, se hace en `core/`, en la rama `Playerbot-SoD` de nuestro fork.
 - **Nunca** confirmes datos del cliente de WoW, archivos MPQ, DBC, mapas ni artefactos
   extraídos. Son propiedad de Blizzard y además pesan gigabytes. Ya están en `.gitignore`.
 - Un concepto, un directorio. Si dudas de dónde va un archivo, pregunta antes de inventar
   una carpeta nueva.
-
-### 3.2. Código propio en `server/`
-
-Cada módulo propio que parta de un proyecto de terceros va en **su propio subdirectorio de
-`server/`** y lleva un `ORIGEN.md` con: URL de origen, **commit de partida**, licencia y una
-lista fechada de los cambios respecto al original. Los commits de `upstream/` se fijan en
-`tools/clonar-upstream.sh`, que reconstruye esa carpeta en cualquier máquina; si cambias de
-commit de partida, actualiza ese script y el `ORIGEN.md`.
 
 ### 3.1. Organización de `upstream/`
 
@@ -98,14 +104,32 @@ TrinityCore, MaNGOS…) y sus módulos, y mezclarlos los haría indistinguibles.
 
 ```
 upstream/
-  azerothcore/            El core y todo lo que es suyo
-    mod-sod/                Los módulos de la familia mod-sod
-  trinitycore/            Si algún día hace falta, aquí
-  herramientas/           Utilidades independientes de core (p. ej. wow-patcher)
+  mod-playerbots/         Proyecto Playerbots
+    mod-playerbots/         El módulo de bots (se compila tal cual, enlazado en core/modules/)
+  azerothcore/            Proyecto AzerothCore
+    mod-sod/                Los repositorios de la familia mod-sod, de REFERENCIA
 ```
 
 Regla: antes de clonar, pregúntate **de qué proyecto es esto**, y crea o usa su directorio.
 Un módulo va dentro del core al que pertenece, no al lado.
+
+### 3.2. Código propio en `server/`
+
+Cada módulo propio que parta de un proyecto de terceros va en **su propio subdirectorio de
+`server/`** y lleva un `ORIGEN.md` con: URL de origen, **commit de partida**, licencia y una
+lista fechada de los cambios respecto al original. Hoy hay dos: `mod-rune-engraving` (motor) y
+`mod-sod-content` (todas las clases y el mundo; una clase = un subdirectorio de `src/`).
+Los commits de `upstream/` se fijan en `tools/preparar-entorno.sh`, que reconstruye el entorno
+en cualquier máquina; si cambias de commit de partida, actualiza ese script y el `ORIGEN.md`.
+
+### 3.3. El core en `core/`
+
+`core/` es un clon de **nuestro fork** (`warcrafted-server/azerothcore-wotlk`, rama
+`Playerbot-SoD`). Es un repositorio git **independiente**: sus commits y su `push` son suyos y
+no pasan por este repositorio. Los módulos se compilan enlazándolos en `core/modules/`
+(ignorado por el propio core). Parchea el core **solo si ningún hook de módulo lo permite**: cada
+línea ahí es una línea que reconciliar en cada fusión con Playerbots. Las firmas del core no son
+las del AzerothCore oficial: comprueba siempre contra `core/`.
 
 ### 4. Legalidad y procedencia
 
@@ -138,6 +162,11 @@ Esta es la norma que más importa en fase de investigación.
   revisión y auditoría.
 - El ejecutor toca solo los archivos de su tarea. Si ve que necesita otros, lo dice en el
   informe en lugar de ampliar el alcance por su cuenta.
+- **Cómo encargar bien una tarea al ejecutor** (lección del 2026-10-05, cuando una tarea abierta
+  consumió 7,5 M de tokens y 40 minutos sin escribir ni un archivo): una tarea = un objetivo
+  cerrado y pocos archivos; **los datos externos los aporta el orquestador ya masticados** (IDs,
+  valores, URLs exactas) en lugar de pedir al ejecutor que los busque; y las validaciones deben
+  funcionar en el shell del ejecutor, que en Windows es `cmd` (**sin `grep`**): usa `python -c`.
 - Commits en castellano, en imperativo y concretos («Añade extractor de DBC», no «cambios»).
 - No se hace `push` sin que el usuario lo pida.
 - No se dice «hecho» sin haberlo comprobado ejecutándolo.

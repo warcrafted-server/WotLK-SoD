@@ -1,0 +1,252 @@
+[
+  {
+    "id": 211779,
+    "name": "Comprehension Charm",
+    "class": 15,
+    "subclass": 1,
+    "material": 1,
+    "display": 31029,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208754,
+    "name": "Spell Notes: TENGI RONEERA",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208753,
+    "name": "Spell Notes: Regeneration",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211514,
+    "name": "Spell Notes: Mass Regeneration",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203752,
+    "name": "Spell Notes: MILEGIN VALF",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203746,
+    "name": "Spell Notes: Living Flame",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203756,
+    "name": "Azora Apprentice Notes: Page 1",
+    "class": 15,
+    "subclass": 0,
+    "material": 2,
+    "display": 99010,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203960,
+    "name": "Azora Apprentice Notes: Page 2",
+    "class": 15,
+    "subclass": 0,
+    "material": 2,
+    "display": 99010,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203961,
+    "name": "Azora Apprentice Notes: Page 3",
+    "class": 15,
+    "subclass": 0,
+    "material": 2,
+    "display": 99010,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203962,
+    "name": "Azora Apprentice Notes: Page 4",
+    "class": 15,
+    "subclass": 0,
+    "material": 2,
+    "display": 99010,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 203749,
+    "name": "Spell Notes: Enlightenment",
+    "class": 15,
+    "subclass": 0,
+    "material": 2,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211386,
+    "name": "Spell Notes: Arcane Surge",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211691,
+    "name": "Spell Notes: Arcane Blast",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210654,
+    "name": "Spell Notes: Rewind Time",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208799,
+    "name": "Spell Notes: Living Bomb",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210568,
+    "name": "Decrepit Phylactery",
+    "class": 15,
+    "subclass": 0,
+    "material": 0,
+    "display": 99000,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211367,
+    "name": "Supply Shipment",
+    "class": 7,
+    "subclass": 0,
+    "material": 0,
+    "display": 8928,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211839,
+    "name": "Supply Shipment",
+    "class": 7,
+    "subclass": 0,
+    "material": 0,
+    "display": 8928,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 217337,
+    "name": "Supply Shipment",
+    "class": 7,
+    "subclass": 0,
+    "material": 0,
+    "display": 8928,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221008,
+    "name": "Supply Shipment",
+    "class": 7,
+    "subclass": 0,
+    "material": 0,
+    "display": 8928,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211382,
+    "name": "Small Courier Satchel",
+    "class": 1,
+    "subclass": 0,
+    "material": 0,
+    "display": 99001,
+    "invtype": 18,
+    "sheath": 0
+  },
+  {
+    "id": 211384,
+    "name": "Sturdy Courier Bag",
+    "class": 1,
+    "subclass": 0,
+    "material": 0,
+    "display": 99002,
+    "invtype": 18,
+    "sheath": 0
+  },
+  {
+    "id": 212588,
+    "name": "Provisioner's Gloves",
+    "class": 4,
+    "subclass": 1,
+    "material": 7,
+    "display": 25885,
+    "invtype": 10,
+    "sheath": 0
+  },
+  {
+    "id": 212589,
+    "name": "Courier Treads",
+    "class": 4,
+    "subclass": 2,
+    "material": 8,
+    "display": 16981,
+    "invtype": 8,
+    "sheath": 0
+  },
+  {
+    "id": 212590,
+    "name": "Hoist Strap",
+    "class": 4,
+    "subclass": 3,
+    "material": 5,
+    "display": 7563,
+    "invtype": 6,
+    "sheath": 0
+  }
+]

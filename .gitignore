@@ -33,3 +33,9 @@ datos/
 *.mmtile
 *.map
 build/
+
+# Configuracion local de Claude Code (rutas y permisos de esta maquina)
+.claude/
+
+# Nuestro fork del core: repositorio independiente (warcrafted-server/azerothcore-wotlk, rama Playerbot-SoD)
+core/
