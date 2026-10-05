@@ -17,3 +17,19 @@ agentrelay.config.json
 *.log
 .DS_Store
 Thumbs.db
+
+# --- Classic Era: material que NUNCA se confirma ---
+# Fuentes de terceros (se clonan, no se versionan aquí)
+upstream/*/
+!upstream/.gitkeep
+# Datos del cliente de WoW y artefactos extraídos (propiedad de Blizzard, además pesan GB)
+datos/
+*.MPQ
+*.mpq
+*.dbc
+*.db2
+*.vmtree
+*.vmtile
+*.mmtile
+*.map
+build/

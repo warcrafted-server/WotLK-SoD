@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -a \"c:/Users/msanc/Documents/Projectes/Classic era\" 2>&1; echo \"---PARENT---\"; ls \"c:/Users/msanc/Documents/Projectes\"; echo \"---AGENTRELAY---\"; which agentrelay || echo \"no agentrelay\")",
+      "Read(//c/Users/msanc/Documents/Projectes/**)"
+    ]
+  }
+}

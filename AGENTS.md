@@ -37,3 +37,82 @@ EOF
 - **En Windows (PowerShell o cmd)** usa `agentrelay.cmd` en lugar de `agentrelay` (el segundo es un script de Unix y falla con errores de `sed`, `dirname` o `uname`). Nunca modifiques ese script. El `<<EOF` no existe en PowerShell: guarda el JSON de la tarea en un archivo temporal FUERA del repositorio (por ejemplo `$env:TEMP\tarea.json`) y lanza `agentrelay.cmd run $env:TEMP\tarea.json`; un archivo dentro del repositorio ensuciaría el árbol.
 - Si una ejecución falla por una causa externa (sesión caducada, PowerShell bloqueado), díselo al usuario en lugar de hacer el trabajo tú en silencio.
 <!-- agentrelay:end -->
+
+## Normas del proyecto (orquestador Y ejecutores)
+
+Estas normas son de cumplimiento obligatorio para cualquier agente que trabaje en este
+repositorio, tanto si actúa como orquestador (planifica y delega) como si actúa de ejecutor
+(recibe una tarea con `agentrelay run`). Léelas antes de tocar nada.
+
+### 1. Idioma
+
+Todo en **castellano**: respuestas, documentación, comentarios del código, mensajes de commit
+e informes de ejecución. Los identificadores del código (nombres de variables, funciones,
+clases, ramas) van en **inglés**, como es costumbre en los cores de WoW con los que
+convivimos. No mezcles idiomas dentro de una misma frase.
+
+### 2. Qué es este proyecto
+
+Emulador de servidor de World of Warcraft para la rama **Classic** (vanilla 1.x / Classic Era),
+paralelo e independiente del AzerothCore (WotLK 3.3.5a, build 12340) que ya se mantiene aparte.
+En el futuro podría derivarse una variante para la versión «forever»; **eso está fuera de
+alcance hoy** y no se diseña por adelantado.
+
+Fase actual: **investigación de viabilidad**. No se escribe código del servidor hasta que
+exista una decisión registrada en `docs/decisiones/` sobre core base y versión de cliente.
+
+### 3. Estructura de directorios: no mezcles conceptos
+
+| Directorio            | Qué contiene                                                         | ¿Se versiona? |
+|-----------------------|----------------------------------------------------------------------|---------------|
+| `docs/investigacion/` | Informes de investigación, comparativas, hallazgos con fuentes       | Sí            |
+| `docs/decisiones/`    | Decisiones tomadas, una por archivo, con fecha y motivo (tipo ADR)   | Sí            |
+| `upstream/`           | Clones de proyectos de terceros, **solo lectura** (uno por subdir)   | No (ignorado) |
+| `server/`             | Nuestro código propio del emulador                                   | Sí            |
+| `tools/`              | Nuestros scripts de build, extracción y utilidades                   | Sí            |
+| `datos/`              | Datos extraídos del cliente de WoW (DBC, mapas, vmaps, MPQ)          | No (ignorado) |
+
+Reglas duras:
+
+- **Nunca** modifiques nada dentro de `upstream/`. Es material de referencia de terceros. Si
+  hace falta cambiar código de un core, se hace en `server/` como parche o fork propio, y se
+  documenta de dónde viene.
+- **Nunca** confirmes datos del cliente de WoW, archivos MPQ, DBC, mapas ni artefactos
+  extraídos. Son propiedad de Blizzard y además pesan gigabytes. Ya están en `.gitignore`.
+- Un concepto, un directorio. Si dudas de dónde va un archivo, pregunta antes de inventar
+  una carpeta nueva.
+
+### 4. Legalidad y procedencia
+
+- Solo se usa código de proyectos con licencia compatible (GPL/AGPL) y se respeta y documenta
+  su licencia y atribución en `docs/decisiones/`.
+- **No se distribuyen** datos ni binarios del cliente de WoW. El usuario aporta su propio
+  cliente legítimo; nosotros solo escribimos herramientas que lo leen en local.
+- Nada de este proyecto sirve para eludir la autenticación de servicios de Blizzard ni para
+  operar un servidor público sin valorar antes las implicaciones. Es un servidor privado de
+  estudio.
+
+### 5. Rigor: no inventes
+
+Esta es la norma que más importa en fase de investigación.
+
+- Toda afirmación sobre un proyecto externo (versión de cliente soportada, actividad, licencia,
+  build) va **con URL y fecha de consulta**. Sin fuente, no se escribe.
+- Si no puedes verificar algo, dilo de forma explícita en una sección
+  «incertidumbres / no verificado». Una laguna reconocida vale mucho más que una suposición
+  presentada como hecho.
+- No inventes números de build, nombres de rama, comandos ni cifras de rendimiento o coste.
+- Si una tarea delegada no se puede completar como estaba descrita, dilo en el informe en vez
+  de entregar algo a medias que parezca terminado.
+
+### 6. Flujo de trabajo
+
+- El orquestador delega la implementación y **revisa siempre** el diff completo y el informe;
+  la autorrevisión del ejecutor no sustituye la revisión. Delegar es la norma, no la excepción:
+  el objetivo expreso es ahorrar consumo del orquestador reservándolo para diseño,
+  revisión y auditoría.
+- El ejecutor toca solo los archivos de su tarea. Si ve que necesita otros, lo dice en el
+  informe en lugar de ampliar el alcance por su cuenta.
+- Commits en castellano, en imperativo y concretos («Añade extractor de DBC», no «cambios»).
+- No se hace `push` sin que el usuario lo pida.
+- No se dice «hecho» sin haberlo comprobado ejecutándolo.
