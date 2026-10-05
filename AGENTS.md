@@ -162,6 +162,16 @@ Esta es la norma que más importa en fase de investigación.
   revisión y auditoría.
 - El ejecutor toca solo los archivos de su tarea. Si ve que necesita otros, lo dice en el
   informe en lugar de ampliar el alcance por su cuenta.
+- **El orquestador NO compila**: no ejecuta `cmake`, `make` ni `make install`. Los pide al usuario
+  con los comandos exactos y espera el resultado (decisión 0005). Tampoco aplica SQL de
+  este proyecto a ninguna base de datos sin que se le pida.
+- **El servidor Debian (`192.168.1.150`) es una máquina de producción.** Con SSH solo se hace lo
+  autorizado: el proyecto vive en `/home/stark/Repos/acore-sod` y se compila en
+  `/home/stark/Repos/acore-test` (reino de **desarrollo**, id 2). No se toca `Servers/acore-playerbots`
+  (reino de producción, id 1) ni las bases de datos sin sufijo `_test`. Antes de tocar algo en
+  vivo, comprueba a qué reino pertenece. Las normas del servidor están en
+  `/home/stark/Repos/CLAUDE.md`: mantener `CHANGELOG.md`, README y `docs/` al día con cada
+  cambio relevante.
 - **Cómo encargar bien una tarea al ejecutor** (lección del 2026-10-05, cuando una tarea abierta
   consumió 7,5 M de tokens y 40 minutos sin escribir ni un archivo): una tarea = un objetivo
   cerrado y pocos archivos; **los datos externos los aporta el orquestador ya masticados** (IDs,

@@ -2,6 +2,24 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-05 (servidor de pruebas)
+
+### Añadido
+- Proyecto portado al servidor Debian: `/home/stark/Repos/acore-sod` (clon de este repositorio),
+  con `core/` (fork `Playerbot-SoD`) y `upstream/` reconstruidos con `tools/preparar-entorno.sh`.
+- `acore-test` preparado para compilar: remoto `sod` y rama `Playerbot-SoD` (mismo commit que
+  tenía), y enlaces a `mod-rune-engraving` y `mod-sod-content` en `modules/`.
+- Decisión `0005` (entorno de pruebas) y sección 7 de la guía de compilación, con los comandos
+  concretos.
+
+### Verificado
+- El servidor cumple los requisitos de AzerothCore (Debian 13, Clang 19, MySQL 8.4).
+- 0 colisiones de ids entre nuestro SQL y `acore_world_test` (67 ids comprobados).
+
+### Notas
+- El reino de desarrollo (id 2) pasará a ser el de SoD al instalar.
+- El orquestador no compila: lo hace el usuario.
+
 ## 2026-10-05
 
 ### Añadido
