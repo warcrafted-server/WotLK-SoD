@@ -30,6 +30,49 @@ def build(idx):
                 "ManaCostPct": 45,
             },
         },
+        {  # Lacerate: retain rank-3 damage and its WotLK attack-power coefficient.
+            "id": 414644, "client": True, "template": 48568,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Lacerate", "inherit_server": True,
+            "bonus": {"direct": 0, "dot": 0, "ap": 0, "ap_dot": 0.01},
+            "scale_to_level": {"effects": [1], "level": 80},
+            "overrides": {
+                "ManaCost": 100,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Savage Roar: its paired core scripts remain rank-independent.
+            "id": 407988, "client": True, "template": 52610,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Savage Roar", "script": "spell_dru_savage_roar",
+            "inherit_server": True,
+            "overrides": {
+                "SpellLevel": 0,
+            },
+        },
+        {  # Berserk: use the active talent, not its 51266 trigger spell.
+            "id": 417141, "client": True, "template": 50334,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Berserk", "script": "spell_dru_berserk",
+            "inherit_server": True,
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Survival Instincts: preserve its max-health script at SoD's 20%.
+            "id": 408024, "client": True, "template": 61336,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Survival Instincts",
+            "script": "spell_dru_survival_instincts",
+            "inherit_server": True,
+            "overrides": {
+                "RecoveryTime": 180000,
+                "CategoryRecoveryTime": 0,
+                "EffectBasePoints_1": 19,
+                "SpellLevel": 0,
+            },
+        },
         {  # SoD's 10% bear-form reduction (411124) is omitted; it needs C++.
             "id": 411115, "client": True, "template": 774,
             "skill_line": SKILL_FERAL_COMBAT,

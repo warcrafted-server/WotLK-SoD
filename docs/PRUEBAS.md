@@ -83,6 +83,10 @@ que el personaje no tiene (Divine Storm, Mutilate, Haunt: comprobar que funciona
 
 Solo SQL y parche, **no hace falta recompilar**: copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`, reiniciar el reino y comprobar: Explosive Shot (rune 7003003, Manos), daño de Chaos Bolt, Haunt, Avenger's Shield, Circle of Healing y Wild Growth que crece con el nivel (a 80 coinciden con WotLK), y nombres de NPC y misiones del mundo de SoD en español.
 
+## Druida feral (prioridad), solo SQL y parche, sin recompilar
+
+Copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq` y reiniciar el reino. Runas nuevas del druida (`.rune engrave <ranura> <id>`): Lacerate 7009003 (ranura 8), Savage Roar 7009004 (8), Berserk 7009005 (7), Survival Instincts 7009006 (9); ya estaban Wild Growth 7009001 (6) y Survival of the Fittest 7009002 (4). Comprobar que salen en el libro con icono y texto, que se lanzan y que Lacerate hace daño periódico que crece con el nivel. **Diferencias conocidas con SoD** (no son fallos): Lacerate sin el daño de arma por acumulación; Berserk sin multiobjetivo de Lacerate, sin quitar el miedo ni inmunidad; Survival Instincts sin regeneración al esquivar ni sanación no física.
+
 ## Hecho
 
 - 2026-10-06, tras compilar: textos en español, addon y tooltip correctos. `.rune slots` dice «nivel 1» en Pecho, Manos y Piernas: es lo configurado (`RuneEngraving.SlotMinLevel.*` = 1, como la fase 1 de SoD), no depende de ser GM. Los números 4, 6 y 8 son los índices de ranura para `.rune engrave`.
