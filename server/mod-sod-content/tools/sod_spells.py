@@ -18,7 +18,7 @@ import sys
 CLASS_SPEC_MODULES = [
     "sod_spells_warlock", "sod_spells_warrior", "sod_spells_paladin",
     "sod_spells_rogue", "sod_spells_priest", "sod_spells_shaman",
-    "sod_spells_druid",
+    "sod_spells_druid", "sod_spells_hunter",
 ]
 
 # Mage skill lines — control the spellbook tab the client files a spell under.

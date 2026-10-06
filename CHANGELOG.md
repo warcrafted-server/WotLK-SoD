@@ -26,6 +26,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 - Piloto de runas de otra clase (brujo): Chaos Bolt y Haunt (`sod_spells_warlock.py`, `sod_warlock_runes.sql`); `sod_spells.py` carga los specs por clase.
 
+- Runa Chimera Shot de cazador (clon de WotLK, sin compilar ni probar); Explosive Shot sigue pendiente.
 - Runas castables de guerrero, paladín, pícaro, sacerdote, chamán y druida (11, clones de WotLK, sin compilar ni probar). Penance sin script del core (exige su cadena de rangos). Cazador pendiente: el coste de Explosive Shot es 3,5 % y `ManaCostPct` es entero.
 
 ### Cambiado
