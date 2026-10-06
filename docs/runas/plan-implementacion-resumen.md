@@ -1,36 +1,47 @@
 # Resumen del plan de runas de SoD
 
-Conteos del catálogo completo; P/T/C/R y sin clasificar cuentan solo runas pendientes.
+## Totales por categoría
 
-## Pendientes por nivel
+| Runa | Alma | Racial | Ruido | Total |
+|---:|---:|---:|---:|---:|
+| 256 | 206 | 11 | 188 | 661 |
 
-| Nivel | Runas |
-|---|---:|
-| P — Pasiva | 28 |
-| T — Proc o disparo | 42 |
-| C — Requiere C++ | 130 |
-| R — Redundante en WotLK | 225 |
-| Sin clasificar | 206 |
+## Runas por ranura
 
-## Pendientes e implementadas por fase
-
-| Fase | Pendientes | Implementadas | Total |
+| Ranura | Runas | Implementadas | Pendientes |
 |---|---:|---:|---:|
-| Fase 1 | 77 | 29 | 106 |
-| desconocida | 554 | 1 | 555 |
+| Pecho (Chest) | 34 | 8 | 26 |
+| Piernas (Legs) | 36 | 8 | 28 |
+| Manos (Hands) | 36 | 13 | 23 |
+| Muñecas (Bracer) | 32 | 1 | 31 |
+| Cintura (Waist) | 30 | 0 | 30 |
+| Pies (Feet) | 30 | 0 | 30 |
+| Cabeza (Helm) | 29 | 0 | 29 |
+| Espalda (Cloak) | 29 | 0 | 29 |
 
-## Pendientes por clase
+## Pendientes de runa por nivel
 
-| Clase | P | T | C | R | Sin clasificar | Implementadas | Total |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Brujo | 1 | 3 | 20 | 27 | 0 | 3 | 54 |
-| Caballero de la Muerte | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Cazador | 3 | 5 | 15 | 31 | 0 | 3 | 57 |
-| Chamán | 1 | 3 | 15 | 26 | 0 | 2 | 47 |
-| Druida | 14 | 3 | 11 | 32 | 0 | 2 | 62 |
-| Guerrero | 3 | 8 | 15 | 10 | 0 | 1 | 37 |
-| Mago | 3 | 2 | 9 | 28 | 0 | 11 | 53 |
-| Paladín | 1 | 4 | 11 | 20 | 0 | 5 | 41 |
-| Pícaro | 0 | 7 | 20 | 27 | 0 | 1 | 55 |
-| Sacerdote | 2 | 7 | 14 | 24 | 0 | 2 | 49 |
-| Desconocida | 0 | 0 | 0 | 0 | 206 | 0 | 206 |
+| P | T | C | R | Total |
+|---:|---:|---:|---:|---:|
+| 20 | 39 | 116 | 51 | 226 |
+
+## Totales por clase y categoría
+
+| Clase | Runas | Almas | Raciales | Ruido |
+|---|---:|---:|---:|---:|
+| Brujo | 27 | 0 | 0 | 27 |
+| Cazador | 29 | 0 | 0 | 28 |
+| Chamán | 30 | 0 | 0 | 17 |
+| Druida | 27 | 0 | 0 | 35 |
+| Guerrero | 30 | 0 | 0 | 7 |
+| Mago | 29 | 0 | 0 | 24 |
+| Paladín | 29 | 0 | 0 | 12 |
+| Pícaro | 28 | 0 | 0 | 27 |
+| Sacerdote | 27 | 0 | 11 | 11 |
+| Desconocida | 0 | 206 | 0 | 0 |
+
+## Almas por nivel (sin R)
+
+| P | T | C | Sin clasificar | Total |
+|---:|---:|---:|---:|---:|
+| 0 | 0 | 206 | 0 | 206 |

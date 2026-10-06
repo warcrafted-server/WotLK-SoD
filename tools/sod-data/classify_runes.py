@@ -32,24 +32,27 @@ CLASS_NAMES = {
     "shaman": "Chamán", "warlock": "Brujo", "warrior": "Guerrero",
     "deathknight": "Caballero de la Muerte", "desconocida": "Desconocida",
 }
-SLOT_NAMES = {
-    "Chest": "Pecho", "Legs": "Piernas", "Hands": "Manos",
-    "Wrist": "Muñecas", "Waist": "Cintura", "Feet": "Pies",
-    "Head": "Cabeza", "Neck": "Cuello", "Shoulder": "Hombros",
-    "Cloak": "Capa", "Ring": "Anillo",
+ENGRAVING_SLOTS = {
+    399954: ("Chest", "Pecho"),
+    399966: ("Legs", "Piernas"),
+    399967: ("Hands", "Manos"),
+    417346: ("Bracer", "Muñecas"),
+    415449: ("Waist", "Cintura"),
+    415450: ("Feet", "Pies"),
+    417345: ("Helm", "Cabeza"),
+    417347: ("Cloak", "Espalda"),
 }
-SLOT_PHASES = {
-    "chest": "Fase 1", "legs": "Fase 1", "hands": "Fase 1",
-    "wrist": "Fase 2", "waist": "Fase 2", "feet": "Fase 2",
-    "head": "Fase 3",
+SOUL_SLOT_ID = 1219955
+RACIAL_SLOT_IDS = {459695, 1219274}
+SLOT_ORDER = {
+    slot_id: index for index, slot_id in enumerate(ENGRAVING_SLOTS)
 }
+CATEGORY_ORDER = {"runa": 0, "alma": 1, "racial": 2, "ruido": 3}
 TYPE_NAMES = {
     "talento": "Talento", "sin_equivalente": "Sin equivalente",
     "activo": "Activo", "pasivo": "Pasivo", "sin_clasificar": "Sin clasificar",
 }
 LEVEL_ORDER = {"P": 0, "T": 1, "C": 2, "R": 3, None: 4}
-PHASE_ORDER = {"Fase 1": 1, "Fase 2": 2, "Fase 3": 3, "Fase 4": 4, "desconocida": 5}
-SLOT_ORDER = {name.casefold(): index for index, name in enumerate(SLOT_NAMES)}
 
 
 def number(value):
@@ -186,15 +189,29 @@ def implemented_spell_ids(catalog_ids):
     return found & catalog_ids
 
 
-def phase_for_slot(slot):
-    """Return only phases supported by an explicit catalog slot name."""
-    return SLOT_PHASES.get((slot or "").casefold(), "desconocida")
+def category_for_slot(slot_id):
+    """Return the catalog category determined by its slot spell id."""
+    if slot_id in ENGRAVING_SLOTS:
+        return "runa"
+    if slot_id == SOUL_SLOT_ID:
+        return "alma"
+    if slot_id in RACIAL_SLOT_IDS:
+        return "racial"
+    return "ruido"
 
 
-def display_slot(slot):
-    if not slot:
-        return "desconocida"
-    return SLOT_NAMES.get(slot, slot)
+def slot_labels(rune, category):
+    """Return stable slot labels while preserving unknown catalog values."""
+    slot_id = rune.get("slot_id")
+    if category == "runa":
+        english, spanish = ENGRAVING_SLOTS[slot_id]
+        return english, spanish, english
+    if category == "alma":
+        return "Soul Engraving", "Grabado de alma", "Soul Engraving"
+    slot = rune.get("slot") or "desconocida"
+    if slot_id == 459695:
+        slot = "Priest Racial Ability"
+    return slot, slot, None
 
 
 def build_plan(catalog, stored_equivalences, implemented_ids, spells_by_name):
@@ -204,18 +221,18 @@ def build_plan(catalog, stored_equivalences, implemented_ids, spells_by_name):
     plan = []
     for rune in catalog:
         spell_id = rune.get("taught_spell_id")
+        slot_id = rune.get("slot_id")
+        category = category_for_slot(slot_id)
         class_name = rune.get("clase") or "desconocida"
-        slot = rune.get("slot") or "desconocida"
-        implemented = spell_id in implemented_ids
+        slot, slot_name, slot_name_en = slot_labels(rune, category)
+        implemented = spell_id in implemented_ids if category == "runa" else None
+        redundant = False
+        templates = []
 
-        if class_name == "desconocida" or class_name not in CLASS_NAMES:
-            rune_type = "sin_clasificar"
-            level = None
-            reason = "El catálogo no aporta una clase que permita clasificar esta runa."
-            templates = []
-            redundant = False
-        else:
-            rune_type, templates = infer_equivalence(rune, stored_by_id, spells_by_name)
+        if category == "runa":
+            rune_type, templates = infer_equivalence(
+                rune, stored_by_id, spells_by_name
+            )
             redundant = rune_type == "activo" and bool(templates)
             if redundant:
                 level = "R"
@@ -225,14 +242,27 @@ def build_plan(catalog, stored_equivalences, implemented_ids, spells_by_name):
                 )
             else:
                 level, reason = classify(rune, rune_type)
+        elif category == "alma":
+            rune_type = "sin_equivalente"
+            level, reason = classify(rune, rune_type)
+        elif category == "racial":
+            rune_type = "sin_clasificar"
+            level = None
+            reason = "El slot_id {} identifica una ranura racial, fuera del sistema de grabado de runas.".format(slot_id)
+        else:
+            rune_type = "sin_clasificar"
+            level = None
+            reason = "El slot_id {} no corresponde a una ranura de grabado ni a Soul Engraving.".format(slot_id)
 
         plan.append({
             "taught_spell_id": spell_id,
             "name_en": rune.get("name_en"),
             "clase": class_name,
+            "categoria": category,
+            "slot_id": slot_id,
             "slot": slot,
-            "ranura": display_slot(slot),
-            "fase": phase_for_slot(slot),
+            "ranura": slot_name,
+            "ranura_en": slot_name_en,
             "tipo": rune_type,
             "nivel": level,
             "implementada": implemented,
@@ -243,10 +273,10 @@ def build_plan(catalog, stored_equivalences, implemented_ids, spells_by_name):
         })
 
     plan.sort(key=lambda item: (
+        CATEGORY_ORDER[item["categoria"]],
         LEVEL_ORDER[item["nivel"]],
         CLASS_NAMES.get(item["clase"], item["clase"] or ""),
-        PHASE_ORDER.get(item["fase"], 99),
-        SLOT_ORDER.get(item["slot"].casefold(), 99),
+        SLOT_ORDER.get(item["slot_id"], 99),
         item["slot"],
         (item["name_en"] or "").casefold(),
         item["taught_spell_id"] or 0,
@@ -259,187 +289,237 @@ def escape_cell(value):
 
 
 def pending_rows(plan):
-    return [item for item in plan if not item["implementada"]]
+    return [
+        item for item in plan
+        if item["categoria"] == "runa" and not item["implementada"]
+    ]
+
+
+def ordered_classes(plan):
+    names = {item["clase"] for item in plan}
+    return sorted(names, key=lambda name: (
+        name == "desconocida", CLASS_NAMES.get(name, name)
+    ))
+
+
+def category_counts(plan):
+    return Counter(item["categoria"] for item in plan)
+
+
+def level_counts(rows, fallback="sin_clasificar"):
+    return Counter(item["nivel"] or fallback for item in rows)
 
 
 def markdown_report(plan):
-    """Render summaries, slot counts and pending tables in Spanish."""
-    pending = pending_rows(plan)
-    by_level = Counter(item["nivel"] for item in pending)
-    by_phase = defaultdict(Counter)
-    by_class_level = defaultdict(Counter)
-    by_class = Counter()
-    by_slot_class = Counter()
-    implemented_by_class = Counter()
-    for item in plan:
-        by_phase[item["fase"]]["implementadas" if item["implementada"] else "pendientes"] += 1
-        by_class[item["clase"]] += 1
-        if item["implementada"]:
-            implemented_by_class[item["clase"]] += 1
-        else:
-            by_class_level[item["clase"]][item["nivel"] or "?"] += 1
-        by_slot_class[(item["slot"], item["fase"], item["clase"])] += 1
+    """Render category, slot, class and pending implementation summaries."""
+    runes = [item for item in plan if item["categoria"] == "runa"]
+    souls = [item for item in plan if item["categoria"] == "alma"]
+    racial = [item for item in plan if item["categoria"] == "racial"]
+    noise = [item for item in plan if item["categoria"] == "ruido"]
+    pending = [item for item in runes if not item["implementada"]]
+    pending_levels = level_counts(pending)
+    soul_levels = level_counts(souls)
+    classes = ordered_classes(plan)
+    by_slot_class = Counter((item["slot_id"], item["clase"]) for item in runes)
+    by_slot_state = defaultdict(Counter)
+    by_class_category = Counter((item["clase"], item["categoria"]) for item in plan)
+    for item in runes:
+        state = "implementadas" if item["implementada"] else "pendientes"
+        by_slot_state[item["slot_id"]][state] += 1
 
     lines = [
         "# Plan de implementación de runas de SoD",
         "",
-        "El plan incluye las filas del catálogo de todas las clases y ranuras. "
-        "Los emparejamientos nuevos usan el nombre inglés exacto en los DBC locales; "
-        "las coincidencias ya documentadas se conservan.",
+        "El catálogo contiene runas de grabado, almas de la temporada final y hechizos "
+        "sueltos que no son runas. La categoría se determina por `slot_id`; no se deducen fases.",
         "",
         "P = pasiva sencilla; T = proc o disparo; C = requiere C++ o no encaja en las reglas; "
-        "R = equivalente activo por nombre en WotLK, pendiente de decisión. "
-        "Las filas de clase desconocida quedan sin clasificar.",
+        "R = hechizo activo redundante por nombre exacto en WotLK. La clasificación P/T/C/R "
+        "se aplica solo a runas; las almas usan P/T/C, sin R.",
         "",
-        "Las fases solo se asignan cuando el nombre de ranura del catálogo lo permite: "
-        "pecho, piernas y manos = fase 1; muñecas, cintura y pies = fase 2; cabeza = fase 3. "
-        "No se deduce una fase para cuello ni para identificadores `slot_<id>`. ",
+        "## Totales por categoría",
         "",
-        "## Resumen por fase",
-        "",
-        "| Fase | Pendientes | Implementadas | Total |",
+        "| Categoría | Total | Implementadas | Pendientes |",
         "|---|---:|---:|---:|",
     ]
-    phases = sorted(by_phase, key=lambda phase: PHASE_ORDER.get(phase, 99))
-    for phase in phases:
-        counts = by_phase[phase]
-        lines.append("| {} | {} | {} | {} |".format(
-            phase, counts["pendientes"], counts["implementadas"],
-            counts["pendientes"] + counts["implementadas"],
-        ))
-    lines.extend([
-        "",
-        "## Resumen por clase",
-        "",
-        "| Clase | P | T | C | R | Sin clasificar | Implementadas | Total |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|",
-    ])
-    classes = sorted(
-        set(by_class) | {"deathknight"},
-        key=lambda name: (name == "desconocida", CLASS_NAMES.get(name, name)),
-    )
-    for class_name in classes:
-        counts = by_class_level[class_name]
-        lines.append("| {} | {} | {} | {} | {} | {} | {} | {} |".format(
-            CLASS_NAMES.get(class_name, class_name),
-            counts["P"], counts["T"], counts["C"], counts["R"], counts["?"],
-            implemented_by_class[class_name], by_class[class_name],
-        ))
-    lines.extend([
-        "",
-        "## Ranuras encontradas por clase",
-        "",
-        "Se conserva el identificador `slot_<id>` cuando el catálogo no proporciona un nombre.",
-        "",
-        "| Ranura | Fase | Clase | Runas |",
-        "|---|---|---|---:|",
-    ])
-    slot_rows = sorted(by_slot_class.items(), key=lambda entry: (
-        PHASE_ORDER.get(entry[0][1], 99), SLOT_ORDER.get(entry[0][0].casefold(), 99),
-        entry[0][0], entry[0][2],
+    totals = category_counts(plan)
+    lines.append("| Runa | {} | {} | {} |".format(
+        totals["runa"], sum(item["implementada"] for item in runes), len(pending)
     ))
-    for (slot, phase, class_name), count in slot_rows:
+    lines.append("| Alma | {} | — | — |".format(totals["alma"]))
+    lines.append("| Racial | {} | — | — |".format(totals["racial"]))
+    lines.append("| Ruido | {} | — | — |".format(totals["ruido"]))
+    lines.append("| **Total** | **{}** | — | — |".format(len(plan)))
+
+    lines.extend([
+        "",
+        "## Runas por ranura y clase",
+        "",
+        "| Ranura | " + " | ".join(CLASS_NAMES[name] for name in classes if name != "desconocida") + " | Total |",
+        "|---|" + "---:|" * (len(classes) - ("desconocida" in classes) + 1),
+    ])
+    rune_classes = [name for name in classes if name != "desconocida"]
+    for slot_id, (slot_en, slot_es) in ENGRAVING_SLOTS.items():
+        values = [by_slot_class[(slot_id, class_name)] for class_name in rune_classes]
+        lines.append("| {} ({}) | {} | {} |".format(
+            slot_es, slot_en, " | ".join(str(value) for value in values), sum(values)
+        ))
+    lines.append("| **Total** | {} | {} |".format(
+        " | ".join(str(sum(by_slot_class[(slot_id, name)] for slot_id in ENGRAVING_SLOTS))
+                   for name in rune_classes), len(runes)
+    ))
+
+    lines.extend([
+        "",
+        "## Implementadas y pendientes por ranura",
+        "",
+        "| Ranura | Implementadas | Pendientes | Total |",
+        "|---|---:|---:|---:|",
+    ])
+    for slot_id, (_, slot_es) in ENGRAVING_SLOTS.items():
+        counts = by_slot_state[slot_id]
         lines.append("| {} | {} | {} | {} |".format(
-            display_slot(slot), phase, CLASS_NAMES.get(class_name, class_name), count
+            slot_es, counts["implementadas"], counts["pendientes"],
+            counts["implementadas"] + counts["pendientes"],
         ))
 
+    lines.extend([
+        "",
+        "## Runas pendientes por nivel",
+        "",
+        "| Nivel | Runas pendientes |",
+        "|---|---:|",
+    ])
+    for level, label in (("P", "P — Pasiva"), ("T", "T — Proc o disparo"),
+                         ("C", "C — Requiere C++"), ("R", "R — Redundante en WotLK")):
+        lines.append("| {} | {} |".format(label, pending_levels[level]))
+
+    lines.extend([
+        "",
+        "## Resumen por clase y categoría",
+        "",
+        "| Clase | Runas | Almas | Raciales | Ruido |",
+        "|---|---:|---:|---:|---:|",
+    ])
     for class_name in classes:
-        if class_name == "desconocida":
-            continue
+        lines.append("| {} | {} | {} | {} | {} |".format(
+            CLASS_NAMES.get(class_name, class_name),
+            by_class_category[(class_name, "runa")],
+            by_class_category[(class_name, "alma")],
+            by_class_category[(class_name, "racial")],
+            by_class_category[(class_name, "ruido")],
+        ))
+
+    lines.extend([
+        "",
+        "## Almas por nivel (sin R)",
+        "",
+        "| Nivel | Almas |",
+        "|---|---:|",
+    ])
+    for level, label in (("P", "P — Pasiva"), ("T", "T — Proc o disparo"),
+                         ("C", "C — Requiere C++"), ("sin_clasificar", "Sin clasificar")):
+        lines.append("| {} | {} |".format(label, soul_levels[level]))
+
+    for class_name in rune_classes:
         rows = [item for item in pending if item["clase"] == class_name]
         lines.extend([
             "",
-            "## {}: runas no implementadas ({})".format(
-                CLASS_NAMES.get(class_name, class_name), len(rows)
-            ),
+            "## {}: runas pendientes ({})".format(CLASS_NAMES[class_name], len(rows)),
             "",
-            "| ID | Nombre | Ranura | Fase | Tipo | Nivel | Razón |",
-            "|---:|---|---|---|---|---|---|",
+            "| ID | Nombre | Ranura | Tipo | Nivel | Razón |",
+            "|---:|---|---|---|---|---|",
         ])
         for item in rows:
-            lines.append("| {} | {} | {} | {} | {} | {} | {} |".format(
+            lines.append("| {} | {} | {} | {} | {} | {} |".format(
                 escape_cell(item["taught_spell_id"]), escape_cell(item["name_en"]),
-                escape_cell(item["ranura"]), escape_cell(item["fase"]),
-                TYPE_NAMES.get(item["tipo"], item["tipo"]),
+                escape_cell(item["ranura"]), TYPE_NAMES.get(item["tipo"], item["tipo"]),
                 escape_cell(item["nivel"]), escape_cell(item["razon"]),
             ))
 
-    unknown = [item for item in pending if item["clase"] == "desconocida"]
     lines.extend([
         "",
-        "## Clase desconocida: runas sin clasificar ({})".format(len(unknown)),
+        "## Raciales y ruido (sin clasificar)",
         "",
-        "| ID | Nombre | Ranura | Fase | Tipo | Nivel | Razón |",
-        "|---:|---|---|---|---|---|---|",
+        "- **Raciales ({}, slot_id {}):** fuera del sistema de grabado de runas; no se les asigna nivel.".format(
+            len(racial), " y ".join(str(slot_id) for slot_id in sorted(RACIAL_SLOT_IDS))
+        ),
+        "- **Ruido ({}):** `slot_id` ajeno a las ocho ranuras y a Soul Engraving; no se les asigna nivel.".format(len(noise)),
     ])
-    for item in unknown:
-        lines.append("| {} | {} | {} | {} | {} | {} | {} |".format(
-            escape_cell(item["taught_spell_id"]), escape_cell(item["name_en"]),
-            escape_cell(item["ranura"]), escape_cell(item["fase"]),
-            TYPE_NAMES[item["tipo"]], escape_cell(item["nivel"]), escape_cell(item["razon"]),
-        ))
     return "\n".join(lines) + "\n"
 
 
 def summary_report(plan):
-    """Render compact count summaries by level, phase and class."""
-    pending = pending_rows(plan)
-    levels = Counter(item["nivel"] or "sin_clasificar" for item in pending)
-    phases = defaultdict(Counter)
-    classes = defaultdict(Counter)
-    for item in plan:
-        state = "implementadas" if item["implementada"] else "pendientes"
-        phases[item["fase"]][state] += 1
-        classes[item["clase"]]["total"] += 1
-        if item["implementada"]:
-            classes[item["clase"]]["implementadas"] += 1
-        else:
-            classes[item["clase"]][item["nivel"] or "sin_clasificar"] += 1
+    """Render compact category, slot, class and level totals."""
+    runes = [item for item in plan if item["categoria"] == "runa"]
+    souls = [item for item in plan if item["categoria"] == "alma"]
+    pending = [item for item in runes if not item["implementada"]]
+    totals = category_counts(plan)
+    pending_levels = level_counts(pending)
+    soul_levels = level_counts(souls)
+    by_slot = Counter(item["slot_id"] for item in runes)
+    by_class_category = Counter((item["clase"], item["categoria"]) for item in plan)
+    classes = ordered_classes(plan)
 
     lines = [
         "# Resumen del plan de runas de SoD",
         "",
-        "Conteos del catálogo completo; P/T/C/R y sin clasificar cuentan solo runas pendientes.",
+        "## Totales por categoría",
         "",
-        "## Pendientes por nivel",
+        "| Runa | Alma | Racial | Ruido | Total |",
+        "|---:|---:|---:|---:|---:|",
+        "| {} | {} | {} | {} | {} |".format(
+            totals["runa"], totals["alma"], totals["racial"], totals["ruido"], len(plan)
+        ),
         "",
-        "| Nivel | Runas |",
-        "|---|---:|",
-    ]
-    for level, label in (("P", "P — Pasiva"), ("T", "T — Proc o disparo"),
-                         ("C", "C — Requiere C++"), ("R", "R — Redundante en WotLK"),
-                         ("sin_clasificar", "Sin clasificar")):
-        lines.append("| {} | {} |".format(label, levels[level]))
-    lines.extend([
+        "## Runas por ranura",
         "",
-        "## Pendientes e implementadas por fase",
-        "",
-        "| Fase | Pendientes | Implementadas | Total |",
+        "| Ranura | Runas | Implementadas | Pendientes |",
         "|---|---:|---:|---:|",
-    ])
-    for phase in sorted(phases, key=lambda name: PHASE_ORDER.get(name, 99)):
-        counts = phases[phase]
-        lines.append("| {} | {} | {} | {} |".format(
-            phase, counts["pendientes"], counts["implementadas"],
-            counts["pendientes"] + counts["implementadas"],
+    ]
+    for slot_id, (slot_en, slot_es) in ENGRAVING_SLOTS.items():
+        slot_rows = [item for item in runes if item["slot_id"] == slot_id]
+        implemented = sum(item["implementada"] for item in slot_rows)
+        lines.append("| {} ({}) | {} | {} | {} |".format(
+            slot_es, slot_en, by_slot[slot_id], implemented, len(slot_rows) - implemented
         ))
+
     lines.extend([
         "",
-        "## Pendientes por clase",
+        "## Pendientes de runa por nivel",
         "",
-        "| Clase | P | T | C | R | Sin clasificar | Implementadas | Total |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| P | T | C | R | Total |",
+        "|---:|---:|---:|---:|---:|",
+        "| {} | {} | {} | {} | {} |".format(
+            pending_levels["P"], pending_levels["T"], pending_levels["C"],
+            pending_levels["R"], len(pending),
+        ),
+        "",
+        "## Totales por clase y categoría",
+        "",
+        "| Clase | Runas | Almas | Raciales | Ruido |",
+        "|---|---:|---:|---:|---:|",
     ])
-    class_names = set(classes) | {"deathknight"}
-    for class_name in sorted(
-        class_names, key=lambda name: (name == "desconocida", CLASS_NAMES.get(name, name))
-    ):
-        counts = classes[class_name]
-        lines.append("| {} | {} | {} | {} | {} | {} | {} | {} |".format(
-            CLASS_NAMES.get(class_name, class_name), counts["P"], counts["T"],
-            counts["C"], counts["R"], counts["sin_clasificar"],
-            counts["implementadas"], counts["total"],
+    for class_name in classes:
+        lines.append("| {} | {} | {} | {} | {} |".format(
+            CLASS_NAMES.get(class_name, class_name),
+            by_class_category[(class_name, "runa")],
+            by_class_category[(class_name, "alma")],
+            by_class_category[(class_name, "racial")],
+            by_class_category[(class_name, "ruido")],
         ))
+
+    lines.extend([
+        "",
+        "## Almas por nivel (sin R)",
+        "",
+        "| P | T | C | Sin clasificar | Total |",
+        "|---:|---:|---:|---:|---:|",
+        "| {} | {} | {} | {} | {} |".format(
+            soul_levels["P"], soul_levels["T"], soul_levels["C"],
+            soul_levels["sin_clasificar"], len(souls),
+        ),
+    ])
     return "\n".join(lines) + "\n"
 
 
@@ -457,9 +537,16 @@ def main():
     MARKDOWN_PATH.write_text(markdown_report(plan), encoding="utf-8")
     SUMMARY_PATH.write_text(summary_report(plan), encoding="utf-8")
 
-    totals = Counter(item["nivel"] if item["nivel"] else "sin_clasificar" for item in pending_rows(plan))
+    totals = Counter(
+        item["nivel"] if item["nivel"] else "sin_clasificar"
+        for item in pending_rows(plan)
+    )
+    implemented = sum(
+        item["categoria"] == "runa" and item["implementada"] for item in plan
+    )
     print("Filas del catálogo: {}".format(len(plan)))
-    print("Runas implementadas: {}".format(sum(item["implementada"] for item in plan)))
+    print("Runas de grabado: {}".format(sum(item["categoria"] == "runa" for item in plan)))
+    print("Runas implementadas: {}".format(implemented))
     print("Pendientes por nivel: {}".format(dict(sorted(totals.items()))))
 
 
