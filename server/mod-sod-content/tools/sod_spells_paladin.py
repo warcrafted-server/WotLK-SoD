@@ -26,6 +26,7 @@ def build(idx):
             "id": 407669, "client": True, "template": 48827,
             "skill_line": SKILL_PROTECTION,
             "name": "Avenger's Shield", "inherit_server": True,
+            "scale_to_level": {"effects": [1], "level": 80},
             "bonus": {"direct": 0.07, "dot": 0.0, "ap": 0.07, "ap_dot": 0.0},
             "overrides": {
                 "CategoryRecoveryTime": 0,

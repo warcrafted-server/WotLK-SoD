@@ -79,6 +79,10 @@ que el personaje no tiene (Divine Storm, Mutilate, Haunt: comprobar que funciona
 - **Ice Lance** (7000012): debe hacer unos 221-255 a nivel 80 y bastante menos a nivel bajo (a nivel 6, de 12 a 50 de media).
 - Con las pasivas: Demonic Tactics 7008003, Master Marksman 7003002, Survival of the Fittest 7009002 (ver tabla).
 
+## Pendiente de probar (sin compilar)
+
+Solo SQL y parche, **no hace falta recompilar**: copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`, reiniciar el reino y comprobar: Explosive Shot (rune 7003003, Manos), daño de Chaos Bolt, Haunt, Avenger's Shield, Circle of Healing y Wild Growth que crece con el nivel (a 80 coinciden con WotLK), y nombres de NPC y misiones del mundo de SoD en español.
+
 ## Hecho
 
 - 2026-10-06, tras compilar: textos en español, addon y tooltip correctos. `.rune slots` dice «nivel 1» en Pecho, Manos y Piernas: es lo configurado (`RuneEngraving.SlotMinLevel.*` = 1, como la fase 1 de SoD), no depende de ser GM. Los números 4, 6 y 8 son los índices de ranura para `.rune engrave`.

@@ -22,6 +22,7 @@ def build(idx):
             "id": 403629, "client": True, "template": 59172,
             "skill_line": SKILL_DESTRUCTION,
             "name": "Chaos Bolt", "inherit_server": True,
+            "scale_to_level": {"effects": [1], "level": 80},
             "overrides": {
                 "CategoryRecoveryTime": 0,
                 "RecoveryTime": 12000,
@@ -34,6 +35,7 @@ def build(idx):
             "skill_line": SKILL_AFFLICTION,
             "name": "Haunt", "script": "spell_warl_haunt",
             "inherit_server": True,
+            "scale_to_level": {"effects": [1], "level": 80},
             "overrides": {
                 "CastingTimeIndex": cast_instant,
                 "CategoryRecoveryTime": 0,

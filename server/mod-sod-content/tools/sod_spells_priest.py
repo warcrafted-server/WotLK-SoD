@@ -15,6 +15,7 @@ def build(idx):
             "skill_line": SKILL_HOLY,
             "name": "Circle of Healing", "script": "spell_pri_circle_of_healing",
             "inherit_server": True,
+            "scale_to_level": {"effects": [1], "level": 80},
             "bonus": {"direct": 0.402, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
             "overrides": {
                 "ManaCostPct": 56,

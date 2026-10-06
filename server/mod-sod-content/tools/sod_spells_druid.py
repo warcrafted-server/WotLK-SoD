@@ -22,6 +22,7 @@ def build(idx):
             "name": "Wild Growth", "script": "spell_dru_wild_growth",
             "bonus": {"direct": 0, "dot": 0.115, "ap": 0, "ap_dot": 0},
             "inherit_server": True,
+            "scale_to_level": {"effects": [1], "level": 80},
             "overrides": {
                 "CategoryRecoveryTime": 0,
                 "RecoveryTime": 6000,

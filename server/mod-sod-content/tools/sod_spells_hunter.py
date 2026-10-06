@@ -4,6 +4,7 @@
 from sod_dbc import *  # noqa: F401,F403
 
 SKILL_MARKSMANSHIP = 163
+SKILL_SURVIVAL = 51
 
 
 def build(idx):
@@ -22,6 +23,18 @@ def build(idx):
             "overrides": {
                 "CategoryRecoveryTime": 0,
                 "ManaCostPct": 6,
+                "RecoveryTime": 6000,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Keep the WotLK Explosive Shot script and apply SoD costs.
+            "id": 409552, "client": True, "template": 60053,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Explosive Shot", "script": "spell_hun_explosive_shot",
+            "inherit_server": True,
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "ManaCostPct": 4,
                 "RecoveryTime": 6000,
                 "SpellLevel": 0,
             },

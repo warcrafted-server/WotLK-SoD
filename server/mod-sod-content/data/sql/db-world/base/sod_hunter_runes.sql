@@ -17,6 +17,9 @@ SET @sql := IF(@rune_tbl > 0,
     ''mod-sod-hunter'', 1),
     (7003002, 409428, 4, 16, ''Master Marksman'', ''ability_hunter_mastermarksman'',
     ''Increases your critical strike chance by 5%, and reduces the Mana cost of all your Shot abilities by 25%.'',
+    ''mod-sod-hunter'', 1),
+    (7003003, 409552, 4, 64, ''Explosive Shot'', ''ability_hunter_explosiveshot'',
+    ''Fires an explosive charge that deals Fire damage to nearby enemies, repeating every second for 2 seconds.'',
     ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

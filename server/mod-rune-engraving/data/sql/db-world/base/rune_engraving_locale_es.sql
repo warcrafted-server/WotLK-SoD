@@ -38,3 +38,6 @@ REPLACE INTO `rune_template_locale` (`rune_id`, `locale`, `name`, `description`)
 (7008003, 'esES', 'Tácticas demoníacas', 'Aumenta un 10% tu probabilidad de golpe crítico cuerpo a cuerpo y con hechizos, y la de tu mascota.'),
 (7009001, 'esES', 'Crecimiento salvaje', 'Sana a todos los miembros del grupo del jugador objetivo que estén a su alcance. La sanación se aplica con rapidez al principio y se ralentiza hasta completar la duración de Crecimiento salvaje.'),
 (7009002, 'esES', 'Supervivencia del más fuerte', 'Reduce un 7% la probabilidad de que recibas golpes críticos cuerpo a cuerpo y reduce un 10% todo el daño recibido.');
+
+REPLACE INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(700000, 'esES', 'Grabador de runas', 'Grabado', 0);

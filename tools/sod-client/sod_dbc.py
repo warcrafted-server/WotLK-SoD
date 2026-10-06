@@ -633,11 +633,49 @@ def _apply_spell_level_scaling(spell, rec, field_of, spec):
     if not isinstance(effects, list) or not effects:
         raise ValueError("scale_to_level.effects must be a non-empty list "
                          "for spell %d" % spec["id"])
-
     for effect in effects:
         if not isinstance(effect, int) or isinstance(effect, bool) or effect < 1 or effect > 3:
             raise ValueError("scale_to_level effect indices must be 1..3 "
                              "for spell %d" % spec["id"])
+
+    base_level_col = "BaseLevel"
+    max_level_col = "MaxLevel"
+    spell_level_col = "SpellLevel"
+    for col in (base_level_col, max_level_col, spell_level_col):
+        if col not in field_of:
+            raise ValueError("scale_to_level field %s is missing for spell %d"
+                             % (col, spec["id"]))
+
+    # Freeze inherited level-based effects before changing the spell's level fields.
+    base_level = spell.get_int(rec, field_of[base_level_col])
+    max_level = spell.get_int(rec, field_of[max_level_col])
+    spell_level = spell.get_int(rec, field_of[spell_level_col])
+    scaled_effects = set(effects)
+    for effect in range(1, 4):
+        if effect in scaled_effects:
+            continue
+        base_col = "EffectBasePoints_%d" % effect
+        real_col = "EffectRealPointsPerLevel_%d" % effect
+        if base_col not in field_of or real_col not in field_of:
+            raise ValueError("scale_to_level fields are missing for spell %d effect %d"
+                             % (spec["id"], effect))
+        real_points_per_level = spell.get_float(rec, field_of[real_col])
+        if real_points_per_level == 0:
+            continue
+        effective_level = level
+        if max_level > 0:
+            effective_level = min(effective_level, max_level)
+        effective_level = max(effective_level, base_level)
+        effective_level -= max(base_level, spell_level)
+        base_points = spell.get_int(rec, field_of[base_col])
+        scaled_points = struct.unpack(
+            "<f", struct.pack("<f", effective_level * real_points_per_level)
+        )[0]
+        spell.set_int(rec, field_of[base_col],
+                      base_points + int(scaled_points))
+        spell.set_float(rec, field_of[real_col], 0.0)
+
+    for effect in effects:
         base_col = "EffectBasePoints_%d" % effect
         real_col = "EffectRealPointsPerLevel_%d" % effect
         if base_col not in field_of or real_col not in field_of:
@@ -646,12 +684,36 @@ def _apply_spell_level_scaling(spell, rec, field_of, spec):
         target_points = spell.get_int(rec, field_of[base_col])
         # Signed slopes preserve negative effects; the base starts at zero.
         spell.set_int(rec, field_of[base_col], 0)
-        spell.set_float(rec, field_of[real_col], target_points / (level - 1))
+        points_per_level = target_points / (level - 1)
+        points_per_level = struct.unpack(
+            "<f", struct.pack("<f", points_per_level)
+        )[0]
+        # Match core float multiplication and truncation, stepping float32 only
+        # when needed to reach the target value exactly.
+        for _ in range(8):
+            product = struct.unpack(
+                "<f", struct.pack("<f", (level - 1) * points_per_level)
+            )[0]
+            current_points = int(product)
+            if current_points == target_points:
+                break
+            increase = current_points < target_points
+            bits = struct.unpack("<I", struct.pack("<f", points_per_level))[0]
+            if points_per_level == 0.0:
+                bits = 1 if increase else 0x80000001
+            elif (points_per_level > 0) == increase:
+                bits += 1
+            else:
+                bits -= 1
+            points_per_level = struct.unpack("<f", struct.pack("<I", bits))[0]
+        else:
+            raise ValueError(
+                "scale_to_level cannot reach target points for spell %d effect %d"
+                % (spec["id"], effect))
+        spell.set_float(rec, field_of[real_col], points_per_level)
 
-    for col, value in (("BaseLevel", 1), ("MaxLevel", level), ("SpellLevel", 0)):
-        if col not in field_of:
-            raise ValueError("scale_to_level field %s is missing for spell %d"
-                             % (col, spec["id"]))
+    for col, value in ((base_level_col, 1), (max_level_col, level),
+                       (spell_level_col, 0)):
         spell.set_int(rec, field_of[col], value)
 
 

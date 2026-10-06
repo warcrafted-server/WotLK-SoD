@@ -1,16 +1,14 @@
 # Estado del proyecto
 
 **Mantén este archivo al día con cada cambio relevante, no al final de la tarea.** Es lo primero que
-lee una sesión nueva. Última actualización: **2026-10-05**, traspaso del desarrollo desde Windows al
-servidor Debian.
+lee una sesión nueva. Última actualización: **2026-10-06**.
 
 ## 1. Dónde estamos
 
-- **Fase:** primer hito en construcción (fase 1 de SoD, nivel 25). **2026-10-06: el usuario compiló e
-  instaló `acore-test` sin errores (log: 0 errores, 0 avisos; incluye nuestros módulos); aún no ha
-  arrancado el reino 2, así que nada se ha ejecutado en juego.** Compiló con `mod-playerbots`,
-  `mod-ollama-chat-es` (tras `git pull`), `mod-warcrafted-teleport` y los dos nuestros. Todo lo verificado hasta ahora es estático (lectura de código, cabeceras,
-  firmas, hooks) o consultas `SELECT` de solo lectura.
+- **Fase:** primer hito (fase 1 de SoD, nivel 25 de partida, hacia 80). **2026-10-06: compilado por el
+  usuario, reino 2 arrancado con 29 runas, grabador, textos en español, addon y tooltip comprobados en
+  juego; Ice Lance probada. El resto de las 29 runas, sin probar.** Datos de SoD de la build 1.15.9
+  (wago.tools); **se implementa la fase 1** (decisiones 0002 y 0004); las demás fases no son objetivo hoy.
 - **Dónde se trabaja:** `/home/stark/Repos/acore-sod`, en el servidor Debian `warcrafted`
   (`192.168.1.150`, usuario `stark`). **Es una máquina de producción.**
 - **Dónde se compila:** `/home/stark/Repos/acore-test`, **solo lo hace el usuario**. Es el reino de
