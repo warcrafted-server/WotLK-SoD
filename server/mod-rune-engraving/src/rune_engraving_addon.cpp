@@ -18,6 +18,7 @@
 #include "Chat.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneStrings.h"
 #include "ScriptMgr.h"
 #include "SharedDefines.h"
 #include "StringConvert.h"
@@ -53,18 +54,18 @@ namespace
         player->GetSession()->SendPacket(&data);
     }
 
-    char const* ResultText(EngraveResult result)
+    std::string ResultText(Player const* player, EngraveResult result)
     {
         switch (result)
         {
-            case EngraveResult::Success:         return "Rune engraved.";
-            case EngraveResult::PrereqMissing:   return "You must learn Engraving first.";
-            case EngraveResult::SlotLevelTooLow: return "That slot isn't unlocked at your level.";
-            case EngraveResult::DuplicateRune:   return "That rune is already engraved in another slot.";
-            case EngraveResult::Locked:          return "You haven't discovered that rune yet.";
-            case EngraveResult::WrongClass:      return "That rune isn't for your class.";
-            case EngraveResult::WrongSlot:       return "That rune can't go in that slot.";
-            default:                             return "You cannot engrave that rune there.";
+            case EngraveResult::Success:         return RuneStr(player, RUNE_STRING_ADDON_ENGRAVED);
+            case EngraveResult::PrereqMissing:   return RuneStr(player, RUNE_STRING_ADDON_PREREQUISITE);
+            case EngraveResult::SlotLevelTooLow: return RuneStr(player, RUNE_STRING_ADDON_SLOT_LEVEL);
+            case EngraveResult::DuplicateRune:   return RuneStr(player, RUNE_STRING_ADDON_DUPLICATE);
+            case EngraveResult::Locked:          return RuneStr(player, RUNE_STRING_ADDON_LOCKED);
+            case EngraveResult::WrongClass:      return RuneStr(player, RUNE_STRING_ADDON_WRONG_CLASS);
+            case EngraveResult::WrongSlot:       return RuneStr(player, RUNE_STRING_ADDON_WRONG_SLOT);
+            default:                             return RuneStr(player, RUNE_STRING_ADDON_ENGRAVE_FAILED);
         }
     }
 
@@ -81,7 +82,7 @@ namespace
         for (uint8 slot = 0; slot < RUNE_SLOT_MAX; ++slot)
         {
             SendLine(player, Acore::StringFormat("SLOT~{}~{}~{}~{}",
-                uint32(slot), RuneEngravingMgr::SlotName(slot),
+                uint32(slot), RuneSlotName(player, slot),
                 sRuneEngravingMgr->SlotMinLevel(slot),
                 sRuneEngravingMgr->GetEngraved(player->GetGUID(), slot)));
 
@@ -92,7 +93,8 @@ namespace
                 // last as it may contain '~'.
                 SendLine(player, Acore::StringFormat("RUNE~{}~{}~{}~{}~{}~{}",
                     uint32(slot), rune->RuneId, icon, locked ? 1 : 0,
-                    rune->SpellId, rune->Name));
+                    rune->SpellId,
+                    sRuneEngravingMgr->GetRuneName(*rune, player->GetSession()->GetSessionDbLocaleIndex())));
             }
         }
 
@@ -133,13 +135,14 @@ public:
             EngraveResult result = sRuneEngravingMgr->Engrave(player, slot, runeId);
             // On success the client already shows its own "you have learned X"
             // notification, so only surface a status line for failures.
-            SendPanelState(player, result == EngraveResult::Success ? "" : ResultText(result));
+            SendPanelState(player, result == EngraveResult::Success ? "" : ResultText(player, result));
         }
         else if (cmd == "DEL" && tok.size() >= 2)
         {
             uint8 slot = uint8(Acore::StringTo<uint32>(tok[1]).value_or(RUNE_SLOT_MAX));
             bool removed = sRuneEngravingMgr->RemoveRune(player, slot);
-            SendPanelState(player, removed ? "Rune removed." : "Nothing to remove.");
+            SendPanelState(player, RuneStr(player, removed ?
+                RUNE_STRING_ADDON_REMOVED : RUNE_STRING_ADDON_NOTHING_TO_REMOVE));
         }
 
         // We've consumed this addon whisper — blank it so it isn't echoed/processed.

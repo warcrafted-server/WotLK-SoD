@@ -13,8 +13,8 @@
 -- the ground (not a walking elemental; Al'ar's 16946 is emitter-only and renders
 -- nothing on a plain creature). The C++ AI is bound by `ScriptName`. Idempotent.
 --
--- Presentation: DisplayScale 0.25 (small creeping patch) and HoverHeight -1.0 to
--- sink the model down onto the ground (it renders raised at its native anchor).
+-- Presentation: DisplayScale 0.25 (small creeping patch) and HoverHeight 0 to keep
+-- the model as low as the core allows (negative values are rejected on load).
 
 -- Upsert via REPLACE -- committed SQL never DELETEs (see the module CLAUDE.md).
 REPLACE INTO `creature_template`
@@ -31,8 +31,8 @@ VALUES
      1.0, 1.0, 0,
      -- unit_flags: NON_ATTACKABLE|IMMUNE_TO_PC|IMMUNE_TO_NPC|NOT_SELECTABLE
      1, 33555202, 0, 4, 0,
-     -- HoverHeight -1.0: sink the flame onto the ground (default 1 floats it up).
-     '', 0, -1.0,
+     -- HoverHeight 0: lowest valid value (the default 1 floats the flame up).
+     '', 0, 0,
      1, 1, 1, 1,
      -- flags_extra 0: a visible mover, not a hidden trigger.
      0, 'npc_sod_mage_living_flame');

@@ -22,6 +22,7 @@
 #include "ScriptMgr.h"
 #include "ScriptedGossip.h"
 #include "WorldSession.h"
+#include "../mage/spell_sod_mage.h"
 #include "sod_world_supply.h"
 
 // Gossip for the SoD supply officers (Elaine Compton 213077, Jornah 214070): a
@@ -66,7 +67,7 @@ public:
         // hidden when every item is filtered out (e.g. the rep-gated satchel below
         // Friendly), so a below-rep player sees no vendor option at all (SoD behavior).
         if (creature->HasNpcFlag(UNIT_NPC_FLAG_VENDOR) && HasVendorItemFor(player, creature))
-            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "What do you have for sale?", SENDER_VENDOR, 0);
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, SodStr(player, 1006), SENDER_VENDOR, 0);
 
         // Surface the officer's quests (the "A Full Shipment" turn-ins) -- the custom
         // gossip would otherwise replace the default menu and hide them.

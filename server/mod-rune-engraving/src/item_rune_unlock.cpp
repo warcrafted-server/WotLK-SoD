@@ -20,6 +20,7 @@
 #include "ItemScript.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneStrings.h"
 #include "ScriptMgr.h"
 #include "Spell.h"
 
@@ -44,8 +45,7 @@ public:
 
         if (!sRuneEngravingMgr->IsEnabled())
         {
-            handler.SendSysMessage(
-                "|cFFFF0000[Rune Engraver]|r Rune engraving is currently unavailable.");
+            handler.SendSysMessage(RuneStr(player, RUNE_STRING_ITEM_UNAVAILABLE));
             return true;
         }
 
@@ -55,9 +55,7 @@ public:
         if (!unlocked.empty())
         {
             for (std::string const& name : unlocked)
-                handler.PSendSysMessage(
-                    "|cFF00FF00[Rune Engraver]|r You have discovered the |cFFFFD700{}|r "
-                    "rune. Visit a Rune Engraver to engrave it.", name);
+                handler.PSendSysMessage(RuneStr(player, RUNE_STRING_RUNE_DISCOVERED).c_str(), name);
 
             // The notes are spent on the discovery.
             player->DestroyItemCount(itemId, 1, true);
@@ -66,9 +64,7 @@ public:
         {
             // Either already discovered, or the item maps to no rune (it shouldn't
             // carry this ScriptName then). Don't consume it.
-            handler.SendSysMessage(
-                "|cFFFFFF00[Rune Engraver]|r You have already discovered everything "
-                "these notes contain.");
+            handler.SendSysMessage(RuneStr(player, RUNE_STRING_ALL_RUNES_DISCOVERED));
         }
 
         // Handled — suppress the item's benign use-spell (present only so the

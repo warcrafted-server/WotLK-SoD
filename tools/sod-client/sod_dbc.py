@@ -618,6 +618,43 @@ def build_faction_template(workdir, factions):
 # ---------------------------------------------------------------------------
 # Spell.dbc / SkillLineAbility.dbc / SpellVisual.dbc builders (spell specs).
 # ---------------------------------------------------------------------------
+def _apply_spell_level_scaling(spell, rec, field_of, spec):
+    """Scale selected effect base points from zero at level 1 to a target level."""
+    if "scale_to_level" not in spec:
+        return
+    scale = spec["scale_to_level"]
+    if not isinstance(scale, dict):
+        raise ValueError("scale_to_level must be an object for spell %d" % spec["id"])
+    level = scale.get("level")
+    effects = scale.get("effects")
+    if not isinstance(level, int) or isinstance(level, bool) or level <= 1:
+        raise ValueError("scale_to_level.level must be an integer greater than 1 "
+                         "for spell %d" % spec["id"])
+    if not isinstance(effects, list) or not effects:
+        raise ValueError("scale_to_level.effects must be a non-empty list "
+                         "for spell %d" % spec["id"])
+
+    for effect in effects:
+        if not isinstance(effect, int) or isinstance(effect, bool) or effect < 1 or effect > 3:
+            raise ValueError("scale_to_level effect indices must be 1..3 "
+                             "for spell %d" % spec["id"])
+        base_col = "EffectBasePoints_%d" % effect
+        real_col = "EffectRealPointsPerLevel_%d" % effect
+        if base_col not in field_of or real_col not in field_of:
+            raise ValueError("scale_to_level fields are missing for spell %d effect %d"
+                             % (spec["id"], effect))
+        target_points = spell.get_int(rec, field_of[base_col])
+        # Signed slopes preserve negative effects; the base starts at zero.
+        spell.set_int(rec, field_of[base_col], 0)
+        spell.set_float(rec, field_of[real_col], target_points / (level - 1))
+
+    for col, value in (("BaseLevel", 1), ("MaxLevel", level), ("SpellLevel", 0)):
+        if col not in field_of:
+            raise ValueError("scale_to_level field %s is missing for spell %d"
+                             % (col, spec["id"]))
+        spell.set_int(rec, field_of[col], value)
+
+
 def build_spell_dbc(workdir, cols, spells, column_types=None,
                     localizations=None, write_esES=False):
     """Clone each `client` spell's `template` row, apply `overrides` (+ client-
@@ -649,6 +686,7 @@ def build_spell_dbc(workdir, cols, spells, column_types=None,
             spell.set_int(base, field_of[col], val)
         for col, val in s.get("client_overrides_float", {}).items():
             spell.set_float(base, field_of[col], val)
+        _apply_spell_level_scaling(spell, base, field_of, s)
         spell.set_int(base, field_of["ID"], s["id"])
         spell.set_int(base, field_of["Name_Lang_enUS"], spell.add_string(s["name"]))
         spell.set_int(base, field_of["Name_Lang_Mask"], NAME_MASK)
@@ -832,7 +870,7 @@ def emit_spell_sql(spells, cols, module, retired_ids=None):
                        "`ap_dot_bonus`, `comments`) "
                        "VALUES (%d, %s, %s, %s, %s, '%s %s');"
                        % (s["id"], b["direct"], b["dot"], b["ap"], b["ap_dot"],
-                          module, s["name"]))
+                          module, s["name"].replace("'", "''")))
 
     procs = [s for s in spells if s.get("proc")]
     if procs:

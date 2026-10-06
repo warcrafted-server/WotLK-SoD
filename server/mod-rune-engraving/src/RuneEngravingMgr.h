@@ -21,6 +21,7 @@
 #include "Define.h"
 #include "DatabaseEnvFwd.h"
 #include "ObjectGuid.h"
+#include "Common.h"
 #include <array>
 #include <mutex>
 #include <string>
@@ -101,6 +102,12 @@ struct RuneTemplate
     std::string Name;
     std::string Description;
     std::string Icon;          // inventory-icon name (for the addon UI); may be empty
+    struct LocaleText
+    {
+        std::string Name;
+        std::string Description;
+    };
+    std::unordered_map<uint32, LocaleText> Locales;
 };
 
 // Outcome of an Engrave attempt, so callers (NPC, .rune command) can give the
@@ -144,6 +151,8 @@ public:
 
     // Catalog access
     RuneTemplate const* GetRune(uint32 runeId) const;
+    std::string const& GetRuneName(RuneTemplate const& rune, LocaleConstant locale) const;
+    std::string const& GetRuneDescription(RuneTemplate const& rune, LocaleConstant locale) const;
     // Runes this player may engrave into `slot` (class- and slot-legal, unlocked).
     std::vector<RuneTemplate const*> GetRunesForSlot(Player* player, uint8 slot) const;
     // Every class- and slot-legal rune for `slot`, each paired with its locked

@@ -1,0 +1,13 @@
+## Interface: 30300
+## Title: RuneEngraver
+## Notes: Engrave runes from a Character Sheet panel (UI for mod-rune-engraving).
+## Notes-esES: Graba las runas desbloqueadas desde la hoja de personaje.
+## Author: BennyBroseph
+## Version: 0.2-sod
+## SavedVariables: RuneEngraver_SavedVars
+
+Locales.lua
+RuneEngraver.lua
+Comms.lua
+Panel.lua
+Skinning\ElvUI.lua

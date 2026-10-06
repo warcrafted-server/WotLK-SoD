@@ -17,6 +17,7 @@
 
 #include "RuneEngravingMgr.h"
 #include "Config.h"
+#include "Common.h"
 #include "DatabaseEnv.h"
 #include "Log.h"
 #include "Player.h"
@@ -118,6 +119,28 @@ void RuneEngravingMgr::LoadCatalog()
         } while (result->NextRow());
     }
 
+    if (QueryResult tableResult = WorldDatabase.Query(
+            "SELECT 1 FROM `information_schema`.`tables` "
+            "WHERE `table_schema` = DATABASE() AND `table_name` = 'rune_template_locale'"))
+    {
+        if (QueryResult localeResult = WorldDatabase.Query(
+                "SELECT `rune_id`, `locale`, `name`, `description` FROM `rune_template_locale`"))
+        {
+            do
+            {
+                Field* f = localeResult->Fetch();
+                auto rune = _catalog.find(f[0].Get<uint32>());
+                if (rune == _catalog.end())
+                    continue;
+
+                LocaleConstant locale = GetLocaleByName(f[1].Get<std::string>());
+                RuneTemplate::LocaleText& text = rune->second.Locales[uint32(locale)];
+                text.Name = f[2].Get<std::string>();
+                text.Description = f[3].Get<std::string>();
+            } while (localeResult->NextRow());
+        }
+    }
+
     // Quest-unlock mappings: a rune referenced here is "gated" and only
     // engravable once the character has unlocked it (see UnlockRunesForQuest).
     if (QueryResult qr = WorldDatabase.Query(
@@ -165,6 +188,19 @@ RuneTemplate const* RuneEngravingMgr::GetRune(uint32 runeId) const
     std::lock_guard<std::mutex> guard(_catalogMutex);
     auto it = _catalog.find(runeId);
     return it != _catalog.end() ? &it->second : nullptr;
+}
+
+std::string const& RuneEngravingMgr::GetRuneName(RuneTemplate const& rune, LocaleConstant locale) const
+{
+    auto it = rune.Locales.find(uint32(locale));
+    return it != rune.Locales.end() && !it->second.Name.empty() ? it->second.Name : rune.Name;
+}
+
+std::string const& RuneEngravingMgr::GetRuneDescription(RuneTemplate const& rune, LocaleConstant locale) const
+{
+    auto it = rune.Locales.find(uint32(locale));
+    return it != rune.Locales.end() && !it->second.Description.empty()
+        ? it->second.Description : rune.Description;
 }
 
 bool RuneEngravingMgr::RuneFitsSlot(RuneTemplate const& rune, uint8 slot) const

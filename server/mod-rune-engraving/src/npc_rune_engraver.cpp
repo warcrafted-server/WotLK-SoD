@@ -20,10 +20,12 @@
 #include "GossipDef.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneStrings.h"
 #include "ScriptMgr.h"
 #include "ScriptedGossip.h"
 #include <mutex>
 #include <unordered_map>
+#include <utility>
 
 // The gossip `sender` field tags which menu an item belongs to, so a single
 // OnGossipSelect can route slot picks, rune picks, removals, and navigation
@@ -44,6 +46,12 @@ enum RuneGossipSender
 // guarded for parity with the rest of the module.
 static std::unordered_map<ObjectGuid, uint8> sBrowsingSlot;
 static std::mutex sBrowsingMutex;
+
+template<typename... Args>
+static void SendRuneMessage(ChatHandler& handler, uint32 id, Args&&... args)
+{
+    handler.SendSysMessage(RuneFormat(&handler, id, std::forward<Args>(args)...));
+}
 
 class npc_rune_engraver : public CreatureScript
 {
@@ -75,30 +83,31 @@ public:
                     case EngraveResult::Success:
                     {
                         RuneTemplate const* rune = sRuneEngravingMgr->GetRune(action);
-                        handler.PSendSysMessage(
-                            "|cFF00FF00[Rune Engraver]|r Engraved |cFFFFD700{}|r in your {} slot.",
-                            rune ? rune->Name.c_str() : "rune", RuneEngravingMgr::SlotName(slot));
+                        std::string runeName = rune
+                            ? sRuneEngravingMgr->GetRuneName(*rune, player->GetSession()->GetSessionDbLocaleIndex())
+                            : RuneStr(player, RUNE_STRING_UNKNOWN_RUNE_NAME);
+                        SendRuneMessage(handler, RUNE_STRING_NPC_ENGRAVED,
+                            runeName, RuneSlotName(player, slot));
                         break;
                     }
                     case EngraveResult::PrereqMissing:
-                        handler.SendSysMessage("|cFFFF0000[Rune Engraver]|r You must learn Engraving first.");
+                        SendRuneMessage(handler, RUNE_STRING_NPC_PREREQ_SHORT);
                         break;
                     case EngraveResult::SlotLevelTooLow:
-                        handler.PSendSysMessage(
-                            "|cFFFF0000[Rune Engraver]|r Your {} slot unlocks at level {}.",
-                            RuneEngravingMgr::SlotName(slot), sRuneEngravingMgr->SlotMinLevel(slot));
+                        SendRuneMessage(handler, RUNE_STRING_NPC_SLOT_LEVEL,
+                            RuneSlotName(player, slot), sRuneEngravingMgr->SlotMinLevel(slot));
                         break;
                     case EngraveResult::DuplicateRune:
-                        handler.SendSysMessage("|cFFFF0000[Rune Engraver]|r That rune is already engraved in another slot.");
+                        SendRuneMessage(handler, RUNE_STRING_NPC_DUPLICATE);
                         break;
                     case EngraveResult::Locked:
-                        handler.SendSysMessage("|cFFFF0000[Rune Engraver]|r You haven't discovered that rune yet.");
+                        SendRuneMessage(handler, RUNE_STRING_NPC_UNDISCOVERED);
                         break;
                     case EngraveResult::WrongClass:
-                        handler.SendSysMessage("|cFFFF0000[Rune Engraver]|r That rune isn't for your class.");
+                        SendRuneMessage(handler, RUNE_STRING_NPC_WRONG_CLASS);
                         break;
                     default:
-                        handler.SendSysMessage("|cFFFF0000[Rune Engraver]|r You cannot engrave that rune there.");
+                        SendRuneMessage(handler, RUNE_STRING_NPC_ENGRAVE_FAILED);
                         break;
                 }
                 ShowRuneMenu(player, creature, slot);
@@ -106,9 +115,11 @@ public:
             }
             case SENDER_UNENGRAVE:
                 if (sRuneEngravingMgr->RemoveRune(player, uint8(action)))
-                    ChatHandler(player->GetSession()).PSendSysMessage(
-                        "|cFFFFFF00[Rune Engraver]|r Cleared the rune from your {} slot.",
-                        RuneEngravingMgr::SlotName(uint8(action)));
+                {
+                    ChatHandler handler(player->GetSession());
+                    SendRuneMessage(handler, RUNE_STRING_NPC_CLEARED,
+                        RuneSlotName(player, uint8(action)));
+                }
                 ShowRuneMenu(player, creature, uint8(action));
                 break;
             case SENDER_RESET:
@@ -117,9 +128,8 @@ public:
                 if (sRuneEngravingMgr->DebugMenu())
                 {
                     RuneResetSummary summary = sRuneEngravingMgr->ResetGatedProgress(player);
-                    ChatHandler(player->GetSession()).PSendSysMessage(
-                        "|cFFFFFF00[Rune Engraver]|r Debug reset: locked {} rune(s), "
-                        "reset {} quest(s), restored {} unlock item(s).",
+                    ChatHandler handler(player->GetSession());
+                    SendRuneMessage(handler, RUNE_STRING_NPC_DEBUG_RESET_DONE,
                         summary.RunesLocked, summary.QuestsReset, summary.ItemsRestored);
                 }
                 ShowSlotMenu(player, creature);
@@ -137,9 +147,8 @@ public:
                 }
                 if (!sRuneEngravingMgr->MeetsPrereq(player))
                 {
-                    ChatHandler(player->GetSession()).SendSysMessage(
-                        "|cFFFF0000[Rune Engraver]|r You must learn Engraving before you "
-                        "can engrave runes.");
+                    ChatHandler handler(player->GetSession());
+                    SendRuneMessage(handler, RUNE_STRING_NPC_PREREQ_LONG);
                     ShowRootMenu(player, creature);
                     break;
                 }
@@ -171,7 +180,7 @@ private:
         return it != sBrowsingSlot.end() ? it->second : RUNE_SLOT_MAX;
     }
 
-    // Root gossip: a single "Rune Engraving" entry (when the engine is enabled)
+    // Root gossip: a single engraver entry when the engine is enabled
     // plus the NPC's own quests. The rune flow now lives one level down so the
     // initial menu stays uncluttered on these quest-giver / vendor NPCs.
     void ShowRootMenu(Player* player, Creature* creature)
@@ -179,7 +188,8 @@ private:
         player->PlayerTalkClass->ClearMenus();
 
         if (sRuneEngravingMgr->IsEnabled())
-            AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "Rune Engraving", SENDER_OPEN, 0);
+            AddGossipItemFor(player, GOSSIP_ICON_TRAINER,
+                RuneStr(player, RUNE_STRING_NPC_ROOT), SENDER_OPEN, 0);
 
         // Surface the NPC's quests (a content module's turn-ins) -- the custom
         // gossip would otherwise replace the default menu and hide them. Generic;
@@ -196,20 +206,23 @@ private:
 
         for (uint8 slot = 0; slot < RUNE_SLOT_MAX; ++slot)
         {
-            std::string text = "Slot: ";
-            text += RuneEngravingMgr::SlotName(slot);
+            std::string text = RuneFormat(
+                player, RUNE_STRING_NPC_SLOT_LABEL, RuneSlotName(player, slot));
 
             uint32 minLevel = sRuneEngravingMgr->SlotMinLevel(slot);
             if (player->GetLevel() < minLevel)
             {
-                text += " |cFF808080(unlocks at " + std::to_string(minLevel) + ")|r";
+                text += RuneFormat(player, RUNE_STRING_NPC_SLOT_LOCKED_SUFFIX, minLevel);
             }
             else
             {
                 uint32 runeId = sRuneEngravingMgr->GetEngraved(player->GetGUID(), slot);
                 if (runeId)
                     if (RuneTemplate const* rune = sRuneEngravingMgr->GetRune(runeId))
-                        text += " |cFF00FF00[" + rune->Name + "]|r";
+                        text += RuneFormat(
+                            player, RUNE_STRING_NPC_SLOT_RUNE,
+                            sRuneEngravingMgr->GetRuneName(
+                                *rune, player->GetSession()->GetSessionDbLocaleIndex()));
             }
 
             AddGossipItemFor(player, GOSSIP_ICON_TALK, text, SENDER_SLOT, slot);
@@ -219,9 +232,10 @@ private:
         // discovery flow can be re-tested without GM commands.
         if (sRuneEngravingMgr->DebugMenu())
             AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1,
-                "|cFFFF0000[Debug] Reset my runes & quests|r", SENDER_RESET, 0);
+                RuneStr(player, RUNE_STRING_NPC_DEBUG_RESET), SENDER_RESET, 0);
 
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<- Back", SENDER_ROOT, 0);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+            RuneStr(player, RUNE_STRING_NPC_BACK), SENDER_ROOT, 0);
 
         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     }
@@ -242,9 +256,10 @@ private:
         if (player->GetLevel() < minLevel)
         {
             AddGossipItemFor(player, GOSSIP_ICON_CHAT,
-                "|cFF808080This slot unlocks at level " + std::to_string(minLevel) + ".|r",
+                RuneFormat(player, RUNE_STRING_NPC_SLOT_LOCKED_NOTICE, minLevel),
                 SENDER_BACK, 0);
-            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<- Back to slots", SENDER_BACK, 0);
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+                RuneStr(player, RUNE_STRING_NPC_BACK_TO_SLOTS), SENDER_BACK, 0);
             SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
             return;
         }
@@ -254,21 +269,23 @@ private:
 
         for (RuneTemplate const* rune : runes)
         {
-            std::string text = rune->Name;
+            std::string text = sRuneEngravingMgr->GetRuneName(
+                *rune, player->GetSession()->GetSessionDbLocaleIndex());
             if (rune->RuneId == currentRuneId)
-                text += " |cFF00FF00(engraved)|r";
+                text += RuneStr(player, RUNE_STRING_NPC_ENGRAVED_SUFFIX);
             AddGossipItemFor(player, GOSSIP_ICON_TRAINER, text, SENDER_RUNE, rune->RuneId);
         }
 
         if (runes.empty())
             AddGossipItemFor(player, GOSSIP_ICON_CHAT,
-                "|cFF808080No runes available for this slot.|r", SENDER_BACK, 0);
+                RuneStr(player, RUNE_STRING_NPC_NO_RUNES), SENDER_BACK, 0);
 
         if (currentRuneId)
             AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1,
-                "|cFFFF0000Remove engraved rune|r", SENDER_UNENGRAVE, slot);
+                RuneStr(player, RUNE_STRING_NPC_REMOVE_RUNE), SENDER_UNENGRAVE, slot);
 
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<- Back to slots", SENDER_BACK, 0);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+            RuneStr(player, RUNE_STRING_NPC_BACK_TO_SLOTS), SENDER_BACK, 0);
 
         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
     }

@@ -26,6 +26,7 @@
 #include "ScriptMgr.h"
 #include "Spell.h"
 #include "TemporarySummon.h"
+#include "../mage/spell_sod_mage.h"
 
 // Awakening the Awakened Lich (the shared Season of Discovery elite that drops
 // each class's rune notes) has two triggers, both requiring the Decrepit
@@ -52,14 +53,14 @@ namespace
 {
     // Awaken the Lich at the Slumbering Bones. Shared by both triggers; the caller
     // has already confirmed the module is enabled and the player is at the bones.
-    // Only one Lich at a time. `source` labels the "already stirs" message.
-    void AwakenLich(Player* player, GameObject* bones, char const* source)
+    // Only one Lich at a time. `sourceStringId` labels the "already stirs" message.
+    void AwakenLich(Player* player, GameObject* bones, uint32 sourceStringId)
     {
         // Already awakened nearby: don't stack summons.
         if (player->FindNearestCreature(NPC_SOD_WORLD_AWAKENED_LICH, 60.0f))
         {
             ChatHandler(player->GetSession()).PSendSysMessage(
-                "|cFFFF0000[{}]|r Something already stirs nearby.", source);
+                SodStr(player, 1007).c_str(), SodStr(player, sourceStringId).c_str());
             return;
         }
 
@@ -118,7 +119,7 @@ public:
             return true; // handled — suppress the benign use-spell
         }
 
-        AwakenLich(player, bones, "Decrepit Phylactery");
+        AwakenLich(player, bones, 1008);
         return true; // handled — suppress the benign use-spell
     }
 };
@@ -142,7 +143,7 @@ public:
         if (!player->HasItemCount(ITEM_SOD_WORLD_PHYLACTERY, 1))
             return false;
 
-        AwakenLich(player, go, "Slumbering Bones");
+        AwakenLich(player, go, 1009);
         return true; // handled — we drove the interaction
     }
 };

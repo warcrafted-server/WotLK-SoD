@@ -21,6 +21,7 @@
 #include "Player.h"
 #include "QuestDef.h"
 #include "RuneEngravingMgr.h"
+#include "RuneStrings.h"
 #include "ScriptMgr.h"
 
 // Rune spells are granted as temporary, so they are not saved with the
@@ -58,8 +59,7 @@ public:
             sRuneEngravingMgr->UnlockRunesForQuest(player, quest->GetQuestId());
         for (std::string const& name : unlocked)
             ChatHandler(player->GetSession()).PSendSysMessage(
-                "|cFF00FF00[Rune Engraver]|r You have discovered the |cFFFFD700{}|r "
-                "rune. Visit a Rune Engraver to engrave it.", name);
+                RuneStr(player, RUNE_STRING_RUNE_DISCOVERED).c_str(), name);
     }
 
     // Purge a character's rune rows when it is deleted, so a later character that

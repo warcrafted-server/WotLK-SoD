@@ -19,12 +19,30 @@
 #define MODULE_SOD_MAGE_H
 
 #include "Config.h"
+#include "ObjectMgr.h"
+#include "Player.h"
 #include "ScriptMgr.h"
 #include "SpellAuraEffects.h"
 #include "SpellMgr.h"
 #include "SpellScript.h"
+#include "WorldSession.h"
+
+#include <string>
 
 #define MODULE_STRING "mod-sod-mage"
+
+inline std::string SodStr(Player const* player, uint32 id)
+{
+    std::string const missing = std::string("[missing string ") + std::to_string(id) + "]";
+    if (!player || !sObjectMgr || !sObjectMgr->GetModuleString("mod-sod-content", id))
+        return missing;
+
+    // Check the backing row first because the session accessor uses a
+    // non-null missing-key sentinel in this core.
+    WorldSession* session = player->GetSession();
+    std::string const* value = session ? session->GetModuleString("mod-sod-content", id) : nullptr;
+    return value ? *value : missing;
+}
 
 // Spell IDs owned by this module. The 4xxxxx IDs are the real Season of
 // Discovery IDs (matched by the client MPQ patch). 900002 is a custom server-side

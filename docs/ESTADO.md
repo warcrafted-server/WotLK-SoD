@@ -127,6 +127,13 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
    compilar el cambio** y sin probar en juego. Diferencia: la parte de Chaos Bolt que atraviesa
    absorciones no se implementa. **Aviso:** el generador SALTA en silencio un `sod_spells.py` roto; los
    módulos de clase se importan sin ese silencio.
+   **Pendientes (59):** `docs/runas/plan-implementacion.md` las clasifica por reglas simples: 8 pasivas (P),
+   14 con proc (T), 37 que necesitan C++ (C). Ojo: la clasificación es heurística; Living Bomb de mago
+   aparece pese a estar hecha (se excluyó por otro id).
+   **Requisito del usuario (2026-10-06): todos los mensajes del servidor (comandos `.rune`, gossip del
+   grabador, objetos y eventos) deben salir de tablas de cadenas, como mínimo en inglés y español de España.
+   Hoy están en inglés dentro del C++** (~70 llamadas en `cs_rune.cpp`, `npc_rune_engraver.cpp`,
+   `item_rune_unlock.cpp`, `sod_mage_azora_event.cpp` y otros). Pendiente; implica C++ y recompilar.
    Plan: primero las de nivel A (clon de un hechizo de WotLK, solo datos); el resto, tras compilar.
    (Antes: solo después de que el mago compile y funcione.)
 8b. **Más clases (histórico):** (guerrero, chamán, etc.): solo después de que el mago compile y funcione.

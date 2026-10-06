@@ -61,7 +61,7 @@ true surface) at the desired spot.
   ```
   `N = 0` is normal with no content module installed.
 - **NPC present?** `SELECT entry, ScriptName FROM creature_template WHERE entry = 700000;`
-  and `SELECT guid, position_x, position_y, position_z FROM creature WHERE id1 = 700000;`
+  and `SELECT guid, position_x, position_y, position_z FROM creature WHERE id = 700000;`
 - **Catalog rows?** `SELECT rune_id, spell_id, class_mask, slot_mask, name FROM rune_template;`
 - **In-game (with a content module):** talk to the engraver → pick a slot → the
   class-legal runes list → engrave → the spell appears and casts; un-engrave removes

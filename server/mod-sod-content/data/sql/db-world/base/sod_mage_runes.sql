@@ -81,7 +81,7 @@
 -- Mapping for rune 7000012 (Ice Lance -> spell 400640):
 --   class_mask 128 = Mage
 --   slot_mask   64 = Hands          (1 << RUNE_SLOT_HANDS  = 1 << 6)
---   400640 clones the core's Ice Lance rank 1 (30455); rune icon is unverified.
+--   400640 clones the core's Ice Lance rank 3 (42914), scaled through level 80.
 
 SET @rune_tbl := (SELECT COUNT(*) FROM information_schema.tables
                   WHERE table_schema = DATABASE() AND table_name = 'rune_template');
@@ -124,7 +124,7 @@ SET @sql := IF(@rune_tbl > 0,
      ''Hastens your spellcasting, increasing spell casting speed by 20% and reducing pushback suffered from damaging attacks by 100% for 20 sec.'',
      ''mod-sod-mage'', 1),
     (7000012, 400640, 128, 64, ''Ice Lance'', ''spell_frost_frostblast'',
-     ''Deals 55 to 65 Frost damage to an enemy target. Deals triple damage against Frozen targets.'',
+     ''Deals Frost damage to an enemy target. Deals triple damage against Frozen targets.'',
      ''mod-sod-mage'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

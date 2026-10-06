@@ -13,8 +13,11 @@ SET @sql := IF(@rune_tbl > 0,
     (`rune_id`, `spell_id`, `class_mask`, `slot_mask`, `name`, `icon`, `description`, `source`, `enabled`)
  VALUES
     (7003001, 409433, 4, 64, ''Chimera Shot'', ''ability_hunter_chimerashot2'',
-     ''You deal weapon damage, refreshing the current Sting on your target and triggering an effect.'',
-     ''mod-sod-hunter'', 1)
+    ''You deal weapon damage, refreshing the current Sting on your target and triggering an effect.'',
+    ''mod-sod-hunter'', 1),
+    (7003002, 409428, 4, 16, ''Master Marksman'', ''ability_hunter_mastermarksman'',
+    ''Increases your critical strike chance by 5%, and reduces the Mana cost of all your Shot abilities by 25%.'',
+    ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
     `class_mask`  = VALUES(`class_mask`),

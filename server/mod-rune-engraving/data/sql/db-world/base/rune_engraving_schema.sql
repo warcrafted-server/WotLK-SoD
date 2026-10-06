@@ -93,3 +93,12 @@ REPLACE INTO `creature_template_model`
     (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`)
 VALUES
     (700000, 0, 24292, 1.0, 1.0);
+
+-- Optional rune names and descriptions for player locales.
+CREATE TABLE IF NOT EXISTS `rune_template_locale` (
+    `rune_id`     INT UNSIGNED NOT NULL,
+    `locale`      ENUM('koKR','frFR','deDE','zhCN','zhTW','esES','esMX','ruRU') NOT NULL,
+    `name`        VARCHAR(255) NOT NULL,
+    `description` TEXT NOT NULL,
+    PRIMARY KEY (`rune_id`, `locale`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

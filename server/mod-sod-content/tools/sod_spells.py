@@ -664,20 +664,19 @@ def build_spells(idx):
                 "CategoryRecoveryTime": 0,
             },
         },
-        {  # 400640 Ice Lance: clone the core rank-1 spell; keep its Mage family and icon
-           # so the core's Frozen-target multiplier and Fingers of Frost mask still apply.
-            "id": 400640, "client": True, "template": 30455,  # clone Ice Lance rank 1
+        {  # 400640 Ice Lance: clone rank 3 and scale its base damage through level 80.
+           # Keep its Mage family and icon for Frozen-target and Fingers of Frost effects.
+            "id": 400640, "client": True, "template": 42914,  # rank 3, level 78
             "inherit_server": True,
             "skill_line": 6,  # spellbook tab: Frost (SKILL_FROST is not defined)
             "name": "Ice Lance",
-            "desc": "Deals 55 to 65 Frost damage to an enemy target. Deals triple damage against Frozen targets.",
+            "scale_to_level": {"effects": [1], "level": 80},
             "bonus": {"direct": 0.1429, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
             "overrides": {
                 "CastingTimeIndex": cast_instant, "RangeIndex": range_30,
                 "ManaCostPct": 8, "ManaCost": 0, "PowerType": 0,
                 "SchoolMask": 16, "EquippedItemClass": -1, "SpellLevel": 0,
                 "Speed": 38,
-                "EffectBasePoints_1": 54, "EffectDieSides_1": 11,
             },
         },
         {  # 412326 Enlightenment (high-mana sub-buff): +10% spell damage. Pure DBC,

@@ -29,8 +29,7 @@
     "aura_desc": "Velocidad de lanzamiento de todos los hechizos aumentada un 20% y retroceso sufrido por los ataques dañinos mientras lanzas hechizos reducido un 100%."
   },
   "400640": {
-    "name": "Lanza de hielo",
-    "desc": "Inflige de 55 a 65 p. de daño de Escarcha al objetivo enemigo. Inflige el triple de daño contra objetivos congelados."
+    "name": "Lanza de hielo"
   },
   "401946": {
     "name": "Círculo de sanación"
@@ -105,5 +104,17 @@
   },
   "408120": {
     "name": "Crecimiento salvaje"
+  },
+  "412727": {
+    "name": "Tácticas demoníacas",
+    "desc": "Aumenta un 10% la probabilidad de asestar golpes críticos cuerpo a cuerpo y con hechizos tanto para ti como para tu mascota."
+  },
+  "409428": {
+    "name": "Maestro tirador",
+    "desc": "Aumenta un 5% tu probabilidad de golpe crítico y reduce un 25% el coste de maná de todas tus facultades de disparo."
+  },
+  "411115": {
+    "name": "Supervivencia del más fuerte",
+    "desc": "Reduce en un 7% la probabilidad de recibir un golpe crítico cuerpo a cuerpo y en un 10% todo el daño recibido."
   }
 }

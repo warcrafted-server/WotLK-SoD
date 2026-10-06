@@ -45,7 +45,7 @@ VALUES
 -- fine-tune with .npc move (INSERT IGNORE preserves it). Spawn guid 8820007.
 -- =====================================================================
 INSERT IGNORE INTO `creature`
-    (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
+    (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
      `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
      `spawntimesecs`, `wander_distance`, `MovementType`)
 VALUES

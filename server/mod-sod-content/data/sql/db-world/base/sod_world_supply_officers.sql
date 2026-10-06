@@ -110,7 +110,7 @@ VALUES
 -- guids in the 8820000+ band.
 -- =====================================================================
 INSERT IGNORE INTO `creature`
-    (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
+    (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
      `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
      `spawntimesecs`, `wander_distance`, `MovementType`)
 VALUES

@@ -17,6 +17,9 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warlock'', 1),
     (7008002, 403501, 256, 64, ''Haunt'', ''ability_warlock_haunt'',
      ''Unleash a ghostly soul on an enemy, dealing damage and increasing all Shadow damage over time you deal to that target.'',
+     ''mod-sod-warlock'', 1),
+    (7008003, 412727, 256, 16, ''Demonic Tactics'', ''spell_shadow_demonictactics'',
+     ''Increases the melee and spell critical strike chance of you and your pet by 10%.'',
      ''mod-sod-warlock'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

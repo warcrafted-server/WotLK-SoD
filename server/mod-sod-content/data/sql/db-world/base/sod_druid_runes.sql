@@ -13,8 +13,11 @@ SET @sql := IF(@rune_tbl > 0,
     (`rune_id`, `spell_id`, `class_mask`, `slot_mask`, `name`, `icon`, `description`, `source`, `enabled`)
  VALUES
     (7009001, 408120, 1024, 64, ''Wild Growth'', ''ability_druid_flourish'',
-     ''Heals all party members of the target player within range. Healing is applied quickly at first and slows as Wild Growth reaches its full duration.'',
-     ''mod-sod-druid'', 1)
+    ''Heals all party members of the target player within range. Healing is applied quickly at first and slows as Wild Growth reaches its full duration.'',
+    ''mod-sod-druid'', 1),
+    (7009002, 411115, 1024, 16, ''Survival of the Fittest'', ''spell_nature_spiritwolf'',
+    ''Reduces the chance you''''ll be critically hit by melee attacks by 7% and reduces all damage taken by 10%.'',
+    ''mod-sod-druid'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
     `class_mask`  = VALUES(`class_mask`),

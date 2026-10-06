@@ -1,0 +1,695 @@
+[
+  {
+    "taught_spell_id": 411115,
+    "name_en": "Survival of the Fittest",
+    "clase": "druid",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      62069
+    ]
+  },
+  {
+    "taught_spell_id": 407995,
+    "name_en": "Mangle",
+    "clase": "druid",
+    "slot": "Hands",
+    "tipo": "talento",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      41439
+    ]
+  },
+  {
+    "taught_spell_id": 414684,
+    "name_en": "Sunfire",
+    "clase": "druid",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 409428,
+    "name_en": "Master Marksman",
+    "clase": "hunter",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      34489
+    ]
+  },
+  {
+    "taught_spell_id": 400613,
+    "name_en": "Living Bomb",
+    "clase": "mage",
+    "slot": "Hands",
+    "tipo": "talento",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      55362
+    ]
+  },
+  {
+    "taught_spell_id": 401969,
+    "name_en": "Shared Pain",
+    "clase": "priest",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 415813,
+    "name_en": "Greater Ghost Wolf",
+    "clase": "shaman",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 412727,
+    "name_en": "Demonic Tactics",
+    "clase": "warlock",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "P",
+    "razon": "Solo aplica auras pasivas, sin proc, lanzamiento ni reutilización.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      30248
+    ]
+  },
+  {
+    "taught_spell_id": 414799,
+    "name_en": "Fury of Stormrage",
+    "clase": "druid",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425713,
+    "name_en": "Cobra Strikes",
+    "clase": "hunter",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      53260
+    ]
+  },
+  {
+    "taught_spell_id": 415370,
+    "name_en": "Lone Wolf",
+    "clase": "hunter",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 415399,
+    "name_en": "Sniper Training",
+    "clase": "hunter",
+    "slot": "Legs",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Usa un aura asociada a proc o activación.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      64420
+    ]
+  },
+  {
+    "taught_spell_id": 409552,
+    "name_en": "Explosive Shot",
+    "clase": "hunter",
+    "slot": "Hands",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Usa un aura asociada a proc o activación.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      71126
+    ]
+  },
+  {
+    "taught_spell_id": 407880,
+    "name_en": "Inspiration Exemplar",
+    "clase": "paladin",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Usa un aura asociada a proc o activación.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 407613,
+    "name_en": "Beacon of Light",
+    "clase": "paladin",
+    "slot": "Hands",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Uno de sus efectos dispara otro hechizo.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      53563
+    ]
+  },
+  {
+    "taught_spell_id": 413248,
+    "name_en": "Serendipity",
+    "clase": "priest",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      63737
+    ]
+  },
+  {
+    "taught_spell_id": 415739,
+    "name_en": "Strength of Soul",
+    "clase": "priest",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Uno de sus efectos dispara otro hechizo.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 462708,
+    "name_en": "Cutthroat",
+    "clase": "rogue",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 424785,
+    "name_en": "Saber Slash",
+    "clase": "rogue",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Tiene una probabilidad de proc configurada.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 412689,
+    "name_en": "Everlasting Affliction",
+    "clase": "warlock",
+    "slot": "Legs",
+    "tipo": "talento",
+    "nivel": "T",
+    "razon": "Uno de sus efectos dispara otro hechizo.",
+    "riesgo_hueco": true,
+    "plantilla_wotlk": [
+      47422
+    ]
+  },
+  {
+    "taught_spell_id": 425418,
+    "name_en": "Consumed By Rage",
+    "clase": "warrior",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Uno de sus efectos dispara otro hechizo.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 413404,
+    "name_en": "Single-Minded Fury",
+    "clase": "warrior",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "T",
+    "razon": "Usa un aura asociada a proc o activación.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 414677,
+    "name_en": "Living Seed",
+    "clase": "druid",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      48504
+    ]
+  },
+  {
+    "taught_spell_id": 407977,
+    "name_en": "Wild Strikes",
+    "clase": "druid",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 417157,
+    "name_en": "Starsurge",
+    "clase": "druid",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 410176,
+    "name_en": "Skull Bash",
+    "clase": "druid",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 409368,
+    "name_en": "Beast Mastery",
+    "clase": "hunter",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "La descripción indica una mecánica compleja («taunt»).",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      53270
+    ]
+  },
+  {
+    "taught_spell_id": 415320,
+    "name_en": "Flanking Strike",
+    "clase": "hunter",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425738,
+    "name_en": "Serpent Spread",
+    "clase": "hunter",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425711,
+    "name_en": "Carve",
+    "clase": "hunter",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 458393,
+    "name_en": "Cobra Slayer",
+    "clase": "hunter",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 458287,
+    "name_en": "Hallowed Ground",
+    "clase": "paladin",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425198,
+    "name_en": "Twisted Faith",
+    "clase": "priest",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      51167
+    ]
+  },
+  {
+    "taught_spell_id": 402799,
+    "name_en": "Homunculi",
+    "clase": "priest",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 399965,
+    "name_en": "Deadly Brew",
+    "clase": "rogue",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      51626
+    ]
+  },
+  {
+    "taught_spell_id": 400014,
+    "name_en": "Just a Flesh Wound",
+    "clase": "rogue",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 398196,
+    "name_en": "Quick Draw",
+    "clase": "rogue",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 424925,
+    "name_en": "Slaughter from the Shadows",
+    "clase": "rogue",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      51712
+    ]
+  },
+  {
+    "taught_spell_id": 400009,
+    "name_en": "Between the Eyes",
+    "clase": "rogue",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 424919,
+    "name_en": "Main Gauche",
+    "clase": "rogue",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 408496,
+    "name_en": "Dual Wield Specialization",
+    "clase": "shaman",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      30819
+    ]
+  },
+  {
+    "taught_spell_id": 415236,
+    "name_en": "Healing Rain",
+    "clase": "shaman",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 408524,
+    "name_en": "Shield Mastery",
+    "clase": "shaman",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      29599
+    ]
+  },
+  {
+    "taught_spell_id": 436364,
+    "name_en": "Two-Handed Mastery",
+    "clase": "shaman",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 409324,
+    "name_en": "Ancestral Guidance",
+    "clase": "shaman",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 408531,
+    "name_en": "Way of Earth",
+    "clase": "shaman",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "La descripción indica una mecánica compleja («taunt»).",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 403666,
+    "name_en": "Lake of Fire",
+    "clase": "warlock",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 403668,
+    "name_en": "Master Channeler",
+    "clase": "warlock",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425463,
+    "name_en": "Demonic Grace",
+    "clase": "warlock",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Es una habilidad activa nueva sin equivalente en WotLK.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425464,
+    "name_en": "Demonic Pact",
+    "clase": "warlock",
+    "slot": "Legs",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      54909
+    ]
+  },
+  {
+    "taught_spell_id": 403789,
+    "name_en": "Metamorphosis",
+    "clase": "warlock",
+    "slot": "Hands",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      61610
+    ]
+  },
+  {
+    "taught_spell_id": 412507,
+    "name_en": "Blood Frenzy",
+    "clase": "warrior",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      30070
+    ]
+  },
+  {
+    "taught_spell_id": 402877,
+    "name_en": "Flagellation",
+    "clase": "warrior",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 402911,
+    "name_en": "Raging Blow",
+    "clase": "warrior",
+    "slot": "Chest",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 425421,
+    "name_en": "Warbringer",
+    "clase": "warrior",
+    "slot": "Chest",
+    "tipo": "talento",
+    "nivel": "C",
+    "razon": "La descripción indica una mecánica compleja («stance»).",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": [
+      57499
+    ]
+  },
+  {
+    "taught_spell_id": 425412,
+    "name_en": "Frenzied Assault",
+    "clase": "warrior",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un aura DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 403219,
+    "name_en": "Furious Thunder",
+    "clase": "warrior",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "La descripción indica una mecánica compleja («stance»).",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 403228,
+    "name_en": "Meathook",
+    "clase": "warrior",
+    "slot": "Legs",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Incluye un efecto DUMMY y requiere lógica propia en C++.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  },
+  {
+    "taught_spell_id": 429765,
+    "name_en": "Quick Strike",
+    "clase": "warrior",
+    "slot": "Hands",
+    "tipo": "sin_equivalente",
+    "nivel": "C",
+    "razon": "Los datos no encajan en las reglas simples; se asigna C por prudencia.",
+    "riesgo_hueco": false,
+    "plantilla_wotlk": []
+  }
+]

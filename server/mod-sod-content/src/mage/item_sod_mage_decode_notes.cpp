@@ -21,7 +21,6 @@
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "Spell.h"
-#include "StringFormat.h"
 
 #include <unordered_map>
 
@@ -33,8 +32,8 @@
 // engine installed.
 //
 // Data-driven so one ItemScript serves every scrambled note: each entry maps a
-// scrambled item id -> its deciphered item id + the display name for the
-// success message. All ids are the real SoD ids (wago.tools).
+// scrambled item id -> its deciphered item id + the success message string id.
+// All item ids are the real SoD ids (wago.tools).
 enum SodMageDecodeItems
 {
     ITEM_SOD_MAGE_CHARM = 211779,
@@ -43,16 +42,16 @@ enum SodMageDecodeItems
 struct SodMageNotePair
 {
     uint32 deciphered;
-    char const* name;
+    uint32 successStringId;
 };
 
 namespace
 {
     std::unordered_map<uint32, SodMageNotePair> const sSodMageNotePairs =
     {
-        // scrambled        deciphered  deciphered display name
-        { 208754, { 208753, "Spell Notes: Regeneration" } },  // TENGI RONEERA
-        { 203752, { 203746, "Spell Notes: Living Flame" } },  // MILEGIN VALF
+        // scrambled        deciphered  success string id
+        { 208754, { 208753, 1004 } },  // TENGI RONEERA
+        { 203752, { 203746, 1005 } },  // MILEGIN VALF
     };
 }
 
@@ -76,9 +75,7 @@ public:
 
         if (!player->HasItemCount(ITEM_SOD_MAGE_CHARM, 1))
         {
-            handler.SendSysMessage(
-                "|cFFFF0000[Spell Notes]|r The shorthand is gibberish. You need a "
-                "|cFFFFD700Comprehension Charm|r to decipher it.");
+            handler.SendSysMessage(SodStr(player, 1003));
             return true; // handled — suppress the benign use-spell
         }
 
@@ -88,9 +85,7 @@ public:
         player->DestroyItemCount(item->GetEntry(), 1, true);
         player->AddItem(pair.deciphered, 1);
 
-        handler.SendSysMessage(Acore::StringFormat(
-            "|cFF00FF00[Spell Notes]|r The charm unscrambles the arcane shorthand "
-            "into |cFFFFD700{}|r.", pair.name).c_str());
+        handler.SendSysMessage(SodStr(player, pair.successStringId));
         return true;
     }
 };

@@ -19,6 +19,7 @@
 #include "ChatCommand.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneStrings.h"
 #include "ScriptMgr.h"
 
 using namespace Acore::ChatCommands;
@@ -66,13 +67,13 @@ public:
         Player* player = handler->GetPlayer();
         if (!player)
         {
-            handler->SendSysMessage("This command must be used in-game.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_COMMAND_INGAME));
             return false;
         }
 
         player->SummonCreature(RUNE_ENGRAVER_NPC, *player, TEMPSUMMON_TIMED_DESPAWN,
             RUNE_ENGRAVER_SUMMON_MS);
-        handler->SendSysMessage("A Rune Engraver appears for a short while.");
+        handler->SendSysMessage(RuneStr(handler, RUNE_STRING_SUMMONED));
         return true;
     }
 
@@ -81,11 +82,11 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
-        handler->PSendSysMessage("Engraved runes for {}:", player->GetName());
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_ENGRAVED_RUNES_HEADER).c_str(), player->GetName());
         bool any = false;
         for (uint8 slot = 0; slot < RUNE_SLOT_MAX; ++slot)
         {
@@ -94,13 +95,13 @@ public:
                 continue;
             any = true;
             RuneTemplate const* rune = sRuneEngravingMgr->GetRune(runeId);
-            handler->PSendSysMessage("  {} : {} (rune {}, spell {})",
-                RuneEngravingMgr::SlotName(slot),
-                rune ? rune->Name.c_str() : "?",
+            std::string runeName = rune ? rune->Name : RuneStr(handler, RUNE_STRING_UNKNOWN_RUNE_NAME);
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_ENGRAVED_RUNE_ROW).c_str(),
+                RuneSlotName(handler->GetPlayer(), slot), runeName,
                 runeId, rune ? rune->SpellId : 0);
         }
         if (!any)
-            handler->SendSysMessage("  (no runes engraved)");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_RUNES_ENGRAVED));
         return true;
     }
 
@@ -109,19 +110,19 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
         uint8 level = player->GetLevel();
-        handler->PSendSysMessage("Engraving slots for {} (level {}):",
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_SLOTS_HEADER).c_str(),
             player->GetName(), uint32(level));
         for (uint8 slot = 0; slot < RUNE_SLOT_MAX; ++slot)
         {
             uint32 minLevel = sRuneEngravingMgr->SlotMinLevel(slot);
-            handler->PSendSysMessage("  {} : unlocks at {} [{}]",
-                RuneEngravingMgr::SlotName(slot), minLevel,
-                level >= minLevel ? "open" : "locked");
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_SLOT_UNLOCK_LEVEL).c_str(),
+                RuneSlotName(handler->GetPlayer(), slot), minLevel,
+                RuneStr(handler, level >= minLevel ? RUNE_STRING_SLOT_OPEN : RUNE_STRING_SLOT_LOCKED));
         }
         return true;
     }
@@ -131,7 +132,7 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
@@ -139,26 +140,26 @@ public:
         if (result == EngraveResult::Success)
         {
             RuneTemplate const* rune = sRuneEngravingMgr->GetRune(runeId);
-            handler->PSendSysMessage("Engraved {} in slot {} ({}).",
-                rune ? rune->Name.c_str() : "rune", uint32(slot),
-                RuneEngravingMgr::SlotName(slot));
+            std::string runeName = rune ? rune->Name : RuneStr(handler, RUNE_STRING_UNKNOWN_RUNE_NAME);
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_ENGRAVED_IN_SLOT).c_str(),
+                runeName, uint32(slot), RuneSlotName(handler->GetPlayer(), slot));
             return true;
         }
 
-        char const* reason = "rune doesn't exist, fit the slot, or match the class";
+        uint32 reasonString = RUNE_STRING_REASON_UNKNOWN_RUNE;
         switch (result)
         {
-            case EngraveResult::PrereqMissing:   reason = "the character hasn't learned Engraving"; break;
-            case EngraveResult::SlotLevelTooLow: reason = "the slot isn't unlocked at this level"; break;
-            case EngraveResult::DuplicateRune:   reason = "that rune is already engraved in another slot"; break;
-            case EngraveResult::Locked:          reason = "the character hasn't unlocked that rune"; break;
-            case EngraveResult::WrongClass:      reason = "the rune isn't for that class"; break;
-            case EngraveResult::WrongSlot:       reason = "the rune doesn't fit that slot"; break;
-            case EngraveResult::UnknownRune:     reason = "no such rune (or it's disabled)"; break;
+            case EngraveResult::PrereqMissing:   reasonString = RUNE_STRING_REASON_PREREQUISITE; break;
+            case EngraveResult::SlotLevelTooLow: reasonString = RUNE_STRING_REASON_SLOT_LEVEL; break;
+            case EngraveResult::DuplicateRune:   reasonString = RUNE_STRING_REASON_DUPLICATE; break;
+            case EngraveResult::Locked:          reasonString = RUNE_STRING_REASON_LOCKED; break;
+            case EngraveResult::WrongClass:      reasonString = RUNE_STRING_REASON_WRONG_CLASS; break;
+            case EngraveResult::WrongSlot:       reasonString = RUNE_STRING_REASON_WRONG_SLOT; break;
+            case EngraveResult::UnknownRune:     reasonString = RUNE_STRING_REASON_UNKNOWN_RUNE; break;
             default: break;
         }
-        handler->PSendSysMessage("Could not engrave rune {} in slot {}: {}.",
-            runeId, uint32(slot), reason);
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_ENGRAVE_FAILED).c_str(),
+            runeId, uint32(slot), RuneStr(handler, reasonString));
         return false;
     }
 
@@ -167,18 +168,18 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
         if (sRuneEngravingMgr->RemoveRune(player, slot))
         {
-            handler->PSendSysMessage("Cleared slot {} ({}).",
-                uint32(slot), RuneEngravingMgr::SlotName(slot));
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_CLEARED_SLOT).c_str(),
+                uint32(slot), RuneSlotName(handler->GetPlayer(), slot));
             return true;
         }
 
-        handler->PSendSysMessage("Nothing engraved in slot {}.", uint32(slot));
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_NOTHING_ENGRAVED).c_str(), uint32(slot));
         return false;
     }
 
@@ -187,14 +188,14 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
         if (sRuneEngravingMgr->UnlockRune(player, runeId))
-            handler->PSendSysMessage("Unlocked rune {} for {}.", runeId, player->GetName());
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_UNLOCKED_FOR).c_str(), runeId, player->GetName());
         else
-            handler->PSendSysMessage("Rune {} was already unlocked for {}.", runeId, player->GetName());
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_ALREADY_UNLOCKED_FOR).c_str(), runeId, player->GetName());
         return true;
     }
 
@@ -203,14 +204,14 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
         if (sRuneEngravingMgr->LockRune(player, runeId))
-            handler->PSendSysMessage("Locked rune {} for {}.", runeId, player->GetName());
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_LOCKED_FOR).c_str(), runeId, player->GetName());
         else
-            handler->PSendSysMessage("Rune {} was not unlocked for {}.", runeId, player->GetName());
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_NOT_UNLOCKED_FOR).c_str(), runeId, player->GetName());
         return true;
     }
 
@@ -219,22 +220,23 @@ public:
         Player* player = handler->getSelectedPlayerOrSelf();
         if (!player)
         {
-            handler->SendSysMessage("No target player.");
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
             return false;
         }
 
         std::vector<uint32> ids = sRuneEngravingMgr->GetUnlockedRunes(player->GetGUID());
         if (ids.empty())
         {
-            handler->PSendSysMessage("{} has no unlocked runes.", player->GetName());
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_NO_UNLOCKED_RUNES).c_str(), player->GetName());
             return true;
         }
 
-        handler->PSendSysMessage("Unlocked runes for {}:", player->GetName());
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_UNLOCKED_RUNES_HEADER).c_str(), player->GetName());
         for (uint32 id : ids)
         {
             RuneTemplate const* rune = sRuneEngravingMgr->GetRune(id);
-            handler->PSendSysMessage("  {} : {}", id, rune ? rune->Name.c_str() : "?");
+            std::string runeName = rune ? rune->Name : RuneStr(handler, RUNE_STRING_UNKNOWN_RUNE_NAME);
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_UNLOCKED_RUNE_ROW).c_str(), id, runeName);
         }
         return true;
     }
@@ -242,7 +244,7 @@ public:
     static bool HandleReload(ChatHandler* handler)
     {
         sRuneEngravingMgr->LoadCatalog();
-        handler->PSendSysMessage("RuneEngraving: catalog reloaded ({} rune(s)).",
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_CATALOG_RELOADED).c_str(),
             sRuneEngravingMgr->CatalogSize());
         return true;
     }

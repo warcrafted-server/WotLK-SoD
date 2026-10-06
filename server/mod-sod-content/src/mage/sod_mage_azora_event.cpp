@@ -231,8 +231,7 @@ public:
 
         if (!next)
         {
-            handler.SendSysMessage(
-                "|cFF00FF00[Azora's Notes]|r You have already copied every page.");
+            handler.SendSysMessage(SodStr(player, 1000));
             return true;
         }
 
@@ -260,9 +259,7 @@ public:
         for (uint32 page : SOD_MAGE_AZORA_PAGES)
             if (!player->HasItemCount(page, 1, true))
             {
-                handler.SendSysMessage(
-                    "|cFFFFD700[Azora's Notes]|r The notes are incomplete. Collect "
-                    "all four pages, then read them together.");
+                handler.SendSysMessage(SodStr(player, 1001));
                 return true; // handled -- suppress the benign use-spell
             }
 
@@ -270,9 +267,7 @@ public:
             player->DestroyItemCount(page, 1, true);
 
         player->AddItem(ITEM_SOD_MAGE_NOTES_ENLIGHTENMENT, 1);
-        handler.SendSysMessage(
-            "|cFF00FF00[Azora's Notes]|r The pages align into "
-            "|cFFFFD700Spell Notes: Enlightenment|r.");
+        handler.SendSysMessage(SodStr(player, 1002));
         return true;
     }
 };
