@@ -37,7 +37,14 @@ REPLACE INTO `rune_template_locale` (`rune_id`, `locale`, `name`, `description`)
 (7008002, 'esES', 'Poseer', 'Libera un alma espectral contra un enemigo, le inflige daño y aumenta todo el daño de las Sombras en el tiempo que le infliges.'),
 (7008003, 'esES', 'Tácticas demoníacas', 'Aumenta un 10% tu probabilidad de golpe crítico cuerpo a cuerpo y con hechizos, y la de tu mascota.'),
 (7009001, 'esES', 'Crecimiento salvaje', 'Sana a todos los miembros del grupo del jugador objetivo que estén a su alcance. La sanación se aplica con rapidez al principio y se ralentiza hasta completar la duración de Crecimiento salvaje.'),
-(7009002, 'esES', 'Supervivencia del más fuerte', 'Reduce un 7% la probabilidad de que recibas golpes críticos cuerpo a cuerpo y reduce un 10% todo el daño recibido.');
+(7009002, 'esES', 'Supervivencia del más fuerte', 'Reduce un 7% la probabilidad de que recibas golpes críticos cuerpo a cuerpo y reduce un 10% todo el daño recibido.'),
+(7009007, 'esES', 'Destrozar', 'Destroza al objetivo y aumenta el daño que recibe de los efectos de sangrado y Triturar.'),
+(7009008, 'esES', 'Cornada', 'Tus facultades ferales pueden reiniciar Destrozar (oso) o Furia del tigre y otorgarte ira.'),
+(7009009, 'esES', 'Golpes descontrolados', 'Mientras estés en forma felina, forma de oso o forma de oso temible, otorgas Golpes descontrolados a los miembros cercanos de tu grupo o banda.'),
+(7009010, 'esES', 'Rey de la selva', 'Furia del tigre te otorga energía y aumenta el daño físico durante un breve periodo.'),
+(7009011, 'esES', 'Testarazo', 'Carga contra el objetivo, interrumpe su lanzamiento y bloquea su escuela de magia.'),
+(7009012, 'esES', 'Regeneración frenética mejorada', 'Regeneración frenética consume tu recurso activo para sanarte fuera de la forma de lechúcico lunar.'),
+(7009013, 'esES', 'Flagelo mejorado', 'En forma felina, Flagelo se convierte en Flagelo (felino); en forma de oso golpea hasta siete enemigos adicionales.');
 
 REPLACE INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 (700000, 'esES', 'Grabador de runas', 'Grabado', 0);

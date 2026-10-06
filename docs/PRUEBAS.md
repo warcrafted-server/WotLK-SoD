@@ -83,7 +83,11 @@ que el personaje no tiene (Divine Storm, Mutilate, Haunt: comprobar que funciona
 
 Solo SQL y parche, **no hace falta recompilar**: copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`, reiniciar el reino y comprobar: Explosive Shot (rune 7003003, Manos), daño de Chaos Bolt, Haunt, Avenger's Shield, Circle of Healing y Wild Growth que crece con el nivel (a 80 coinciden con WotLK), y nombres de NPC y misiones del mundo de SoD en español.
 
-## Druida feral (prioridad), solo SQL y parche, sin recompilar
+## Druida feral, segunda tanda (C++): RECOMPILAR
+
+Siete runas nuevas con código propio (`src/druid/`, interruptor `SodDruid.Enable` en `mod_sod_content.conf`, que `make install` deja solo como `.dist`: si quieres cambiar valores copia las secciones nuevas al `.conf`): Mangle 7009007 (Manos, 6), Gore 7009008 (Cabeza, 0), Wild Strikes 7009009 (Pecho, 4), King of the Jungle 7009010 (Pies, 9), Skull Bash 7009011 (Manos, 6), Improved Frenzied Regeneration 7009012 (Muñecas, 5), Improved Swipe 7009013 (Espalda, 3). Pasos: compilar (`cd ~/Repos/acore-test/build && nice -n 19 make -j3 2>&1 | tee ~/sod-build.log && make install`; si falla, pásame las líneas con `error:`), copiar de nuevo los dos MPQ, reiniciar el reino. Probar con un druida: Mangle en gato y en oso, Skull Bash (carga e interrupción a menos de 13 yd), Wild Strikes con un grupo en forma felina, Improved Swipe. **Sin compilar ni probar**; las diferencias con SoD están en el informe de cada tarea (`agentrelay show`).
+
+## Druida feral (prioridad), primera tanda, solo SQL y parche, sin recompilar
 
 Copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq` y reiniciar el reino. Runas nuevas del druida (`.rune engrave <ranura> <id>`): Lacerate 7009003 (ranura 8), Savage Roar 7009004 (8), Berserk 7009005 (7), Survival Instincts 7009006 (9); ya estaban Wild Growth 7009001 (6) y Survival of the Fittest 7009002 (4). Comprobar que salen en el libro con icono y texto, que se lanzan y que Lacerate hace daño periódico que crece con el nivel. **Diferencias conocidas con SoD** (no son fallos): Lacerate sin el daño de arma por acumulación; Berserk sin multiobjetivo de Lacerate, sin quitar el miedo ni inmunidad; Survival Instincts sin regeneración al esquivar ni sanación no física.
 

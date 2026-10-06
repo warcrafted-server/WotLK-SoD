@@ -33,6 +33,13 @@ void AddSC_sod_mage_burnout();
 void AddSC_sod_mage_azora_event();
 void AddSC_item_sod_mage_decode_notes();
 void AddSC_world_sod_mage_drops();
+void AddSC_sod_druid_mangle();
+void AddSC_sod_druid_gore();
+void AddSC_sod_druid_wild_strikes();
+void AddSC_sod_druid_king_of_the_jungle();
+void AddSC_sod_druid_skull_bash();
+void AddSC_sod_druid_improved_frenzied_regeneration();
+void AddSC_sod_druid_improved_swipe();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -70,4 +77,12 @@ void Addmod_sod_contentScripts()
     AddSC_player_sod_world_supply_quests();
     AddSC_npc_sod_world_supply_officer();
     AddSC_player_sod_world_supply_vendor();
+
+    AddSC_sod_druid_mangle();
+    AddSC_sod_druid_gore();
+    AddSC_sod_druid_wild_strikes();
+    AddSC_sod_druid_king_of_the_jungle();
+    AddSC_sod_druid_skull_bash();
+    AddSC_sod_druid_improved_frenzied_regeneration();
+    AddSC_sod_druid_improved_swipe();
 }

@@ -234,3 +234,113 @@ SodWorld.SupplyDrop.P1Chance = 10
 SodWorld.SupplyDrop.P2Chance = 10
 SodWorld.SupplyDrop.P3Chance = 10
 SodWorld.SupplyDrop.P4Chance = 5
+
+###############################################################################
+# DRUID
+###############################################################################
+#
+#    SodDruid.Enable
+#        Description: Master switch for the custom Druid rune scripts.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+#
+
+SodDruid.Enable = 1
+
+#
+#    SodDruid.Mangle.*
+#        BearRageCost is whole Rage (stored internally in tenths).
+#        CatEnergyCost uses the WotLK rank-6 Mangle (Cat) baseline.
+#        DamagePct and BleedDamagePct tune the two SoD Mangle effects.
+#        DefenseSkillPerLevel and AttackPowerPerDefense tune Bear Mangle's
+#        Defender's Resolve bonus. BuffDurationSeconds sets the debuff and bonus
+#        aura duration.
+#
+#        Defaults: BearRageCost 15, CatEnergyCost 45, DamagePct 160,
+#                  BleedDamagePct 30, DefenseSkillPerLevel 5,
+#                  AttackPowerPerDefense 4, BuffDurationSeconds 60
+#
+
+SodDruid.Mangle.BearRageCost = 15
+SodDruid.Mangle.CatEnergyCost = 45
+SodDruid.Mangle.DamagePct = 160
+SodDruid.Mangle.BleedDamagePct = 30
+SodDruid.Mangle.DefenseSkillPerLevel = 5
+SodDruid.Mangle.AttackPowerPerDefense = 4
+SodDruid.Mangle.BuffDurationSeconds = 60
+
+#
+#    SodDruid.Gore.*
+#        ProcChance is the chance on eligible feral hits. RageAmount is whole Rage.
+#        Defaults: ProcChance 15, RageAmount 10
+#
+
+SodDruid.Gore.ProcChance = 15
+SodDruid.Gore.RageAmount = 10
+
+#
+#    SodDruid.WildStrikes.*
+#        RadiusYards is based on the SoD radius index; RefreshMs controls how often
+#        nearby group members are refreshed. The buff duration must be longer than
+#        the refresh interval.
+#        ProcChance, ProcCooldownMs, and AttackPowerPct tune the extra-attack proc.
+#        Defaults: RadiusYards 100, RefreshMs 5000, BuffDurationSeconds 6,
+#                  ProcChance 20, ProcCooldownMs 1500, AttackPowerPct 20
+#
+
+SodDruid.WildStrikes.RadiusYards = 100
+SodDruid.WildStrikes.RefreshMs = 5000
+SodDruid.WildStrikes.BuffDurationSeconds = 6
+SodDruid.WildStrikes.ProcChance = 20
+SodDruid.WildStrikes.ProcCooldownMs = 1500
+SodDruid.WildStrikes.AttackPowerPct = 20
+
+#
+#    SodDruid.KingOfTheJungle.*
+#        DamagePct, Energy, BuffDurationSeconds, and CooldownSeconds tune the
+#        Tiger's Fury changes. FormCheckMs controls how quickly Bear forms cancel it.
+#        Energy is the total target including the core WotLK talent grant; values
+#        below that grant cannot reduce the energy from the core talent script.
+#        Defaults: DamagePct 15, Energy 60, BuffDurationSeconds 6,
+#                  CooldownSeconds 30, FormCheckMs 250
+#
+
+SodDruid.KingOfTheJungle.DamagePct = 15
+SodDruid.KingOfTheJungle.Energy = 60
+SodDruid.KingOfTheJungle.BuffDurationSeconds = 6
+SodDruid.KingOfTheJungle.CooldownSeconds = 30
+SodDruid.KingOfTheJungle.FormCheckMs = 250
+
+#
+#    SodDruid.SkullBash.*
+#        EnergyCost and RageCost tune the Cat and Bear form costs. Rage is configured
+#        in whole points. SchoolLockoutSeconds controls the interrupted school's lockout.
+#        Defaults: EnergyCost 25, RageCost 10, SchoolLockoutSeconds 2
+#
+
+SodDruid.SkullBash.EnergyCost = 25
+SodDruid.SkullBash.RageCost = 10
+SodDruid.SkullBash.SchoolLockoutSeconds = 2
+
+#
+#    SodDruid.ImprovedFrenziedRegeneration.*
+#        RagePerSecond, EnergyPerSecond, and BaseManaPctPerSecond tune resource conversion.
+#        HealthPctPerSecond is the maximum health restored for the full resource amount.
+#        Rage is configured in whole points and stored internally in tenths.
+#        Defaults: RagePerSecond 10, EnergyPerSecond 10, BaseManaPctPerSecond 20,
+#                  HealthPctPerSecond 10
+#
+
+SodDruid.ImprovedFrenziedRegeneration.RagePerSecond = 10
+SodDruid.ImprovedFrenziedRegeneration.EnergyPerSecond = 10
+SodDruid.ImprovedFrenziedRegeneration.BaseManaPctPerSecond = 20
+SodDruid.ImprovedFrenziedRegeneration.HealthPctPerSecond = 10
+
+#
+#    SodDruid.ImprovedSwipe.MaxBearTargets
+#        Maximum number of enemies Bear Form Swipe can hit with the rune active.
+#        SoD allows the primary target plus 7 additional enemies.
+#        Default: 8
+#
+
+SodDruid.ImprovedSwipe.MaxBearTargets = 8

@@ -1,0 +1,44 @@
+# Cómo se consiguen las runas
+
+Estado a 2026-10-06. **En este servidor solo las 8 runas de mago de abajo tienen adquisición por el mundo, y reproducen la de SoD con los objetos reales.** El resto de runas implementadas no tienen ninguna: cualquier personaje de la clase puede grabarlas (el grabador comprueba clase, ranura y prerrequisito de nivel, pero no que se hayan descubierto). Es provisional, para poder probarlas; en SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento).
+
+La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que usa este servidor: `https://www.wowhead.com/classic/spell=<id>` muestra el hechizo y, en su pestaña, qué objeto lo enseña y dónde se consigue. **La fuente de SoD real no está en los datos que tenemos (wago.tools no trae tablas de botín ni de misiones): hay que consultarla en Wowhead, y no la he verificado runa a runa.**
+
+| rune_id | Clase | Runa | Ranura | Id SoD | Cómo se consigue aquí | Wowhead |
+|---|---|---|---|---|---|---|
+| 7000001 | Mago | Regeneration | Pecho | 401417 | Objeto «Spell Notes: Regeneration» (208753): se descifra con un Comprehension Charm (reactivos) a partir de las notas TENGI RONEERA que sueltan Defias Renegade Mage, Defias Pillager y Dalaran Apprentice. | [spell=401417](https://www.wowhead.com/classic/spell=401417) |
+| 7000002 | Mago | Mass Regeneration | Piernas | 412510 | Objeto «Spell Notes: Mass Regeneration» (211514): lo suelta el Awakened Lich de Raven Hill (cofre polvoriento, filacterio e invocación). | [spell=412510](https://www.wowhead.com/classic/spell=412510) |
+| 7000003 | Mago | Living Flame | Piernas | 401556 | Objeto «Spell Notes: Living Flame» (203746): se descifra con un Comprehension Charm a partir de las notas MILEGIN VALF que sueltan ciertos enemigos de SoD. | [spell=401556](https://www.wowhead.com/classic/spell=401556) |
+| 7000004 | Mago | Enlightenment | Pecho | 412324 | Objeto «Spell Notes: Enlightenment» (203749): evento «Servant of Azora» en Elwynn (aprendices polimorfados y notas del aprendiz). | [spell=412324](https://www.wowhead.com/classic/spell=412324) |
+| 7000005 | Mago | Arcane Surge | Piernas | 425124 | Objeto «Spell Notes: Arcane Surge» (211386): lo venden los seis oficiales de suministros con reputación Amistoso con su facción de suministros. | [spell=425124](https://www.wowhead.com/classic/spell=425124) |
+| 7000006 | Mago | Arcane Blast | Manos | 900003 | Objeto «Spell Notes: Arcane Blast» (211691): lanzar Explosión Arcana sobre tres cristales morados de Zoram Strand (Ashenvale) en orden. | [spell=900003](https://www.wowhead.com/classic/spell=900003) |
+| 7000007 | Mago | Rewind Time | Muñecas | 401462 | Objeto «Spell Notes: Rewind Time» (210654): lo vende Grizzby, el vendedor goblin de Ratchet. | [spell=401462](https://www.wowhead.com/classic/spell=401462) |
+| 7000008 | Mago | Living Bomb | Manos | 900006 | Objeto «Spell Notes: Living Bomb» (208799): lo suelta Stonesplinter Seer (criatura 1166) en Dun Morogh, fuente de la Alianza. | [spell=900006](https://www.wowhead.com/classic/spell=900006) |
+| 7000009 | Mago | Fingers of Frost | Pecho | 400647 | Libre: se puede grabar sin descubrirla (provisional) | [spell=400647](https://www.wowhead.com/classic/spell=400647) |
+| 7000010 | Mago | Burnout | Pecho | 412286 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412286](https://www.wowhead.com/classic/spell=412286) |
+| 7000011 | Mago | Icy Veins | Piernas | 425121 | Libre: se puede grabar sin descubrirla (provisional) | [spell=425121](https://www.wowhead.com/classic/spell=425121) |
+| 7000012 | Mago | Ice Lance | Manos | 400640 | Libre: se puede grabar sin descubrirla (provisional) | [spell=400640](https://www.wowhead.com/classic/spell=400640) |
+| 7001001 | Guerrero | Devastate | Manos | 403195 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403195](https://www.wowhead.com/classic/spell=403195) |
+| 7002001 | Paladín | Divine Storm | Pecho | 407778 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407778](https://www.wowhead.com/classic/spell=407778) |
+| 7002002 | Paladín | Avenger's Shield | Piernas | 407669 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407669](https://www.wowhead.com/classic/spell=407669) |
+| 7002003 | Paladín | Aura Mastery | Piernas | 407624 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407624](https://www.wowhead.com/classic/spell=407624) |
+| 7002004 | Paladín | Crusader Strike | Manos | 407676 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407676](https://www.wowhead.com/classic/spell=407676) |
+| 7003001 | Cazador | Chimera Shot | Manos | 409433 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409433](https://www.wowhead.com/classic/spell=409433) |
+| 7003002 | Cazador | Master Marksman | Pecho | 409428 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409428](https://www.wowhead.com/classic/spell=409428) |
+| 7003003 | Cazador | Explosive Shot | Manos | 409552 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409552](https://www.wowhead.com/classic/spell=409552) |
+| 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
+| 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
+| 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
+| 7007001 | Chamán | Earth Shield | Piernas | 408514 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408514](https://www.wowhead.com/classic/spell=408514) |
+| 7007002 | Chamán | Lava Lash | Manos | 408507 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408507](https://www.wowhead.com/classic/spell=408507) |
+| 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
+| 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
+| 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |
+| 7009001 | Druida | Wild Growth | Manos | 408120 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408120](https://www.wowhead.com/classic/spell=408120) |
+| 7009002 | Druida | Survival of the Fittest | Pecho | 411115 | Libre: se puede grabar sin descubrirla (provisional) | [spell=411115](https://www.wowhead.com/classic/spell=411115) |
+| 7009003 | Druida | Lacerate | Piernas | 414644 | Libre: se puede grabar sin descubrirla (provisional) | [spell=414644](https://www.wowhead.com/classic/spell=414644) |
+| 7009004 | Druida | Savage Roar | Piernas | 407988 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407988](https://www.wowhead.com/classic/spell=407988) |
+| 7009005 | Druida | Berserk | Cintura | 417141 | Libre: se puede grabar sin descubrirla (provisional) | [spell=417141](https://www.wowhead.com/classic/spell=417141) |
+| 7009006 | Druida | Survival Instincts | Pies | 408024 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408024](https://www.wowhead.com/classic/spell=408024) |
+| 7009007 | Druida | Mangle | Manos | 407995 | Libre: se puede grabar sin descubrirla (provisional) | [spell=407995](https://www.wowhead.com/classic/spell=407995) |
+| 7009008 | Druida | Gore | Cabeza | 417145 | Libre: se puede grabar sin descubrirla (provisional) | [spell=417145](https://www.wowhead.com/classic/spell=417145) |

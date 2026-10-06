@@ -12,8 +12,21 @@ def build(idx):
     """Return Druid spells cloned from the level-80 WotLK ranks."""
     cast_instant = idx["cast"][0]
     duration_perm = idx["dur"][-1]
+    duration_60s = idx["dur"][60000]
+    duration_6s = idx["dur"][6000]
+    duration_10s = idx["dur"][10000]
+    duration_2s = idx["dur"][2000]
     range_self = idx["range"][0.0]
+    range_13 = idx["range"][13.0]
+    range_100 = idx["range"][100.0]
     icon_survival = idx["icon"]["spell_nature_spiritwolf"]
+    icon_mangle = idx["icon"]["ability_druid_mangle2"]
+    icon_question = idx["icon"]["inv_misc_questionmark"]
+    icon_windfury = idx["icon"]["spell_nature_windfury"]
+    icon_tigers_fury = idx["icon"]["ability_mount_jungletiger"]
+    icon_skull_bash = idx["icon"]["spell_druid_feralchargecat"]
+    icon_frenzied_regeneration = idx["icon"]["ability_bullrush"]
+    icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -102,6 +115,376 @@ def build(idx):
                 "ImplicitTargetA_3": 0,
                 "EffectSpellClassMaskA_3": 0, "EffectSpellClassMaskB_3": 0,
                 "EffectSpellClassMaskC_3": 0,
+            },
+        },
+        {  # Mangle dispatches to a max-rank WotLK form spell with SoD effect values.
+            "id": 407995, "client": True, "template": 48564,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Mangle", "script": "spell_sod_druid_mangle",
+            "inherit_server": True,
+            "desc": "Mangle the target for 160% normal damage and cause it to take "
+                    "30% additional damage from Bleed effects and Shred for 60 sec. "
+                    "This ability benefits from and triggers all effects associated "
+                    "with Claw and Maul. In Bear Form, hitting a target also grants "
+                    "4 Attack Power for each point of Defense above 5 times your level "
+                    "for 60 sec.",
+            "aura_desc": "All Bleed effects and Shred cause 30% additional damage.",
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "ShapeshiftMask": 145,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_60s,
+                "CategoryRecoveryTime": 6000, "RecoveryTime": 0,
+                "StartRecoveryCategory": 133, "StartRecoveryTime": 1500,
+                "RangeIndex": idx["range"][5.0], "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_mangle, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0x440,
+                "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_DUMMY, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Gore's proc filters use the WotLK Druid family masks.
+            "id": 417145, "client": True, "template": 774,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Gore", "script": "spell_sod_druid_gore",
+            "desc": "Striking a target with Lacerate, Swipe, or Maul has a 15% chance "
+                    "to reset the cooldown on Mangle (Bear) and grant 10 Rage. "
+                    "Striking a target with Mangle (Cat) or Shred has a 15% chance "
+                    "to reset the cooldown on Tiger's Fury.",
+            "aura_desc": "Striking a target with Lacerate, Swipe, or Maul has a 15% "
+                         "chance to reset the cooldown on Mangle (Bear) and grant "
+                         "10 Rage. Striking a target with Mangle (Cat) or Shred has a "
+                         "15% chance to reset the cooldown on Tiger's Fury.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": idx["range"][0.0], "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "SpellClassMask_1": 0x8800, "SpellClassMask_2": 0x00100540,
+                "SpellClassMask_3": 0x00000800,
+                "ProcTypeMask": 16, "ProcChance": 100,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 7,
+                "SpellFamilyMask0": 0x8800,
+                "SpellFamilyMask1": 0x00100540,
+                "SpellFamilyMask2": 0x00000800,
+                "ProcFlags": 16, "SpellTypeMask": 1,
+                "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 100, "Charges": 0,
+            },
+        },
+        {  # Defender's Resolve supplies the dynamic Bear Mangle Attack Power aura.
+            "id": 460171, "client": True, "template": 774,
+            "name": "Defender's Resolve",
+            "aura_desc": "Attack Power increased by $w1.",
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_60s,
+                "RangeIndex": idx["range"][0.0], "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 99,
+                "EffectBasePoints_1": 4, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 124,
+                "EffectBasePoints_2": 4, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Wild Strikes is maintained on eligible raid members by its rune driver.
+            "id": 407975, "client": True, "template": 8515,
+            "name": "Wild Strikes", "script": "spell_sod_druid_wild_strikes_proc",
+            "desc": "Party members within $a1 yards gain increased combat ferocity. "
+                    "Each melee hit has a $h% chance of granting the attacker an extra "
+                    "attack with $s1% additional Attack Power. No effect if the attacker "
+                    "is already benefitting from Windfury Totem.",
+            "aura_desc": "Chance to gain extra attacks.",
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00C00014,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "ShapeshiftMask": 0, "AuraInterruptFlags": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_6s,
+                "RangeIndex": range_self, "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_windfury, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "ProcTypeMask": 0x00C00014, "ProcChance": 20,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectAuraPeriod_1": 0, "EffectBasePoints_1": 20,
+                "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectRadiusIndex_1": 12,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # The rune's passive driver polls form and nearby party or raid members.
+            "id": 407977, "client": True, "template": 774,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Wild Strikes", "script": "spell_sod_druid_wild_strikes",
+            "desc": "While you are in Cat Form, Bear Form, or Dire Bear Form, party or raid "
+                    "members within $407975a1 yards gain increased combat ferocity. Each melee "
+                    "hit has a $407975h% chance of granting the attacker an extra attack with "
+                    "$407975s1% additional Attack Power. No effect if the target is already "
+                    "benefitting from Windfury Totem.",
+            "aura_desc": "Chance to gain extra attacks.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_windfury, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectAuraPeriod_1": 1000, "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectRadiusIndex_1": 0,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # SoD's Tiger's Fury helper applies the physical damage buff and energy gain.
+            "id": 417045, "client": True, "template": 5217,
+            "name": "Tiger's Fury",
+            "desc": "Increases damage done by $s1% for $d and instantly grants you $s2 Energy.",
+            "aura_desc": "Increases damage done by $s1%.",
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "ShapeshiftMask": 0, "AuraInterruptFlags": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_6s,
+                "RangeIndex": range_self, "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_tigers_fury, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": AURA_MOD_DAMAGE_PERCENT_DONE,
+                "EffectAuraPeriod_1": 0, "EffectBasePoints_1": 15,
+                "EffectDieSides_1": 0, "EffectMiscValue_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 30, "EffectAura_2": 0,
+                "EffectBasePoints_2": 60, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 3,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # The rune spell is a hidden marker checked by the Tiger's Fury script.
+            "id": 417046, "client": False, "template": None,
+            "name": "King of the Jungle",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_tigers_fury, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Hidden form watcher lets the Tiger's Fury helper persist outside Cat Form.
+            "id": 900015, "client": False, "template": None,
+            "name": "Tiger's Fury Form Watch",
+            "script": "spell_sod_druid_king_of_the_jungle_form_watch",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "ShapeshiftMask": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_6s,
+                "RangeIndex": range_self, "PowerType": 0,
+                "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
+                "EquippedItemClass": -1, "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectAuraPeriod_1": 250, "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Skull Bash charges like Bear Feral Charge and triggers the school interrupt.
+            "id": 410176, "client": True, "template": 16979,
+            "inherit_server": True,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Skull Bash", "script": "spell_sod_druid_skull_bash",
+            "desc": "Charge to a target within 13 yards and bash the target's skull, "
+                    "interrupting spellcasting and preventing any spell in that school "
+                    "from being cast for $414621d. Shares a cooldown with Feral Charge.",
+            "overrides": {
+                "Category": 1205, "RecoveryTime": 10000,
+                "CategoryRecoveryTime": 10000,
+                "StartRecoveryCategory": 133, "StartRecoveryTime": 1000,
+                "ShapeshiftMask": 145,
+                "CastingTimeIndex": cast_instant, "DurationIndex": 0,
+                "RangeIndex": range_13, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_skull_bash, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0,
+                "SpellClassMask_3": 0,
+                "Effect_1": 96, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectMechanic_1": 26,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "EffectTriggerSpell_1": 0,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "EffectTriggerSpell_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+                "EffectTriggerSpell_3": 0,
+            },
+        },
+        {  # Hidden interrupt spell; the core applies the interrupted school's lockout.
+            "id": 414621, "client": True, "template": 1766,
+            "inherit_server": True,
+            "name": "Skull Bash",
+            "desc": "You bash the target's skull, interrupting spellcasting and preventing "
+                    "any spell in that school from being cast for $d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_2s,
+                "RangeIndex": range_100, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_skull_bash, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0,
+                "SpellClassMask_3": 0,
+                "Effect_1": 68, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectMechanic_1": 26,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Rune tooltip helper with the SoD conversion limits and duration.
+            "id": 428708, "client": True, "template": 774,
+            "name": "Frenzied Regeneration",
+            "desc": "Converts Rage, Energy, and base Mana into health every second for $d.",
+            "aura_desc": "Converting resources into health.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_10s,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_frenzied_regeneration, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectAuraPeriod_1": 1000, "EffectBasePoints_1": 9,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 9, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 19, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # The visible rune marker grants a form exception and handles non-Rage resources.
+            "id": 431389, "client": True, "template": 774,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Improved Frenzied Regeneration",
+            "script": "spell_sod_druid_improved_frenzied_regeneration_rune",
+            "desc": "Your Frenzied Regeneration can now be used in all forms except Moonkin "
+                    "Form or while not shapeshifted. It now converts your active resource "
+                    "into health every second for $428708d. Up to $428708s1 Rage, "
+                    "$428708s2 Energy, or $428708s3% base Mana is converted per second "
+                    "into up to 10% health.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_frenzied_regeneration, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # SoD's Cat Swipe keeps the WotLK weapon damage and adds one combo point.
+            "id": 411128, "client": True, "template": 62078,
+            "inherit_server": True,
+            "name": "Swipe (Cat)",
+            "desc": "Swipe nearby enemies, inflicting $s1% weapon damage and generating "
+                    "$s2 combo point(s) on your current target.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellIconID": icon_swipe, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "PowerType": 3, "ManaCost": 50, "ManaCostPct": 0,
+                "Effect_1": 31, "EffectBasePoints_1": 249,
+                "Effect_2": 80, "EffectAura_2": 0,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "EffectChainTargets_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # The rune marker is checked by the Bear target cap and Cat Swipe redirect.
+            "id": 439510, "client": True, "template": 774,
+            "skill_line": SKILL_FERAL_COMBAT,
+            "name": "Improved Swipe",
+            "desc": "While in Cat Form, your Swipe ability becomes Swipe (Cat), and while "
+                    "in Bear Form, your Swipe ability strikes up to $s1 additional enemies.\n\n"
+                    "Swipe (Cat)\n$@spellicon411128\n$@spelldesc411128",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_swipe, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 6,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # The client and server need this family-scoped form exception aura.
+            "id": 900016, "client": True, "template": 774,
+            "name": "Frenzied Regeneration Form Permit",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_frenzied_regeneration, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 1073741824,
+                "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 275,
+                "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
     ]

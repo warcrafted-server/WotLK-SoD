@@ -131,5 +131,59 @@
   "411115": {
     "name": "Supervivencia del más fuerte",
     "desc": "Reduce en un 7% la probabilidad de recibir un golpe crítico cuerpo a cuerpo y en un 10% todo el daño recibido."
+  },
+  "407995": {
+    "name": "Destrozar",
+    "desc": "Destroza al objetivo, le inflige un 160% de daño normal y hace que reciba un 30% más de daño de los efectos de sangrado y de Triturar durante 60 s. Esta facultad se beneficia de todos los efectos relacionados con Zarpa y Magullar, y también los activa. En forma de oso, al golpear al objetivo también obtienes 4 p. de poder de ataque por cada punto de defensa que supere cinco veces tu nivel durante 60 s.",
+    "aura_desc": "Todos los efectos de sangrado y Triturar infligen un 30% más de daño."
+  },
+  "417145": {
+    "name": "Cornada",
+    "desc": "Al golpear a un objetivo con Lacerar, Flagelo o Magullar tienes un 15% de probabilidad de reiniciar el tiempo de reutilización de Destrozar (oso) y otorgarte 10 p. de ira. Al golpear con Destrozar (felino) o Triturar tienes un 15% de probabilidad de reiniciar el tiempo de reutilización de Furia del tigre.",
+    "aura_desc": "Al golpear a un objetivo con Lacerar, Flagelo o Magullar tienes un 15% de probabilidad de reiniciar el tiempo de reutilización de Destrozar (oso) y otorgarte 10 p. de ira. Al golpear con Destrozar (felino) o Triturar tienes un 15% de probabilidad de reiniciar el tiempo de reutilización de Furia del tigre."
+  },
+  "460171": {
+    "name": "Resolución del defensor",
+    "aura_desc": "Aumenta el poder de ataque según los puntos de defensa que superen cinco veces tu nivel."
+  },
+  "407975": {
+    "name": "Golpes descontrolados",
+    "desc": "Los miembros del grupo en un radio de $a1 m obtienen mayor ferocidad en combate. Cada golpe cuerpo a cuerpo tiene una probabilidad del $h% de otorgar al atacante un ataque extra con un $s1% de poder de ataque adicional. No tiene efecto si el miembro del grupo ya se está beneficiando de Tótem Viento Furioso.",
+    "aura_desc": "Probabilidad de conseguir ataques extra."
+  },
+  "407977": {
+    "name": "Golpes descontrolados",
+    "desc": "Mientras estás en forma felina, forma de oso o forma de oso temible, los miembros del grupo o de la banda en un radio de $407975a1 m obtienen mayor ferocidad en combate. Cada golpe cuerpo a cuerpo tiene una probabilidad del $407975h% de otorgar al atacante un ataque extra con un $407975s1% de poder de ataque adicional. No surte efecto si el objetivo ya se está beneficiando de Tótem Viento Furioso.",
+    "aura_desc": "Probabilidad de conseguir ataques extra."
+  },
+  "417045": {
+    "name": "Furia del tigre",
+    "desc": "Aumenta el daño infligido un $s1% durante $d y te concede al instante $s2 p. de energía.",
+    "aura_desc": "Aumenta el daño infligido un $s1%."
+  },
+  "410176": {
+    "name": "Testarazo",
+    "desc": "Cargas contra un objetivo en un radio de 13 m para darle un golpe en cráneo que interrumpe el lanzamiento de hechizos e impide que se lancen hechizos de la misma escuela durante $414621d. Comparte tiempo de reutilización con Carga feral."
+  },
+  "414621": {
+    "name": "Testarazo",
+    "desc": "Golpeas el cráneo del objetivo, interrumpes el lanzamiento de hechizos e impides que se lancen hechizos de la misma escuela durante $d."
+  },
+  "428708": {
+    "name": "Regeneración frenética",
+    "desc": "Convierte recursos en salud cada segundo durante $d. Convierte hasta $s1 p. de ira, $s2 p. de energía o un $s3% del maná base por segundo en un 10% de salud, como máximo.",
+    "aura_desc": "Convirtiendo recursos en salud."
+  },
+  "431389": {
+    "name": "Regeneración frenética mejorada",
+    "desc": "Ahora puedes utilizar Regeneración frenética en todas tus formas (excepto en la de lechúcico lunar) o cuando no te hayas metamorfoseado. Además, convierte tu recurso activo en salud cada segundo durante $428708d. Convierte hasta $428708s1 p. de ira, $428708s2 p. de energía o un $428708s3% del maná base por segundo en un 10% de salud, como máximo."
+  },
+  "411128": {
+    "name": "Flagelo (felino)",
+    "desc": "Flagela a los enemigos cercanos, lo que inflige un $s1% de daño con arma y genera $s2 p. de combo sobre tu objetivo actual."
+  },
+  "439510": {
+    "name": "Flagelo mejorado",
+    "desc": "Mientras estás en forma felina, tu facultad Flagelo se convierte en Flagelo (felino), y mientras estás en forma de oso, Flagelo golpea hasta $s1 enemigos adicionales.\n\nFlagelo (felino)\n$@spellicon411128\n$@spelldesc411128"
   }
 }

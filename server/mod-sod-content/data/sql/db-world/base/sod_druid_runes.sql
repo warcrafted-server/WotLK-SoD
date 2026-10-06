@@ -29,6 +29,27 @@ SET @sql := IF(@rune_tbl > 0,
     ''mod-sod-druid'', 1),
     (7009006, 408024, 1024, 512, ''Survival Instincts'', ''ability_druid_tigersroar'',
     ''When activated, this grants you $408025s1% of your maximum health and increases all non-Physical healing you deal by $s1% for $d. After the effect expires, the health is lost. Useable in all forms except Moonkin Form. In addition, you regenerate $417051s2 rage every time you dodge while in Bear Form or Dire Bear Form, $417051s3 energy while in Cat Form, or $417051s4% of your maximum mana while in any other form.'',
+    ''mod-sod-druid'', 1),
+    (7009007, 407995, 1024, 64, ''Mangle'', ''ability_druid_mangle2'',
+    ''Mangles the target and increases the damage it takes from Bleed effects and Shred.'',
+    ''mod-sod-druid'', 1),
+    (7009008, 417145, 1024, 1, ''Gore'', ''inv_misc_questionmark'',
+    ''Feral attacks can reset Mangle (Bear) or Tiger''''s Fury and grant Rage.'',
+    ''mod-sod-druid'', 1),
+    (7009009, 407977, 1024, 16, ''Wild Strikes'', ''spell_nature_windfury'',
+    ''Grants nearby party and raid members the Wild Strikes effect while you are in a feral form.'',
+    ''mod-sod-druid'', 1),
+    (7009010, 417046, 1024, 512, ''King of the Jungle'', ''ability_mount_jungletiger'',
+    ''Tiger''''s Fury grants energy and increases physical damage for a short time.'',
+    ''mod-sod-druid'', 1),
+    (7009011, 410176, 1024, 64, ''Skull Bash'', ''spell_druid_feralchargecat'',
+    ''Charges and interrupts a spell, locking out that spell''''s school.'',
+    ''mod-sod-druid'', 1),
+    (7009012, 431389, 1024, 32, ''Improved Frenzied Regeneration'', ''ability_bullrush'',
+    ''Frenzied Regeneration restores health from your active resource outside Moonkin Form.'',
+    ''mod-sod-druid'', 1),
+    (7009013, 439510, 1024, 8, ''Improved Swipe'', ''inv_misc_monsterclaw_03'',
+    ''Swipe changes in Cat Form and hits more targets in Bear Form.'',
     ''mod-sod-druid'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -44,3 +65,12 @@ SET @sql := IF(@rune_tbl > 0,
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
+
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES (-5217, 'spell_sod_druid_king_of_the_jungle');
+
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+(22842, 'spell_sod_druid_improved_frenzied_regeneration_cast'),
+(428708, 'spell_sod_druid_improved_frenzied_regeneration_aura'),
+(-779, 'spell_sod_druid_swipe_bear_targets'),
+(62078, 'spell_sod_druid_swipe_cat_redirect');
