@@ -21,6 +21,7 @@
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "Spell.h"
+#include "spell_sod_mage.h"
 
 #include <unordered_map>
 
