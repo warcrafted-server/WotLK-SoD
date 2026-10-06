@@ -27,6 +27,9 @@ def fetch(kind, ident):
     try:
         html = urlopen(req, timeout=40).read().decode("utf-8", "ignore")
     except HTTPError as exc:
+        if exc.code == 404:
+            open(path, "w", encoding="utf-8").write("<html>404</html>" + " " * 2100)
+            return ""
         if exc.code in (403, 429):
             print("STOP: HTTP %d (rate limit). Re-run later; the cache keeps progress." % exc.code)
             sys.exit(2)
@@ -55,24 +58,42 @@ def sources(html):
                          if k in r} for r in rows[:12]]
     return out
 
+def rune_items():
+    """learn-rune spell id -> item ids, via item -> use spell (effect 54 enchant) -> enchant arg."""
+    wago = os.path.join(ROOT, "datos/wago/1.15.9.70003")
+    ench = {}
+    for r in csv.DictReader(open(os.path.join(wago, "SpellItemEnchantment.enUS.csv"), encoding="utf-8")):
+        ench[int(r["ID"])] = int(r["EffectArg_0"] or 0)
+    spell_ench = {}
+    for r in csv.DictReader(open(os.path.join(wago, "SpellEffect.enUS.csv"), encoding="utf-8")):
+        if r["Effect"] == "54":
+            spell_ench[int(r["SpellID"])] = int(r["EffectMiscValue_0"] or 0)
+    out = collections.defaultdict(list)
+    for r in csv.DictReader(open(os.path.join(wago, "ItemEffect.enUS.csv"), encoding="utf-8")):
+        e = spell_ench.get(int(r["SpellID"]))
+        if e and ench.get(e):
+            out[ench[e]].append(int(r["ParentItemID"]))
+    return out
+
 def main():
+    links = rune_items()
     names = collections.defaultdict(list)
     for r in csv.DictReader(open(SPARSE, encoding="utf-8")):
         names[(r.get("Display_lang") or "").lower()].append(int(r["ID"]))
-    runes = [r for r in json.load(open(CAT, encoding="utf-8"))["runas"] if r["slot_id"] in SLOT_IDS]
+    only = os.environ.get("CLASS")
+    runes = [r for r in json.load(open(CAT, encoding="utf-8"))["runas"]
+             if r["slot_id"] in SLOT_IDS and (not only or r["clase"] == only)]
     result = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     limit = int(os.environ.get("LIMIT", "0"))
     done = 0
     for r in runes:
         key = str(r["taught_spell_id"])
-        if key in result and result[key].get("estado") != "pendiente":
+        if key in result and result[key].get("estado") == "ok":
             continue
         if limit and done >= limit:
             break
-        n = r["name_en"].lower()
-        ids = []
-        for k in ("rune of " + n, "rune of the " + n, n, "spell notes: " + n):
-            ids += names.get(k, [])
+        n = (r["name_en"] or "").lower()
+        ids = list(links.get(r["learn_spell_id"], [])) + list(links.get(r["taught_spell_id"], []))
         entry = {"runa": r["name_en"], "clase": r["clase"], "ranura": r["slot"], "objetos": []}
         if not ids:
             html = fetch("spell", r["taught_spell_id"])
