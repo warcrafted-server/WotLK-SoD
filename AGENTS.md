@@ -1,11 +1,9 @@
 <!-- agentrelay:start -->
 ## Delegación con AgentRelay
 
-Este proyecto usa AgentRelay: tú eres el ORQUESTADOR (planificas, delegas, revisas y decides) y un agente ejecutor más económico (por defecto, Codex con GPT-6 Luna) escribe el código. No edites este bloque: `agentrelay init` lo actualiza. Si eres tú el ejecutor (te han dado una tarea con `agentrelay run`), haz solo esa tarea e ignora este bloque.
+Este proyecto usa AgentRelay: tú eres el ORQUESTADOR (planificas, delegas, revisas y decides) y un agente ejecutor más económico (el configurado en AgentRelay) escribe el código. No edites este bloque: `agentrelay init` lo actualiza. Si eres tú el ejecutor (te han dado una tarea con `agentrelay run`), haz solo esa tarea e ignora este bloque.
 
 **Regla principal: delega por defecto.** Toda implementación que no sea trivial (crear o modificar código, tests, configuración o documentación de más de unas pocas líneas) se delega con `agentrelay run`. Escribirla tú gasta tu consumo, que es justo lo que AgentRelay quiere ahorrar. Hazla tú solo si es trivial (1-3 líneas), una decisión de diseño, algo sensible o una tarea ya escalada; y en ese caso di en una línea por qué no delegas.
-
-**Triaje antes de trabajar:** ante cada orden de trabajo (no ante una simple pregunta), antes de empezar, valora en una línea (3-5 si es de envergadura) qué modelo y esfuerzo de razonamiento necesitas tú como orquestador y compáralo con el que estás usando: si es otro, sugiérelo al usuario (tú no puedes cambiarlo; no compensa a mitad de una conversación corta). Di también qué delegas y con qué esfuerzo lanzarás al ejecutor (campo `effort` de la tarea: bajo en lo sencillo, alto en lo difícil). Criterio: modelo ligero para consultas y cambios mecánicos, intermedio para implementación y depuración normales, el más potente para diseño difícil, depuración sin pistas o revisión crítica; siempre el esfuerzo más bajo que no ponga en riesgo el resultado. No inventes costes ni cifras y respeta el modelo o esfuerzo que el usuario haya fijado.
 
 **Al empezar cualquier sesión, ponte al día:** lee `.agentrelay/ESTADO.md` (o ejecuta `agentrelay status`, que lo muestra y `agentrelay status --write` lo actualiza). Resume dónde está el proyecto, qué ejecuciones hay y qué hacer ahora. Si el usuario te pide continuar, parte de ahí en lugar de preguntarle.
 
@@ -29,7 +27,7 @@ EOF
 - Si la ejecución falla por cuota o saldo del ejecutor, NO cambies de ejecutor tú: enseña al usuario las alternativas del informe y pregúntale cuál prefiere; aplica su elección con `agentrelay use` y relanza la tarea.
 - Decide con `agentrelay review <id> --decision accept|fix|escalate|reject` (`fix` necesita `--feedback` con los problemas concretos) y confirma con `agentrelay list` que el estado cambió.
 - Si la tarea queda escalada o el ejecutor falla repetidamente, resuélvela tú y cierra la ejecución con `--decision accept`.
-- Tras aceptar, haz el commit. No hagas push sin que el usuario lo pida y no digas «hecho» ni «aceptado» sin haberlo comprobado.
+- Tras aceptar, haz el commit. No hagas push sin aprobación del usuario y no digas «hecho» ni «aceptado» sin haberlo comprobado.
 
 ### Otros
 
@@ -49,18 +47,14 @@ repositorio, tanto si actúa como orquestador (planifica y delega) como si actú
 1. **Ponte al día:** lee `docs/ESTADO.md` (dónde estamos, qué toca y qué no hacer), después este
    archivo, `CHANGELOG.md` y las decisiones `docs/decisiones/0001`–`0005`. Si el usuario no dice
    otra cosa, continúa por el primer punto pendiente del estado.
-2. **Delega por defecto.** El objetivo del usuario es ahorrar tokens de Claude: tú planificas,
-   decides el diseño y revisas; lo mecánico lo hacen otros. Si `command -v agentrelay` no lo
-   encuentra, dilo al usuario (la instalación está en `docs/ESTADO.md` §3) y mientras tanto usa
-   subagentes de Claude Code con un modelo más barato. **No hagas tú en silencio el trabajo no
-   trivial.** Revisa siempre el diff y el informe de lo delegado.
+2. Si `command -v agentrelay` no lo encuentra, dilo al usuario (instalación en `docs/ESTADO.md`
+   §3) y mientras tanto delega en subagentes de Claude Code con un modelo más barato.
 3. **Mantén `docs/ESTADO.md` y `CHANGELOG.md` al día con cada cambio relevante**, no al final: son
    lo que lee la siguiente sesión.
 4. **Puedes ampliar este archivo** (siempre fuera del bloque de AgentRelay, que no se edita) y crear
    un directorio **`.agents/`** si hace falta darle contexto a futuras sesiones o a los ejecutores;
    sigue la estructura que usa AzerothCore en `/home/stark/Repos/acore-test/.agents/`
    (`README.md`, `docs/`, `skills/`). Avisa al usuario cuando lo hagas.
-5. Habla en **castellano** y di siempre si algo está **compilado y probado o no**.
 
 ### 1. Idioma
 
@@ -174,10 +168,6 @@ Esta es la norma que más importa en fase de investigación.
 
 ### 6. Flujo de trabajo
 
-- El orquestador delega la implementación y **revisa siempre** el diff completo y el informe;
-  la autorrevisión del ejecutor no sustituye la revisión. Delegar es la norma, no la excepción:
-  el objetivo expreso es ahorrar consumo del orquestador reservándolo para diseño,
-  revisión y auditoría.
 - El ejecutor toca solo los archivos de su tarea. Si ve que necesita otros, lo dice en el
   informe en lugar de ampliar el alcance por su cuenta.
 - **El orquestador NO compila**: no ejecuta `cmake`, `make` ni `make install`. Los pide al usuario
@@ -187,14 +177,10 @@ Esta es la norma que más importa en fase de investigación.
   autorizado: el proyecto vive en `/home/stark/Repos/acore-sod` y se compila en
   `/home/stark/Repos/acore-test` (reino de **desarrollo**, id 2). No se toca `Servers/acore-playerbots`
   (reino de producción, id 1) ni las bases de datos sin sufijo `_test`. Antes de tocar algo en
-  vivo, comprueba a qué reino pertenece. Las normas del servidor están en
-  `/home/stark/Repos/CLAUDE.md`: mantener `CHANGELOG.md`, README y `docs/` al día con cada
-  cambio relevante.
+  vivo, comprueba a qué reino pertenece.
 - **Cómo encargar bien una tarea al ejecutor** (lección del 2026-10-05, cuando una tarea abierta
   consumió 7,5 M de tokens y 40 minutos sin escribir ni un archivo): una tarea = un objetivo
   cerrado y pocos archivos; **los datos externos los aporta el orquestador ya masticados** (IDs,
   valores, URLs exactas) en lugar de pedir al ejecutor que los busque; y las validaciones deben
   funcionar en el shell del ejecutor, que en Windows es `cmd` (**sin `grep`**): usa `python -c`.
 - Commits en castellano, en imperativo y concretos («Añade extractor de DBC», no «cambios»).
-- No se hace `push` sin que el usuario lo pida.
-- No se dice «hecho» sin haberlo comprobado ejecutándolo.
