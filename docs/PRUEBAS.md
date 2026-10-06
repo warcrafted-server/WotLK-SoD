@@ -81,5 +81,7 @@ que el personaje no tiene (Divine Storm, Mutilate, Haunt: comprobar que funciona
 
 ## Hecho
 
+- 2026-10-06, tras compilar: textos en español, addon y tooltip correctos. `.rune slots` dice «nivel 1» en Pecho, Manos y Piernas: es lo configurado (`RuneEngraving.SlotMinLevel.*` = 1, como la fase 1 de SoD), no depende de ser GM. Los números 4, 6 y 8 son los índices de ranura para `.rune engrave`.
+- Pendiente de comprobar: al regenerar el parche (sin «Rango N» en los clones) copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`.
 - 2026-10-06, servidor arranca con 29 runas; `.rune summon` y el menú funcionan; Ice Lance se lanza y hace daño; el hechizo sale en la barra.
 - 2026-10-06, primer arranque del reino 2: el SQL falló en `sod_content_spell_dbc.sql` línea 102 (comilla sin escapar en «Avenger's Shield»). Corregido en el generador; **repetir el arranque** (paso 2).

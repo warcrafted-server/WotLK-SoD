@@ -690,6 +690,9 @@ def build_spell_dbc(workdir, cols, spells, column_types=None,
         spell.set_int(base, field_of["ID"], s["id"])
         spell.set_int(base, field_of["Name_Lang_enUS"], spell.add_string(s["name"]))
         spell.set_int(base, field_of["Name_Lang_Mask"], NAME_MASK)
+        # Clones inherit the template's "Rank N" text; offset 0 is the empty string.
+        for locale in range(16):
+            spell.set_int(base, field_of["NameSubtext_Lang_enUS"] + locale, 0)
         if s.get("desc"):
             spell.set_int(base, field_of["Description_Lang_enUS"],
                           spell.add_string(s["desc"]))
