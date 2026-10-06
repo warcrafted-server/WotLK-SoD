@@ -50,7 +50,8 @@ repositorio, tanto si actúa como orquestador (planifica y delega) como si actú
 2. Si `command -v agentrelay` no lo encuentra, dilo al usuario (instalación en `docs/ESTADO.md`
    §3) y mientras tanto delega en subagentes de Claude Code con un modelo más barato.
 3. **Mantén `docs/ESTADO.md` y `CHANGELOG.md` al día con cada cambio relevante**, no al final: son
-   lo que lee la siguiente sesión.
+   lo que lee la siguiente sesión. **Mantén también `docs/PRUEBAS.md`** (qué debe probar el usuario,
+   con pasos exactos); al confirmar él un paso, pásalo a «Hecho».
 4. **Puedes ampliar este archivo** (siempre fuera del bloque de AgentRelay, que no se edita) y crear
    un directorio **`.agents/`** si hace falta darle contexto a futuras sesiones o a los ejecutores;
    sigue la estructura que usa AzerothCore en `/home/stark/Repos/acore-test/.agents/`
@@ -77,8 +78,9 @@ Decisiones que condicionan todo el trabajo (están razonadas en `docs/decisiones
   clases** (decisión 0004). No se crea un módulo por clase.
 - **Niveles:** se empieza en 60 y **se llegará al 80** más adelante (decisión 0002). Por eso
   ningún tope de nivel se escribe como constante en el código: va como parámetro de configuración.
-- **Alcance:** SoD completo (8 fases, 218 runas como mínimo) no es objetivo. Primer hito: fase 1
-  (nivel 25), tres ranuras y 12 runas por clase.
+- **Alcance (decidido por el usuario el 2026-10-06):** SoD completo, las 8 fases de la build 1.15.9,
+  implementadas por orden de fase y de dificultad; el primer hito sigue siendo la fase 1
+  (nivel 25), tres ranuras y 12 runas por clase. Plan en `.agents/plans/sod-todas-las-fases/`.
 - La variante «forever» está fuera de alcance.
 
 Fase actual: **construcción del primer hito**. Nada se ha compilado todavía: el build real queda
