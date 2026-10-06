@@ -5,6 +5,12 @@
   "403501": {
     "name": "Poseer"
   },
+  "399956": {
+    "name": "Mutilar"
+  },
+  "403195": {
+    "name": "Devastar"
+  },
   "400647": {
     "name": "Dedos de Escarcha",
     "desc": "Da a tus efectos de enfriamiento un 25% de probabilidad de otorgarte el efecto de Dedos de Escarcha, que hace que tus siguientes 2 hechizos traten al objetivo como si estuviese congelado. Dura 15 s.",
@@ -22,6 +28,12 @@
   "400640": {
     "name": "Lanza de hielo",
     "desc": "Inflige de 55 a 65 p. de daño de Escarcha al objetivo enemigo. Inflige el triple de daño contra objetivos congelados."
+  },
+  "401946": {
+    "name": "Círculo de sanación"
+  },
+  "402174": {
+    "name": "Penitencia"
   },
   "401417": {
     "name": "Regeneración",
@@ -69,5 +81,26 @@
   "412325": {
     "name": "Esclarecimiento",
     "aura_desc": "Permite que un 10% de la regeneración de maná continúe mientras lanzas hechizos."
+  },
+  "407778": {
+    "name": "Tormenta divina"
+  },
+  "407669": {
+    "name": "Escudo de vengador"
+  },
+  "407624": {
+    "name": "Maestría en auras"
+  },
+  "407676": {
+    "name": "Golpe de cruzado"
+  },
+  "408514": {
+    "name": "Escudo de tierra"
+  },
+  "408507": {
+    "name": "Latigazo de lava"
+  },
+  "408120": {
+    "name": "Crecimiento salvaje"
   }
 }

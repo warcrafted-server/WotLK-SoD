@@ -15,7 +15,11 @@ import os
 import sys
 
 # Additional class spell specs, loaded from this tools directory.
-CLASS_SPEC_MODULES = ["sod_spells_warlock"]
+CLASS_SPEC_MODULES = [
+    "sod_spells_warlock", "sod_spells_warrior", "sod_spells_paladin",
+    "sod_spells_rogue", "sod_spells_priest", "sod_spells_shaman",
+    "sod_spells_druid",
+]
 
 # Mage skill lines — control the spellbook tab the client files a spell under.
 SKILL_ARCANE = 237
