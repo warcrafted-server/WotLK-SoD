@@ -148,14 +148,14 @@
     {
       "nombre": "druid-balance-restor-2",
       "archivo": "tareas/druid-balance-restor-2.json",
-      "estado": "en_curso",
+      "estado": "hecha",
       "orden": 3,
       "nota": "Druida Balance/Resto 2: Fury of Stormrage, Dreamstate, Tree of Life",
       "previo_sql": false,
-      "run_id": null,
+      "run_id": "20261007-093439-e60a",
       "inicio": "2026-10-07T09:34:39+02:00",
-      "fin": null,
-      "resultado": null
+      "fin": "2026-10-07T09:57:10+02:00",
+      "resultado": "awaiting_review"
     }
   ]
 }
