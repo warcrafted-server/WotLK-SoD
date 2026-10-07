@@ -1,0 +1,113 @@
+{
+ "version": 1,
+ "tareas": [
+  {
+   "nombre": "r1",
+   "archivo": "tareas/r1.json",
+   "estado": "pendiente",
+   "orden": 10,
+   "nota": "Requisitos de uso de objetos-runa: motor genérico",
+   "previo_sql": false,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "r2",
+   "archivo": "tareas/r2.json",
+   "estado": "pendiente",
+   "orden": 20,
+   "nota": "Requisitos de los ídolos del druida (depende de r1)",
+   "previo_sql": false,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "d2",
+   "archivo": "tareas/d2.json",
+   "estado": "pendiente",
+   "orden": 30,
+   "nota": "Runa Improved Barkskin del druida",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "p1",
+   "archivo": "tareas/p1-pendiente.json",
+   "estado": "pendiente",
+   "orden": 900,
+   "nota": "Paladín represión 1 (diferido: primero termina el druida feral)",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "p2",
+   "archivo": "tareas/p2-pendiente.json",
+   "estado": "pendiente",
+   "orden": 910,
+   "nota": "Paladín 2",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "s1",
+   "archivo": "tareas/s1-pendiente.json",
+   "estado": "pendiente",
+   "orden": 920,
+   "nota": "Chamán elemental 1",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "s2",
+   "archivo": "tareas/s2-pendiente.json",
+   "estado": "pendiente",
+   "orden": 930,
+   "nota": "Chamán elemental 2",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "w1",
+   "archivo": "tareas/w1-pendiente.json",
+   "estado": "pendiente",
+   "orden": 940,
+   "nota": "Brujo demonología 1",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  },
+  {
+   "nombre": "w2",
+   "archivo": "tareas/w2-pendiente.json",
+   "estado": "pendiente",
+   "orden": 950,
+   "nota": "Brujo demonología 2",
+   "previo_sql": true,
+   "run_id": null,
+   "inicio": null,
+   "fin": null,
+   "resultado": null
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "objective": "Cola persistente de tareas del ejecutor y script de reanudación tras el reinicio diario del servidor.",
+ "effort": "high",
+ "context": "CONTEXTO: el servidor Debian donde trabajamos se REINICIA TODOS LOS DÍAS a las 4:00 (hora de España) y /tmp es un tmpfs que se vacía en cada reinicio; las ejecuciones de agentrelay en curso mueren y los procesos en segundo plano también. Hace falta una COLA de tareas persistente y reanudable que viva dentro del repositorio (no en /tmp) y un script para reanudar el trabajo tras un reinicio. Léelo todo antes de empezar: AGENTS.md (en el repo), `agentrelay --help` y `agentrelay help run`, `agentrelay help recover` (comandos reales; no los inventes), `agentrelay list` (formato de salida: columnas id, estado, intentos, resumen), `agentrelay show <id>`, y el directorio .agents/cola/ ya existente (tareas/*.json son especificaciones de tareas de ejecutor en el formato de `agentrelay run`; herramientas/mkcpp.py genera tareas de C++ y su constante S apunta a .agents/cola/tareas). ENTREGABLES: (1) tools/cola/cola.py (python3, solo biblioteca estándar), (2) tools/cola/reanudar.sh (bash), (3) .agents/cola/estado.json inicial NO: lo escribo yo a mano con el formato de abajo, tú solo lo lees/escribes con cola.py, (4) docs/guias/reanudar-tras-reinicio.md (castellano, conciso: qué ejecutar tras un reinicio, cómo ver el estado, cómo añadir tareas). FORMATO de .agents/cola/estado.json: {\"version\": 1, \"tareas\": [{\"nombre\": \"p1\", \"archivo\": \"tareas/p1-pendiente.json\", \"estado\": \"pendiente\", \"orden\": 10, \"nota\": \"texto\", \"previo_sql\": true|false, \"run_id\": null, \"inicio\": null, \"fin\": null, \"resultado\": null}, ...]} con estados: pendiente | en_curso | revisar (la ejecución terminó y espera la revisión del orquestador: agentrelay la deja en awaiting_review, escalated, blocked o failed; guarda ese estado de agentrelay en `resultado`) | hecha (la marca el orquestador a mano con `cola.py marcar <nombre> hecha`) | descartada. El campo `archivo` es relativo a .agents/cola/. COMANDOS de cola.py: `status` (tabla legible con orden, nombre, estado, run_id, nota y duración), `add <nombre> <archivo.json> [--orden N] [--nota texto] [--previo-sql]` (copia el JSON a tareas/ si no está ya, lo añade al final o en el orden dado), `run [--max N] [--solo nombre]` (ejecuta en orden las tareas `pendiente`: antes de cada una, si previo_sql es true, copia server/mod-sod-content/data/sql/db-world/base/sod_content_spell_dbc.sql a .agents/cola/previo/<nombre>.sql; lanza `agentrelay run --allow-dirty <json>` y espera a que termine; lee de `agentrelay list` la ejecución más nueva creada tras el lanzamiento para guardar run_id y su estado; marca `revisar`; escribe un log por tarea en .agents/cola/log/<nombre>.log con la salida de agentrelay; sigue con la siguiente; NUNCA hace `agentrelay review` ni commit ni push), `marcar <nombre> <estado>`, `reset <nombre>` (vuelve a pendiente y borra run_id/inicio/fin), `siguiente` (imprime el nombre de la próxima tarea pendiente). SUSTITUCIÓN al lanzar: los JSON de tareas existentes contienen rutas absolutas al scratchpad antiguo del tipo `/tmp/claude-1000/.../scratchpad/spell_dbc_before_<nombre>.sql`; al lanzar una tarea, cola.py debe escribir una copia temporal del JSON (en un directorio temporal del sistema, no en el repo) con esas rutas sustituidas por `/home/stark/Repos/acore-sod/.agents/cola/previo/<nombre>.sql` (expresión regular sobre el contexto) y lanzar la copia. REANUDACIÓN: al empezar `run`, si hay tareas `en_curso` (el reinicio las interrumpió), comprueba con `agentrelay list` y `agentrelay recover <run_id>` (o, si no hay run_id, simplemente) y vuelve a ponerlas en `pendiente`, dejando una línea en su log («interrumpida por reinicio, se relanza»); el árbol de trabajo puede contener cambios parciales de la tarea interrumpida: la relanzas igual con --allow-dirty (el ejecutor lee lo que hay) y lo anotas. Un fichero de bloqueo .agents/cola/runner.pid evita dos ejecutores a la vez (comprueba con os.kill(pid, 0) si el pid sigue vivo; si no, ignora el bloqueo). Escritura atómica del estado (fichero temporal + os.replace) y guardado tras cada cambio de estado para no perder nada en un reinicio brusco. reanudar.sh: `cd /home/stark/Repos/acore-sod`, crea .agents/cola/log/, comprueba que `agentrelay` existe, y lanza en segundo plano con nohup y registro en .agents/cola/log/reanudar-<fecha>.log: (a) `python3 tools/cola/cola.py run`, (b) `PAUSE=10 python3 -u tools/sod-data/fetch_rune_sources.py` SOLO si docs/runas/fuentes-sod.json no existe o contiene entradas con estado distinto de 'ok' y 'sin_objeto' o si faltan runas (el script es reanudable y salta lo ya recogido; si no hay nada que recoger, no lo lanza); imprime los pid y cómo seguir los logs. Debe ser idempotente: si el ejecutor de la cola ya corre (runner.pid vivo), no lo duplica. No instales nada en crontab ni systemd (eso lo decide el usuario): solo documenta en la guía la línea de crontab @reboot opcional `@reboot sleep 60 && /home/stark/Repos/acore-sod/tools/cola/reanudar.sh >> /home/stark/Repos/acore-sod/.agents/cola/log/cron.log 2>&1` como sugerencia. PRUEBAS (puedes hacerlas): crea en un directorio temporal una cola de prueba con 2 tareas falsas cuyo `archivo` apunte a JSON mínimos y sustituye `agentrelay` por un script falso en el PATH que escriba una línea y salga (usa la variable de entorno AGENTRELAY_BIN si prefieres que cola.py la admita, con valor por defecto 'agentrelay'); comprueba add, status, run (incluida la sustitución de rutas /tmp), la reanudación de una tarea en_curso y el bloqueo. No ejecutes tareas reales ni toques el estado.json real del repositorio en las pruebas (permite --cola-dir <dir> para elegir otro directorio de cola). No hagas git ni agentrelay reales.",
+ "files": [
+  "tools/cola/cola.py",
+  "tools/cola/reanudar.sh",
+  "docs/guias/reanudar-tras-reinicio.md"
+ ],
+ "constraints": [
+  "Informe en castellano; comentarios en inglés y cortos.",
+  "python3 (no existe python); solo biblioteca estándar; sin red.",
+  "No ejecutes agentrelay real ni git; no modifiques .agents/cola/estado.json ni .agents/cola/tareas/*.json.",
+  "No toques core/, upstream/, datos/, AGENTS.md ni otros docs.",
+  "Si algo no se puede hacer como se describe, dilo en el informe."
+ ],
+ "acceptanceCriteria": [
+  "cola.py añade, lista, ejecuta en orden y reanuda tareas interrumpidas con estado atómico.",
+  "reanudar.sh es idempotente y no duplica procesos.",
+  "La guía explica en 15 líneas qué hacer tras un reinicio."
+ ],
+ "validation": [
+  "python3 tools/cola/cola.py status --cola-dir /tmp/noexiste"
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "server",
+  "tools/sod-client",
+  "tools/sod-data"
+ ]
+}
