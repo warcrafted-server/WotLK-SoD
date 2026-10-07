@@ -1,0 +1,174 @@
+diff --git a/server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql b/server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql
+index 8ac0549..01db81e 100644
+--- a/server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql
++++ b/server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql
+@@ -26,6 +26,8 @@ REPLACE INTO `rune_template_locale` (`rune_id`, `locale`, `name`, `description`)
+ (7002002, 'esES', 'Escudo de vengador', 'Lanza un escudo sagrado contra un enemigo, le inflige daño Sagrado y lo marea antes de rebotar hacia los enemigos cercanos.'),
+ (7002003, 'esES', 'Maestría en auras', 'Hace que los objetivos afectados por tu Aura de concentración sean inmunes a los efectos de Silencio e interrupción y mejora el efecto de tus otras auras.'),
+ (7002004, 'esES', 'Golpe de cruzado', 'Un golpe instantáneo que inflige daño con arma como daño Sagrado y regenera maná. Renueva la duración de todos los efectos de Sentencia sobre el objetivo.'),
++(7002005, 'esES', 'El arte de la guerra', 'Tus golpes críticos cuerpo a cuerpo reducen el tiempo de reutilización restante de Exorcismo y su coste de maná.'),
++(7002006, 'esES', 'Venganza recta', 'Los golpes críticos de Sentencia, Golpe de cruzado y Tormenta divina infligen daño adicional en el tiempo.'),
+ (7003001, 'esES', 'Disparo de quimera', 'Infliges daño con arma, renuevas el Aguijón activo sobre tu objetivo y activas un efecto.'),
+ (7003002, 'esES', 'Maestro tirador', 'Aumenta un 5% tu probabilidad de golpe crítico y reduce un 25% el coste de maná de todas tus facultades de Disparo.'),
+ (7004001, 'esES', 'Mutilar', 'Ataca al instante con ambas armas e inflige su daño más daño adicional con cada una. El daño aumenta contra objetivos envenenados y otorga puntos de combo.'),
+diff --git a/server/mod-sod-content/conf/mod_sod_content.conf.dist b/server/mod-sod-content/conf/mod_sod_content.conf.dist
+index 3ecf2a2..1af9d5d 100644
+--- a/server/mod-sod-content/conf/mod_sod_content.conf.dist
++++ b/server/mod-sod-content/conf/mod_sod_content.conf.dist
+@@ -344,3 +344,24 @@ SodDruid.ImprovedFrenziedRegeneration.HealthPctPerSecond = 10
+ #
+ 
+ SodDruid.ImprovedSwipe.MaxBearTargets = 8
++
++###############################################################################
++# PALADIN
++###############################################################################
++#
++#    SodPaladin.Enable
++#        Description: Master switch for custom Paladin rune scripts.
++#        Default:     1 - (Enabled)
++#                     0 - (Disabled)
++#
++
++SodPaladin.Enable = 1
++
++#
++#    SodPaladin.ArtOfWar.CooldownReductionMs
++#        Description: Milliseconds removed from Exorcism's remaining cooldown
++#                     when The Art of War procs. Season of Discovery uses 2000.
++#        Default:     2000
++#
++
++SodPaladin.ArtOfWar.CooldownReductionMs = 2000
+diff --git a/server/mod-sod-content/data/sql/db-world/base/sod_paladin_runes.sql b/server/mod-sod-content/data/sql/db-world/base/sod_paladin_runes.sql
+index b1e8e0d..8534629 100644
+--- a/server/mod-sod-content/data/sql/db-world/base/sod_paladin_runes.sql
++++ b/server/mod-sod-content/data/sql/db-world/base/sod_paladin_runes.sql
+@@ -23,6 +23,12 @@ SET @sql := IF(@rune_tbl > 0,
+      ''mod-sod-paladin'', 1),
+     (7002004, 407676, 2, 64, ''Crusader Strike'', ''spell_holy_crusaderstrike'',
+      ''An instant strike that causes weapon damage as Holy and regenerates mana. It refreshes the duration of all Judgement effects on the target.'',
++     ''mod-sod-paladin'', 1),
++    (7002005, 426157, 2, 512, ''The Art of War'', ''ability_paladin_artofwar'',
++     ''Melee critical strikes reduce the remaining cooldown of Exorcism and lower its mana cost.'',
++     ''mod-sod-paladin'', 1),
++    (7002006, 440672, 2, 8, ''Righteous Vengeance'', ''ability_paladin_righteousvengeance'',
++     ''Critical Judgement, Crusader Strike, and Divine Storm deal additional damage over time.'',
+      ''mod-sod-paladin'', 1)
+  ON DUPLICATE KEY UPDATE
+     `spell_id`    = VALUES(`spell_id`),
+diff --git a/server/mod-sod-content/src/sod_content_loader.cpp b/server/mod-sod-content/src/sod_content_loader.cpp
+index d189466..e64c61f 100644
+--- a/server/mod-sod-content/src/sod_content_loader.cpp
++++ b/server/mod-sod-content/src/sod_content_loader.cpp
+@@ -40,6 +40,7 @@ void AddSC_sod_druid_king_of_the_jungle();
+ void AddSC_sod_druid_skull_bash();
+ void AddSC_sod_druid_improved_frenzied_regeneration();
+ void AddSC_sod_druid_improved_swipe();
++void AddSC_sod_paladin_art_of_war();
+ 
+ // --- world (formerly mod-sod-world) ---
+ void AddSC_item_sod_world_phylactery();
+@@ -85,4 +86,6 @@ void Addmod_sod_contentScripts()
+     AddSC_sod_druid_skull_bash();
+     AddSC_sod_druid_improved_frenzied_regeneration();
+     AddSC_sod_druid_improved_swipe();
++
++    AddSC_sod_paladin_art_of_war();
+ }
+diff --git a/server/mod-sod-content/tools/sod_spells_es.json b/server/mod-sod-content/tools/sod_spells_es.json
+index a762160..0565ca0 100644
+--- a/server/mod-sod-content/tools/sod_spells_es.json
++++ b/server/mod-sod-content/tools/sod_spells_es.json
+@@ -99,6 +99,16 @@
+   "407676": {
+     "name": "Golpe de cruzado"
+   },
++  "426157": {
++    "name": "El arte de la guerra",
++    "desc": "Tus golpes críticos cuerpo a cuerpo reducen $s2 s el tiempo de reutilización restante de Exorcismo, y el coste de maná de Exorcismo se reduce un $s1%.",
++    "aura_desc": "Tus golpes críticos cuerpo a cuerpo reducen $s2 s el tiempo de reutilización restante de Exorcismo, y el coste de maná de Exorcismo se reduce un $s1%."
++  },
++  "440672": {
++    "name": "Venganza recta",
++    "desc": "Cuando tu Sentencia, Golpe de cruzado o Tormenta divina infligen un golpe crítico, tu objetivo recibe un $s1% de daño extra durante $61840d.",
++    "aura_desc": "Cuando tu Sentencia, Golpe de cruzado o Tormenta divina infligen un golpe crítico, tu objetivo recibe un $s1% de daño extra durante $61840d."
++  },
+   "408514": {
+     "name": "Escudo de tierra"
+   },
+diff --git a/server/mod-sod-content/tools/sod_spells_paladin.py b/server/mod-sod-content/tools/sod_spells_paladin.py
+index d53bf4a..7b94e2b 100644
+--- a/server/mod-sod-content/tools/sod_spells_paladin.py
++++ b/server/mod-sod-content/tools/sod_spells_paladin.py
+@@ -13,6 +13,70 @@ def build(idx):
+     duration_5000 = idx["dur"][5000]
+ 
+     return [
++        {  # The Art of War: keep the Exorcism cost modifier, replace the WotLK instant proc.
++            "id": 426157, "client": True, "template": 53488,
++            "skill_line": SKILL_RETRIBUTION,
++            "name": "The Art of War", "script": "spell_sod_paladin_art_of_war",
++            "inherit_server": True,
++            "desc": "Your melee critical strikes reduce the remaining cooldown on Exorcism by $s2 sec, and the mana cost of Exorcism is reduced by $s1%.",
++            "aura_desc": "Your melee critical strikes reduce the remaining cooldown on Exorcism by $s2 sec, and the mana cost of Exorcism is reduced by $s1%.",
++            "client_overrides": {"EffectBasePoints_1": 80},
++            "proc": {
++                "SchoolMask": 0, "SpellFamilyName": 10,
++                "SpellFamilyMask0": 8388608, "SpellFamilyMask1": 163840,
++                "SpellFamilyMask2": 0, "ProcFlags": 0,
++                "SpellTypeMask": 0, "SpellPhaseMask": 2,
++                "HitMask": 2, "AttributesMask": 2, "DisableEffectsMask": 0,
++                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
++            },
++            "overrides": {
++                "EquippedItemClass": -1,
++                "Effect_1": 6, "EffectAura_1": 108,
++                "EffectDieSides_1": 0, "EffectBasePoints_1": -80,
++                "EffectMiscValue_1": 14,
++                "EffectSpellClassMaskA_1": 0,
++                "EffectSpellClassMaskB_1": 2,
++                "EffectSpellClassMaskC_1": 0,
++                "Effect_2": 6, "EffectAura_2": 4,
++                "EffectDieSides_2": 0, "EffectBasePoints_2": 2,
++                "EffectMiscValue_2": 0, "EffectTriggerSpell_2": 0,
++                "EffectSpellClassMaskA_2": 0,
++                "EffectSpellClassMaskB_2": 0,
++                "EffectSpellClassMaskC_2": 0,
++                "Effect_3": 0, "EffectAura_3": 0,
++                "EffectSpellClassMaskA_3": 0,
++                "EffectSpellClassMaskB_3": 0,
++                "EffectSpellClassMaskC_3": 0,
++            },
++        },
++        {  # The existing core script matches SoD's accumulating 61840 DoT.
++            "id": 440672, "client": True, "template": 53380,
++            "skill_line": SKILL_RETRIBUTION,
++            "name": "Righteous Vengeance", "script": "spell_pal_righteous_vengeance",
++            "inherit_server": True,
++            "desc": "When your Judgement, Crusader Strike, or Divine Storm deals a critical strike, your target will take $s1% additional damage over $61840d.",
++            "aura_desc": "When your Judgement, Crusader Strike, or Divine Storm deals a critical strike, your target will take $s1% additional damage over $61840d.",
++            "proc": {
++                "SchoolMask": 0, "SpellFamilyName": 10,
++                "SpellFamilyMask0": 8388608, "SpellFamilyMask1": 163840,
++                "SpellFamilyMask2": 0, "ProcFlags": 0,
++                "SpellTypeMask": 1, "SpellPhaseMask": 2,
++                "HitMask": 2, "AttributesMask": 2, "DisableEffectsMask": 0,
++                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
++            },
++            "overrides": {
++                "EquippedItemClass": -1,
++                "EffectDieSides_1": 0, "EffectBasePoints_1": 30,
++                "EffectMiscValue_1": 0,
++                "EffectSpellClassMaskA_1": 0,
++                "EffectSpellClassMaskB_1": 0,
++                "EffectSpellClassMaskC_1": 0,
++                "Effect_2": 0, "EffectAura_2": 0,
++                "EffectBasePoints_2": 0,
++                "Effect_3": 0, "EffectAura_3": 0,
++                "EffectBasePoints_3": 0,
++            },
++        },
+         {  # Divine Storm: the core script handles the party heal.
+             "id": 407778, "client": True, "template": 53385,
+             "skill_line": SKILL_RETRIBUTION,
