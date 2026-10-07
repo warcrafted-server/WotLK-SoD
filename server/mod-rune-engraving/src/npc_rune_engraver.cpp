@@ -39,6 +39,7 @@ enum RuneGossipSender
     SENDER_RESET     = 5, // action = 0             -> debug: reset quests + unlocks
     SENDER_OPEN      = 6, // action = 0             -> root: open the rune engraving menu
     SENDER_ROOT      = 7, // action = 0             -> back to the root gossip
+    SENDER_BUY_RUNES = 8, // action = 0             -> open the engraver's rune stock
 };
 
 // The slot a player is currently browsing, so a SENDER_RUNE pick knows where to
@@ -158,6 +159,9 @@ public:
             case SENDER_ROOT:
                 ShowRootMenu(player, creature);
                 break;
+            case SENDER_BUY_RUNES:
+                player->GetSession()->SendListInventory(creature->GetGUID());
+                break;
             case SENDER_BACK:
             default:
                 ShowSlotMenu(player, creature);
@@ -190,6 +194,9 @@ private:
         if (sRuneEngravingMgr->IsEnabled())
             AddGossipItemFor(player, GOSSIP_ICON_TRAINER,
                 RuneStr(player, RUNE_STRING_NPC_ROOT), SENDER_OPEN, 0);
+
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR,
+            RuneStr(player, RUNE_STRING_NPC_BUY_RUNES), SENDER_BUY_RUNES, 0);
 
         // Surface the NPC's quests (a content module's turn-ins) -- the custom
         // gossip would otherwise replace the default menu and hide them. Generic;

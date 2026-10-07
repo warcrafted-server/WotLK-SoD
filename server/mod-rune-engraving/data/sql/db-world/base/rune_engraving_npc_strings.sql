@@ -20,7 +20,8 @@ REPLACE INTO `module_string` (`module`, `id`, `string`) VALUES
 ('mod-rune-engraving', 117, '|cFFFFFF00[Rune Engraver]|r Cleared the rune from your {} slot.'),
 ('mod-rune-engraving', 118, '|cFFFFFF00[Rune Engraver]|r Debug reset: locked {} rune(s), reset {} quest(s), restored {} unlock item(s).'),
 ('mod-rune-engraving', 119, '|cFFFF0000[Rune Engraver]|r You must learn Engraving before you can engrave runes.'),
-('mod-rune-engraving', 120, ' |cFF00FF00[{}]|r');
+('mod-rune-engraving', 120, ' |cFF00FF00[{}]|r'),
+('mod-rune-engraving', 121, 'Rune Broker: buy runes');
 
 REPLACE INTO `module_string_locale` (`module`, `id`, `locale`, `string`) VALUES
 ('mod-rune-engraving', 100, 'esES', 'Grabado de runas'),
@@ -43,4 +44,5 @@ REPLACE INTO `module_string_locale` (`module`, `id`, `locale`, `string`) VALUES
 ('mod-rune-engraving', 117, 'esES', '|cFFFFFF00[Grabador de runas]|r Se ha eliminado la runa de tu ranura de {}.'),
 ('mod-rune-engraving', 118, 'esES', '|cFFFFFF00[Grabador de runas]|r Reinicio de depuración: se han bloqueado {} runas, reiniciado {} misiones y restaurado {} objetos de desbloqueo.'),
 ('mod-rune-engraving', 119, 'esES', '|cFFFF0000[Grabador de runas]|r Primero tienes que aprender Grabado para poder grabar runas.'),
-('mod-rune-engraving', 120, 'esES', ' |cFF00FF00[{}]|r');
+('mod-rune-engraving', 120, 'esES', ' |cFF00FF00[{}]|r'),
+('mod-rune-engraving', 121, 'esES', 'Corredor de runas: comprar runas');

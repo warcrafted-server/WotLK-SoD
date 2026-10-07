@@ -64,6 +64,7 @@ enum RuneString : uint32
     RUNE_STRING_NPC_DEBUG_RESET_DONE, // Debug reset result
     RUNE_STRING_NPC_PREREQ_LONG, // Engraving menu prerequisite error
     RUNE_STRING_NPC_SLOT_RUNE, // Engraved rune in the slot menu
+    RUNE_STRING_NPC_BUY_RUNES = 121, // Rune Broker vendor option
 
     RUNE_STRING_SLOT_HEAD = 60, // Head slot label
     RUNE_STRING_SLOT_NECK, // Neck slot label

@@ -5652,5 +5652,11888 @@
    }
   ],
   "estado": "ok"
+ },
+ "428878": {
+  "runa": "Balefire Bolt",
+  "clase": "mage",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 223147,
+    "titulo": "Spell Notes: Balefire Bolt - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 223340,
+      "name": "Fel Interloper",
+      "count": 90,
+      "outof": 236,
+      "minlevel": 15,
+      "maxlevel": 18,
+      "location": [
+       40,
+       17,
+       130
+      ]
+     },
+     {
+      "id": 223542,
+      "name": "Fel Interloper",
+      "count": 18,
+      "outof": 41,
+      "minlevel": 25,
+      "maxlevel": 28,
+      "location": [
+       44,
+       331,
+       17
+      ]
+     },
+     {
+      "id": 223543,
+      "name": "Fel Interloper",
+      "count": 58,
+      "outof": 239,
+      "minlevel": 35,
+      "maxlevel": 38,
+      "location": [
+       8,
+       405
+      ]
+     },
+     {
+      "id": 223544,
+      "name": "Fel Interloper",
+      "count": 33,
+      "outof": 899,
+      "minlevel": 45,
+      "maxlevel": 48,
+      "location": [
+       4,
+       357,
+       16
+      ]
+     },
+     {
+      "id": 230146,
+      "name": "Fel Interloper",
+      "count": 1,
+      "outof": 27,
+      "minlevel": 55,
+      "maxlevel": 58,
+      "location": [
+       46,
+       139
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "428861": {
+  "runa": "Displacement",
+  "clase": "mage",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 232460,
+    "titulo": "Rune of Displacement - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "428741": {
+  "runa": "Molten Armor",
+  "clase": "mage",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221480,
+    "titulo": "Spell Notes: Molten Armor - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401462": {
+  "runa": "Rewind Time",
+  "clase": "mage",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 210654,
+    "titulo": "Spell Notes: Rewind Time - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400610": {
+  "runa": "Arcane Barrage",
+  "clase": "mage",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225689,
+    "titulo": "Spell Notes: Arcane Barrage - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440802": {
+  "runa": "Frozen Orb",
+  "clase": "mage",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225690,
+    "titulo": "Spell Notes: Frozen Orb - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 228891,
+      "name": "Enraged Shade",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 53,
+      "maxlevel": 53,
+      "location": [
+       618
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400615": {
+  "runa": "Overheat",
+  "clase": "mage",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225691,
+    "titulo": "Spell Notes: Overheat - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 456937,
+      "name": "Combine Torn Spell Notes",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425589": {
+  "runa": "Aegis",
+  "clase": "paladin",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 205685,
+    "titulo": "Rune of Aegis - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 410275,
+      "name": "Wounded Adventurer - Give Paladin Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407778": {
+  "runa": "Divine Storm",
+  "clase": "paladin",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 235600,
+    "titulo": "Rune of Divine Storm - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "458287": {
+  "runa": "Hallowed Ground",
+  "clase": "paladin",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 208849,
+    "titulo": "Libram of Blessings - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 210537,
+      "name": "Undying Laborer",
+      "count": 1,
+      "outof": 7,
+      "minlevel": 14,
+      "maxlevel": 15,
+      "location": [
+       40,
+       12,
+       1519
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 407844,
+      "name": "Libram of Blessings",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       38
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407624": {
+  "runa": "Aura Mastery",
+  "clase": "paladin",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 211472,
+    "titulo": "Libram of Banishment - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 215,
+      "name": "Defias Night Runner",
+      "count": 36,
+      "outof": 613,
+      "minlevel": 24,
+      "maxlevel": 25,
+      "location": [
+       10
+      ]
+     },
+     {
+      "id": 909,
+      "name": "Defias Night Blade",
+      "count": 44,
+      "outof": 1248,
+      "minlevel": 25,
+      "maxlevel": 26,
+      "location": [
+       10
+      ]
+     },
+     {
+      "id": 910,
+      "name": "Defias Enchanter",
+      "count": 11,
+      "outof": 459,
+      "minlevel": 26,
+      "maxlevel": 27,
+      "location": [
+       10
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407669": {
+  "runa": "Avenger's Shield",
+  "clase": "paladin",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 211488,
+    "titulo": "Rune of the Avenger - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 214456,
+      "name": "Dro'zem the Blasphemous",
+      "count": 1,
+      "outof": 13,
+      "minlevel": 23,
+      "maxlevel": 23,
+      "location": [
+       44
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "462853": {
+  "runa": "Hand of Sacrifice",
+  "clase": "paladin",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210820,
+    "titulo": "Rune of Sacrifice - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407880": {
+  "runa": "Inspiration Exemplar",
+  "clase": "paladin",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 206264,
+    "titulo": "Rune of Inspiration - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425609": {
+  "runa": "Rebuke",
+  "clase": "paladin",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 205683,
+    "titulo": "Rune of Rebuke - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 410262,
+      "name": "Liv Bradford - Give Paladin Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407613": {
+  "runa": "Beacon of Light",
+  "clase": "paladin",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 211387,
+    "titulo": "Rune of Beckoning Light - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        21176
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407676": {
+  "runa": "Crusader Strike",
+  "clase": "paladin",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205420,
+    "titulo": "Libram of Judgement - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 38,
+      "name": "Defias Thug",
+      "count": 256,
+      "outof": 21699,
+      "minlevel": 3,
+      "maxlevel": 4,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 706,
+      "name": "Frostmane Troll Whelp",
+      "count": 67,
+      "outof": 9676,
+      "minlevel": 3,
+      "maxlevel": 4,
+      "location": [
+       1
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407631": {
+  "runa": "Hand of Reckoning",
+  "clase": "paladin",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 208851,
+    "titulo": "Libram of Justice - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 572,
+      "name": "Leprithus",
+      "count": 2,
+      "outof": 8,
+      "minlevel": 19,
+      "maxlevel": 19,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 846,
+      "name": "Ghoul",
+      "count": 1,
+      "outof": 16,
+      "minlevel": 14,
+      "maxlevel": 15,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 7050,
+      "name": "Defias Drone",
+      "count": 20,
+      "outof": 148,
+      "minlevel": 22,
+      "maxlevel": 22,
+      "location": [
+       40,
+       10
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 407850,
+      "name": "Sunken Reliquary",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       38
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426065": {
+  "runa": "Infusion of Light",
+  "clase": "paladin",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213130,
+    "titulo": "Rune of Infusions - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 79,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "458318": {
+  "runa": "Malleable Protection",
+  "clase": "paladin",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213128,
+    "titulo": "Rune of Piety - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 435955,
+      "name": "[DNT] Brother Atticus Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426158": {
+  "runa": "Sheath of Light",
+  "clase": "paladin",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213129,
+    "titulo": "Rune of Light's Embrace - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415059": {
+  "runa": "Guarded by the Light",
+  "clase": "paladin",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213132,
+    "titulo": "Rune of the Guardian - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412019": {
+  "runa": "Sacred Shield",
+  "clase": "paladin",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213131,
+    "titulo": "Rune of Sacred Shields - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": 213513,
+    "titulo": "Libram of Deliverance - Item - Classic World of Warcraft",
+    "objects": [
+     {
+      "id": 423695,
+      "name": "Libram of Deliverance",
+      "count": 2,
+      "outof": 2,
+      "location": [
+       405
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426157": {
+  "runa": "The Art of War",
+  "clase": "paladin",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 212551,
+    "titulo": "Rune of Warfare - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 212553,
+      "name": "Jewel-Encrusted Box",
+      "count": 119,
+      "outof": 1630,
+      "level": 1,
+      "reqlevel": 30
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429142": {
+  "runa": "Fanaticism",
+  "clase": "paladin",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 235601,
+    "titulo": "Rune of Fanaticism - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429133": {
+  "runa": "Improved Sanctuary",
+  "clase": "paladin",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 232458,
+    "titulo": "Rune of Improved Sanctuary - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429139": {
+  "runa": "Wrath",
+  "clase": "paladin",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 220165,
+    "titulo": "Rune of Wrath - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 221828,
+      "name": "Vengeful Spirit",
+      "count": 2,
+      "outof": 2,
+      "minlevel": 45,
+      "maxlevel": 45,
+      "location": [
+       47
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "407632": {
+  "runa": "Hammer of the Righteous",
+  "clase": "paladin",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 235602,
+    "titulo": "Rune of Hammer of the Righteous - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429152": {
+  "runa": "Improved Hammer of Wrath",
+  "clase": "paladin",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 223288,
+    "titulo": "Rune of the Hammer - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16941
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "428909": {
+  "runa": "Light's Grace",
+  "clase": "paladin",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 219147,
+    "titulo": "Rune of Grace - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 214954,
+      "name": "Rix Xizzix",
+      "minlevel": 45,
+      "maxlevel": 45,
+      "location": [
+       33
+      ],
+      "cost": [
+       [
+        10000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429144": {
+  "runa": "Purifying Power",
+  "clase": "paladin",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 232462,
+    "titulo": "Rune of Purifying Power - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "458856": {
+  "runa": "Divine Light",
+  "clase": "paladin",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 205897,
+    "titulo": "Rune of Divine Light - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 410829,
+      "name": "Ada Gelhardt - Give Rune Rewards",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440672": {
+  "runa": "Righteous Vengeance",
+  "clase": "paladin",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 235603,
+    "titulo": "Rune of Righteous Vengeance - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440658": {
+  "runa": "Shield of Righteousness",
+  "clase": "paladin",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 235604,
+    "titulo": "Rune of Shield of Righteousness - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "462834": {
+  "runa": "Shock and Awe",
+  "clase": "paladin",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 235605,
+    "titulo": "Rune of Shock and Awe - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "413248": {
+  "runa": "Serendipity",
+  "clase": "priest",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 210822,
+    "titulo": "Harmonious Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415739": {
+  "runa": "Strength of Soul",
+  "clase": "priest",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 211531,
+    "titulo": "Prophecy of Seven Visitors - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 430021,
+      "name": "Primal Insight",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425198": {
+  "runa": "Twisted Faith",
+  "clase": "priest",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 205905,
+    "titulo": "Memory of a Devout Champion - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 210537,
+      "name": "Undying Laborer",
+      "count": 26,
+      "outof": 109,
+      "minlevel": 14,
+      "maxlevel": 15,
+      "location": [
+       40,
+       12,
+       1519
+      ]
+     },
+     {
+      "id": 212809,
+      "name": "Wailing Spirit",
+      "count": 5,
+      "outof": 9,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       130
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 414663,
+      "name": "Shatterspear Idol",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       148
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 208766,
+      "name": "Helping Hand",
+      "count": 45,
+      "outof": 45,
+      "level": 1
+     }
+    ],
+    "created": [
+     {
+      "id": 421197,
+      "name": "Wishing Well - Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402799": {
+  "runa": "Homunculi",
+  "clase": "priest",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 205943,
+    "titulo": "Prophecy of a Desecrated Citadel - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 205947,
+    "titulo": "Prophecy of a Desecrated Citadel - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 474,
+      "name": "Defias Rogue Wizard",
+      "count": 63,
+      "outof": 4065,
+      "minlevel": 9,
+      "maxlevel": 10,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 1124,
+      "name": "Frostmane Shadowcaster",
+      "count": 14,
+      "outof": 806,
+      "minlevel": 9,
+      "maxlevel": 10,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1397,
+      "name": "Frostmane Seer",
+      "count": 59,
+      "outof": 2404,
+      "minlevel": 8,
+      "maxlevel": 9,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1535,
+      "name": "Scarlet Warrior",
+      "count": 72,
+      "outof": 3811,
+      "minlevel": 6,
+      "maxlevel": 7,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 1536,
+      "name": "Scarlet Missionary",
+      "count": 3,
+      "outof": 2029,
+      "minlevel": 7,
+      "maxlevel": 8,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 1537,
+      "name": "Scarlet Zealot",
+      "count": 2,
+      "outof": 3721,
+      "minlevel": 8,
+      "maxlevel": 9,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 2002,
+      "name": "Rascal Sprite",
+      "count": 9,
+      "outof": 1125,
+      "minlevel": 5,
+      "maxlevel": 6,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 2003,
+      "name": "Shadow Sprite",
+      "count": 16,
+      "outof": 1216,
+      "minlevel": 5,
+      "maxlevel": 6,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 2004,
+      "name": "Dark Sprite",
+      "count": 6,
+      "outof": 938,
+      "minlevel": 6,
+      "maxlevel": 7,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 2005,
+      "name": "Vicious Grell",
+      "count": 7,
+      "outof": 895,
+      "minlevel": 7,
+      "maxlevel": 7,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 3113,
+      "name": "Razormane Dustrunner",
+      "count": 5,
+      "outof": 1630,
+      "minlevel": 8,
+      "maxlevel": 9,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 3118,
+      "name": "Dustwind Storm Witch",
+      "count": 1,
+      "outof": 2993,
+      "minlevel": 10,
+      "maxlevel": 11,
+      "location": [
+       14
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401859": {
+  "runa": "Prayer of Mending",
+  "clase": "priest",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 205942,
+    "titulo": "Chimaeric Epiphany - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 205944,
+    "titulo": "Reciprocal Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401969": {
+  "runa": "Shared Pain",
+  "clase": "priest",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 205945,
+    "titulo": "Memory of an Imprisoned Savior - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 40,
+      "name": "Kobold Miner",
+      "count": 63,
+      "outof": 13503,
+      "minlevel": 6,
+      "maxlevel": 7,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 43,
+      "name": "Mine Spider",
+      "count": 1,
+      "outof": 2200,
+      "minlevel": 8,
+      "maxlevel": 9,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 60,
+      "name": "Ruklar the Trapper",
+      "count": 3,
+      "outof": 27,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 471,
+      "name": "Mother Fang",
+      "count": 4,
+      "outof": 152,
+      "minlevel": 10,
+      "maxlevel": 10,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 476,
+      "name": "Kobold Geomancer",
+      "count": 3,
+      "outof": 1558,
+      "minlevel": 7,
+      "maxlevel": 8,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 1119,
+      "name": "Hammerspine",
+      "count": 5,
+      "outof": 47,
+      "minlevel": 12,
+      "maxlevel": 12,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1260,
+      "name": "Great Father Arctikus",
+      "count": 2,
+      "outof": 36,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1934,
+      "name": "Tirisfal Farmer",
+      "count": 37,
+      "outof": 889,
+      "minlevel": 6,
+      "maxlevel": 7,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 1935,
+      "name": "Tirisfal Farmhand",
+      "count": 24,
+      "outof": 578,
+      "minlevel": 5,
+      "maxlevel": 6,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 2038,
+      "name": "Lord Melenas",
+      "count": 43,
+      "outof": 554,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 3204,
+      "name": "Gazz'uz",
+      "count": 5,
+      "outof": 754,
+      "minlevel": 14,
+      "maxlevel": 14,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 3205,
+      "name": "Zalazane",
+      "count": 38,
+      "outof": 800,
+      "minlevel": 10,
+      "maxlevel": 10,
+      "location": [
+       14
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401946": {
+  "runa": "Circle of Healing",
+  "clase": "priest",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205949,
+    "titulo": "Manifold Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": 211490,
+    "titulo": "Prophecy of a Thousand Lights - Item - Classic World of Warcraft",
+    "created": [
+     {
+      "id": 429972,
+      "name": "Dark Insight",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "413259": {
+  "runa": "Mind Sear",
+  "clase": "priest",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205950,
+    "titulo": "Tenebrous Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        17777
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        21176
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402174": {
+  "runa": "Penance",
+  "clase": "priest",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205951,
+    "titulo": "Memory of a Troubled Acolyte - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 80,
+      "name": "Kobold Laborer",
+      "count": 2,
+      "outof": 126,
+      "minlevel": 3,
+      "maxlevel": 4,
+      "location": [
+       12
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 405633,
+      "name": "Rockjaw Footlocker",
+      "count": 2,
+      "outof": 36,
+      "location": [
+       1
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401955": {
+  "runa": "Shadow Word: Death",
+  "clase": "priest",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205932,
+    "titulo": "Prophecy of a King's Demise - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 572,
+      "name": "Leprithus",
+      "count": 1,
+      "outof": 8,
+      "minlevel": 19,
+      "maxlevel": 19,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 209742,
+      "name": "Desert Mirage",
+      "count": 33,
+      "outof": 158,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       17
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 411674,
+      "name": "Prophecy of a King's Demise",
+      "count": 5,
+      "outof": 5,
+      "location": [
+       130
+      ]
+     },
+     {
+      "id": 414646,
+      "name": "Remnant",
+      "count": 23,
+      "outof": 23,
+      "location": [
+       148
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 421242,
+      "name": "Heretic Altar - Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425266": {
+  "runa": "Empowered Renew",
+  "clase": "priest",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213140,
+    "titulo": "Prophecy of the Quickened Path - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2252,
+      "name": "Crushridge Ogre",
+      "count": 70,
+      "outof": 7628,
+      "minlevel": 34,
+      "maxlevel": 35,
+      "location": [
+       36
+      ]
+     },
+     {
+      "id": 2253,
+      "name": "Crushridge Brute",
+      "count": 36,
+      "outof": 4768,
+      "minlevel": 35,
+      "maxlevel": 36,
+      "location": [
+       36
+      ]
+     },
+     {
+      "id": 10758,
+      "name": "Grimtotem Bandit",
+      "count": 62,
+      "outof": 2819,
+      "minlevel": 25,
+      "maxlevel": 26,
+      "location": [
+       400
+      ]
+     },
+     {
+      "id": 10759,
+      "name": "Grimtotem Stomper",
+      "count": 58,
+      "outof": 2245,
+      "minlevel": 26,
+      "maxlevel": 27,
+      "location": [
+       400
+      ]
+     },
+     {
+      "id": 10760,
+      "name": "Grimtotem Geomancer",
+      "count": 64,
+      "outof": 2366,
+      "minlevel": 25,
+      "maxlevel": 27,
+      "location": [
+       400
+      ]
+     },
+     {
+      "id": 10761,
+      "name": "Grimtotem Reaver",
+      "count": 18,
+      "outof": 893,
+      "minlevel": 28,
+      "maxlevel": 28,
+      "location": [
+       400
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "431655": {
+  "runa": "Mind Spike",
+  "clase": "priest",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 205953,
+    "titulo": "Prophecy of a Broken Vow - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 208764,
+    "titulo": "Rune of the Mind - Item - Classic World of Warcraft"
+   }
+  ],
+  "estado": "ok"
+ },
+ "425280": {
+  "runa": "Renewed Hope",
+  "clase": "priest",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213141,
+    "titulo": "Rune of Hope - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": 213599,
+    "titulo": "Unsettling Vision - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 4711,
+      "name": "Slitherblade Naga",
+      "count": 60,
+      "outof": 2690,
+      "minlevel": 32,
+      "maxlevel": 33,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4712,
+      "name": "Slitherblade Sorceress",
+      "count": 10,
+      "outof": 1627,
+      "minlevel": 32,
+      "maxlevel": 33,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4713,
+      "name": "Slitherblade Warrior",
+      "count": 23,
+      "outof": 979,
+      "minlevel": 33,
+      "maxlevel": 34,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4714,
+      "name": "Slitherblade Myrmidon",
+      "count": 23,
+      "outof": 2556,
+      "minlevel": 34,
+      "maxlevel": 35,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4715,
+      "name": "Slitherblade Razortail",
+      "count": 1,
+      "outof": 1784,
+      "minlevel": 35,
+      "maxlevel": 36,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4716,
+      "name": "Slitherblade Tidehunter",
+      "count": 4,
+      "outof": 1467,
+      "minlevel": 36,
+      "maxlevel": 37,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4718,
+      "name": "Slitherblade Oracle",
+      "count": 8,
+      "outof": 1220,
+      "minlevel": 34,
+      "maxlevel": 35,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 4719,
+      "name": "Slitherblade Sea Witch",
+      "count": 6,
+      "outof": 1879,
+      "minlevel": 35,
+      "maxlevel": 36,
+      "location": [
+       405
+      ]
+     },
+     {
+      "id": 218249,
+      "name": "Slitherblade Tide Priestess",
+      "count": 14,
+      "outof": 704,
+      "minlevel": 33,
+      "maxlevel": 34,
+      "location": [
+       405
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425294": {
+  "runa": "Dispersion",
+  "clase": "priest",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213142,
+    "titulo": "Prophecy of Imprisoned Malice - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 428144,
+      "name": "Fount",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       33
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402004": {
+  "runa": "Pain Suppression",
+  "clase": "priest",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 205946,
+    "titulo": "Memory of a Leader's Betrayal - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 213143,
+    "titulo": "Apocryphal Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 424373,
+      "name": "Remnant",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       796
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425284": {
+  "runa": "Spirit of the Redeemer",
+  "clase": "priest",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213144,
+    "titulo": "Luminous Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 87,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425204": {
+  "runa": "Void Plague",
+  "clase": "priest",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 205940,
+    "titulo": "Memory of a Dark Purpose - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 327,
+      "name": "Goldtooth",
+      "count": 89,
+      "outof": 1518,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 1211,
+      "name": "Leper Gnome",
+      "count": 76,
+      "outof": 13864,
+      "minlevel": 8,
+      "maxlevel": 10,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 3128,
+      "name": "Kul Tiras Sailor",
+      "count": 38,
+      "outof": 6075,
+      "minlevel": 5,
+      "maxlevel": 6,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 3129,
+      "name": "Kul Tiras Marine",
+      "count": 27,
+      "outof": 4945,
+      "minlevel": 6,
+      "maxlevel": 7,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 208196,
+      "name": "Gillgar",
+      "count": 58,
+      "outof": 131,
+      "minlevel": 7,
+      "maxlevel": 7,
+      "location": [
+       85
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 407734,
+      "name": "Gnarlpine Cache",
+      "count": 1,
+      "outof": 80,
+      "location": [
+       141
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "431622": {
+  "runa": "Divine Aegis",
+  "clase": "priest",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221488,
+    "titulo": "Resolute Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402789": {
+  "runa": "Eye of the Void",
+  "clase": "priest",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221980,
+    "titulo": "Prophecy of Awakened Chaos - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "413251": {
+  "runa": "Pain and Suffering",
+  "clase": "priest",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221979,
+    "titulo": "Prophecy of Verdant Winter - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222897,
+      "name": "Enraged Voidwalker",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 43,
+      "maxlevel": 43,
+      "location": [
+       440
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "431670": {
+  "runa": "Despair",
+  "clase": "priest",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 232461,
+    "titulo": "Rune of Despair - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425207": {
+  "runa": "Power Word: Barrier",
+  "clase": "priest",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 211530,
+    "titulo": "Prophecy of a City Enthralled - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 436,
+      "name": "Blackrock Shadowcaster",
+      "count": 87,
+      "outof": 1901,
+      "minlevel": 22,
+      "maxlevel": 23,
+      "location": [
+       44
+      ]
+     },
+     {
+      "id": 214519,
+      "name": "Incinerator Gar'im",
+      "count": 1,
+      "outof": 193,
+      "minlevel": 23,
+      "maxlevel": 23,
+      "location": [
+       44
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "431664": {
+  "runa": "Surge of Light",
+  "clase": "priest",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221981,
+    "titulo": "Prophecy of the Lost Tribe - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 223591,
+      "name": "Echo of a Lost Soul",
+      "count": 3,
+      "outof": 3,
+      "minlevel": 1,
+      "maxlevel": 1,
+      "location": [
+       47,
+       33,
+       8,
+       -1
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "431681": {
+  "runa": "Void Zone",
+  "clase": "priest",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221481,
+    "titulo": "Nihilist Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16941
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "401937": {
+  "runa": "Binding Heal",
+  "clase": "priest",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 228123,
+    "titulo": "Jubilant Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 84323,
+      "name": "The Prize Within",
+      "side": 1,
+      "level": 50,
+      "reqlevel": 48,
+      "category": -262
+     },
+     {
+      "id": 84407,
+      "name": "The Prize Within",
+      "side": 2,
+      "level": 50,
+      "reqlevel": 48,
+      "category": -262
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402000": {
+  "runa": "Soul Warding",
+  "clase": "priest",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 228124,
+    "titulo": "Oneiric Epiphany - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 456775,
+      "name": "Remnant",
+      "count": 2,
+      "outof": 4,
+      "location": [
+       2017
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402668": {
+  "runa": "Vampiric Touch",
+  "clase": "priest",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 205948,
+    "titulo": "Anodyne Epiphany - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 228126,
+    "titulo": "Aperitive Epiphany - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 227028,
+      "name": "Hellscream's Phantom",
+      "count": 1,
+      "outof": 210,
+      "minlevel": 62,
+      "maxlevel": 62,
+      "location": [
+       15475
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "399965": {
+  "runa": "Deadly Brew",
+  "clase": "rogue",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 203994,
+    "titulo": "Rune of Deadly Brew - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 78307,
+      "name": "The Horn of Xelthos",
+      "side": 3,
+      "level": 23,
+      "reqlevel": 1,
+      "category": -162
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400014": {
+  "runa": "Just a Flesh Wound",
+  "clase": "rogue",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 211390,
+    "titulo": "Rune of Teasing - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "398196": {
+  "runa": "Quick Draw",
+  "clase": "rogue",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 203991,
+    "titulo": "Rune of Quick Draw - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 386675,
+      "name": "Buried Treasure",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       12,
+       1,
+       14,
+       -1
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "424925": {
+  "runa": "Slaughter from the Shadows",
+  "clase": "rogue",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 203993,
+    "titulo": "Rune of Slaughter - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 387466,
+      "name": "Rusty Lockbox",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       1,
+       14,
+       12
+      ]
+     },
+     {
+      "id": 404941,
+      "name": "Relic Coffer",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 407734,
+      "name": "Gnarlpine Cache",
+      "count": 2,
+      "outof": 62,
+      "location": [
+       141
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400009": {
+  "runa": "Between the Eyes",
+  "clase": "rogue",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 204174,
+    "titulo": "Rune of Precision - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 407352,
+      "name": "Gnarlpine Stash",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 405946,
+      "name": "Dusty Chest",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       1537
+      ]
+     },
+     {
+      "id": 405201,
+      "name": "Shipwreck Cache",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 386777,
+      "name": "Dusty Chest",
+      "count": 1,
+      "outof": 43,
+      "location": [
+       1519
+      ]
+     },
+     {
+      "id": 404830,
+      "name": "Dusty Chest",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       1637
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400012": {
+  "runa": "Blade Dance",
+  "clase": "rogue",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 208771,
+    "titulo": "Rune of Blade Dance - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 414532,
+      "name": "Clliffspring Chest",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       148
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "399963": {
+  "runa": "Envenom",
+  "clase": "rogue",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210322,
+    "titulo": "Rune of Venom - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 410847,
+      "name": "Rusty Safe",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       28
+      ]
+     }
+    ]
+   },
+   {
+    "id": 218117,
+    "titulo": null
+   }
+  ],
+  "estado": "ok"
+ },
+ "462708": {
+  "runa": "Cutthroat",
+  "clase": "rogue",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 210252,
+    "titulo": "Rune of Shiving - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 425321,
+      "name": "Duskwood Rings - Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "424919": {
+  "runa": "Main Gauche",
+  "clase": "rogue",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 210653,
+    "titulo": "Rune of Main Gauche - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        30000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "399956": {
+  "runa": "Mutilate",
+  "clase": "rogue",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 203990,
+    "titulo": "Rune of Mutilation - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2038,
+      "name": "Lord Melenas",
+      "count": 1,
+      "outof": 22,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       141
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 401495,
+      "name": "Cutty - Trade Letter for Rune",
+      "level": 0
+     },
+     {
+      "id": 416186,
+      "name": "Ba'so - Trade Letter for Rune",
+      "level": 0
+     },
+     {
+      "id": 417750,
+      "name": "Jamie - Trade Letter for Rune",
+      "level": 0
+     },
+     {
+      "id": 418545,
+      "name": "Blackrat - Trade Letter for Rune",
+      "level": 0
+     }
+    ]
+   },
+   {
+    "id": 210229,
+    "titulo": "Rune of Mutilation - Item - Classic World of Warcraft"
+   }
+  ],
+  "estado": "ok"
+ },
+ "424785": {
+  "runa": "Saber Slash",
+  "clase": "rogue",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 208772,
+    "titulo": "Rune of Saber Slash - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 210549,
+      "name": "Defias Scout",
+      "count": 2,
+      "outof": 33,
+      "minlevel": 14,
+      "maxlevel": 15,
+      "location": [
+       40
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 409131,
+      "name": "Rusty Chest",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       130
+      ]
+     },
+     {
+      "id": 414624,
+      "name": "Lighthouse Stash",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 407731,
+      "name": "Stonemason's Toolbox",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       38
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "399985": {
+  "runa": "Shadowstrike",
+  "clase": "rogue",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 204795,
+    "titulo": "Rune of Shadowstrike - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 405628,
+      "name": "Frostmane Loot Cache",
+      "count": 1,
+      "outof": 15,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 404911,
+      "name": "Hidden Cache",
+      "count": 1,
+      "outof": 3,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 406006,
+      "name": "Idol",
+      "count": 2,
+      "outof": 2,
+      "location": [
+       141
+      ]
+     },
+     {
+      "id": 387477,
+      "name": "Defias Stashbox",
+      "count": 3,
+      "outof": 11,
+      "location": [
+       12
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425012": {
+  "runa": "Poisoned Knife",
+  "clase": "rogue",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 212559,
+    "titulo": "Rune of the Poisoned Blade - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 212553,
+      "name": "Jewel-Encrusted Box",
+      "count": 72,
+      "outof": 1630,
+      "level": 1,
+      "reqlevel": 30
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400029": {
+  "runa": "Shadowstep",
+  "clase": "rogue",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 210979,
+    "titulo": "Rune of Shadowstep - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 78699,
+      "name": "The Eye of Bhossca",
+      "side": 3,
+      "level": 23,
+      "reqlevel": 1,
+      "category": -162
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "399986": {
+  "runa": "Shuriken Toss",
+  "clase": "rogue",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213139,
+    "titulo": "Rune of the Assassin - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 428228,
+      "name": "Conspicuous Cache",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       8
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425096": {
+  "runa": "Master of Subtlety",
+  "clase": "rogue",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213136,
+    "titulo": "Rune of Subtlety - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 216618,
+      "name": "Captain Aransas' Reward",
+      "count": 115,
+      "outof": 118,
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "400016": {
+  "runa": "Rolling with the Punches",
+  "clase": "rogue",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213138,
+    "titulo": "Rune of the Southpaw - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 215453,
+      "name": "Small Strongbox",
+      "count": 142,
+      "outof": 145,
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408700": {
+  "runa": "Waylay",
+  "clase": "rogue",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213137,
+    "titulo": "Rune of the Assailant - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 82,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432259": {
+  "runa": "Combat Potency",
+  "clase": "rogue",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221513,
+    "titulo": "Rune of Potency - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432256": {
+  "runa": "Focused Attacks",
+  "clase": "rogue",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221433,
+    "titulo": "Rune of Focus - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 442398,
+      "name": "Treasure of the Bat",
+      "count": 6,
+      "outof": 6,
+      "location": [
+       47
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432264": {
+  "runa": "Honor Among Thieves",
+  "clase": "rogue",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 217736,
+    "titulo": "Rune of the Coterie - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 80455,
+      "name": "Biding Our Time",
+      "side": 3,
+      "level": 50,
+      "reqlevel": 45,
+      "category": -162
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432276": {
+  "runa": "Carnage",
+  "clase": "rogue",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221461,
+    "titulo": "Rune of Carnage - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222702,
+      "name": "Murderous Lost One",
+      "count": 2,
+      "outof": 2,
+      "minlevel": 46,
+      "maxlevel": 46,
+      "location": [
+       4
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432271": {
+  "runa": "Cut to the Chase",
+  "clase": "rogue",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221512,
+    "titulo": "Rune of Alacrity - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432273": {
+  "runa": "Unfair Advantage",
+  "clase": "rogue",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221428,
+    "titulo": "Rune of Foul Play - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 447551,
+      "name": "[DNT]Jabbey Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "436564": {
+  "runa": "Blunderbuss",
+  "clase": "rogue",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 227922,
+    "titulo": "Rune of the Swashbuckler - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 456883,
+      "name": "Adon's Trunk",
+      "count": 3,
+      "outof": 3,
+      "location": [
+       139
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412096": {
+  "runa": "Crimson Tempest",
+  "clase": "rogue",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 227456,
+    "titulo": "Rune of the Crimson Tempest - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 461633,
+      "name": "Belavus' Safe Box",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       28
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "409240": {
+  "runa": "Fan of Knives",
+  "clase": "rogue",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 227921,
+    "titulo": "Rune of Knives - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 461407,
+      "name": "[DNT] Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408496": {
+  "runa": "Dual Wield Specialization",
+  "clase": "shaman",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 210823,
+    "titulo": "Rune of Dual Wield Specialization - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415236": {
+  "runa": "Healing Rain",
+  "clase": "shaman",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 211391,
+    "titulo": "Rune of Healing Rain - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408438": {
+  "runa": "Overload",
+  "clase": "shaman",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 206381,
+    "titulo": "Dyadic Icon - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2953,
+      "name": "Bristleback Shaman",
+      "count": 80,
+      "outof": 1659,
+      "minlevel": 3,
+      "maxlevel": 4,
+      "location": [
+       215
+      ]
+     },
+     {
+      "id": 3124,
+      "name": "Scorpid Worker",
+      "count": 130,
+      "outof": 13589,
+      "minlevel": 3,
+      "maxlevel": 3,
+      "location": [
+       14
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408524": {
+  "runa": "Shield Mastery",
+  "clase": "shaman",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 206376,
+    "titulo": "Bulwark Icon - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 206386,
+    "titulo": "Galvanic Icon - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 415019,
+      "name": "Collect Galvanic Icon",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "436364": {
+  "runa": "Two-Handed Mastery",
+  "clase": "shaman",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 216606,
+    "titulo": "Rune of Two-Handed Mastery - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 67,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "409324": {
+  "runa": "Ancestral Guidance",
+  "clase": "shaman",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210589,
+    "titulo": "Echo of the Ancestors - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408514": {
+  "runa": "Earth Shield",
+  "clase": "shaman",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 206383,
+    "titulo": "Lithic Icon - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 210746,
+    "titulo": "Rune of Earth Shield - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 78575,
+      "name": "Hirzek",
+      "side": 2,
+      "level": 25,
+      "reqlevel": 1,
+      "category": -82
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415813": {
+  "runa": "Greater Ghost Wolf",
+  "clase": "shaman",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210811,
+    "titulo": "Rune of Primordial Fury - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 212837,
+      "name": "Primordial Anomaly",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       406
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408531": {
+  "runa": "Way of Earth",
+  "clase": "shaman",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 206385,
+    "titulo": "Clastic Icon - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 208758,
+    "titulo": "Earthen Rune - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 209742,
+      "name": "Desert Mirage",
+      "count": 100,
+      "outof": 158,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       17
+      ]
+     },
+     {
+      "id": 211875,
+      "name": "Decayed Elemental",
+      "count": 16,
+      "outof": 27,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       130,
+       1637
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408490": {
+  "runa": "Lava Burst",
+  "clase": "shaman",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 206387,
+    "titulo": "Kajaric Icon - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2373,
+      "name": "Mudsnout Shaman",
+      "count": 1,
+      "outof": 3,
+      "minlevel": 27,
+      "maxlevel": 28,
+      "location": [
+       267
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408507": {
+  "runa": "Lava Lash",
+  "clase": "shaman",
+  "ranura": "Hands",
+  "objetos": [],
+  "estado": "sin_objeto"
+ },
+ "425339": {
+  "runa": "Molten Blast",
+  "clase": "shaman",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 206388,
+    "titulo": "Sulfurous Icon - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 208275,
+      "name": "Frozen Makrura",
+      "count": 1,
+      "outof": 6,
+      "minlevel": 9,
+      "maxlevel": 9,
+      "location": [
+       14
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 404352,
+      "name": "Artifact Storage",
+      "count": 1,
+      "outof": 5,
+      "location": [
+       215
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408307": {
+  "runa": "Nature's Fury",
+  "clase": "shaman",
+  "ranura": "Hands",
+  "objetos": [],
+  "estado": "sin_objeto"
+ },
+ "408510": {
+  "runa": "Water Shield",
+  "clase": "shaman",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 206382,
+    "titulo": "Tempest Icon - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 1972,
+      "name": "Grimson the Pale",
+      "count": 2,
+      "outof": 9,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       130
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 3642,
+      "name": "Kolkars' Booty",
+      "count": 1,
+      "outof": 17,
+      "location": [
+       17
+      ]
+     },
+     {
+      "id": 152618,
+      "name": "Kolkar's Booty",
+      "count": 1,
+      "outof": 4,
+      "location": [
+       17
+      ]
+     },
+     {
+      "id": 152608,
+      "name": "Kolkar's Booty",
+      "count": 2,
+      "outof": 5,
+      "location": [
+       17
+      ]
+     }
+    ]
+   },
+   {
+    "id": 206390,
+    "titulo": "Ichthyan Icon - Item - Classic World of Warcraft"
+   }
+  ],
+  "estado": "ok"
+ },
+ "408339": {
+  "runa": "Fire Nova",
+  "clase": "shaman",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 206389,
+    "titulo": "Brimstone Icon - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 213094,
+    "titulo": "Rune of Fire Nova - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 434827,
+      "name": "Cleanse Corruption",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408498": {
+  "runa": "Maelstrom Weapon",
+  "clase": "shaman",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213086,
+    "titulo": "Rune of the Storm - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 79442,
+      "name": "Catching Up",
+      "side": 2,
+      "level": 40,
+      "reqlevel": 30,
+      "category": 36
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415100": {
+  "runa": "Power Surge",
+  "clase": "shaman",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213093,
+    "titulo": "Rune of Power - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 217302,
+      "name": "Tam'kar",
+      "count": 2,
+      "outof": 2,
+      "minlevel": 37,
+      "maxlevel": 37,
+      "location": [
+       45
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425858": {
+  "runa": "Ancestral Awakening",
+  "clase": "shaman",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 212560,
+    "titulo": "Rune of Ancestral Awakening - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 212553,
+      "name": "Jewel-Encrusted Box",
+      "count": 74,
+      "outof": 1630,
+      "level": 1,
+      "reqlevel": 30
+     }
+    ]
+   },
+   {
+    "id": 213095,
+    "titulo": null
+   }
+  ],
+  "estado": "ok"
+ },
+ "425874": {
+  "runa": "Decoy Totem",
+  "clase": "shaman",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213096,
+    "titulo": "Rune of Decoys - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 435256,
+      "name": "Altar of the Wind Spirit Trial",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408696": {
+  "runa": "Spirit of the Alpha",
+  "clase": "shaman",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 206985,
+    "titulo": "Echo of the Alpha - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 213092,
+    "titulo": "Rune of the Alpha - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 421568,
+      "name": "Weathered Cache",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       400
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415231": {
+  "runa": "Burn",
+  "clase": "shaman",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221483,
+    "titulo": "Rune of Burn - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415140": {
+  "runa": "Mental Dexterity",
+  "clase": "shaman",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 220610,
+    "titulo": "Rune of Mental Dexterity - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222897,
+      "name": "Enraged Voidwalker",
+      "count": 1,
+      "outof": 9,
+      "minlevel": 43,
+      "maxlevel": 43,
+      "location": [
+       440
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432042": {
+  "runa": "Tidal Waves",
+  "clase": "shaman",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 220612,
+    "titulo": "Rune of Tidal Waves - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432140": {
+  "runa": "Overcharged",
+  "clase": "shaman",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220616,
+    "titulo": "Rune of Overcharged - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222044,
+      "name": "Twilight Dark Shaman",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "408521": {
+  "runa": "Riptide",
+  "clase": "shaman",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 206391,
+    "titulo": "Syzygic Icon - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 221490,
+    "titulo": "Rune of Riptide - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432056": {
+  "runa": "Rolling Thunder",
+  "clase": "shaman",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220613,
+    "titulo": "Rune of Rolling Thunder - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 442728,
+      "name": "Chest",
+      "count": 2,
+      "outof": 2,
+      "location": [
+       440
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "432134": {
+  "runa": "Static Shock",
+  "clase": "shaman",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220614,
+    "titulo": "Rune of Static Shock - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222919,
+      "name": "Whirling Tempest",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 44,
+      "maxlevel": 45,
+      "location": [
+       357
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "415096": {
+  "runa": "Coherence",
+  "clase": "shaman",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225740,
+    "titulo": "Rune of Composure - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 455876,
+      "name": "Polish",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440580": {
+  "runa": "Feral Spirit",
+  "clase": "shaman",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225914,
+    "titulo": "Rune of the Bound Spirit - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 226982,
+      "name": "Frijidar",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       618
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440569": {
+  "runa": "Storm, Earth, and Fire",
+  "clase": "shaman",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225838,
+    "titulo": "Voltaic Icon - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 7158,
+      "name": "Deadwood Shaman",
+      "count": 1,
+      "outof": 1158,
+      "minlevel": 53,
+      "maxlevel": 54,
+      "location": [
+       361
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412727": {
+  "runa": "Demonic Tactics",
+  "clase": "warlock",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 205215,
+    "titulo": "Rune of Tactics - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 408802,
+      "name": "Gakin - Rune Reward",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403666": {
+  "runa": "Lake of Fire",
+  "clase": "warlock",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 211476,
+    "titulo": "Rune of Fires Wake - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 414713,
+      "name": "Storage Locker",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       267
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403668": {
+  "runa": "Master Channeler",
+  "clase": "warlock",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 208750,
+    "titulo": "Rune of Channeling - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2336,
+      "name": "Dark Strand Fanatic",
+      "count": 10,
+      "outof": 6610,
+      "minlevel": 16,
+      "maxlevel": 17,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 2337,
+      "name": "Dark Strand Voidcaller",
+      "count": 1,
+      "outof": 343,
+      "minlevel": 28,
+      "maxlevel": 29,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 210501,
+      "name": "Harvest Reaper Prototype",
+      "count": 18,
+      "outof": 34,
+      "minlevel": 18,
+      "maxlevel": 18,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 212763,
+      "name": "Sadistic Fiend",
+      "count": 29,
+      "outof": 34,
+      "minlevel": 19,
+      "maxlevel": 19,
+      "location": [
+       130
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 420749,
+      "name": "Altar of Thorns - Give Rune",
+      "level": 0
+     },
+     {
+      "id": 421268,
+      "name": "Malevolent Pie",
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425463": {
+  "runa": "Demonic Grace",
+  "clase": "warlock",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 204912,
+    "titulo": "Rune of Grace - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 204070,
+      "name": "Soboz",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       1,
+       14,
+       1519,
+       -1
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425464": {
+  "runa": "Demonic Pact",
+  "clase": "warlock",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210824,
+    "titulo": "Rune of the Pact - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412689": {
+  "runa": "Everlasting Affliction",
+  "clase": "warlock",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 211392,
+    "titulo": "Rune of Everlasting Affliction - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        21176
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403629": {
+  "runa": "Chaos Bolt",
+  "clase": "warlock",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205228,
+    "titulo": "Rune of Chaos Bolt - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 202060,
+      "name": "Frozen Murloc",
+      "count": 132,
+      "outof": 278,
+      "minlevel": 9,
+      "maxlevel": 9,
+      "location": [
+       12,
+       85
+      ]
+     },
+     {
+      "id": 208275,
+      "name": "Frozen Makrura",
+      "count": 46,
+      "outof": 186,
+      "minlevel": 9,
+      "maxlevel": 9,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 208752,
+      "name": "Frozen Trogg",
+      "count": 68,
+      "outof": 157,
+      "minlevel": 9,
+      "maxlevel": 9,
+      "location": [
+       1
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403501": {
+  "runa": "Haunt",
+  "clase": "warlock",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 205230,
+    "titulo": "Rune of Haunting - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 387477,
+      "name": "Defias Stashbox",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 404695,
+      "name": "Waterlogged Stashbox",
+      "count": 2,
+      "outof": 6,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 406736,
+      "name": "Lost Stash",
+      "count": 2,
+      "outof": 2,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 405633,
+      "name": "Rockjaw Footlocker",
+      "count": 3,
+      "outof": 9,
+      "location": [
+       1
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403789": {
+  "runa": "Metamorphosis",
+  "clase": "warlock",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 210980,
+    "titulo": "Rune of Metamorphosis - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 78702,
+      "name": "Raszel Ander",
+      "side": 3,
+      "level": 28,
+      "reqlevel": 20,
+      "category": 17
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403628": {
+  "runa": "Shadow Bolt Volley",
+  "clase": "warlock",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 208744,
+    "titulo": "Rune of Shadowbolts - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2191,
+      "name": "Licillin",
+      "count": 5,
+      "outof": 48,
+      "minlevel": 14,
+      "maxlevel": 14,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 3662,
+      "name": "Delmanis the Hated",
+      "count": 19,
+      "outof": 142,
+      "minlevel": 17,
+      "maxlevel": 17,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 10373,
+      "name": "Xabraxxis",
+      "count": 9,
+      "outof": 205,
+      "minlevel": 19,
+      "maxlevel": 19,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 209958,
+      "name": "Graix",
+      "count": 54,
+      "outof": 68,
+      "minlevel": 18,
+      "maxlevel": 18,
+      "location": [
+       38
+      ]
+     },
+     {
+      "id": 210487,
+      "name": "Horror of the Deep",
+      "count": 12,
+      "outof": 24,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 212753,
+      "name": "Tortured Soul",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       130,
+       17,
+       1497,
+       -1
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 420711,
+      "name": "Hungry Gargoyle Statue - Give Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "1226981": {
+  "runa": "Grimoire of Synergy",
+  "clase": "warlock",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213090,
+    "titulo": "Rune of Synergy - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 79298,
+      "name": "Tempting Fate",
+      "side": 3,
+      "level": 40,
+      "reqlevel": 30,
+      "category": -61
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426243": {
+  "runa": "Invocation",
+  "clase": "warlock",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213098,
+    "titulo": "Rune of Invocation - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 217605,
+      "name": "Void Seeker",
+      "count": 1,
+      "outof": 2,
+      "minlevel": 36,
+      "maxlevel": 36,
+      "location": [
+       45
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426316": {
+  "runa": "Shadow and Flame",
+  "clase": "warlock",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 212561,
+    "titulo": "Rune of Burning Darkness - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 212553,
+      "name": "Jewel-Encrusted Box",
+      "count": 113,
+      "outof": 1630,
+      "level": 1,
+      "reqlevel": 30
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412798": {
+  "runa": "Dance of the Wicked",
+  "clase": "warlock",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213102,
+    "titulo": "Rune of Wickedness - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440870": {
+  "runa": "Decimation",
+  "clase": "warlock",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 225686,
+    "titulo": "Rune of Decimation - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 224850,
+      "name": "Otherworldly Treasure",
+      "count": 41,
+      "outof": 121,
+      "level": 45,
+      "reqlevel": 1
+     },
+     {
+      "id": 224851,
+      "name": "Otherworldly Treasure",
+      "count": 4,
+      "outof": 18,
+      "level": 45,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412732": {
+  "runa": "Demonic Knowledge",
+  "clase": "warlock",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213100,
+    "titulo": "Rune of Forbidden Knowledge - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 133,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426320": {
+  "runa": "Shadowflame",
+  "clase": "warlock",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213101,
+    "titulo": "Rune of Shadowflames - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 217580,
+      "name": "Seductress Ceeyna",
+      "count": 1,
+      "outof": 2,
+      "minlevel": 38,
+      "maxlevel": 38,
+      "location": [
+       405
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427713": {
+  "runa": "Backdraft",
+  "clase": "warlock",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 232459,
+    "titulo": "Rune of Backdraft - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232457,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427712": {
+  "runa": "Pandemic",
+  "clase": "warlock",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 220617,
+    "titulo": "Rune of Pandemic - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 223123,
+      "name": "Diseased Forest Walker",
+      "count": 2,
+      "outof": 2,
+      "minlevel": 43,
+      "maxlevel": 44,
+      "location": [
+       357
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426195": {
+  "runa": "Vengeance",
+  "clase": "warlock",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221489,
+    "titulo": "Rune of Vengeance - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427726": {
+  "runa": "Immolation Aura",
+  "clase": "warlock",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220618,
+    "titulo": "Rune of Immolation Aura - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 447537,
+      "name": "Combine Immolation Aura",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412758": {
+  "runa": "Incinerate",
+  "clase": "warlock",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 211477,
+    "titulo": "Rune of Incinerate - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 214519,
+      "name": "Incinerator Gar'im",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 23,
+      "maxlevel": 23,
+      "location": [
+       44
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427733": {
+  "runa": "Summon Felguard",
+  "clase": "warlock",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221499,
+    "titulo": "Rune of the Felguard - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 223149,
+      "name": "Otherworldly Treasure",
+      "count": 132,
+      "outof": 1267,
+      "level": 35,
+      "reqlevel": 1
+     },
+     {
+      "id": 220446,
+      "name": "Otherworldly Treasure",
+      "count": 114,
+      "outof": 555,
+      "level": 15,
+      "reqlevel": 1
+     },
+     {
+      "id": 223148,
+      "name": "Otherworldly Treasure",
+      "count": 81,
+      "outof": 369,
+      "level": 25,
+      "reqlevel": 1
+     },
+     {
+      "id": 223150,
+      "name": "Otherworldly Treasure",
+      "count": 49,
+      "outof": 7370,
+      "level": 45,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427717": {
+  "runa": "Unstable Affliction",
+  "clase": "warlock",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221482,
+    "titulo": "Rune of Affliction - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440882": {
+  "runa": "Infernal Armor",
+  "clase": "warlock",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225687,
+    "titulo": "Rune of Infernal Armor - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 228414,
+      "name": "Heliath",
+      "count": 1,
+      "outof": 2,
+      "minlevel": 56,
+      "maxlevel": 56,
+      "location": [
+       4
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440892": {
+  "runa": "Mark of Chaos",
+  "clase": "warlock",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 225688,
+    "titulo": "Rune of Mark of Chaos - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 456740,
+      "name": "Pilfershard - Trade Souls for Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403511": {
+  "runa": "Soul Siphon",
+  "clase": "warlock",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 205218,
+    "titulo": "Libram of Discovery - Item - Classic World of Warcraft"
+   },
+   {
+    "id": 205022,
+    "titulo": "Rune of Soul Siphon - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 408035,
+      "name": "Damien Kane - Trade Souls for Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412507": {
+  "runa": "Blood Frenzy",
+  "clase": "warrior",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 204441,
+    "titulo": "Rune of Blood Frenzy - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 392029,
+      "name": "Swordsman's Reward",
+      "count": 2,
+      "outof": 2,
+      "location": [
+       12,
+       1,
+       14,
+       -1
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402877": {
+  "runa": "Flagellation",
+  "clase": "warrior",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 210569,
+    "titulo": "Rune of Flagellation - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 212261,
+      "name": "Awakened Lich",
+      "count": 2,
+      "outof": 8,
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402911": {
+  "runa": "Raging Blow",
+  "clase": "warrior",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 210015,
+    "titulo": "Rune of Raging Blow - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 78144,
+      "name": "Alonso the Dragonslayer",
+      "side": 3,
+      "level": 25,
+      "reqlevel": 1,
+      "category": -81
+     }
+    ],
+    "created": [
+     {
+      "id": 424137,
+      "name": "Give Extra Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425421": {
+  "runa": "Warbringer",
+  "clase": "warrior",
+  "ranura": "Chest",
+  "objetos": [
+   {
+    "id": 210825,
+    "titulo": "Rune of the Warbringer - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 211653,
+      "name": "Grizzby",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       17
+      ],
+      "cost": [
+       [
+        31578
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403215": {
+  "runa": "Commanding Shout",
+  "clase": "warrior",
+  "ranura": "Legs",
+  "objetos": [],
+  "estado": "sin_objeto"
+ },
+ "425418": {
+  "runa": "Consumed By Rage",
+  "clase": "warrior",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 210573,
+    "titulo": "Rune of Consuming Rage - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 211965,
+      "name": "Carrodin",
+      "count": 1,
+      "outof": 4,
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       11
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "425412": {
+  "runa": "Frenzied Assault",
+  "clase": "warrior",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 204716,
+    "titulo": "Rune of Frenzied Assault - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 406731,
+      "name": "Liv Bradford - Give Warrior Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403219": {
+  "runa": "Furious Thunder",
+  "clase": "warrior",
+  "ranura": "Legs",
+  "objetos": [
+   {
+    "id": 204809,
+    "titulo": "Rune of Furious Thunder - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 79,
+      "name": "Narg the Taskmaster",
+      "count": 4,
+      "outof": 69,
+      "minlevel": 10,
+      "maxlevel": 10,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 100,
+      "name": "Gruff Swiftbite",
+      "count": 1,
+      "outof": 35,
+      "minlevel": 12,
+      "maxlevel": 12,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 327,
+      "name": "Goldtooth",
+      "count": 135,
+      "outof": 1518,
+      "minlevel": 8,
+      "maxlevel": 8,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 448,
+      "name": "Hogger",
+      "count": 4,
+      "outof": 1187,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       12,
+       14,
+       1,
+       -1
+      ]
+     },
+     {
+      "id": 471,
+      "name": "Mother Fang",
+      "count": 1,
+      "outof": 79,
+      "minlevel": 10,
+      "maxlevel": 10,
+      "location": [
+       12
+      ]
+     },
+     {
+      "id": 1130,
+      "name": "Bjarn",
+      "count": 2,
+      "outof": 35,
+      "minlevel": 12,
+      "maxlevel": 12,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1137,
+      "name": "Edan the Howler",
+      "count": 2,
+      "outof": 98,
+      "minlevel": 9,
+      "maxlevel": 9,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1260,
+      "name": "Great Father Arctikus",
+      "count": 1,
+      "outof": 30,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1271,
+      "name": "Old Icebeard",
+      "count": 4,
+      "outof": 144,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1388,
+      "name": "Vagash",
+      "count": 5,
+      "outof": 885,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 1961,
+      "name": "Mangeclaw",
+      "count": 1,
+      "outof": 1070,
+      "minlevel": 11,
+      "maxlevel": 11,
+      "location": [
+       1
+      ]
+     },
+     {
+      "id": 3056,
+      "name": "Ghost Howl",
+      "count": 1,
+      "outof": 89,
+      "minlevel": 12,
+      "maxlevel": 12,
+      "location": [
+       215,
+       1638
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 407734,
+      "name": "Gnarlpine Cache",
+      "count": 1,
+      "outof": 80,
+      "location": [
+       141
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403228": {
+  "runa": "Meathook",
+  "clase": "warrior",
+  "ranura": "Legs",
+  "objetos": [],
+  "estado": "sin_objeto"
+ },
+ "403195": {
+  "runa": "Devastate",
+  "clase": "warrior",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 204703,
+    "titulo": "Rune of Devastate - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 406651,
+      "name": "Combine Rune Pieces",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "429765": {
+  "runa": "Quick Strike",
+  "clase": "warrior",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 208778,
+    "titulo": "Rune of Quick Strike - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 209797,
+      "name": "Bruuz",
+      "count": 69,
+      "outof": 174,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       17
+      ]
+     },
+     {
+      "id": 210482,
+      "name": "Paxnozz",
+      "count": 7,
+      "outof": 86,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 210487,
+      "name": "Horror of the Deep",
+      "count": 9,
+      "outof": 24,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       40
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 208848,
+      "name": "Cracked Skull-Shaped Geode",
+      "count": 57,
+      "outof": 57,
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "413404": {
+  "runa": "Single-Minded Fury",
+  "clase": "warrior",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 211393,
+    "titulo": "Rune of Single-Minded Fury - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 213077,
+      "name": "Elaine Compton",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214070,
+      "name": "Jornah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214096,
+      "name": "Dokimi",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1638
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214098,
+      "name": "Gishah",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1497
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214099,
+      "name": "Tamelyn Aldridge",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1537
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 214101,
+      "name": "Marcy Baker",
+      "minlevel": 30,
+      "maxlevel": 30,
+      "location": [
+       1657
+      ],
+      "cost": [
+       [
+        20000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402927": {
+  "runa": "Victory Rush",
+  "clase": "warrior",
+  "ranura": "Hands",
+  "objetos": [
+   {
+    "id": 204806,
+    "titulo": "Rune of Victory Rush - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 406736,
+      "name": "Lost Stash",
+      "count": 1,
+      "outof": 18,
+      "location": [
+       85
+      ]
+     },
+     {
+      "id": 403102,
+      "name": "Bristleback Loot Cache",
+      "count": 1,
+      "outof": 13,
+      "location": [
+       215
+      ]
+     },
+     {
+      "id": 404911,
+      "name": "Hidden Cache",
+      "count": 2,
+      "outof": 4,
+      "location": [
+       14
+      ]
+     },
+     {
+      "id": 397987,
+      "name": "Kobold Stashbox",
+      "count": 3,
+      "outof": 3,
+      "location": [
+       12
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "413380": {
+  "runa": "Blood Surge",
+  "clase": "warrior",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213103,
+    "titulo": "Rune of Blood Surge - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 79678,
+      "name": "Taste Testing",
+      "side": 3,
+      "level": 40,
+      "reqlevel": 26,
+      "category": -81
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "29787": {
+  "runa": "Focused Rage",
+  "clase": "warrior",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213109,
+    "titulo": "Rune of Focused Rage - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 218032,
+      "name": "Witherbark Goliath",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 35,
+      "maxlevel": 35,
+      "location": [
+       45
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402922": {
+  "runa": "Precise Timing",
+  "clase": "warrior",
+  "ranura": "slot_415449",
+  "objetos": [
+   {
+    "id": 213104,
+    "titulo": "Rune of Ruthless Precision - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232456,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 217014,
+      "name": "Supply Bag",
+      "count": 105,
+      "outof": 982,
+      "level": 40,
+      "reqlevel": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "402913": {
+  "runa": "Enraged Regeneration",
+  "clase": "warrior",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 212562,
+    "titulo": "Rune of Healing Rage - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232455,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 212553,
+      "name": "Jewel-Encrusted Box",
+      "count": 99,
+      "outof": 1630,
+      "level": 1,
+      "reqlevel": 30
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "412513": {
+  "runa": "Gladiator Stance",
+  "clase": "warrior",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 220164,
+    "titulo": "Rune of the Gladiator - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 81877,
+      "name": "Fight Night",
+      "side": 3,
+      "level": 50,
+      "reqlevel": 45,
+      "category": -81
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403338": {
+  "runa": "Intervene",
+  "clase": "warrior",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213111,
+    "titulo": "Rune of Intervention - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 423920,
+      "name": "Warrior's Bounty",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       400
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426490": {
+  "runa": "Rallying Cry",
+  "clase": "warrior",
+  "ranura": "slot_415450",
+  "objetos": [
+   {
+    "id": 213110,
+    "titulo": "Rune of the Commander - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "id": 424110,
+      "name": "Swordsman's Reward",
+      "count": 1,
+      "outof": 1,
+      "location": [
+       3
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "403218": {
+  "runa": "Endless Rage",
+  "clase": "warrior",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 208741,
+    "titulo": "Rune of Endless Rage - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 391,
+      "name": "Old Murk-Eye",
+      "count": 69,
+      "outof": 952,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 506,
+      "name": "Sergeant Brashclaw",
+      "count": 1,
+      "outof": 20,
+      "minlevel": 18,
+      "maxlevel": 18,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 519,
+      "name": "Slark",
+      "count": 1,
+      "outof": 35,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 520,
+      "name": "Brack",
+      "count": 2,
+      "outof": 44,
+      "minlevel": 19,
+      "maxlevel": 19,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 573,
+      "name": "Foe Reaper 4000",
+      "count": 1,
+      "outof": 10,
+      "minlevel": 20,
+      "maxlevel": 20,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 1424,
+      "name": "Master Digger",
+      "count": 3,
+      "outof": 30,
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       40
+      ]
+     },
+     {
+      "id": 2478,
+      "name": "Haren Swifthoof",
+      "count": 3,
+      "outof": 11,
+      "minlevel": 19,
+      "maxlevel": 21,
+      "location": [
+       38
+      ]
+     },
+     {
+      "id": 209607,
+      "name": "Lieutenant Stonebrew",
+      "count": 51,
+      "outof": 70,
+      "minlevel": 17,
+      "maxlevel": 17,
+      "location": [
+       17
+      ]
+     },
+     {
+      "id": 210451,
+      "name": "Lady Sedorax",
+      "count": 24,
+      "outof": 102,
+      "minlevel": 18,
+      "maxlevel": 18,
+      "location": [
+       148
+      ]
+     },
+     {
+      "id": 211146,
+      "name": "Lost Adventurer",
+      "count": 11,
+      "outof": 27,
+      "minlevel": 16,
+      "maxlevel": 16,
+      "location": [
+       130
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "created": [
+     {
+      "id": 424160,
+      "name": "Warrior Rune",
+      "level": 0
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426980": {
+  "runa": "Shield Mastery",
+  "clase": "warrior",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221511,
+    "titulo": "Rune of the Protector - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 222684,
+      "name": "Quartermaster Falinar",
+      "minlevel": 25,
+      "maxlevel": 25,
+      "location": [
+       10
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222685,
+      "name": "Quartermaster Kyleen",
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       331
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 222686,
+      "name": "Quartermaster Alandra",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       47
+      ],
+      "cost": [
+       [
+        16842
+       ]
+      ]
+     },
+     {
+      "id": 222687,
+      "name": "Quartermaster Valdane",
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       357
+      ],
+      "cost": [
+       [
+        16000
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426953": {
+  "runa": "Taste for Blood",
+  "clase": "warrior",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221267,
+    "titulo": "Rune of the Bloodthirsty - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222546,
+      "name": "Iodax the Obliterator",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 50,
+      "maxlevel": 50,
+      "location": [
+       51
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426972": {
+  "runa": "Vigilance",
+  "clase": "warrior",
+  "ranura": "slot_417345",
+  "objetos": [
+   {
+    "id": 221473,
+    "titulo": "Rune of the Watchman - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222726,
+      "name": "Tyrant of the Hive",
+      "count": 2,
+      "outof": 4,
+      "minlevel": 46,
+      "maxlevel": 46,
+      "location": [
+       357
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426940": {
+  "runa": "Rampage",
+  "clase": "warrior",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220682,
+    "titulo": "Rune of the Unbridled - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 222233,
+      "name": "Ohk'zi",
+      "count": 1,
+      "outof": 1,
+      "minlevel": 43,
+      "maxlevel": 43,
+      "location": [
+       357
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "426978": {
+  "runa": "Sword and Board",
+  "clase": "warrior",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 221510,
+    "titulo": "Rune of the Knight - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        0,
+        [],
+        [
+         [
+          232454,
+          1
+         ]
+        ]
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "427065": {
+  "runa": "Wrecking Crew",
+  "clase": "warrior",
+  "ranura": "slot_417346",
+  "objetos": [
+   {
+    "id": 220913,
+    "titulo": "Rune of Demolition - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "items": [
+     {
+      "id": 220914,
+      "name": "Broken Geode Hammer",
+      "count": 99,
+      "outof": 99,
+      "level": 1
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440484": {
+  "runa": "Fresh Meat",
+  "clase": "warrior",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 226680,
+    "titulo": "Rune of the First Warrior - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 84124,
+      "name": "Legacy of Valor",
+      "side": 3,
+      "level": 60,
+      "reqlevel": 55,
+      "category": -81
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440488": {
+  "runa": "Shockwave",
+  "clase": "warrior",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 226678,
+    "titulo": "Premonition and Combat Foresight - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 84213,
+      "name": "Rift Away",
+      "side": 3,
+      "level": 65,
+      "reqlevel": 55,
+      "category": -81
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
+ },
+ "440113": {
+  "runa": "Sudden Death",
+  "clase": "warrior",
+  "ranura": "slot_417347",
+  "objetos": [
+   {
+    "id": 226679,
+    "titulo": "Timeless Wanderer's Insights - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ],
+    "quests": [
+     {
+      "id": 84317,
+      "name": "Infinite Midnight",
+      "side": 3,
+      "level": 60,
+      "reqlevel": 55,
+      "category": -81
+     }
+    ]
+   }
+  ],
+  "estado": "ok"
  }
 }

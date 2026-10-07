@@ -73,6 +73,8 @@ INSERT INTO `rune_contract` (`version`) VALUES (2);
 -- so it stays out of the world until a GM places it with `.npc add 700000`.
 -- Faction 35 (Friendly) so both Alliance and Horde can use it. Any other creature
 -- can also be made an engraver by binding it to ScriptName 'npc_rune_engraver'.
+-- SoD Rune Brokers are spread through the capitals and starting zones; `.rune summon`
+-- makes this NPC their local substitute.
 -- =====================================================================
 REPLACE INTO `creature_template`
     (`entry`, `name`, `subname`,
@@ -82,7 +84,7 @@ REPLACE INTO `creature_template`
      `ScriptName`)
 VALUES
     (700000, 'Rune Engraver', 'Engraving',
-     1, 1, 35, 1,            -- faction 35 = Friendly (both sides), npcflag GOSSIP
+     1, 1, 35, 129,          -- faction 35 = Friendly (both sides), npcflag GOSSIP | VENDOR
      1.0, 1.14286,
      1, 2, 0, 7, 2,          -- NON_ATTACKABLE humanoid, CIVILIAN
      'npc_rune_engraver');
