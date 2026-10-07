@@ -100,13 +100,14 @@ compilado y probado o no; no lo des por hecho.**
 | `upstream/`           | Clones de terceros, **solo lectura** (ver §3.1)                       | No (ignorado) |
 | `datos/`              | Datos extraídos del cliente de WoW (DBC, mapas, vmaps, MPQ)           | No (ignorado) |
 
+**Cliente de WoW 3.3.5a del usuario** (para `tools/sod-client/build_patch.py --client`), ya presente
+en este servidor Debian: `/home/stark/Documentos/Wow 3.3.5 IceTracks`.
+
 Reglas duras:
 
 - **Nunca** modifiques nada dentro de `upstream/`. Es material de referencia de terceros. Si
   hace falta cambiar un módulo de terceros, se copia a `server/` (con su `ORIGEN.md`); si hace
   falta cambiar el core, se hace en `core/`, en la rama `Playerbot-SoD` de nuestro fork.
-- **Nunca** confirmes datos del cliente de WoW, archivos MPQ, DBC, mapas ni artefactos
-  extraídos. Son propiedad de Blizzard y además pesan gigabytes. Ya están en `.gitignore`.
 - Un concepto, un directorio. Si dudas de dónde va un archivo, pregunta antes de inventar
   una carpeta nueva.
 

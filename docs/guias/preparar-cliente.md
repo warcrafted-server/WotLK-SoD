@@ -6,6 +6,8 @@ El cliente 3.3.5a no recibe hechizos, iconos ni interfaz del servidor: cada juga
 
 **Cliente necesario:** WoW **3.3.5a, build 12340**, instalación completa (`Data/` con sus MPQ y la carpeta de idioma, p. ej. `Data/enUS/`; el idioma se elige con `--locale`). Python 3 y el cliente cerrado. `pympq` solo existe para Windows: en Linux el generador usa `tools/sod-client/stormlib_shim.py` (ctypes sobre `libstorm`; paquete Debian `libstorm-dev`, ya instalado). Probado el 2026-10-05 solo en lectura y con un MPQ de prueba en `/tmp`; **el MPQ final aún no se ha escrito en un cliente**. `--server` debe contener `modules/` y `data/sql/base/db_world/`.
 
+**`pip install -r requirements.txt` falla en Linux** (comprobado el 2026-10-07): el paquete `pympq` que pide no existe en PyPI para esta plataforma (`ERROR: No matching distribution found for pympq`). No hace falta instalarlo: con `libstorm.so` presente en el sistema (`dpkg -l libstorm9`, ya está en este servidor), `build_patch.py` usa el shim propio automáticamente. No crear un venv solo para esto.
+
 Hay un cliente en este servidor: `/home/stark/Documentos/Wow 3.3.5 IceTracks`; su copia de trabajo está en `datos/cliente-sod/` (20 GB, con `enUS` y `esES`, `Config.wtf` en `esES`, parches propios `patch-A.MPQ`, `patch-2/3.MPQ` y `patch.MPQ`). **Es el del reino de producción**: para SoD usar una copia. Su `Data/esES/realmlist.wtf` ya apunta a `logon.warcrafted.com` y `Config.wtf` está en `esES`.
 
 Alternativa: generar en otra máquina con cliente.
@@ -22,6 +24,8 @@ Escribe `Data/patch-z.mpq` y `Data/<locale>/patch-<locale>-z.mpq`, y regenera `s
 ## Servidor y parche, a la par
 
 Tras cada hechizo nuevo: regenerar, subir ese SQL, aplicarlo al servidor y redistribuir el MPQ. Un desajuste da hechizos sin icono o sin efecto.
+
+**Causó un crash real (2026-10-07):** se añadieron 5 runas de druida (Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall) con su código C++ y su spec en `sod_spells_druid.py`, pero sin volver a ejecutar `build_patch.py`. `sod_content_spell_dbc.sql` se quedó con la versión vieja, sin esos `spell_id`; el worldserver no los encontraba en `Spell.dbc`, repetía el aviso sin parar durante el login de 200 bots y el hilo del mundo colgó 20 s (`World Thread hangs ... forcing a crash`). **Regla:** cualquier `spell_id` nuevo en `tools/sod_spells_<clase>.py` exige regenerar este SQL (al menos con `--dry-run`) antes de dar el código por terminado, aunque el servidor no se vaya a probar ese mismo día.
 
 Los clones (`template` en `sod_spells.py`) solo heredan los efectos en el DBC del cliente; en el SQL del servidor hay que pedirlo con `"inherit_server": True` en el spec, o la fila queda sin efectos. Lo llevan 400647, 412286, 425121 y 400640 (comprobado en el SQL generado). Los iconos de las runas están verificados con Wowhead (`ability_mage_wintersgrasp`, `ability_mage_burnout`, `spell_frost_coldhearted`, `spell_frost_frostblast`); falta comprobar que el generador los resuelva en el cliente.
 

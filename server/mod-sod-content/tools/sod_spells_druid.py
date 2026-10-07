@@ -840,7 +840,7 @@ def build(idx):
             "name": "Efflorescence Area",
             "overrides": {
                 "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
-                "CastingTimeIndex": cast_instant, "DurationIndex": dur_20s,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][15000],
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": 8, "SpellLevel": 0,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
@@ -919,7 +919,7 @@ def build(idx):
             "name": "Eclipse", "script": "spell_sod_druid_eclipse_buff",
             "overrides": {
                 "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
-                "CastingTimeIndex": cast_instant, "DurationIndex": dur_20s,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][15000],
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": SCHOOL_MASK_ARCANE,
                 "SpellLevel": 0, "StackAmount": 4,
@@ -942,7 +942,7 @@ def build(idx):
             "aura_desc": "Starfall strikes nearby enemies.",
             "overrides": {
                 "Attributes": 0, "CastingTimeIndex": cast_instant,
-                "DurationIndex": dur_12s, "RecoveryTime": 0, "CategoryRecoveryTime": 0,
+                "DurationIndex": idx["dur"][10000], "RecoveryTime": 0, "CategoryRecoveryTime": 0,
                 "StartRecoveryCategory": 133, "StartRecoveryTime": 1500,
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": SCHOOL_MASK_ARCANE,
