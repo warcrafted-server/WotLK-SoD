@@ -97,6 +97,11 @@ def main():
         entry = {"runa": r["name_en"], "clase": r["clase"], "ranura": r["slot"], "objetos": []}
         if not ids:
             html = fetch("spell", r["taught_spell_id"])
+            ids = [row["id"] for row in listview(html, "used-by-item") if row.get("id")]
+            if ids:
+                entry["objeto_segun_wowhead"] = "used-by-item"
+        if not ids:
+            html = fetch("spell", r["taught_spell_id"])
             m = re.search(r'<meta name="description" content="([^"]*?) teaches this', html)
             if m:
                 ids = names.get(m.group(1).lower(), [])

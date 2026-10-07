@@ -3321,8 +3321,216 @@
   "runa": "Aspect of the Viper",
   "clase": "hunter",
   "ranura": "slot_415449",
-  "objetos": [],
-  "estado": "sin_objeto"
+  "objetos": [
+   {
+    "id": 216770,
+    "titulo": "Treatise on Aspect of the Viper - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2748,
+      "name": "Archaedas",
+      "count": 1,
+      "outof": 702,
+      "minlevel": 47,
+      "maxlevel": 47,
+      "location": [
+       1337
+      ]
+     },
+     {
+      "id": 3974,
+      "name": "Houndmaster Loksey",
+      "count": 67,
+      "outof": 8823,
+      "minlevel": 34,
+      "maxlevel": 34,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3975,
+      "name": "Herod",
+      "count": 25,
+      "outof": 4987,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3976,
+      "name": "Scarlet Commander Mograine",
+      "count": 18,
+      "outof": 6829,
+      "minlevel": 42,
+      "maxlevel": 42,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3977,
+      "name": "High Inquisitor Whitemane",
+      "count": 13,
+      "outof": 4314,
+      "minlevel": 42,
+      "maxlevel": 42,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3983,
+      "name": "Interrogator Vishas",
+      "count": 183,
+      "outof": 6504,
+      "minlevel": 32,
+      "maxlevel": 32,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4542,
+      "name": "High Inquisitor Fairbanks",
+      "count": 23,
+      "outof": 5355,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4543,
+      "name": "Bloodmage Thalnos",
+      "count": 182,
+      "outof": 11720,
+      "minlevel": 34,
+      "maxlevel": 34,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4854,
+      "name": "Grimlok",
+      "count": 2,
+      "outof": 836,
+      "minlevel": 45,
+      "maxlevel": 45,
+      "location": [
+       1337
+      ]
+     },
+     {
+      "id": 6487,
+      "name": "Arcanist Doan",
+      "count": 50,
+      "outof": 9990,
+      "minlevel": 37,
+      "maxlevel": 37,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 6488,
+      "name": "Fallen Champion",
+      "count": 6,
+      "outof": 1210,
+      "minlevel": 33,
+      "maxlevel": 33,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 6489,
+      "name": "Ironspine",
+      "count": 11,
+      "outof": 1294,
+      "minlevel": 33,
+      "maxlevel": 33,
+      "location": [
+       796
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 1440,
+      "name": "Milton Sheaf",
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 4047,
+      "name": "Zor Lonetree",
+      "minlevel": 62,
+      "maxlevel": 62,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "objeto_segun_wowhead": "used-by-item",
+  "estado": "ok"
  },
  "409504": {
   "runa": "Expose Weakness",
@@ -15578,8 +15786,216 @@
   "runa": "Commanding Shout",
   "clase": "warrior",
   "ranura": "Legs",
-  "objetos": [],
-  "estado": "sin_objeto"
+  "objetos": [
+   {
+    "id": 216746,
+    "titulo": "Handbook of Commanding Shout - Item - Classic World of Warcraft",
+    "drops": [
+     {
+      "id": 2748,
+      "name": "Archaedas",
+      "count": 1,
+      "outof": 33,
+      "minlevel": 47,
+      "maxlevel": 47,
+      "location": [
+       1337
+      ]
+     },
+     {
+      "id": 3974,
+      "name": "Houndmaster Loksey",
+      "count": 53,
+      "outof": 8823,
+      "minlevel": 34,
+      "maxlevel": 34,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3975,
+      "name": "Herod",
+      "count": 30,
+      "outof": 4987,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3976,
+      "name": "Scarlet Commander Mograine",
+      "count": 15,
+      "outof": 6829,
+      "minlevel": 42,
+      "maxlevel": 42,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3977,
+      "name": "High Inquisitor Whitemane",
+      "count": 9,
+      "outof": 4314,
+      "minlevel": 42,
+      "maxlevel": 42,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 3983,
+      "name": "Interrogator Vishas",
+      "count": 102,
+      "outof": 6504,
+      "minlevel": 32,
+      "maxlevel": 32,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4542,
+      "name": "High Inquisitor Fairbanks",
+      "count": 10,
+      "outof": 5355,
+      "minlevel": 40,
+      "maxlevel": 40,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4543,
+      "name": "Bloodmage Thalnos",
+      "count": 187,
+      "outof": 11720,
+      "minlevel": 34,
+      "maxlevel": 34,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 4854,
+      "name": "Grimlok",
+      "count": 3,
+      "outof": 836,
+      "minlevel": 45,
+      "maxlevel": 45,
+      "location": [
+       1337
+      ]
+     },
+     {
+      "id": 6487,
+      "name": "Arcanist Doan",
+      "count": 57,
+      "outof": 9990,
+      "minlevel": 37,
+      "maxlevel": 37,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 6488,
+      "name": "Fallen Champion",
+      "count": 13,
+      "outof": 1210,
+      "minlevel": 33,
+      "maxlevel": 33,
+      "location": [
+       796
+      ]
+     },
+     {
+      "id": 6489,
+      "name": "Ironspine",
+      "count": 9,
+      "outof": 1294,
+      "minlevel": 33,
+      "maxlevel": 33,
+      "location": [
+       796
+      ]
+     }
+    ],
+    "vendors": [
+     {
+      "id": 1440,
+      "name": "Milton Sheaf",
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        21052
+       ]
+      ]
+     },
+     {
+      "id": 4047,
+      "name": "Zor Lonetree",
+      "minlevel": 62,
+      "maxlevel": 62,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        18823
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "objeto_segun_wowhead": "used-by-item",
+  "estado": "ok"
  },
  "425418": {
   "runa": "Consumed By Rage",
@@ -15910,8 +16326,82 @@
   "runa": "Meathook",
   "clase": "warrior",
   "ranura": "Legs",
-  "objetos": [],
-  "estado": "sin_objeto"
+  "objetos": [
+   {
+    "id": 226403,
+    "titulo": "Handbook of Meathook - Item - Classic World of Warcraft",
+    "vendors": [
+     {
+      "id": 1440,
+      "name": "Milton Sheaf",
+      "minlevel": 15,
+      "maxlevel": 15,
+      "location": [
+       1519
+      ],
+      "cost": [
+       [
+        30000
+       ]
+      ]
+     },
+     {
+      "id": 4047,
+      "name": "Zor Lonetree",
+      "minlevel": 62,
+      "maxlevel": 62,
+      "location": [
+       1637
+      ],
+      "cost": [
+       [
+        28235
+       ]
+      ]
+     },
+     {
+      "id": 233335,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1657,
+       1,
+       12,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     },
+     {
+      "id": 233428,
+      "name": "Rune Broker",
+      "minlevel": 60,
+      "maxlevel": 60,
+      "location": [
+       1637,
+       14,
+       215,
+       -1
+      ],
+      "cost": [
+       [
+        1,
+        [],
+        []
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "objeto_segun_wowhead": "used-by-item",
+  "estado": "ok"
  },
  "403195": {
   "runa": "Devastate",
