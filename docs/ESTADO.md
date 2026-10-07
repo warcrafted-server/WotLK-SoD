@@ -11,13 +11,24 @@ de fuentes de Wowhead) y, en una sesión nueva, leer `docs/guias/reanudar-tras-r
 `python3 tools/cola/cola.py status`. Las tareas están en `.agents/cola/` (estado en `estado.json`). Las
 revisiones y los commits siguen siendo del orquestador.
 
-**Prioridad del usuario:** probar a fondo el **druida feral** antes de pasar a otra clase; después, en este orden,
-paladín represión, chamán elemental, brujo demonología y el resto. Quiere que la mecánica de las runas sea lo
-más parecida posible a SoD. Estado del feral: las 13 runas tienen código (compilado solo por sintaxis con
-clang) y adquisición (objetos reales de SoD, botín de WotLK con tasas reales, Grizzby, oficiales de suministros
-y compra en el Grabador). Hecho (sin compilar, sintaxis OK): requisitos de uso de los ídolos (motor y los 5 del druida) e Improved
-Barkskin. Pendiente del feral: las fuentes que solo existen en SoD (Lacerate/Squashling, Gore/intendentes,
-King of the Jungle/Supply Bag, Rune Brokers). Los Rune Brokers se sustituyen por el Grabador (`.rune summon`).
+**Prioridad del usuario:** probar a fondo el **druida feral** antes de pasar a otra clase (regla estricta: no se
+toca ninguna otra clase hasta que él confirme el feral al 100 %; por error se añadió código de paladín el
+2026-10-07, ya retirado — ver commit `d85f936` y copia en `/tmp/paladin_hoy/`, fuera del repo). Después de
+cerrar el feral: el usuario pide ir directamente a por **todo el contenido de las 8 fases de SoD** (build
+1.15.9), no solo la fase 2. Quiere que la mecánica de las runas sea lo más parecida posible a SoD.
+
+**Estado del feral (2026-10-07):** las 14 runas (13 + Improved Barkskin) tienen código, sin compilar
+(sintaxis OK, `check_syntax.py`: 41 OK, 0 errores), con adquisición: objetos reales de SoD, botín de WotLK con
+tasas reales para Mangle/Savage Roar/Wild Strikes/Improved Swipe, Grizzby, oficiales de suministros y compra
+en el Grabador (sustituto documentado del Rune Broker real, decisión ya tomada: no hay coordenadas de mundo
+fiables para los Rune Brokers). Hecho: requisitos de uso de los ídolos (motor genérico y los 5 del druida) e
+Improved Barkskin. **El feral está completo para fase 1**: no queda ninguna tarea bloqueante, solo fidelidad
+extra pendiente de verificar (Lacerate/Aggressive Squashling, King of the Jungle/Supply Bag, Survival
+Instincts/evento «Amaryllis», Improved Frenzied Regeneration) — no se ha podido confirmar su mecánica exacta
+porque Wowhead usa páginas dinámicas que `WebFetch` no renderiza (sin herramienta de navegador en esta sesión);
+mejor documentado sin implementar que inventado. Gore sí tiene su fuente real documentada en
+`docs/runas/obtencion.md` (4 intendentes, verificados en wago.tools), aunque esos NPC no existen todavía en
+el mundo. **Falta compilar y probar en juego** (nunca se ha hecho con este código).
 Las demás clases (paladín 2, chamán, brujo) están `descartadas` en la cola hasta terminar el feral (el paladín 1 se ejecutó
 por error; su código existe y pasa la sintaxis). Handoff completo en la memoria del proyecto (`handoff.md`).
 
