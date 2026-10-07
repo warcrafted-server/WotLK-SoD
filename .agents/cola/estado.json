@@ -4,37 +4,37 @@
     {
       "nombre": "r1",
       "archivo": "tareas/r1.json",
-      "estado": "revisar",
+      "estado": "hecha",
       "orden": 10,
       "nota": "Requisitos de uso de objetos-runa: motor genérico",
       "previo_sql": false,
       "run_id": "20261007-030604-01b2",
       "inicio": "2026-10-07T03:06:04+02:00",
-      "fin": "2026-10-07T03:19:20+02:00",
+      "fin": "2026-10-07T07:47:13+02:00",
       "resultado": "awaiting_review"
     },
     {
       "nombre": "r2",
       "archivo": "tareas/r2.json",
-      "estado": "revisar",
+      "estado": "hecha",
       "orden": 20,
       "nota": "Requisitos de los ídolos del druida (depende de r1)",
       "previo_sql": false,
       "run_id": "20261007-063610-c524",
       "inicio": "2026-10-07T06:36:09+02:00",
-      "fin": "2026-10-07T06:54:07+02:00",
+      "fin": "2026-10-07T07:47:13+02:00",
       "resultado": "escalated"
     },
     {
       "nombre": "d2",
       "archivo": "tareas/d2.json",
-      "estado": "revisar",
+      "estado": "hecha",
       "orden": 30,
       "nota": "Runa Improved Barkskin del druida",
       "previo_sql": true,
       "run_id": "20261007-032005-7415",
       "inicio": "2026-10-07T03:20:05+02:00",
-      "fin": "2026-10-07T03:32:56+02:00",
+      "fin": "2026-10-07T07:47:13+02:00",
       "resultado": "awaiting_review"
     },
     {
