@@ -16,14 +16,14 @@
     {
       "nombre": "r2",
       "archivo": "tareas/r2.json",
-      "estado": "pendiente",
+      "estado": "revisar",
       "orden": 20,
       "nota": "Requisitos de los ídolos del druida (depende de r1)",
       "previo_sql": false,
-      "run_id": null,
-      "inicio": null,
-      "fin": null,
-      "resultado": null
+      "run_id": "20261007-063610-c524",
+      "inicio": "2026-10-07T06:36:09+02:00",
+      "fin": "2026-10-07T06:54:07+02:00",
+      "resultado": "escalated"
     },
     {
       "nombre": "d2",
@@ -52,7 +52,7 @@
     {
       "nombre": "p2",
       "archivo": "tareas/p2-pendiente.json",
-      "estado": "pendiente",
+      "estado": "descartada",
       "orden": 910,
       "nota": "Paladín 2",
       "previo_sql": true,
@@ -64,7 +64,7 @@
     {
       "nombre": "s1",
       "archivo": "tareas/s1-pendiente.json",
-      "estado": "pendiente",
+      "estado": "descartada",
       "orden": 920,
       "nota": "Chamán elemental 1",
       "previo_sql": true,
@@ -76,7 +76,7 @@
     {
       "nombre": "s2",
       "archivo": "tareas/s2-pendiente.json",
-      "estado": "pendiente",
+      "estado": "descartada",
       "orden": 930,
       "nota": "Chamán elemental 2",
       "previo_sql": true,
@@ -88,7 +88,7 @@
     {
       "nombre": "w1",
       "archivo": "tareas/w1-pendiente.json",
-      "estado": "pendiente",
+      "estado": "descartada",
       "orden": 940,
       "nota": "Brujo demonología 1",
       "previo_sql": true,
@@ -100,7 +100,7 @@
     {
       "nombre": "w2",
       "archivo": "tareas/w2-pendiente.json",
-      "estado": "pendiente",
+      "estado": "descartada",
       "orden": 950,
       "nota": "Brujo demonología 2",
       "previo_sql": true,
@@ -108,6 +108,18 @@
       "inicio": null,
       "fin": null,
       "resultado": null
+    },
+    {
+      "nombre": "fix-paladin",
+      "archivo": "tareas/fix-paladin.json",
+      "estado": "hecha",
+      "orden": 15,
+      "nota": "Arregla los errores de compilación del trabajo parcial de paladín",
+      "previo_sql": false,
+      "run_id": "20261007-071653-2869",
+      "inicio": "2026-10-07T07:16:53+02:00",
+      "fin": "2026-10-07T07:25:35+02:00",
+      "resultado": "awaiting_review"
     }
   ]
 }

@@ -6,6 +6,7 @@ from sod_dbc import *  # noqa: F401,F403  (shared WoW enum constants)
 
 SKILL_RESTORATION = 573
 SKILL_FERAL_COMBAT = 134
+AURA_MOD_IGNORE_SHAPESHIFT = 275  # Core SpellAuraDefines.h
 
 
 def build(idx):
@@ -27,6 +28,7 @@ def build(idx):
     icon_skull_bash = idx["icon"]["spell_druid_feralchargecat"]
     icon_frenzied_regeneration = idx["icon"]["ability_bullrush"]
     icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
+    icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -483,6 +485,31 @@ def build(idx):
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 275,
                 "EffectBasePoints_1": 0,
                 "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # WotLK Barkskin already has no speed penalties and works in every form.
+            "id": 431388, "client": True, "template": 774,
+            "name": "Improved Barkskin",
+            "desc": "Your Barkskin can now be cast on allies, no longer penalizes melee "
+                    "combat speed or spellcasting time, and can be cast while shapeshifted.",
+            "aura_desc": "Your Barkskin can now be cast on allies, no longer penalizes melee "
+                         "combat speed or spellcasting time, and can be cast while shapeshifted.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 1,
+                "SpellIconID": icon_barkskin, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": AURA_MOD_IGNORE_SHAPESHIFT,
+                "EffectBasePoints_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectSpellClassMaskA_1": 0,
+                "EffectSpellClassMaskB_1": 262144,
+                "EffectSpellClassMaskC_1": 0,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },

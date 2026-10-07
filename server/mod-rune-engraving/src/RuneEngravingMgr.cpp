@@ -587,6 +587,25 @@ std::vector<uint32> RuneEngravingMgr::GetUnlockedRunes(ObjectGuid guid) const
     return out;
 }
 
+bool RuneEngravingMgr::HasItemRuneUnlocked(ObjectGuid guid, uint32 itemId) const
+{
+    std::lock_guard<std::mutex> stateGuard(_stateMutex);
+    auto unlocked = _unlocked.find(guid);
+    if (unlocked == _unlocked.end())
+        return false;
+
+    std::lock_guard<std::mutex> catalogGuard(_catalogMutex);
+    auto item = _itemUnlocks.find(itemId);
+    if (item == _itemUnlocks.end())
+        return false;
+
+    for (uint32 runeId : item->second)
+        if (unlocked->second.find(runeId) != unlocked->second.end())
+            return true;
+
+    return false;
+}
+
 void RuneEngravingMgr::ResetQuest(Player* player, uint32 questId)
 {
     // Mirror the core's `.quest remove`: drop it from the active log, then clear

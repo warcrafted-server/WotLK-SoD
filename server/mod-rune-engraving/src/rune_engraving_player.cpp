@@ -21,6 +21,7 @@
 #include "Player.h"
 #include "QuestDef.h"
 #include "RuneEngravingMgr.h"
+#include "RuneRequirementMgr.h"
 #include "RuneStrings.h"
 #include "ScriptMgr.h"
 
@@ -39,6 +40,7 @@ public:
 
         sRuneEngravingMgr->LoadPlayer(player);
         sRuneEngravingMgr->ApplyAll(player);
+        sRuneRequirements->LoadPlayer(player);
     }
 
     void OnPlayerLogout(Player* player) override
@@ -47,6 +49,7 @@ public:
             return;
 
         sRuneEngravingMgr->UnloadPlayer(player->GetGUID());
+        sRuneRequirements->UnloadPlayer(player->GetGUID());
     }
 
     // Completing a quest unlocks any runes mapped to it (rune_quest_unlock).
@@ -66,6 +69,7 @@ public:
     // reuses the GUID never inherits them. Appended to the deletion transaction.
     void OnPlayerDeleteFromDB(CharacterDatabaseTransaction trans, uint32 guid) override
     {
+        sRuneRequirements->DeleteCharacterData(trans, guid);
         if (!sRuneEngravingMgr->IsEnabled())
             return;
 

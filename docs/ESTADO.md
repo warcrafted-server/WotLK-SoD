@@ -15,10 +15,11 @@ revisiones y los commits siguen siendo del orquestador.
 paladín represión, chamán elemental, brujo demonología y el resto. Quiere que la mecánica de las runas sea lo
 más parecida posible a SoD. Estado del feral: las 13 runas tienen código (compilado solo por sintaxis con
 clang) y adquisición (objetos reales de SoD, botín de WotLK con tasas reales, Grizzby, oficiales de suministros
-y compra en el Grabador). Pendiente del feral: requisitos de uso de los ídolos (`r1`, `r2` en la cola), la runa
-Improved Barkskin (`d2`) y las fuentes que solo existen en SoD (Lacerate/Squashling, Gore/intendentes,
+y compra en el Grabador). Hecho (sin compilar, sintaxis OK): requisitos de uso de los ídolos (motor y los 5 del druida) e Improved
+Barkskin. Pendiente del feral: las fuentes que solo existen en SoD (Lacerate/Squashling, Gore/intendentes,
 King of the Jungle/Supply Bag, Rune Brokers). Los Rune Brokers se sustituyen por el Grabador (`.rune summon`).
-Las demás clases están encoladas con orden 900+.
+Las demás clases (paladín 2, chamán, brujo) están `descartadas` en la cola hasta terminar el feral (el paladín 1 se ejecutó
+por error; su código existe y pasa la sintaxis). Handoff completo en la memoria del proyecto (`handoff.md`).
 
 **Datos:** catálogo (`docs/runas/catalogo-sod.json`), fuentes de Wowhead (`docs/runas/fuentes-sod.json`, 253 de
 256 runas con objeto; faltan Lava Lash, Nature's Fury y una runa de mago), clasificación P/T/C/R

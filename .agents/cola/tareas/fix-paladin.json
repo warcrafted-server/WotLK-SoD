@@ -1,0 +1,28 @@
+{
+ "objective": "Corregir los dos errores de compilación de spell_sod_paladin_fanaticism.cpp (trabajo parcial de una tarea interrumpida) sin ampliar el alcance.",
+ "effort": "medium",
+ "context": "El verificador `python3 tools/sod-data/check_syntax.py` (clang -fsyntax-only; autorizado por el usuario; sin cmake ni make) da dos errores en server/mod-sod-content/src/paladin/spell_sod_paladin_fanaticism.cpp: (1) línea ~45 `use of undeclared identifier 'PROC_HIT_CRITICAL'` (falta un #include o el nombre real en este core es otro: busca la definición en core/src/server/game/Spells/SpellMgr.h u otra cabecera de core/src/server/game/ y usa el identificador real e incluye lo necesario), (2) línea ~64 `no matching member function for call to 'CastCustomSpell'` (comprueba las firmas reales de Unit::CastCustomSpell en core/src/server/game/Entities/Unit/Unit.h y usa la sobrecarga correcta con los mismos valores). Es código de una tarea que se cortó por falta de saldo (la del paladín 'p2'): NO la completes ni añadas runas: si el archivo está incompleto o incoherente con sus vecinos del mismo directorio, arréglalo al mínimo para que compile y dilo en el informe. Si la runa Fanaticism no está registrada en el loader o en los specs, déjalo así y dilo. Ejecuta check_syntax.py hasta que todo salga OK (no solo ese archivo: los 46) y corrige cualquier otro error nuevo de archivos del módulo. No toques core/, upstream/, datos/, docs/, AGENTS.md. Informe en castellano.",
+ "files": [
+  "server/mod-sod-content/src/paladin/"
+ ],
+ "constraints": [
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No ejecutes git ni agentrelay; python3.",
+  "Sin red."
+ ],
+ "acceptanceCriteria": [
+  "check_syntax.py termina sin errores."
+ ],
+ "validation": [
+  "python3 -c \"print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "docs",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "tools/sod-client"
+ ]
+}

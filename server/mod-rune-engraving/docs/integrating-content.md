@@ -205,6 +205,35 @@ Two practical notes:
 `mod-sod-mage`'s `sod_mage_regeneration_unlock.sql` is the worked example
 (Comprehension Charm + scrambled notes → deciphered notes → unlock).
 
+## Requisitos de uso de objetos-runa
+
+Un objeto de desbloqueo puede exigir progreso antes de poder usarse. El motor
+lee sus requisitos de `rune_item_requirement` y persiste el avance en
+`character_rune_progress`. El módulo de contenido define filas con el objeto,
+la clave de evento, parámetros opcionales, objetivo y el id de la cadena corta
+del objetivo. `text_id` se resuelve en las cadenas del módulo
+`mod-rune-engraving`; el contenido debe añadir allí el texto inglés y la
+traducción esES.
+
+El módulo de contenido comunica eventos con `sRuneRequirements->OnEvent(player,
+reqKey, param1, param2, amount)`. Debe incluir `RuneRequirementMgr.h` y enlazarse
+con el motor. Cada clave (`reqKey`) define el evento de contenido; `param1` y
+`param2` seleccionan sus variantes, y un cero en la fila acepta cualquier valor.
+Un evento suma `amount` por cada fila coincidente. Las filas del mismo objeto
+comparten el mismo progreso: si hay varias, cada evento coincidente suma sus
+contribuciones y el objetivo es el `target_count` de la primera fila, ordenada
+por `req_key`, `param1` y `param2`.
+
+Al alcanzar el objetivo, el motor envía una sola notificación por personaje y
+objeto. `item_rune_unlock` conserva el objeto si falta progreso; cuando el
+objetivo está completo lo consume tras desbloquear la runa. Si el contenido no
+instala este motor, su SQL de requisitos no debe ser necesario para que funcionen
+los demás sistemas del módulo.
+
+Para comprobarlo dentro del juego, usa `.rune progress`, `.rune complete <item_id>`
+y `.rune resetprogress <item_id>`. El progreso se carga y guarda de forma
+asíncrona; justo al entrar puede tardar un instante en aparecer.
+
 `rune_contract.version` (currently `2`: `rune_template`, `rune_quest_unlock`,
 `rune_item_unlock`) lets your SQL sanity-check compatibility.
 

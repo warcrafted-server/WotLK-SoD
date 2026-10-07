@@ -50,6 +50,9 @@ SET @sql := IF(@rune_tbl > 0,
     ''mod-sod-druid'', 1),
     (7009013, 439510, 1024, 8, ''Improved Swipe'', ''inv_misc_monsterclaw_03'',
     ''Swipe changes in Cat Form and hits more targets in Bear Form.'',
+    ''mod-sod-druid'', 1),
+    (7009014, 431388, 1024, 1, ''Improved Barkskin'', ''spell_nature_stoneclawtotem'',
+    ''Barkskin can be cast on allies and while shapeshifted, without slowing attacks or spellcasting.'',
     ''mod-sod-druid'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -74,3 +77,6 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 (428708, 'spell_sod_druid_improved_frenzied_regeneration_aura'),
 (-779, 'spell_sod_druid_swipe_bear_targets'),
 (62078, 'spell_sod_druid_swipe_cat_redirect');
+
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES (22812, 'spell_sod_druid_improved_barkskin');

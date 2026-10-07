@@ -26,6 +26,12 @@ REPLACE INTO `rune_template_locale` (`rune_id`, `locale`, `name`, `description`)
 (7002002, 'esES', 'Escudo de vengador', 'Lanza un escudo sagrado contra un enemigo, le inflige daño Sagrado y lo marea antes de rebotar hacia los enemigos cercanos.'),
 (7002003, 'esES', 'Maestría en auras', 'Hace que los objetivos afectados por tu Aura de concentración sean inmunes a los efectos de Silencio e interrupción y mejora el efecto de tus otras auras.'),
 (7002004, 'esES', 'Golpe de cruzado', 'Un golpe instantáneo que inflige daño con arma como daño Sagrado y regenera maná. Renueva la duración de todos los efectos de Sentencia sobre el objetivo.'),
+(7002005, 'esES', 'El arte de la guerra', 'Tus golpes críticos cuerpo a cuerpo reducen el tiempo de reutilización restante de Exorcismo y su coste de maná.'),
+(7002006, 'esES', 'Venganza recta', 'Los golpes críticos de Sentencia, Golpe de cruzado o Tormenta divina infligen daño adicional en el tiempo.'),
+(7002007, 'esES', 'Martillo de cólera mejorado', 'Martillo de cólera se lanza al instante y puede reiniciar su tiempo de reutilización contra enemigos debilitados.'),
+(7002008, 'esES', 'Poder purificador', 'Reduce los tiempos de reutilización de Exorcismo y Cólera Sagrada; Cólera Sagrada daña a cualquier enemigo y aturde a demonios y no-muertos.'),
+(7002009, 'esES', 'Fanatismo', 'Aumenta la probabilidad de golpe crítico de los hechizos Sagrados y añade sanación en el tiempo a las sanaciones críticas.'),
+(7002010, 'esES', 'Cólera', 'Consagración puede asestar golpes críticos y el daño Sagrado indicado obtiene probabilidad de crítico según tu probabilidad cuerpo a cuerpo.'),
 (7003001, 'esES', 'Disparo de quimera', 'Infliges daño con arma, renuevas el Aguijón activo sobre tu objetivo y activas un efecto.'),
 (7003002, 'esES', 'Maestro tirador', 'Aumenta un 5% tu probabilidad de golpe crítico y reduce un 25% el coste de maná de todas tus facultades de Disparo.'),
 (7004001, 'esES', 'Mutilar', 'Ataca al instante con ambas armas e inflige su daño más daño adicional con cada una. El daño aumenta contra objetivos envenenados y otorga puntos de combo.'),
@@ -44,7 +50,8 @@ REPLACE INTO `rune_template_locale` (`rune_id`, `locale`, `name`, `description`)
 (7009010, 'esES', 'Rey de la selva', 'Furia del tigre te otorga energía y aumenta el daño físico durante un breve periodo.'),
 (7009011, 'esES', 'Testarazo', 'Carga contra el objetivo, interrumpe su lanzamiento y bloquea su escuela de magia.'),
 (7009012, 'esES', 'Regeneración frenética mejorada', 'Regeneración frenética consume tu recurso activo para sanarte fuera de la forma de lechúcico lunar.'),
-(7009013, 'esES', 'Flagelo mejorado', 'En forma felina, Flagelo se convierte en Flagelo (felino); en forma de oso golpea hasta siete enemigos adicionales.');
+(7009013, 'esES', 'Flagelo mejorado', 'En forma felina, Flagelo se convierte en Flagelo (felino); en forma de oso golpea hasta siete enemigos adicionales.'),
+(7009014, 'esES', 'Piel de corteza mejorada', 'Puedes lanzar Piel de corteza sobre aliados y en cualquiera de tus formas, sin ralentizar tus ataques ni el lanzamiento de hechizos.');
 
 REPLACE INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 (700000, 'esES', 'Grabador de runas', 'Grabado', 0);

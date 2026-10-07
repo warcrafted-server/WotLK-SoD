@@ -91,7 +91,16 @@ enum RuneString : uint32
     RUNE_STRING_ADDON_WRONG_SLOT, // Addon slot error
     RUNE_STRING_ADDON_ENGRAVE_FAILED, // Addon generic error
     RUNE_STRING_ADDON_REMOVED, // Addon removal success
-    RUNE_STRING_ADDON_NOTHING_TO_REMOVE // Addon empty removal
+    RUNE_STRING_ADDON_NOTHING_TO_REMOVE, // Addon empty removal
+
+    RUNE_STRING_REQUIREMENT_COMPLETED = 300, // Requirement objective completed
+    RUNE_STRING_REQUIREMENT_INCOMPLETE, // Item use blocked with progress
+    RUNE_STRING_REQUIREMENT_PROGRESS_HEADER, // Progress command header
+    RUNE_STRING_REQUIREMENT_PROGRESS_ROW, // Progress command row
+    RUNE_STRING_REQUIREMENT_NO_ITEMS, // No configured item requirements
+    RUNE_STRING_REQUIREMENT_FORCED_COMPLETE, // GM completion confirmation
+    RUNE_STRING_REQUIREMENT_RESET, // GM reset confirmation
+    RUNE_STRING_REQUIREMENT_NO_ITEM // Item has no configured requirement
 };
 
 // ObjectMgr::GetModuleString(module, id, locale) returns a bogus pointer for an

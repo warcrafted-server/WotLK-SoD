@@ -20,6 +20,7 @@
 #include "ItemScript.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneRequirementMgr.h"
 #include "RuneStrings.h"
 #include "ScriptMgr.h"
 #include "Spell.h"
@@ -27,9 +28,8 @@
 // Generic "use this item to unlock its rune(s)" script. A content module binds
 // it to an item via item_template.ScriptName = 'item_rune_unlock' and maps the
 // item to rune(s) in rune_item_unlock. On use we unlock those runes (engine-
-// owned state) and consume one of the item, mirroring the quest-unlock path but
-// driven by an item instead of a quest. The contract is data-only: content never
-// links this engine in C++.
+// owned state) and consume one item. Content may also call RuneRequirementMgr
+// from its event scripts to advance optional use requirements.
 class item_rune_unlock : public ItemScript
 {
 public:
@@ -49,6 +49,18 @@ public:
             return true;
         }
 
+        if (sRuneRequirements->IsEnabled()
+            && sRuneRequirements->HasRequirement(itemId)
+            && !sRuneEngravingMgr->HasItemRuneUnlocked(player->GetGUID(), itemId)
+            && !sRuneRequirements->IsComplete(player, itemId))
+        {
+            handler.SendSysMessage(RuneFormat(player, RUNE_STRING_REQUIREMENT_INCOMPLETE,
+                RuneStr(player, sRuneRequirements->GetTextId(itemId)),
+                sRuneRequirements->GetProgress(player, itemId),
+                sRuneRequirements->GetTarget(itemId)));
+            return true;
+        }
+
         std::vector<std::string> unlocked =
             sRuneEngravingMgr->UnlockRunesForItem(player, itemId);
 
@@ -58,6 +70,7 @@ public:
                 handler.PSendSysMessage(RuneStr(player, RUNE_STRING_RUNE_DISCOVERED).c_str(), name);
 
             // The notes are spent on the discovery.
+            sRuneRequirements->Reset(player, itemId);
             player->DestroyItemCount(itemId, 1, true);
         }
         else

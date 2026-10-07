@@ -19,6 +19,7 @@
 #include "ChatCommand.h"
 #include "Player.h"
 #include "RuneEngravingMgr.h"
+#include "RuneRequirementMgr.h"
 #include "RuneStrings.h"
 #include "ScriptMgr.h"
 
@@ -53,6 +54,9 @@ public:
             { "unlock",  HandleUnlock,  SEC_GAMEMASTER,    Console::No  },
             { "lock",    HandleLock,    SEC_GAMEMASTER,    Console::No  },
             { "unlocks", HandleUnlocks, SEC_GAMEMASTER,    Console::No  },
+            { "progress", HandleProgress, SEC_PLAYER,      Console::No  },
+            { "complete", HandleComplete, SEC_GAMEMASTER,   Console::No  },
+            { "resetprogress", HandleResetProgress, SEC_GAMEMASTER, Console::No },
             { "reload",  HandleReload,  SEC_ADMINISTRATOR, Console::Yes },
         };
         static ChatCommandTable root = { { "rune", runeTable } };
@@ -238,6 +242,67 @@ public:
             std::string runeName = rune ? rune->Name : RuneStr(handler, RUNE_STRING_UNKNOWN_RUNE_NAME);
             handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_UNLOCKED_RUNE_ROW).c_str(), id, runeName);
         }
+        return true;
+    }
+
+    static bool HandleProgress(ChatHandler* handler)
+    {
+        Player* player = handler->GetPlayer();
+        if (!player)
+        {
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_COMMAND_INGAME));
+            return false;
+        }
+
+        std::vector<RuneItemProgress> rows = sRuneRequirements->GetPlayerRequirements(player);
+        if (rows.empty())
+        {
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_NO_ITEMS));
+            return true;
+        }
+
+        handler->SendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_PROGRESS_HEADER));
+        for (RuneItemProgress const& row : rows)
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_PROGRESS_ROW).c_str(),
+                row.ItemId, row.Progress, row.Target);
+        return true;
+    }
+
+    static bool HandleComplete(ChatHandler* handler, uint32 itemId)
+    {
+        Player* player = handler->getSelectedPlayerOrSelf();
+        if (!player)
+        {
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
+            return false;
+        }
+        if (!sRuneRequirements->HasRequirement(itemId))
+        {
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_NO_ITEM).c_str(), itemId);
+            return false;
+        }
+
+        sRuneRequirements->Complete(player, itemId);
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_FORCED_COMPLETE).c_str(), itemId);
+        return true;
+    }
+
+    static bool HandleResetProgress(ChatHandler* handler, uint32 itemId)
+    {
+        Player* player = handler->getSelectedPlayerOrSelf();
+        if (!player)
+        {
+            handler->SendSysMessage(RuneStr(handler, RUNE_STRING_NO_TARGET));
+            return false;
+        }
+        if (!sRuneRequirements->HasRequirement(itemId))
+        {
+            handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_NO_ITEM).c_str(), itemId);
+            return false;
+        }
+
+        sRuneRequirements->Reset(player, itemId);
+        handler->PSendSysMessage(RuneStr(handler, RUNE_STRING_REQUIREMENT_RESET).c_str(), itemId);
         return true;
     }
 

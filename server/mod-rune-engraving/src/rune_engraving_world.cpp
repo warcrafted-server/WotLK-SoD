@@ -18,6 +18,7 @@
 #include "Config.h"
 #include "Log.h"
 #include "RuneEngravingMgr.h"
+#include "RuneRequirementMgr.h"
 #include "ScriptMgr.h"
 
 // Server lifecycle: track the enable flag on (re)config and load the rune
@@ -32,6 +33,7 @@ public:
         sRuneEngravingMgr->SetEnabled(
             sConfigMgr->GetOption<bool>("RuneEngraving.Enable", true));
         sRuneEngravingMgr->ApplyConfig();
+        sRuneRequirements->ApplyConfig();
     }
 
     void OnStartup() override
@@ -43,6 +45,7 @@ public:
         }
 
         sRuneEngravingMgr->LoadCatalog();
+        sRuneRequirements->LoadRequirements();
         LOG_INFO("module", "RuneEngraving: ready ({} rune(s) in catalog).",
             sRuneEngravingMgr->CatalogSize());
     }

@@ -186,6 +186,8 @@ public:
     // Driven by the `item_rune_unlock` ItemScript when such an item is used.
     std::vector<std::string> UnlockRunesForItem(Player* player, uint32 itemId);
     std::vector<uint32> GetUnlockedRunes(ObjectGuid guid) const;
+    // Whether any rune mapped to this item is already unlocked for the character.
+    bool HasItemRuneUnlocked(ObjectGuid guid, uint32 itemId) const;
 
     // Debug/testing: revert a character's gated-rune progress — reset every quest
     // mapped in rune_quest_unlock, lock every quest- AND item-unlocked rune, clear

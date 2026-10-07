@@ -40,6 +40,14 @@ void AddSC_sod_druid_king_of_the_jungle();
 void AddSC_sod_druid_skull_bash();
 void AddSC_sod_druid_improved_frenzied_regeneration();
 void AddSC_sod_druid_improved_swipe();
+void AddSC_sod_druid_improved_barkskin();
+void AddSC_sod_druid_requirements();
+void AddSC_sod_paladin_art_of_war();
+void AddSC_sod_paladin_righteous_vengeance();
+void AddSC_sod_paladin_improved_hammer_of_wrath();
+void AddSC_sod_paladin_purifying_power();
+void AddSC_sod_paladin_fanaticism();
+void AddSC_sod_paladin_wrath();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -85,4 +93,13 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_skull_bash();
     AddSC_sod_druid_improved_frenzied_regeneration();
     AddSC_sod_druid_improved_swipe();
+    AddSC_sod_druid_improved_barkskin();
+    AddSC_sod_druid_requirements();
+
+    AddSC_sod_paladin_art_of_war();
+    AddSC_sod_paladin_righteous_vengeance();
+    AddSC_sod_paladin_improved_hammer_of_wrath();
+    AddSC_sod_paladin_purifying_power();
+    AddSC_sod_paladin_fanaticism();
+    AddSC_sod_paladin_wrath();
 }

@@ -51,6 +51,16 @@ RuneEngraving.DebugMenu = 0
 RuneEngraving.RequiredSpell = 0
 
 #
+#    RuneEngraving.Requirements.Enable
+#        Description: Enforce progress requirements before rune-unlock items can
+#                     be used. When disabled, these items work as they did before.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+#
+
+RuneEngraving.Requirements.Enable = 1
+
+#
 #    RuneEngraving.SlotMinLevel.*
 #        Description: Minimum character level to engrave into each slot, so slots
 #                     unlock as the character levels. One key per slot; a character
