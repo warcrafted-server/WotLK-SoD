@@ -41,6 +41,7 @@ void AddSC_sod_druid_skull_bash();
 void AddSC_sod_druid_improved_frenzied_regeneration();
 void AddSC_sod_druid_improved_swipe();
 void AddSC_sod_druid_improved_barkskin();
+void AddSC_sod_druid_gale_winds();
 void AddSC_sod_druid_requirements();
 
 // --- world (formerly mod-sod-world) ---
@@ -88,6 +89,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_improved_frenzied_regeneration();
     AddSC_sod_druid_improved_swipe();
     AddSC_sod_druid_improved_barkskin();
+    AddSC_sod_druid_gale_winds();
     AddSC_sod_druid_requirements();
 
 }

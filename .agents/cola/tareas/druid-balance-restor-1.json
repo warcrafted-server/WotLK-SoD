@@ -1,0 +1,42 @@
+{
+ "objective": "Añadir 3 runas nuevas de druida (Balance y Restauración): Sunfire, Gale Winds y Living Seed, siguiendo el patrón ya usado en server/mod-sod-content/tools/sod_spells_druid.py.",
+ "effort": "medium",
+ "context": "El druida feral de fase 1 ya está completo (14 runas). Ahora toca ampliar a las otras 2 especializaciones (Balance y Restauración) con las runas reales de SoD que aún faltan. Esta es la primera de varias tareas pequeñas (3 runas cada una) para no agotar el tiempo del ejecutor. El patrón a seguir está en server/mod-sod-content/tools/sod_spells_druid.py (función build(idx), lista de dicts) y su SQL hermano server/mod-sod-content/data/sql/db-world/base/sod_druid_runes.sql (tabla rune_template, rango de rune_id reservado al druida: 7009000-7009999; ya se usan 7009001-7009014, así que las nuevas son 7009015, 7009016, 7009017). También hay que añadir la traducción al español en server/mod-sod-content/tools/sod_spells_es.json (mismo formato que las entradas ya existentes de otras runas del druida) y la fila en docs/runas/obtencion.md (añadir al final de la tabla, con 'Compra al Grabador (1 oro), provisional' como el resto de runas sin fuente real todavía). RUNA 1 — Sunfire (manos, fase 1 de SoD, tipo pasivo P, hechizo SoD 414684): descripción oficial 'Burns the enemy for X to Y Nature damage and then an additional Z Nature damage over 12 sec' (los valores exactos de daño los calcula el generador con bonus/ap como las runas de daño ya existentes, p.ej. mirar cómo Lacerate hace scale_to_level). Es un hechizo ACTIVO nuevo (sin equivalente en WotLK): clónalo de un hechizo DOT simple existente (plantilla sugerida: Moonfire rango más alto de WotLK, spell 48461 o el de nivel 80, escuela Nature en vez de Arcane) con inherit_server False y overrides propios: daño directo + DoT de 12s, escuela de daño Nature (school mask 4), coste de maná ~16% como Moonfire, cast instantáneo, rango 30yd. Icono real de SoD: 'spell_nature_sunfire' o similar (verificar con idx['icon'] si existe esa clave en el generador; si no, usar 'spell_nature_wrath' como aproximación y anotarlo en el informe). RUNA 2 — Gale Winds (cabeza, fase 2/3, tipo pasivo P, hechizo SoD 417135, rune_id 7009016): descripción oficial 'Increases the damage done by your Hurricane by X%, it no longer has a cooldown, and its mana cost is reduced by Y%'. Es un talento nuevo sin equivalente exacto en WotLK (Hurricane sí existe en WotLK, spell 16914 nivel 70, pero sin este talento). Impléméntalo como aura pasiva con script C++ (nuevo archivo server/mod-sod-content/src/druid/spell_sod_druid_gale_winds.cpp, declarado en spell_sod_druid.h y registrado en sod_content_loader.cpp) que: (a) aplique un SpellMod de +20% de daño a Hurricane (spell family Druid, flags de Hurricane) y -30% de coste de maná (valores de ejemplo razonables, deja constantes de configuración SodDruid.GaleWinds.DamagePct=20 y SodDruid.GaleWinds.ManaCostReductionPct=30 en server/mod-sod-content/conf/mod_sod_content.conf.dist), y (b) quite el cooldown de Hurricane (SpellMod tipo cooldown a -100%). Sigue el patrón de otro script de aura pasiva con SpellMod ya existente en el repo (busca ejemplos en server/mod-sod-content/src/paladin/ si quedó alguno del trabajo de hoy, o en server/mod-sod-content/src/mage/). RUNA 3 — Living Seed (pecho, fase 2, tipo talento con equivalente real, hechizo SoD 414677, rune_id 7009015): SÍ tiene equivalente real en WotLK, talento de Restauración 'Living Seed' rango 3 (spell_id WotLK 48500, parte de la cadena de talento 1922 en spell_line Restoration 573). Clónalo igual que las demás runas con plantilla ('template': 48500), inherit_server True, sin script C++ propio (el comportamiento del core WotLK ya lo cubre). Mete las 3 en sod_spells_druid.py dentro de la lista que devuelve build(idx), con comentarios breves como las runas vecinas; usa variables idx[...] ya definidas arriba en la función si existen, o añade las que falten (p.ej. un nuevo icono). Ejecuta tools/sod-data/check_syntax.py al final y confirma 0 errores.",
+ "files": [
+  "server/mod-sod-content/tools/sod_spells_druid.py",
+  "server/mod-sod-content/tools/sod_spells_es.json",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_runes.sql",
+  "server/mod-sod-content/src/druid/spell_sod_druid_gale_winds.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid.h",
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "server/mod-sod-content/conf/mod_sod_content.conf.dist",
+  "docs/runas/obtencion.md"
+ ],
+ "constraints": [
+  "Informe en castellano.",
+  "Identificadores de código en inglés; comentarios breves solo si aportan algo no obvio.",
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No toques runas de otra clase ni del feral del druida ya existentes (7009001-7009014).",
+  "Si algún icono o plantilla de WotLK que te pido no existe tal cual, usa la aproximación más cercana y dilo claramente en el informe (no bloquees la tarea por eso).",
+  "No ejecutes git ni agentrelay."
+ ],
+ "acceptanceCriteria": [
+  "Las 3 runas (rune_id 7009015, 7009016, 7009017) existen en sod_druid_runes.sql con sus textos y en sod_spells_druid.py.",
+  "Gale Winds tiene su script C++ propio registrado en el loader; Living Seed y Sunfire no necesitan script si inherit_server cubre su comportamiento.",
+  "check_syntax.py da 0 errores.",
+  "docs/runas/obtencion.md tiene las 3 filas nuevas."
+ ],
+ "validation": [
+  "python3 -c \"print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "tools/sod-client",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_requirements.sql"
+ ]
+}

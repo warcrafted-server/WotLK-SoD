@@ -150,6 +150,19 @@
     "name": "Piel de corteza mejorada",
     "desc": "Ahora puedes lanzar Piel de corteza a tus aliados. Además, ya no penaliza la velocidad de combate cuerpo a cuerpo ni el lanzamiento de hechizos y puedes lanzarla cuando estés en cualquiera de tus formas."
   },
+  "414684": {
+    "name": "Fuego solar",
+    "desc": "Quema al enemigo e inflige daño de Naturaleza y después inflige daño de Naturaleza adicional durante 12 s."
+  },
+  "417135": {
+    "name": "Vientos galernos",
+    "desc": "Aumenta un 20% el daño de Huracán, elimina su tiempo de reutilización y reduce un 30% su coste de maná.",
+    "aura_desc": "El daño de Huracán aumenta un 20%, su coste de maná se reduce un 30% y no tiene tiempo de reutilización."
+  },
+  "414677": {
+    "name": "Semilla viviente",
+    "desc": "Tus sanaciones críticas plantan una Semilla viviente en el objetivo. Florece cuando el objetivo recibe el siguiente ataque."
+  },
   "407975": {
     "name": "Golpes descontrolados",
     "desc": "Los miembros del grupo en un radio de $a1 m obtienen mayor ferocidad en combate. Cada golpe cuerpo a cuerpo tiene una probabilidad del $h% de otorgar al atacante un ataque extra con un $s1% de poder de ataque adicional. No tiene efecto si el miembro del grupo ya se está beneficiando de Tótem Viento Furioso.",

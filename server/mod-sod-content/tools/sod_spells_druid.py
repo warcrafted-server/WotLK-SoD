@@ -6,6 +6,7 @@ from sod_dbc import *  # noqa: F401,F403  (shared WoW enum constants)
 
 SKILL_RESTORATION = 573
 SKILL_FERAL_COMBAT = 134
+SKILL_BALANCE = 574
 AURA_MOD_IGNORE_SHAPESHIFT = 275  # Core SpellAuraDefines.h
 
 
@@ -16,9 +17,11 @@ def build(idx):
     duration_60s = idx["dur"][60000]
     duration_6s = idx["dur"][6000]
     duration_10s = idx["dur"][10000]
+    duration_12s = idx["dur"][12000]
     duration_2s = idx["dur"][2000]
     range_self = idx["range"][0.0]
     range_13 = idx["range"][13.0]
+    range_30 = idx["range"][30.0]
     range_100 = idx["range"][100.0]
     icon_survival = idx["icon"]["spell_nature_spiritwolf"]
     icon_mangle = idx["icon"]["ability_druid_mangle2"]
@@ -29,6 +32,7 @@ def build(idx):
     icon_frenzied_regeneration = idx["icon"]["ability_bullrush"]
     icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
     icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
+    icon_sunfire = idx["icon"]["spell_nature_wrath"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -512,6 +516,53 @@ def build(idx):
                 "EffectSpellClassMaskC_1": 0,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Sunfire uses Moonfire's rank-14 damage profile with Nature damage.
+            "id": 414684, "client": True, "template": 48463,
+            "skill_line": SKILL_BALANCE,
+            "name": "Sunfire", "inherit_server": False,
+            "desc": "Burns the enemy for $s1 Nature damage and then an additional "
+                    "$o2 Nature damage over $d sec.",
+            "scale_to_level": {"effects": [1, 2], "level": 80},
+            "bonus": {"direct": 0.13, "dot": 0.13, "ap": 0, "ap_dot": 0},
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_12s,
+                "RangeIndex": range_30, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 16, "SchoolMask": 8,
+                "SpellIconID": icon_sunfire, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Living Seed reuses the WotLK rank-3 Restoration talent behavior.
+            "id": 414677, "client": True, "template": 48500,
+            "skill_line": SKILL_RESTORATION,
+            "name": "Living Seed", "inherit_server": True,
+            "overrides": {"SpellLevel": 0},
+        },
+        {  # Gale Winds applies its Hurricane-only SpellMods in the rune script.
+            "id": 417135, "client": True, "template": 774,
+            "skill_line": SKILL_BALANCE,
+            "name": "Gale Winds", "script": "spell_sod_druid_gale_winds",
+            "desc": "Increases the damage done by your Hurricane by 20%, removes its "
+                    "cooldown, and reduces its mana cost by 30%.",
+            "aura_desc": "Hurricane damage increased by 20%, mana cost reduced by 30%, "
+                         "and cooldown removed.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 8,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 19, "EffectMiscValue_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": -29, "EffectMiscValue_2": 14,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": -99, "EffectMiscValue_3": 11,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
             },
         },
     ]

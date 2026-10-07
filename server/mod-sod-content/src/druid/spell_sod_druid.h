@@ -34,6 +34,7 @@ enum SodDruidSpells
     SPELL_SOD_DRUID_SWIPE_CAT = 411128,
     SPELL_SOD_DRUID_IMPROVED_FRENZIED_REGENERATION_FORM_PERMIT = 900016,
     SPELL_SOD_DRUID_IMPROVED_BARKSKIN = 431388,
+    SPELL_SOD_DRUID_GALE_WINDS = 417135,
 };
 
 constexpr uint32 SPELL_DRUID_BARKSKIN = 22812;
@@ -49,6 +50,17 @@ constexpr uint32 SPELL_DRUID_TIGER_FURY_ENERGIZE = 51178;
 constexpr uint32 SPELL_DRUID_WINDFURY_TOTEM_EFFECT = 8515;
 constexpr uint32 SPELL_DRUID_WINDFURY_ATTACK_MAINHAND = 25504;
 constexpr uint32 SPELL_DRUID_WINDFURY_ATTACK_OFFHAND = 33750;
+constexpr uint32 SPELL_DRUID_HURRICANE = 16914;
+
+inline uint32 SodDruidGaleWindsDamagePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.GaleWinds.DamagePct", 20);
+}
+
+inline uint32 SodDruidGaleWindsManaCostReductionPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.GaleWinds.ManaCostReductionPct", 30);
+}
 
 inline bool SodDruidEnabled()
 {

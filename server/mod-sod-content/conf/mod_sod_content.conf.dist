@@ -345,4 +345,14 @@ SodDruid.ImprovedFrenziedRegeneration.HealthPctPerSecond = 10
 
 SodDruid.ImprovedSwipe.MaxBearTargets = 8
 
+#
+#    SodDruid.GaleWinds.*
+#        DamagePct increases Hurricane damage; ManaCostReductionPct reduces its cost.
+#        Hurricane's cooldown is removed while the rune is active.
+#        Defaults: DamagePct 20, ManaCostReductionPct 30
+#
+
+SodDruid.GaleWinds.DamagePct = 20
+SodDruid.GaleWinds.ManaCostReductionPct = 30
+
 ###############################################################################
