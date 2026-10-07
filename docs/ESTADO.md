@@ -3,6 +3,28 @@
 **Mantén este archivo al día con cada cambio relevante, no al final de la tarea.** Es lo primero que
 lee una sesión nueva. Última actualización: **2026-10-06**.
 
+## 0. Trabajo en curso y cómo reanudarlo (2026-10-07)
+
+El servidor se reinicia a diario a las 4:00 (hora de España); `/tmp` es tmpfs y se vacía. **Todo lo que
+importa vive en el repo.** Tras un reinicio: `tools/cola/reanudar.sh` (cola de tareas del ejecutor + recogida
+de fuentes de Wowhead) y, en una sesión nueva, leer `docs/guias/reanudar-tras-reinicio.md` y
+`python3 tools/cola/cola.py status`. Las tareas están en `.agents/cola/` (estado en `estado.json`). Las
+revisiones y los commits siguen siendo del orquestador.
+
+**Prioridad del usuario:** probar a fondo el **druida feral** antes de pasar a otra clase; después, en este orden,
+paladín represión, chamán elemental, brujo demonología y el resto. Quiere que la mecánica de las runas sea lo
+más parecida posible a SoD. Estado del feral: las 13 runas tienen código (compilado solo por sintaxis con
+clang) y adquisición (objetos reales de SoD, botín de WotLK con tasas reales, Grizzby, oficiales de suministros
+y compra en el Grabador). Pendiente del feral: requisitos de uso de los ídolos (`r1`, `r2` en la cola), la runa
+Improved Barkskin (`d2`) y las fuentes que solo existen en SoD (Lacerate/Squashling, Gore/intendentes,
+King of the Jungle/Supply Bag, Rune Brokers). Los Rune Brokers se sustituyen por el Grabador (`.rune summon`).
+Las demás clases están encoladas con orden 900+.
+
+**Datos:** catálogo (`docs/runas/catalogo-sod.json`), fuentes de Wowhead (`docs/runas/fuentes-sod.json`, 253 de
+256 runas con objeto; faltan Lava Lash, Nature's Fury y una runa de mago), clasificación P/T/C/R
+(`docs/runas/plan-implementacion.*`), cómo se consigue cada runa (`docs/runas/obtencion.md`). El usuario compila
+y prueba: ver `docs/PRUEBAS.md` para lo que debe hacer.
+
 ## 1. Dónde estamos
 
 - **Fase:** primer hito (fase 1 de SoD, nivel 25 de partida, hacia 80). **2026-10-06: compilado por el
