@@ -43,6 +43,9 @@ enum SodDruidSpells
     SPELL_SOD_DRUID_TREE_OF_LIFE = 439733,
     SPELL_SOD_DRUID_TREE_OF_LIFE_BENEFITS = 900020,
     SPELL_SOD_DRUID_TREE_OF_LIFE_PARTY_BUFF = 900021,
+    SPELL_SOD_DRUID_EFFLORESCENCE_AURA = 900022,
+    SPELL_SOD_DRUID_ECLIPSE_BUFF = 900023,
+    SPELL_SOD_DRUID_STARFALL_DAMAGE = 900024,
 };
 
 constexpr uint32 SPELL_DRUID_BARKSKIN = 22812;
@@ -62,6 +65,10 @@ constexpr uint32 SPELL_DRUID_HURRICANE = 16914;
 constexpr uint32 SPELL_DRUID_WRATH = 5176;
 constexpr uint32 SPELL_DRUID_HEALING_TOUCH_FAMILY_MASK0 = 0x00000020;
 constexpr uint32 SPELL_DRUID_STARSURGE = 417157;
+constexpr uint32 SPELL_DRUID_STARFIRE = 48465;
+constexpr uint32 SPELL_DRUID_REGROWTH = 48443;
+constexpr uint32 SPELL_DRUID_SHRED = 48572;
+constexpr uint32 SPELL_DRUID_SWIFTMEND = 18562;
 
 inline uint32 SodDruidGaleWindsDamagePct()
 {
@@ -131,6 +138,81 @@ inline uint32 SodDruidTreeOfLifeHotManaCostReductionPct()
 inline uint32 SodDruidTreeOfLifeWildGrowthHealingPct()
 {
     return sConfigMgr->GetOption<uint32>("SodDruid.TreeOfLife.WildGrowthHealingPct", 60);
+}
+
+inline uint32 SodDruidStarsurgeCooldownSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Starsurge.CooldownSeconds", 6);
+}
+
+inline uint32 SodDruidEfflorescenceDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Efflorescence.DurationSeconds", 15);
+}
+
+inline float SodDruidEfflorescenceRadiusYards()
+{
+    return sConfigMgr->GetOption<float>("SodDruid.Efflorescence.RadiusYards", 15.0f);
+}
+
+inline uint32 SodDruidElunesFiresMoonfireSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.ElunesFires.MoonfireSeconds", 6);
+}
+
+inline uint32 SodDruidElunesFiresSunfireSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.ElunesFires.SunfireSeconds", 3);
+}
+
+inline uint32 SodDruidElunesFiresRejuvenationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.ElunesFires.RejuvenationSeconds", 6);
+}
+
+inline uint32 SodDruidElunesFiresRipSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.ElunesFires.RipSeconds", 2);
+}
+
+inline uint32 SodDruidEclipseDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Eclipse.DurationSeconds", 15);
+}
+
+inline uint32 SodDruidEclipseMaxStacks()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Eclipse.MaxStacks", 4);
+}
+
+inline uint32 SodDruidEclipseCritChancePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Eclipse.CritChancePct", 30);
+}
+
+inline uint32 SodDruidEclipseCastTimeReductionMs()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Eclipse.CastTimeReductionMs", 1000);
+}
+
+inline uint32 SodDruidEclipsePushbackReductionPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Eclipse.PushbackReductionPct", 70);
+}
+
+inline uint32 SodDruidStarfallDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Starfall.DurationSeconds", 10);
+}
+
+inline uint32 SodDruidStarfallCooldownSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Starfall.CooldownSeconds", 90);
+}
+
+inline uint32 SodDruidStarfallManaCostPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Starfall.ManaCostPct", 39);
 }
 
 inline bool SodDruidEnabled()

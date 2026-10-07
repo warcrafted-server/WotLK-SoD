@@ -45,6 +45,11 @@ void AddSC_sod_druid_gale_winds();
 void AddSC_sod_druid_fury_of_stormrage();
 void AddSC_sod_druid_dreamstate();
 void AddSC_sod_druid_tree_of_life();
+void AddSC_sod_druid_starsurge();
+void AddSC_sod_druid_efflorescence();
+void AddSC_sod_druid_elunes_fires();
+void AddSC_sod_druid_eclipse();
+void AddSC_sod_druid_starfall();
 void AddSC_sod_druid_requirements();
 
 // --- world (formerly mod-sod-world) ---
@@ -96,6 +101,11 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_fury_of_stormrage();
     AddSC_sod_druid_dreamstate();
     AddSC_sod_druid_tree_of_life();
+    AddSC_sod_druid_starsurge();
+    AddSC_sod_druid_efflorescence();
+    AddSC_sod_druid_elunes_fires();
+    AddSC_sod_druid_eclipse();
+    AddSC_sod_druid_starfall();
     AddSC_sod_druid_requirements();
 
 }

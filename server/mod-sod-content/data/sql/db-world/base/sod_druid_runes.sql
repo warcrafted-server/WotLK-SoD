@@ -71,6 +71,21 @@ SET @sql := IF(@rune_tbl > 0,
     ''mod-sod-druid'', 1),
     (7009020, 439733, 1024, 8, ''Tree of Life'', ''spell_nature_rejuvenation'',
     ''Increases healing received by 10% for party members within 45 yards, Wild Growth healing by 60%, reduces heal over time mana costs by 20%, increases Spirit by 25% and armor by 200%.'',
+    ''mod-sod-druid'', 1),
+    (7009021, 417157, 1024, 256, ''Starsurge'', ''spell_arcane_starfire'',
+    ''Launch surging stellar energies that deal Arcane damage. Instant cast, no mana cost, 6 sec cooldown.'',
+    ''mod-sod-druid'', 1),
+    (7009022, 417149, 1024, 32, ''Efflorescence'', ''spell_nature_rejuvenation'',
+    ''Swiftmend creates a 15-yard healing area around its target for 15 sec, healing party members every second.'',
+    ''mod-sod-druid'', 1),
+    (7009023, 414719, 1024, 32, ''Elune''''s Fires'', ''spell_nature_starfall'',
+    ''Starfire extends Moonfire by 6 sec, Wrath extends Sunfire by 3 sec, Regrowth extends Rejuvenation by 6 sec, and Shred extends Rip by 2 sec, up to each effect''''s initial duration.'',
+    ''mod-sod-druid'', 1),
+    (7009024, 408248, 1024, 128, ''Eclipse'', ''spell_nature_starfall'',
+    ''Starfire and Wrath grant up to 4 stacks of Eclipse: 30% critical strike chance, 1 sec less cast time, and 70% less pushback. Duration is approximately 15 sec.'',
+    ''mod-sod-druid'', 1),
+    (7009025, 439748, 1024, 8, ''Starfall'', ''spell_arcane_starfall'',
+    ''Deals Arcane area damage every second for 10 sec. Costs 39% of base mana and has a 90 sec cooldown; simplified without individual stars or splash damage.'',
     ''mod-sod-druid'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -98,3 +113,13 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
 VALUES (22812, 'spell_sod_druid_improved_barkskin');
+
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+(417157, 'spell_sod_druid_starsurge'),
+(417149, 'spell_sod_druid_efflorescence'),
+(900022, 'spell_sod_druid_efflorescence_aura'),
+(414719, 'spell_sod_druid_elunes_fires'),
+(408248, 'spell_sod_druid_eclipse'),
+(900023, 'spell_sod_druid_eclipse_buff'),
+(439748, 'spell_sod_druid_starfall'),
+(439748, 'spell_sod_druid_starfall_aura');

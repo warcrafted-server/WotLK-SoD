@@ -90,11 +90,18 @@ Reef Crawlers) cercanos. Es más compleja que la fuente de Silverpine; no priori
 ### Starfall
 
 La runa 7009025 (hechizo SoD 439748, espalda) se simplifica como daño Arcano de área que pulsa cada
-segundo durante 10 s en un radio de 30 yardas; se conserva la curva de daño y su coeficiente
-periódico de 0,127. La versión real invoca hasta 20 estrellas que seleccionan objetivos y también
+segundo durante 10 s en un radio de 30 yardas, con coeficiente periódico de 0,127. La versión real
+invoca hasta 20 estrellas que seleccionan objetivos y también
 dañan enemigos cercanos al impacto; el servidor no reproduce los proyectiles, el máximo de 20
 estrellas ni el daño de salpicadura de 5 yardas. Valores contrastados en la
 [ficha de Wowhead](https://www.wowhead.com/classic/spell=439748), consulta del 2026-10-07.
+
+### Eclipse
+
+La duración del beneficio de la runa 7009024 (hechizo SoD 408248, cintura) no se ha podido
+confirmar con precisión; se configura en 15 s como aproximación. La mecánica simplificada acumula
+los beneficios de crítico, tiempo de lanzamiento y retroceso hasta cuatro veces. Consulta del
+2026-10-07; comprobar la duración y el comportamiento de las cargas en juego.
 
 ## Otras clases
 
