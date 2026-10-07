@@ -8,6 +8,7 @@ SKILL_RESTORATION = 573
 SKILL_FERAL_COMBAT = 134
 SKILL_BALANCE = 574
 AURA_MOD_IGNORE_SHAPESHIFT = 275  # Core SpellAuraDefines.h
+AURA_PROC_TRIGGER_SPELL = 42  # Core SpellAuraDefines.h
 
 
 def build(idx):
@@ -33,6 +34,7 @@ def build(idx):
     icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
     icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
     icon_sunfire = idx["icon"]["spell_nature_wrath"]
+    icon_tree_of_life = idx["icon"]["spell_nature_rejuvenation"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -563,6 +565,208 @@ def build(idx):
                 "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
                 "EffectBasePoints_3": -99, "EffectMiscValue_3": 11,
                 "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Wrath reduces its mana cost and can empower the next Healing Touch.
+            "id": 414799, "client": True, "template": 774,
+            "skill_line": SKILL_RESTORATION,
+            "name": "Fury of Stormrage", "script": "spell_sod_druid_fury_of_stormrage",
+            "desc": "Reduces the mana cost of Wrath by 100%. Each time Wrath deals damage, "
+                    "you have a 12% chance for your next Healing Touch within 15 sec to be "
+                    "instant and castable in any shapeshift form.",
+            "aura_desc": "Wrath costs no mana. Wrath damage has a 12% chance to make your "
+                         "next Healing Touch instant and castable in any form for 15 sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 8,
+                "SpellIconID": icon_sunfire, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "ProcTypeMask": 0x00010000, "ProcChance": 12,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": -99, "EffectMiscValue_1": 14,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_PROC_TRIGGER_SPELL,
+                "EffectBasePoints_2": -99,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00010000, "SpellTypeMask": 1,
+                "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # The proc buff makes Healing Touch instant, form-independent, and one-use.
+            "id": 900017, "client": True, "template": 774,
+            "name": "Fury of Stormrage",
+            "desc": "Your next Healing Touch is instant and can be cast in any shapeshift form.",
+            "aura_desc": "Your next Healing Touch is instant and can be cast in any shapeshift form.",
+            "overrides": {
+                "Attributes": 0, "CastingTimeIndex": cast_instant,
+                "DurationIndex": idx["dur"][15000], "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_sunfire, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_IGNORE_SHAPESHIFT,
+                "EffectBasePoints_1": 0, "EffectSpellClassMaskA_1": 0x20,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": -99, "EffectMiscValue_2": 10,
+                "EffectSpellClassMaskA_2": 0x20,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 7,
+                "SpellFamilyMask0": 0x20,
+                "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00004000, "SpellTypeMask": 2,
+                "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Dreamstate procs on non-periodic spell crits and any Starsurge damage.
+            "id": 408258, "client": True, "template": 774,
+            "skill_line": SKILL_BALANCE,
+            "name": "Dreamstate", "script": "spell_sod_druid_dreamstate",
+            "desc": "Your damaging non-periodic spell critical strikes or any damage from "
+                    "Starsurge grant you 50% of your mana regeneration while casting for 8 sec "
+                    "and increase Arcane and Nature damage dealt to non-player targets by 20% "
+                    "for 12 sec.",
+            "aura_desc": "Damaging spell critical strikes and Starsurge damage restore 50% "
+                         "of your mana regeneration while casting for 8 sec and make non-player "
+                         "targets take 20% more Arcane and Nature damage for 12 sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 64,
+                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "ProcTypeMask": 0x00010000, "ProcChance": 100,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PROC_TRIGGER_SPELL,
+                "EffectBasePoints_1": 50,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00010000, "SpellTypeMask": 1,
+                "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # 50% spirit-based mana regen continues while casting for 8 seconds.
+            "id": 900018, "client": True, "template": 774,
+            "name": "Dreamstate", "aura_desc": "50% of your mana regeneration continues while casting.",
+            "overrides": {
+                "Attributes": 0, "CastingTimeIndex": cast_instant,
+                "DurationIndex": idx["dur"][8000], "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 134,
+                "EffectBasePoints_1": 49, "EffectMiscValue_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Damage taken debuff: Arcane and Nature each increase by 20% for 12 seconds.
+            "id": 900019, "client": True, "template": 774,
+            "name": "Dreamstate Magic",
+            "aura_desc": "Increases Arcane and Nature damage taken by 20%.",
+            "overrides": {
+                "Attributes": 0, "CastingTimeIndex": cast_instant,
+                "DurationIndex": idx["dur"][12000], "RangeIndex": range_100,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 87,
+                "EffectBasePoints_1": 19, "EffectMiscValue_1": 64,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 87,
+                "EffectBasePoints_2": 19, "EffectMiscValue_2": 8,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Passive approximation of Tree Form: exact self-stat bonuses, no new form enum.
+            "id": 439733, "client": True, "template": 774,
+            "skill_line": SKILL_RESTORATION,
+            "name": "Tree of Life", "script": "spell_sod_druid_tree_of_life",
+            "desc": "Increases healing received by 10% for party members within 45 yards, "
+                    "Wild Growth healing by 60%, reduces heal over time mana costs by 20%, "
+                    "increases Spirit by 25% and armor by 200%.",
+            "aura_desc": "Increases Spirit by 25% and armor by 200%. Nearby party members "
+                         "receive 10% more healing. Wild Growth healing is increased by 60% "
+                         "and heal over time spells cost 20% less mana.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 8,
+                "SpellIconID": icon_tree_of_life, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 29,
+                "EffectBasePoints_1": 24, "EffectMiscValue_1": 4,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 142,
+                "EffectBasePoints_2": 199, "EffectMiscValue_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Helper: HoT cost and Wild Growth healing modifiers plus party refresh.
+            "id": 900020, "client": False, "template": 774,
+            "name": "Tree of Life Benefits", "script": "spell_sod_druid_tree_of_life_benefits",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SchoolMask": 8,
+                "SpellLevel": 0, "SpellClassSet": 7,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": -19, "EffectMiscValue_1": 14,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 59, "EffectMiscValue_2": 22,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_3": 0, "EffectAuraPeriod_3": 1000,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Refreshed on the Tree of Life helper aura; 10% healing received for 2 sec.
+            "id": 900021, "client": True, "template": 774,
+            "name": "Tree of Life", "aura_desc": "Increases healing received by 10%.",
+            "overrides": {
+                "Attributes": 0, "CastingTimeIndex": cast_instant,
+                "DurationIndex": idx["dur"][2000], "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_tree_of_life, "EquippedItemClass": -1,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 118,
+                "EffectBasePoints_1": 9,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
     ]

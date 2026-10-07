@@ -8,6 +8,15 @@ Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio 
 
 ## Druida feral
 
+### Tree of Life
+
+La runa 7009020 (hechizo SoD 439733, capa) se implementa como una pasiva activada al grabarla:
+aplica los bonos numéricos de curación, maná y estadísticas, además del aura de sanación al grupo
+cercano. No cambia el modelo del personaje porque no se añadió un `ShapeshiftFormID` al core; por
+ello tampoco reproduce la barra/forma de árbol, la inmunidad a Polymorph ni la liberación de
+efectos de movimiento al cambiar de forma. El hechizo dañino tampoco queda bloqueado mientras la
+runa está activa. La forma real transforma al druida en árbol y bloquea los hechizos dañinos.
+
 ### Survival Instincts (runa de Instinto, pies, hechizo SoD 408024, objeto 213119)
 
 Cadena de misión «Amaryllis la Tejedora» (Amaryllis Webb), en Pantano de las Penas (Swamp of

@@ -45,3 +45,6 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7009015 | Druida | Living Seed | Pecho | 414677 | Compra al Grabador (1 oro), provisional. | [spell=414677](https://www.wowhead.com/classic/spell=414677) |
 | 7009016 | Druida | Gale Winds | Cabeza | 417135 | Compra al Grabador (1 oro), provisional. | [spell=417135](https://www.wowhead.com/classic/spell=417135) |
 | 7009017 | Druida | Sunfire | Manos | 414684 | Compra al Grabador (1 oro), provisional. | [spell=414684](https://www.wowhead.com/classic/spell=414684) |
+| 7009018 | Druida | Fury of Stormrage | Pecho | 414799 | Compra al Grabador (1 oro), provisional. Fuente real: Ídolo Lunar y 6 bajas con Moonfire activa. | [spell=414799](https://www.wowhead.com/classic/spell=414799) |
+| 7009019 | Druida | Dreamstate | Pies | 408258 | Compra al Grabador (1 oro), provisional. Fuente real: semilla reseca, convertirla en Satyrweed Bulb en agua y plantarla en Desolace. | [spell=408258](https://www.wowhead.com/classic/spell=408258) |
+| 7009020 | Druida | Tree of Life | Capa | 439733 | Compra al Grabador (1 oro), provisional. Fuente real: misión del espíritu vengativo en Felwood y recompensa Gift of the Wisp. | [spell=439733](https://www.wowhead.com/classic/spell=439733) |

@@ -154,6 +154,38 @@
     "name": "Fuego solar",
     "desc": "Quema al enemigo e inflige daño de Naturaleza y después inflige daño de Naturaleza adicional durante 12 s."
   },
+  "414799": {
+    "name": "Furia de Tempestira",
+    "desc": "Reduce un 100% el coste de maná de Cólera. Cada vez que Cólera inflige daño, tienes un 12% de probabilidad de que tu siguiente Toque curativo se lance al instante y pueda lanzarse en cualquier forma durante 15 s.",
+    "aura_desc": "Cólera no cuesta maná. El daño de Cólera tiene un 12% de probabilidad de hacer instantáneo tu siguiente Toque curativo y permitir lanzarlo en cualquier forma durante 15 s."
+  },
+  "900017": {
+    "name": "Furia de Tempestira",
+    "desc": "Tu siguiente Toque curativo se lanza al instante y puede lanzarse en cualquier forma.",
+    "aura_desc": "Tu siguiente Toque curativo se lanza al instante y puede lanzarse en cualquier forma."
+  },
+  "408258": {
+    "name": "Estado onírico",
+    "desc": "Los golpes críticos de tus hechizos dañinos no periódicos o cualquier daño de Oleada de estrellas te otorgan un 50% de tu regeneración de maná mientras lanzas hechizos durante 8 s y aumentan un 20% el daño Arcano y de Naturaleza infligido a objetivos que no sean jugadores durante 12 s.",
+    "aura_desc": "Los golpes críticos de hechizos dañinos y el daño de Oleada de estrellas restauran un 50% de tu regeneración de maná mientras lanzas hechizos durante 8 s y hacen que los objetivos que no sean jugadores reciban un 20% más de daño Arcano y de Naturaleza durante 12 s."
+  },
+  "900018": {
+    "name": "Estado onírico",
+    "aura_desc": "El 50% de tu regeneración de maná continúa mientras lanzas hechizos."
+  },
+  "900019": {
+    "name": "Magia onírica",
+    "aura_desc": "Aumenta un 20% el daño Arcano y de Naturaleza recibido."
+  },
+  "439733": {
+    "name": "Árbol de la vida",
+    "desc": "Aumenta un 10% la sanación recibida por los miembros del grupo en un radio de 45 m y un 60% la sanación de Crecimiento salvaje. Reduce un 20% el coste de maná de tus sanaciones periódicas, aumenta un 25% tu Espíritu y un 200% tu armadura.",
+    "aura_desc": "Aumenta un 25% tu Espíritu y un 200% tu armadura. Los miembros del grupo cercanos reciben un 10% más de sanación. Crecimiento salvaje sana un 60% más y las sanaciones periódicas cuestan un 20% menos de maná."
+  },
+  "900021": {
+    "name": "Árbol de la vida",
+    "aura_desc": "Aumenta un 10% la sanación recibida."
+  },
   "417135": {
     "name": "Vientos galernos",
     "desc": "Aumenta un 20% el daño de Huracán, elimina su tiempo de reutilización y reduce un 30% su coste de maná.",

@@ -355,4 +355,37 @@ SodDruid.ImprovedSwipe.MaxBearTargets = 8
 SodDruid.GaleWinds.DamagePct = 20
 SodDruid.GaleWinds.ManaCostReductionPct = 30
 
+#
+#    SodDruid.FuryOfStormrage.*
+#        Wrath's mana cost reduction, proc chance, and instant Healing Touch duration.
+#        Defaults: 100%, 12%, 15 seconds
+#
+
+SodDruid.FuryOfStormrage.WrathCostReductionPct = 100
+SodDruid.FuryOfStormrage.ProcChance = 12
+SodDruid.FuryOfStormrage.BuffDurationSeconds = 15
+
+#
+#    SodDruid.Dreamstate.*
+#        Mana regeneration while casting and the Arcane/Nature vulnerability duration.
+#        Defaults: 50%, 8 seconds, 20%, 12 seconds
+#
+
+SodDruid.Dreamstate.ManaRegenPct = 50
+SodDruid.Dreamstate.ManaRegenDurationSeconds = 8
+SodDruid.Dreamstate.DamageTakenPct = 20
+SodDruid.Dreamstate.DamageTakenDurationSeconds = 12
+
+#
+#    SodDruid.TreeOfLife.*
+#        Passive approximation of Tree Form; party healing aura refresh and rune SpellMods.
+#        Defaults: 45 yards, 2 seconds, 1 second, 20%, 60%
+#
+
+SodDruid.TreeOfLife.PartyRadiusYards = 45
+SodDruid.TreeOfLife.PartyBuffDurationMs = 2000
+SodDruid.TreeOfLife.PartyRefreshMs = 1000
+SodDruid.TreeOfLife.HotManaCostReductionPct = 20
+SodDruid.TreeOfLife.WildGrowthHealingPct = 60
+
 ###############################################################################

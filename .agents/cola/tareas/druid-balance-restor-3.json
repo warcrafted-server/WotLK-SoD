@@ -1,0 +1,48 @@
+{
+ "objective": "Añadir las últimas 5 runas de druida Balance/Resto: Starsurge, Efflorescence, Elune's Fires, Eclipse y Starfall, investigando primero los valores exactos en Wowhead.",
+ "effort": "high",
+ "context": "Tercera y última tarea para completar el druida con sus 3 especializaciones (Feral ya completo con 14 runas; Balance/Resto en marcha con 6 runas más en 2 tareas previas ya aceptadas: Sunfire, Gale Winds, Living Seed, Fury of Stormrage, Dreamstate, Tree of Life, rune_id 7009015-7009020). Esta tarea añade las 5 restantes, rune_id 7009021 a 7009025. TIENES ACCESO A INTERNET: antes de escribir código, consulta Wowhead para cada hechizo con curl y el user-agent 'Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/130.0' (otros user-agents dan 403 de CloudFront), con pausas de 2-3s entre peticiones: https://www.wowhead.com/classic/spell=417157 (Starsurge), https://www.wowhead.com/classic/spell=417149 (Efflorescence) y su auxiliar https://www.wowhead.com/classic/spell=417148 y https://www.wowhead.com/classic/spell=417147, https://www.wowhead.com/classic/spell=414719 (Elune's Fires), https://www.wowhead.com/classic/spell=408248 (Eclipse) y su auxiliar https://www.wowhead.com/classic/spell=408250 y https://www.wowhead.com/classic/spell=408255, https://www.wowhead.com/classic/spell=439748 (Starfall) y sus auxiliares https://www.wowhead.com/classic/spell=439753, https://www.wowhead.com/classic/spell=439755, https://www.wowhead.com/classic/spell=439756. Descripciones base conocidas (contrástalas con lo que encuentres en Wowhead, prevalecen los valores reales): Starsurge (piernas): 'Launch surging stellar energies that cause X to Y Arcane damage, and increases the damage done by your next 2 Starfire casts by Z% for W sec.' Es un hechizo ACTIVO nuevo (sin equivalente en WotLK): clónalo de un proyectil de daño directo simple de Balance existente en WotLK (p.ej. Starfire rango más alto) con escuela Arcane, cast ~2s, rango 30yd, y añade el buff propio de +daño a Starfire con un script C++ (busca el patrón ya usado en runas activas nuevas de otras clases esta semana, p.ej. mira cómo Chaos Bolt del brujo o Lacerate del druida manejan su daño). Efflorescence (muñecas): 'Your Swiftmend now also causes Efflorescence, healing all party members within X yards of the Swiftmend target's location for Y every Z sec for W sec.' Requiere aura pasiva con script C++ que, al detectar la curación de Swiftmend (spell WotLK 18562), invoque un área de curación periódica (puedes usar un hechizo de objeto de mundo invisible tipo 'spell summon' o un AreaAura si el patrón del core lo soporta; aproxima con sensatez). Elune's Fires (muñecas): 'Some of your spells and abilities extend the duration of your damage and healing over time effects on their target: Starfire extends Moonfire, Wrath extends Sunfire, Regrowth extends Rejuvenation, Shred extends Rip.' Aura pasiva con 4 procs distintos (uno por cada pareja mencionada), cada uno extiende la duración del DoT/HoT correspondiente unos segundos (valor real de Wowhead); si 4 procs en un mismo script es demasiado, puedes dividir en sub-casos dentro del mismo AuraScript con switch sobre el spell que impactó. Eclipse (cintura): 'Starfire increases the critical strike chance of your next two Wraths by X%, and Wrath reduces the cast time of your next Starfire by Y sec, both effects stacking up to Z charges.' Aura pasiva con proc doble (Starfire->buff a Wrath, Wrath->buff a Starfire), con aplicación de un SpellMod de crit chance o de cast time según cuál de los dos impacte; usa cargas acumulables (Charges en el aura). Starfall (espalda): 'You summon a flurry of stars from the sky over X sec, striking targets within Y yards of your location... Maximum 20 stars.' Es un hechizo ACTIVO de área con mecánica de 'summon' de proyectiles repetidos: si resulta demasiado complejo portar fielmente (lanzamiento periódico de múltiples proyectiles AoE), simplifícalo como un hechizo de daño en área con tick periódico simple (igual que un DoT de área ya existente en el core, p.ej. clona una plantilla de AreaAura con daño periódico) y documenta la simplificación en el informe y en TODO.md (sección 'Druida feral', nueva subsección 'Starfall'). Para TODAS: sigue el patrón de server/mod-sod-content/tools/sod_spells_druid.py (build(idx)) y su SQL hermano sod_druid_runes.sql; crea un .cpp por runa que necesite script (Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall — todas probablemente lo necesiten), declarados en spell_sod_druid.h y registrados en sod_content_loader.cpp. Añade traducciones en sod_spells_es.json y filas en docs/runas/obtencion.md. Ejecuta tools/sod-data/check_syntax.py al final y confirma 0 errores.",
+ "files": [
+  "server/mod-sod-content/tools/sod_spells_druid.py",
+  "server/mod-sod-content/tools/sod_spells_es.json",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_runes.sql",
+  "server/mod-sod-content/src/druid/spell_sod_druid_starsurge.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_efflorescence.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_elunes_fires.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_eclipse.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_starfall.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid.h",
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "server/mod-sod-content/conf/mod_sod_content.conf.dist",
+  "docs/runas/obtencion.md",
+  "TODO.md"
+ ],
+ "constraints": [
+  "Informe en castellano.",
+  "Identificadores de código en inglés.",
+  "Usa curl con el user-agent de Firefox indicado arriba para Wowhead; pausas de 2-3s entre peticiones.",
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No toques runas ya existentes del druida (7009001-7009020) ni de otra clase.",
+  "Starfall: si la mecánica real de múltiples proyectiles es demasiado compleja, simplifica a daño de área periódico simple y documenta la diferencia en TODO.md.",
+  "No ejecutes git ni agentrelay."
+ ],
+ "acceptanceCriteria": [
+  "Las 5 runas (rune_id 7009021 a 7009025) existen en sod_druid_runes.sql y sod_spells_druid.py con valores reales de Wowhead (o aproximados y anotados si no se encontraron).",
+  "Cada una tiene su script C++ registrado en el loader.",
+  "check_syntax.py da 0 errores.",
+  "docs/runas/obtencion.md tiene las 5 filas nuevas; TODO.md documenta cualquier simplificación (especialmente Starfall)."
+ ],
+ "validation": [
+  "python3 -c \"print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "tools/sod-client",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_requirements.sql"
+ ]
+}

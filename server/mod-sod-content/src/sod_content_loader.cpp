@@ -42,6 +42,9 @@ void AddSC_sod_druid_improved_frenzied_regeneration();
 void AddSC_sod_druid_improved_swipe();
 void AddSC_sod_druid_improved_barkskin();
 void AddSC_sod_druid_gale_winds();
+void AddSC_sod_druid_fury_of_stormrage();
+void AddSC_sod_druid_dreamstate();
+void AddSC_sod_druid_tree_of_life();
 void AddSC_sod_druid_requirements();
 
 // --- world (formerly mod-sod-world) ---
@@ -90,6 +93,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_improved_swipe();
     AddSC_sod_druid_improved_barkskin();
     AddSC_sod_druid_gale_winds();
+    AddSC_sod_druid_fury_of_stormrage();
+    AddSC_sod_druid_dreamstate();
+    AddSC_sod_druid_tree_of_life();
     AddSC_sod_druid_requirements();
 
 }

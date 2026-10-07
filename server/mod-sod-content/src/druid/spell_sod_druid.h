@@ -35,6 +35,14 @@ enum SodDruidSpells
     SPELL_SOD_DRUID_IMPROVED_FRENZIED_REGENERATION_FORM_PERMIT = 900016,
     SPELL_SOD_DRUID_IMPROVED_BARKSKIN = 431388,
     SPELL_SOD_DRUID_GALE_WINDS = 417135,
+    SPELL_SOD_DRUID_FURY_OF_STORMRAGE = 414799,
+    SPELL_SOD_DRUID_FURY_OF_STORMRAGE_BUFF = 900017,
+    SPELL_SOD_DRUID_DREAMSTATE = 408258,
+    SPELL_SOD_DRUID_DREAMSTATE_REGEN = 900018,
+    SPELL_SOD_DRUID_DREAMSTATE_MAGIC = 900019,
+    SPELL_SOD_DRUID_TREE_OF_LIFE = 439733,
+    SPELL_SOD_DRUID_TREE_OF_LIFE_BENEFITS = 900020,
+    SPELL_SOD_DRUID_TREE_OF_LIFE_PARTY_BUFF = 900021,
 };
 
 constexpr uint32 SPELL_DRUID_BARKSKIN = 22812;
@@ -51,6 +59,9 @@ constexpr uint32 SPELL_DRUID_WINDFURY_TOTEM_EFFECT = 8515;
 constexpr uint32 SPELL_DRUID_WINDFURY_ATTACK_MAINHAND = 25504;
 constexpr uint32 SPELL_DRUID_WINDFURY_ATTACK_OFFHAND = 33750;
 constexpr uint32 SPELL_DRUID_HURRICANE = 16914;
+constexpr uint32 SPELL_DRUID_WRATH = 5176;
+constexpr uint32 SPELL_DRUID_HEALING_TOUCH_FAMILY_MASK0 = 0x00000020;
+constexpr uint32 SPELL_DRUID_STARSURGE = 417157;
 
 inline uint32 SodDruidGaleWindsDamagePct()
 {
@@ -60,6 +71,66 @@ inline uint32 SodDruidGaleWindsDamagePct()
 inline uint32 SodDruidGaleWindsManaCostReductionPct()
 {
     return sConfigMgr->GetOption<uint32>("SodDruid.GaleWinds.ManaCostReductionPct", 30);
+}
+
+inline uint32 SodDruidFuryOfStormrageWrathCostReductionPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.FuryOfStormrage.WrathCostReductionPct", 100);
+}
+
+inline uint32 SodDruidFuryOfStormrageProcChance()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.FuryOfStormrage.ProcChance", 12);
+}
+
+inline uint32 SodDruidFuryOfStormrageBuffDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.FuryOfStormrage.BuffDurationSeconds", 15);
+}
+
+inline uint32 SodDruidDreamstateManaRegenPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Dreamstate.ManaRegenPct", 50);
+}
+
+inline uint32 SodDruidDreamstateManaRegenDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Dreamstate.ManaRegenDurationSeconds", 8);
+}
+
+inline uint32 SodDruidDreamstateDamageTakenPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Dreamstate.DamageTakenPct", 20);
+}
+
+inline uint32 SodDruidDreamstateDamageTakenDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.Dreamstate.DamageTakenDurationSeconds", 12);
+}
+
+inline float SodDruidTreeOfLifePartyRadiusYards()
+{
+    return sConfigMgr->GetOption<float>("SodDruid.TreeOfLife.PartyRadiusYards", 45.0f);
+}
+
+inline uint32 SodDruidTreeOfLifePartyBuffDurationMs()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.TreeOfLife.PartyBuffDurationMs", 2000);
+}
+
+inline uint32 SodDruidTreeOfLifePartyRefreshMs()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.TreeOfLife.PartyRefreshMs", 1000);
+}
+
+inline uint32 SodDruidTreeOfLifeHotManaCostReductionPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.TreeOfLife.HotManaCostReductionPct", 20);
+}
+
+inline uint32 SodDruidTreeOfLifeWildGrowthHealingPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodDruid.TreeOfLife.WildGrowthHealingPct", 60);
 }
 
 inline bool SodDruidEnabled()

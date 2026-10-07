@@ -1,0 +1,46 @@
+{
+ "objective": "Añadir 3 runas nuevas de druida (Balance y Restauración) con mecánica de proc: Fury of Stormrage, Dreamstate y Tree of Life, investigando primero los valores exactos en Wowhead.",
+ "effort": "high",
+ "context": "El druida feral de fase 1 ya está completo (14 runas) y hay un primer lote de Balance/Resto ya aceptado (Sunfire, Gale Winds, Living Seed, rune_id 7009015-7009017). Esta es la segunda tarea del mismo trabajo: 3 runas más complejas (tipo T, con probabilidad de proc), rune_id 7009018, 7009019, 7009020. AHORA TIENES ACCESO A INTERNET: antes de escribir código, consulta estas páginas de Wowhead (usa curl con user-agent 'Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/130.0' si usas peticiones HTTP directas, porque Wowhead bloquea otros user-agents con un 403 de CloudFront; con pausas de 2-3 segundos entre peticiones para no disparar el límite de tasa) para cada runa: 1) https://www.wowhead.com/classic/spell=414799 (Fury of Stormrage), 2) https://www.wowhead.com/classic/spell=408258 (Dreamstate) y sus dos auxiliares https://www.wowhead.com/classic/spell=408261 y https://www.wowhead.com/classic/spell=437132, 3) https://www.wowhead.com/classic/spell=439733 (Tree of Life) y su auxiliar https://www.wowhead.com/classic/spell=439745 y https://www.wowhead.com/classic/spell=439734. Extrae de cada uno: valores numéricos exactos (porcentajes, duraciones, radios), si es pasivo o con proc, y la lista de efectos. Descripciones base en inglés ya conocidas (puedes usarlas para contrastar lo que encuentres, no las copies ciegamente si Wowhead da valores distintos): Fury of Stormrage (pecho, SpellIcon aprox. 'spell_nature_wrath'): 'Reduces the mana cost of Wrath by X% and each time you deal damage with Wrath you have a Y% chance for your next cast of Healing Touch within Z sec to be instant and castable in any shapeshift form. Allows Wrath to be cast while in Tree of Life form.' Dreamstate (pies, slot_415450): 'Your damaging non-periodic spell critical strikes or any damage from Starsurge grant you X% of your mana regeneration while casting for Y sec and increase Arcane and Nature damage dealt to non-player targets by Z% for W sec.' Tree of Life (espalda, slot_417347): 'Shapeshift into the Tree of Life. While in this form you increase healing received by X% for all party members within Y yards, Wild Growth healing is increased by Z%, your heal over time spells cost W% less, you gain V% increased Spirit, you gain U% increased armor, and you cannot cast harmful spells. The act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.' IMPLEMENTACIÓN: sigue el patrón de server/mod-sod-content/tools/sod_spells_druid.py (función build(idx)) y su SQL hermano server/mod-sod-content/data/sql/db-world/base/sod_druid_runes.sql. Fury of Stormrage: aura pasiva con script C++ (nuevo archivo server/mod-sod-content/src/druid/spell_sod_druid_fury_of_stormrage.cpp, declarado en spell_sod_druid.h y registrado en sod_content_loader.cpp) con un SpellMod de reducción de coste de maná a Wrath (igual que hizo Gale Winds con Hurricane, mismo patrón de AuraScript con HandleSpellMod) y un DoCheckProc/OnEffectProc que, al golpear con Wrath, tenga la probabilidad de proc de conceder un buff temporal a Healing Touch (aura auxiliar propia, p.ej. rune_id de hechizo servidor en rango reservado, mira cómo Righteous Vengeance del paladín de hoy aplicaba un buff temporal si ese código sigue en el repo como referencia de patrón, aunque sea de otra clase). Dreamstate: similar, aura pasiva con proc en golpes críticos de hechizo, que aplica un buff temporal de regeneración de maná (puedes usar AURA_PERIODIC o un SpellMod simple si la mecánica real es demasiado compleja para portar 1:1; aproxima con sensatez y anótalo en el informe). Tree of Life: ESTO ES UNA FORMA DE SHAPESHIFT - es la más compleja. Si ves que requiere añadir un ShapeshiftFormID nuevo o tocar enums del core de forma invasiva, NO lo hagas así: en su lugar impleméntalo como una AURA PASIVA activable (como las demás runas) que simula el efecto sin cambiar de modelo (solo los bonos de curación/maná/stats listados), deja constancia en el informe de que es una aproximación sin cambio de forma visual, y documenta la diferencia real en TODO.md (archivo en la raíz del repo, sección 'Druida feral' ya existente, añade una subsección nueva 'Tree of Life' con la diferencia). Usa los valores numéricos que saques de Wowhead para todos los Effect_N/EffectBasePoints_N; si algún dato sigue sin estar disponible, usa una aproximación razonable y dilo en el informe. Añade las traducciones en server/mod-sod-content/tools/sod_spells_es.json y las filas en docs/runas/obtencion.md (estilo 'Compra al Grabador, provisional' como las demás). Ejecuta tools/sod-data/check_syntax.py al final y confirma 0 errores.",
+ "files": [
+  "server/mod-sod-content/tools/sod_spells_druid.py",
+  "server/mod-sod-content/tools/sod_spells_es.json",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_runes.sql",
+  "server/mod-sod-content/src/druid/spell_sod_druid_fury_of_stormrage.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_dreamstate.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid_tree_of_life.cpp",
+  "server/mod-sod-content/src/druid/spell_sod_druid.h",
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "server/mod-sod-content/conf/mod_sod_content.conf.dist",
+  "docs/runas/obtencion.md",
+  "TODO.md"
+ ],
+ "constraints": [
+  "Informe en castellano.",
+  "Identificadores de código en inglés.",
+  "Usa curl con el user-agent de Firefox indicado arriba para Wowhead; pausas de 2-3s entre peticiones.",
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No toques runas ya existentes del druida (7009001-7009017) ni de otra clase.",
+  "Tree of Life: NO toques enums del core ni añadas un shapeshift form nuevo; impléméntalo como aura pasiva aproximada y documenta la diferencia en TODO.md.",
+  "No ejecutes git ni agentrelay."
+ ],
+ "acceptanceCriteria": [
+  "Las 3 runas (rune_id 7009018, 7009019, 7009020) existen en sod_druid_runes.sql y sod_spells_druid.py con valores reales de Wowhead (o aproximados y anotados si no se encontraron).",
+  "Cada una tiene su script C++ propio registrado en el loader.",
+  "check_syntax.py da 0 errores.",
+  "docs/runas/obtencion.md tiene las 3 filas nuevas; TODO.md documenta la aproximación de Tree of Life."
+ ],
+ "validation": [
+  "python3 -c \"print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "tools/sod-client",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_requirements.sql"
+ ]
+}
