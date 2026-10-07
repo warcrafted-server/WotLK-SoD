@@ -33,7 +33,7 @@ def build(idx):
     icon_frenzied_regeneration = idx["icon"]["ability_bullrush"]
     icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
     icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
-    icon_sunfire = idx["icon"]["spell_nature_wrath"]
+    icon_sunfire = idx["icon"]["spell_nature_natureswrath"]
     icon_tree_of_life = idx["icon"]["spell_nature_rejuvenation"]
 
     return [

@@ -87,6 +87,15 @@ cerca de un Young Threshadon; o pescar en Costa Oscura (Darkshore) cerca de la r
 obtener «Golosinas de Cangrejo» (Crab Treats) y dárselas a los Jóvenes Cangrejos de Arrecife (Young
 Reef Crawlers) cercanos. Es más compleja que la fuente de Silverpine; no priorizar.
 
+### Starfall
+
+La runa 7009025 (hechizo SoD 439748, espalda) se simplifica como daño Arcano de área que pulsa cada
+segundo durante 10 s en un radio de 30 yardas; se conserva la curva de daño y su coeficiente
+periódico de 0,127. La versión real invoca hasta 20 estrellas que seleccionan objetivos y también
+dañan enemigos cercanos al impacto; el servidor no reproduce los proyectiles, el máximo de 20
+estrellas ni el daño de salpicadura de 5 yardas. Valores contrastados en la
+[ficha de Wowhead](https://www.wowhead.com/classic/spell=439748), consulta del 2026-10-07.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)
