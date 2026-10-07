@@ -99,46 +99,6 @@
   "407676": {
     "name": "Golpe de cruzado"
   },
-  "426157": {
-    "name": "El arte de la guerra",
-    "desc": "Tus golpes críticos cuerpo a cuerpo reducen $s2 s el tiempo de reutilización restante de Exorcismo, y el coste de maná de Exorcismo se reduce un $s1%."
-  },
-  "440672": {
-    "name": "Venganza recta",
-    "desc": "Cuando tu Sentencia, Golpe de cruzado o Tormenta divina infligen un golpe crítico, tu objetivo recibe un $s1% de daño extra durante $61840d."
-  },
-  "429152": {
-    "name": "Martillo de cólera mejorado",
-    "desc": "Martillo de cólera se lanza al instante, y su tiempo de reutilización se completa cada vez que inflige daño a un enemigo con menos de un $s1% de salud."
-  },
-  "429144": {
-    "name": "Poder purificador",
-    "desc": "Reduce el tiempo de reutilización de Exorcismo y de Cólera Sagrada un $s1%. Ahora se puede lanzar Cólera Sagrada contra cualquier objetivo y aturde a los objetivos no-muertos y demoníacos durante $429147d."
-  },
-  "429142": {
-    "name": "Fanatismo",
-    "desc": "Aumenta un $s1% tu probabilidad de golpe crítico con hechizos Sagrados. Además, tus hechizos de sanación crítica sanan al objetivo un $s2% de la cantidad sanada durante $426162d."
-  },
-  "429139": {
-    "name": "Cólera",
-    "desc": "Ahora, el daño infligido por tu Consagración puede convertirse en golpes críticos. Aumenta la probabilidad de golpe crítico de Exorcismo, Choque Sagrado, Luz solar, Cólera Sagrada y Consagración una cantidad equivalente a tu probabilidad de golpe crítico cuerpo a cuerpo."
-  },
-  "426162": {
-    "name": "Fanatismo",
-    "aura_desc": "Sana $w1 p. cada $t1 s."
-  },
-  "429145": {
-    "name": "Cólera Sagrada",
-    "desc": "Lanza unas descargas de poder Sagrado en todas direcciones que infligen $s1 p. de daño Sagrado a todos los objetivos en un radio de $a1 m y aturden a los objetivos no-muertos y demoníacos durante $429147d."
-  },
-  "429146": {
-    "name": "Cólera Sagrada",
-    "desc": "Lanza unas descargas de poder Sagrado en todas direcciones que infligen $s1 p. de daño Sagrado a todos los objetivos en un radio de $a1 m y aturden a los objetivos no-muertos y demoníacos durante $429147d."
-  },
-  "429147": {
-    "name": "Aturdir",
-    "aura_desc": "Aturdido."
-  },
   "408514": {
     "name": "Escudo de tierra"
   },

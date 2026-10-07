@@ -1,0 +1,38 @@
+{
+ "objective": "Retirar del árbol el trabajo de paladín añadido por error hoy (seis runas), guardando una copia para recuperarlo después.",
+ "effort": "high",
+ "context": "Reintento: el intento anterior (20261007-072711-9d55) falló porque .agents/ estaba montado en solo lectura en ese entorno y no pudo crear la copia; no tocó ningún archivo. Si vuelve a pasar lo mismo, usa /tmp/paladin_hoy/ en vez de .agents/cola/herramientas/paladin_hoy/ para la copia, dilo claramente en el informe (incluida la ruta exacta) y continúa con el resto de la tarea igualmente; el orquestador moverá la copia después. El usuario ha ordenado (otra vez) que NO se trabaje en ninguna otra clase hasta terminar el druida feral al 100 %. Por error se añadió código del PALADÍN (runas 7002005 The Art of War, 7002006 Righteous Vengeance, 7002007 Improved Hammer of Wrath, 7002008 Purifying Power, 7002009 Fanaticism, 7002010 Wrath; spells SoD 426157, 440672, 429152, 429144, 429142, 429139 y sus auxiliares) en el commit 823c71a y anteriores de hoy. TAREA: RETIRAR del árbol de trabajo todo lo añadido para esas seis runas, GUARDANDO antes una copia para recuperarla más adelante. Pasos: (1) Antes de borrar nada, crea el directorio .agents/cola/herramientas/paladin_hoy/ (o /tmp/paladin_hoy/ si el primero resulta de solo lectura) y copia ahí tal cual: todos los archivos de server/mod-sod-content/src/paladin/ (los que existan), y en un archivo paladin_hoy/RESTAURAR.md (castellano) la lista exacta de lo que retiras de cada archivo compartido (fragmentos de texto: líneas AddSC_ del loader, sección de conf, specs de sod_spells_paladin.py, filas de sod_paladin_runes.sql, entradas de sod_spells_es.json, filas de rune_engraving_locale_es.sql, archivos de cadenas del paladín si existen), con el texto literal de cada fragmento para poder reinsertarlo; (2) retira de server/mod-sod-content/src/sod_content_loader.cpp las declaraciones y llamadas AddSC_* de esas runas; borra server/mod-sod-content/src/paladin/ SOLO si todos sus archivos pertenecen a esas seis runas (si hay archivos de las runas anteriores del paladín —Divine Storm, Avenger's Shield, Aura Mastery, Crusader Strike, que son clones por datos y NO tienen C++— no los toques; lo normal es que el directorio entero sea de hoy); (3) quita de server/mod-sod-content/conf/mod_sod_content.conf.dist la sección del paladín (SodPaladin.*) añadida hoy; (4) quita de server/mod-sod-content/tools/sod_spells_paladin.py los specs añadidos hoy (los de los ids de arriba y auxiliares) y, si añadieron constantes o imports solo para ellos, también; deja intactos los 4 specs anteriores (407778, 407669, 407624, 407676); (5) quita de server/mod-sod-content/data/sql/db-world/base/sod_paladin_runes.sql las filas de rune_id 7002005 a 7002010 (deja las 7002001-7002004 y el patrón del archivo; ten en cuenta que en el SQL dinámico las comillas simples son cuatro); (6) quita las entradas de esos spell ids de server/mod-sod-content/tools/sod_spells_es.json y las filas de rune_id 7002005-7002010 de server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql; borra los archivos sod_paladin_strings.sql / sod_paladin_acquisition.sql / similares del paladín si existen y son de hoy; (7) regenera el SQL de hechizos: `cd /home/stark/Repos/acore-sod/tools/sod-client && python3 build_patch.py --server /home/stark/Repos/acore-test --client /home/stark/Repos/acore-sod/datos/cliente-sod --locale esES --dry-run` (si no puede escribir en acore-test por ser solo lectura, haz una copia temporal del módulo con la misma estructura y copia el SQL resultante a server/mod-sod-content/data/sql/db-world/base/sod_content_spell_dbc.sql: comprueba que el resultado ya no contiene filas ni spell_script_names de los ids retirados y que las filas del druida y del resto no cambian); (8) ejecuta `python3 tools/sod-data/check_syntax.py` hasta 0 errores. NO toques nada del druida, del mago, del cazador, del motor de runas ni de los demás módulos. NO ejecutes git ni agentrelay. Informe en castellano con la lista de lo retirado y de dónde quedó la copia.",
+ "files": [
+  "server/mod-sod-content/src/paladin/",
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "server/mod-sod-content/conf/mod_sod_content.conf.dist",
+  "server/mod-sod-content/tools/sod_spells_paladin.py",
+  "server/mod-sod-content/tools/sod_spells_es.json",
+  "server/mod-sod-content/data/sql/db-world/base/",
+  "server/mod-rune-engraving/data/sql/db-world/base/rune_engraving_locale_es.sql",
+  ".agents/cola/herramientas/paladin_hoy/"
+ ],
+ "constraints": [
+  "Informe en castellano.",
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No ejecutes git ni agentrelay; python3; sin red.",
+  "No toques el druida, el mago, el cazador ni el motor de runas.",
+  "No modifiques AGENTS.md ni docs/."
+ ],
+ "acceptanceCriteria": [
+  "Ninguna referencia a las seis runas del paladín queda en el código ni en los SQL, y la copia está en .agents/cola/herramientas/paladin_hoy/.",
+  "check_syntax.py da 0 errores."
+ ],
+ "validation": [
+  "python3 -c \"print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "docs",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "tools/sod-client"
+ ]
+}
