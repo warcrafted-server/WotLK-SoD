@@ -6,6 +6,10 @@ jugarlas ya; aquí se documenta la cadena real, verificada en Wowhead, para impl
 
 Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio en `CHANGELOG.md`.
 
+## Distribución de parches y addon
+
+Pendiente de que Marc indique repositorio y ruta: los parches de cliente (`patch-z.mpq`, `esES/patch-esES-z.mpq`) y el addon RuneEngraver irán a GitHub para que el launcher los descargue. Hasta entonces las copias están en `datos/parche-cliente/` (ignorado por git).
+
 ## Druida feral
 
 ### Tree of Life
