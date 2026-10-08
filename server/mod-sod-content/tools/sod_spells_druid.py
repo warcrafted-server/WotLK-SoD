@@ -35,6 +35,8 @@ def build(idx):
     icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
     icon_sunfire = idx["icon"]["spell_nature_natureswrath"]
     icon_tree_of_life = idx["icon"]["spell_nature_rejuvenation"]
+    icon_lifebloom = idx["icon"]["inv_misc_herb_felblossom"]
+    icon_nourish = idx["icon"]["ability_druid_nourish"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -50,6 +52,26 @@ def build(idx):
                 "SpellLevel": 0,
                 "ManaCostPct": 45,
             },
+        },
+        {  # Lifebloom conserva la sanación final y el retorno de maná del core.
+            "id": 408124, "client": True, "template": 48451,
+            "skill_line": SKILL_RESTORATION,
+            "name": "Lifebloom", "script": "spell_dru_lifebloom",
+            "inherit_server": True,
+            "desc": "Heals the target over $d. When Lifebloom ends or is dispelled, "
+                    "it heals the target again and restores half the spell's mana cost. "
+                    "Stacks up to $u times.",
+            "overrides": {"SpellLevel": 0, "SpellIconID": icon_lifebloom},
+        },
+        {  # Nourish mantiene la sanación y los efectos de glifo implementados por el core.
+            "id": 408247, "client": True, "template": 50464,
+            "skill_line": SKILL_RESTORATION,
+            "name": "Nourish", "script": "spell_dru_nourish",
+            "inherit_server": True,
+            "desc": "Heals a friendly target. Healing is increased by 20% if the target "
+                    "has Rejuvenation, Regrowth, Lifebloom, or Wild Growth. Benefits from "
+                    "and triggers effects of Healing Touch and Regrowth.",
+            "overrides": {"SpellLevel": 0, "SpellIconID": icon_nourish},
         },
         {  # Lacerate: retain rank-3 damage and its WotLK attack-power coefficient.
             "id": 414644, "client": True, "template": 48568,

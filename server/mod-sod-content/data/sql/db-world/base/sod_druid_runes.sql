@@ -86,6 +86,12 @@ SET @sql := IF(@rune_tbl > 0,
     ''mod-sod-druid'', 1),
     (7009025, 439748, 1024, 8, ''Starfall'', ''spell_arcane_starfall'',
     ''Deals Arcane area damage every second for 10 sec. Costs 39% of base mana and has a 90 sec cooldown; simplified without individual stars or splash damage.'',
+    ''mod-sod-druid'', 1),
+    (7009026, 408124, 1024, 256, ''Lifebloom'', ''inv_misc_herb_felblossom'',
+    ''Heals the target over time. When Lifebloom ends or is dispelled, it heals the target and restores half the mana cost. Stacks up to 3 times.'',
+    ''mod-sod-druid'', 1),
+    (7009027, 408247, 1024, 128, ''Nourish'', ''ability_druid_nourish'',
+    ''Heals a friendly target for 20% more if it has Rejuvenation, Regrowth, Lifebloom, or Wild Growth. Benefits from and triggers Healing Touch and Regrowth effects.'',
     ''mod-sod-druid'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

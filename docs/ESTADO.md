@@ -1,7 +1,7 @@
 # Estado del proyecto
 
 **Mantén este archivo al día con cada cambio relevante, no al final de la tarea.** Es lo primero que
-lee una sesión nueva. Última actualización: **2026-10-06**.
+lee una sesión nueva. Última actualización: **2026-10-08**.
 
 ## 0. Trabajo en curso y cómo reanudarlo (2026-10-07)
 
@@ -29,6 +29,7 @@ porque Wowhead usa páginas dinámicas que `WebFetch` no renderiza (sin herramie
 mejor documentado sin implementar que inventado. Gore sí tiene su fuente real documentada en
 `docs/runas/obtencion.md` (4 intendentes, verificados en wago.tools), aunque esos NPC no existen todavía en
 el mundo. **Falta compilar y probar en juego** (nunca se ha hecho con este código).
+Lifebloom `7009026` y Nourish `7009027` ya tienen specs, SQL y venta en el Grabador; la fuente real de SoD no está verificada. Sin compilar ni probar.
 Las demás clases (paladín 2, chamán, brujo) están `descartadas` en la cola hasta terminar el feral (el paladín 1 se ejecutó
 por error; su código existe y pasa la sintaxis). Handoff completo en la memoria del proyecto (`handoff.md`).
 

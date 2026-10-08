@@ -2,6 +2,10 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-08
+
+- Añade las runas de druida Lifebloom `7009026` y Nourish `7009027`, con venta en el Grabador y textos oficiales resumidos en español. Sin compilar ni probar en juego.
+
 ## 2026-10-05 (sesión de continuación)
 
 - Generador de cliente en Linux: `tools/sod-client/stormlib_shim.py` (ctypes sobre `libstorm`) y rutas

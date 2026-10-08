@@ -11,6 +11,28 @@ REPLACE INTO `item_template`
      `maxcount`, `stackable`, `bonding`, `Material`, `sheath`,
      `spellid_1`, `spelltrigger_1`, `ScriptName`, `description`)
 VALUES
+    (7009026, 15, 0, 'Rune of Lifebloom', 1102, 2, 0, 1, 10000, 0, 0,
+     1024, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock',
+     'Teaches you a new Engraving ability.'),
+    (7009027, 15, 0, 'Rune of Nourish', 1102, 2, 0, 1, 10000, 0, 0,
+     1024, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock',
+     'Teaches you a new Engraving ability.');
+
+REPLACE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES
+    (7009026, 'esES', 'Runa de Flor de vida', 'Te enseña una nueva facultad de grabado.', 0),
+    (7009027, 'esES', 'Runa de Nutrir', 'Te enseña una nueva facultad de grabado.', 0);
+
+REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+    (700000, 0, 7009026, 0, 0, 0),
+    (700000, 0, 7009027, 0, 0, 0);
+
+REPLACE INTO `item_template`
+    (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `Flags`,
+     `BuyCount`, `BuyPrice`, `SellPrice`, `InventoryType`,
+     `AllowableClass`, `AllowableRace`, `ItemLevel`, `RequiredLevel`,
+     `maxcount`, `stackable`, `bonding`, `Material`, `sheath`,
+     `spellid_1`, `spelltrigger_1`, `ScriptName`, `description`)
+VALUES
     (206954, 15, 0, 'Idol of Ursine Rage', 1102, 2, 0, 1, 10000, 0, 0,
      1024, -1, 10, 1,
      1, 1, 1, 1, 0,
@@ -185,6 +207,12 @@ SET @item_unlock_tbl := (SELECT COUNT(*) FROM information_schema.tables
                          WHERE table_schema = DATABASE() AND table_name = 'rune_item_unlock');
 SET @sql := IF(@item_unlock_tbl > 0,
 'INSERT INTO `rune_item_unlock` (`item_id`, `rune_id`) VALUES (206954, 7009007), (206992, 7009011), (208687, 7009003), (208689, 7009004), (210137, 7009001), (210534, 7009009), (210817, 7009002), (213117, 7009005), (213118, 7009010), (213119, 7009006), (221516, 7009012), (221517, 7009008), (227444, 7009013) ON DUPLICATE KEY UPDATE `rune_id` = VALUES(`rune_id`)',
+'DO 0');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+SET @sql := IF(@item_unlock_tbl > 0,
+'INSERT INTO `rune_item_unlock` (`item_id`, `rune_id`) VALUES (7009026, 7009026), (7009027, 7009027) ON DUPLICATE KEY UPDATE `rune_id` = VALUES(`rune_id`)',
 'DO 0');
 PREPARE stmt FROM @sql;
 EXECUTE stmt;

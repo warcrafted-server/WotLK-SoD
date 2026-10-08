@@ -108,6 +108,14 @@
   "408120": {
     "name": "Crecimiento salvaje"
   },
+  "408124": {
+    "name": "Flor de vida",
+    "desc": "Sana al objetivo durante $d. Al terminar Flor de vida o disiparse, vuelve a sanarlo y el druida recupera la mitad del coste de maná. Se acumula hasta $u veces."
+  },
+  "408247": {
+    "name": "Nutrir",
+    "desc": "Sana a un objetivo amistoso. La sanación aumenta un 20% si tiene Rejuvenecimiento, Recrecimiento, Flor de vida o Crecimiento salvaje. Se beneficia de los efectos de Toque de sanación y Recrecimiento y también los activa."
+  },
   "414644": {
     "name": "Lacerar"
   },

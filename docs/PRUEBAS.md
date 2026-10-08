@@ -76,6 +76,8 @@ Las runas siguientes se han cotejado con `sod_druid_runes.sql`; todas están **s
 - [ ] Elune's Fires — `7009023`, Muñecas (5).
 - [ ] Eclipse — `7009024`, Cintura (7).
 - [ ] Starfall — `7009025`, Espalda (3).
+- [ ] Lifebloom — `7009026`, Piernas (8); icono y texto, sanación periódica, sanación final y retorno de maná. Sin compilar ni probar.
+- [ ] Nourish — `7009027`, Cintura (7); icono y texto, sanación y efectos de hechizos del core. Sin compilar ni probar.
 
 ## Qué hay que recompilar y qué no
 

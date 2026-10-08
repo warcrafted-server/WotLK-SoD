@@ -1,6 +1,6 @@
 # Cómo se consiguen las runas
 
-Estado a 2026-10-06. **En este servidor solo las 8 runas de mago de abajo tienen adquisición por el mundo, y reproducen la de SoD con los objetos reales.** El resto de runas implementadas no tienen ninguna: cualquier personaje de la clase puede grabarlas (el grabador comprueba clase, ranura y prerrequisito de nivel, pero no que se hayan descubierto). Es provisional, para poder probarlas; en SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento).
+Estado a 2026-10-08. Las ocho runas de mago indicadas reproducen la adquisición de mundo de SoD con objetos reales. Las filas restantes describen la adquisición implementada o provisional; Lifebloom y Nourish se desbloquean con objetos comprados al Grabador. En SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento), pero muchas fuentes aún no se han verificado.
 
 La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que usa este servidor: `https://www.wowhead.com/classic/spell=<id>` muestra el hechizo y, en su pestaña, qué objeto lo enseña y dónde se consigue. **La fuente de SoD real no está en los datos que tenemos (wago.tools no trae tablas de botín ni de misiones): hay que consultarla en Wowhead, y no la he verificado runa a runa.**
 
@@ -53,3 +53,5 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7009023 | Druida | Elune's Fires | Muñecas | 414719 | Compra provisional al Grabador (1 oro). Fuente real: Rune of the Moon Goddess (221020), vinculada a Elune's Favor (446288) y vendida por Rune Brokers. | [spell=414719](https://www.wowhead.com/classic/spell=414719) |
 | 7009024 | Druida | Eclipse | Cintura | 408248 | Compra provisional al Grabador (1 oro). Fuente real: Rune of Eclipse (212548), que también puede caer de Jewel-Encrusted Box (212553), y venta por Rune Brokers a cambio de un componente. | [spell=408248](https://www.wowhead.com/classic/spell=408248) |
 | 7009025 | Druida | Starfall | Espalda | 439748 | Compra provisional al Grabador (1 oro). Fuente real: Rune of the Falling Star (227749), botín de Arcterris (228814), y venta por Rune Brokers. | [spell=439748](https://www.wowhead.com/classic/spell=439748) |
+| 7009026 | Druida | Lifebloom | Piernas | 408124 | Compra «Rune of Lifebloom» (7009026) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=408124](https://www.wowhead.com/classic/spell=408124) |
+| 7009027 | Druida | Nourish | Cintura | 408247 | Compra «Rune of Nourish» (7009027) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=408247](https://www.wowhead.com/classic/spell=408247) |
