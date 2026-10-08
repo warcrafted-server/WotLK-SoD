@@ -146,6 +146,21 @@ no pasan por este repositorio. Los módulos se compilan enlazándolos en `core/m
 línea ahí es una línea que reconciliar en cada fusión con Playerbots. Las firmas del core no son
 las del AzerothCore oficial: comprueba siempre contra `core/`.
 
+### 3.4. Entrega de parches de cliente al launcher
+
+Cada parche de cliente nuevo va en una carpeta nueva `datos/parche-cliente/AAAAMMDD-<sufijo>/`
+(nunca se modifica una ya existente) con esta estructura exacta:
+
+- `patch-z.mpq`
+- `esES/patch-esES-z.mpq`
+- `RuneEngraver/` — siempre, aunque no haya cambiado
+- `LEEME.txt` — qué cambia
+
+Cuando la carpeta esté completa, crea dentro un archivo vacío `LISTO` y ejecuta
+`~/Repos/launcher/scripts/publicar-parches.sh`. Ese script (propiedad del repo del launcher) sube
+lo que haya cambiado a GitHub, firma el manifest y lo publica; si nada cambió, no hace nada. No
+edites nada del repo del launcher desde aquí: si el script falla, informa del error al usuario.
+
 ### 4. Legalidad y procedencia
 
 - Solo se usa código de proyectos con licencia compatible (GPL/AGPL) y se respeta y documenta
