@@ -32,12 +32,18 @@ def build(idx):
     duration_15s = idx["dur"][15000]
     duration_2s = idx["dur"][2000]
     duration_60s = idx["dur"][60000]
+    duration_3s = idx["dur"][3000]
+    duration_60m = idx["dur"][3600000]
     range_self = idx["range"][0.0]
+    range_5 = idx["range"][5.0]
+    range_40 = idx["range"][40.0]
     icon_hammer_of_wrath = idx["icon"]["ability_thunderclap"]
     icon_holy_wrath = idx["icon"]["spell_holy_excorcism"]
     icon_fanaticism = idx["icon"]["spell_holy_greaterheal"]
     icon_wrath = idx["icon"]["ability_paladin_sanctifiedwrath"]
     icon_sanctuary = idx["icon"]["spell_nature_lightningshield"]
+    icon_sheath_of_light = idx["icon"]["ability_paladin_sheathoflight"]
+    icon_rebuke = idx["icon"]["ability_paladin_judgementred"]
 
     return [
         {  # Divine Storm: the core script handles the party heal.
@@ -526,7 +532,7 @@ def build(idx):
             "overrides": {
                 "Attributes": SPELL_ATTR0_PASSIVE,
                 "DurationIndex": duration_permanent,
-                "SpellIconID": icon_art_of_war,
+                "SpellIconID": icon_sheath_of_light,
                 "SpellLevel": 0, "EquippedItemClass": -1,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
                 "EffectBasePoints_1": 30, "EffectDieSides_1": 0,
@@ -552,7 +558,7 @@ def build(idx):
             "overrides": {
                 "Attributes": SPELL_ATTR0_PASSIVE,
                 "DurationIndex": duration_60s,
-                "SpellIconID": icon_art_of_war,
+                "SpellIconID": icon_sheath_of_light,
                 "SpellLevel": 0, "EquippedItemClass": -1,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_DAMAGE_DONE,
                 "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
@@ -686,6 +692,139 @@ def build(idx):
                 "AttributesMask": 2, "DisableEffectsMask": 0,
                 "ProcsPerMinute": 0, "Chance": 100,
                 "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Señal de la Luz: delega en el aura original para conservar los scripts fijos del core.
+            "id": 407613, "client": True, "template": 53563,
+            "skill_line": SKILL_HOLY,
+            "name": "Beacon of Light", "script": "spell_sod_paladin_beacon_of_light",
+            "inherit_server": True,
+            "desc": "The target becomes a Beacon of Light to party or raid members within 40 yards. Healing your party or raid also heals the Beacon for $s1% of the amount healed. Only one target can be the Beacon at a time. Lasts $d.",
+            "overrides": {
+                "Attributes": 0, "CastingTimeIndex": cast_instant,
+                "DurationIndex": duration_60m, "RangeIndex": range_40,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 7,
+                "SchoolMask": 2, "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_DUMMY, "EffectAura_1": 0,
+                "EffectBasePoints_1": 74, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
+                "Effect_2": 0, "EffectAura_2": 0,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "EffectBasePoints_3": 0, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Martillo del honrado conserva el talento de WotLK y fija coste y reutilización de SoD.
+            "id": 407632, "client": True, "template": 53595,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Hammer of the Righteous", "inherit_server": True,
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "RecoveryTime": 6000,
+                "ManaCostPct": 6,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Escudo de rectitud conserva el daño por bloqueo del rango 2 de WotLK.
+            "id": 440658, "client": True, "template": 61411,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Shield of Righteousness", "inherit_server": True,
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "RecoveryTime": 6000,
+                "ManaCostPct": 6,
+                "EffectBasePoints_1": 178,
+                "SpellLevel": 0,
+            },
+        },
+        {  # Luz divina conserva los modificadores de Luz Sagrada y añade el proc del escudo.
+            "id": 458856, "client": True, "template": 48782,
+            "skill_line": SKILL_HOLY,
+            "name": "Divine Light", "script": "spell_sod_paladin_divine_light",
+            "inherit_server": True,
+            "desc": "Heals a friendly target for $m1 to $M1. $s2% of any excess healing becomes an absorption shield for $458857d. Multiple casts do not accumulate this shield. Benefits from all talents and effects that trigger from or modify Holy Light.",
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "RecoveryTime": 8000,
+                "ManaCostPct": 61,
+                "SpellLevel": 0,
+                "Effect_2": EFFECT_DUMMY,
+                "EffectBasePoints_2": 49, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ALLY,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Escudo auxiliar de Luz divina: absorbe daño durante 15 s.
+            "id": 458857, "client": True, "template": 43039,
+            "name": "Divine Light", "aura_desc": "Absorbs $s1 damage.",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "DurationIndex": duration_15s,
+                "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SchoolMask": 2, "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 69,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 127,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
+                "Effect_2": 0, "EffectAura_2": 0,
+                "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "ImplicitTargetA_3": 0,
+            },
+            "bonus": {"direct": 0.0, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
+        },
+        {  # Aura interna temporal que observa la sanación de Luz divina.
+            "id": 900025, "client": False, "template": 774,
+            "name": "Divine Light",
+            "script": "spell_sod_paladin_divine_light_watch",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "DurationIndex": duration_3s,
+                "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SchoolMask": 2, "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0,
+                "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "ImplicitTargetA_3": 0,
+                "ProcTypeMask": PROC_DONE_MAGIC_POS,
+                "ProcChance": 100, "ProcCharges": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_DONE_MAGIC_POS,
+                "SpellTypeMask": 2, "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Reprimenda reutiliza la interrupción de Patada y ajusta escuela, coste y duración.
+            "id": 425609, "client": True, "template": 1766,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Rebuke", "inherit_server": True,
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "RecoveryTime": 15000,
+                "DurationIndex": duration_3s,
+                "RangeIndex": range_5,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 10,
+                "SchoolMask": 2,
+                "SpellLevel": 0,
+                # Sin la familia, categoría ni icono de Patada (pícaro).
+                "Category": 0, "SpellClassSet": 10, "SpellClassMask_1": 0,
+                "SpellIconID": icon_rebuke,
             },
         },
     ]

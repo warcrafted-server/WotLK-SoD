@@ -57,6 +57,11 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Guarded by the Light `7002016`, Pies (9): los impactos cuerpo a cuerpo renuevan 15 s; comprobar el 5 % de maná máximo cada 3 s y la reducción de sanación del 50 %.
 - [ ] Shock and Awe `7002017`, Espalda (3): sin Furia justa, el daño de Choque Sagrado da daño con hechizos igual al 200 % del intelecto y reduce la amenaza un 30 % durante 1 min. Si Infusion of Light está grabada, Sunlight aún no está implementada (ver `TODO.md`).
 - [ ] Hallowed Ground `7002018`, Pecho (4): Consagración sana a los miembros del grupo dentro de su área por el 200 % del daño de cada pulso; comprobar objetivos múltiples y miembros fuera del área.
+- [ ] Beacon of Light `7002019`, Manos (6): marca a un aliado (60 min, uno solo a la vez); tus curaciones a otros miembros del grupo le curan un 75 %.
+- [ ] Hammer of the Righteous `7002020`, Muñecas (5): golpea al objetivo y a 2 cercanos con daño Sagrado; 6 s de enfriamiento, coste 6 %.
+- [ ] Shield of Righteousness `7002021`, Espalda (3): daño Sagrado según el valor de bloqueo + 179; 6 s de enfriamiento.
+- [ ] Divine Light `7002022`, Espalda (3): curación grande (61 % de maná base, 8 s de enfriamiento); el 50 % de la sobrecuración queda como escudo de absorción 15 s; comprobar que se beneficia de talentos de Luz Sagrada.
+- [ ] Rebuke `7002023`, Piernas (8): interrumpe y bloquea la escuela 3 s, cuerpo a cuerpo, 15 s de enfriamiento, coste 10 % de maná (no energía).
 
 ### Druida feral
 

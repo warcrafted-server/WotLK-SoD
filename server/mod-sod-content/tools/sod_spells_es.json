@@ -167,6 +167,30 @@
     "name": "Suelo sacralizado",
     "desc": "Tu Consagración también sana a los miembros del grupo que están dentro de su zona un $s1% del daño de Consagración."
   },
+  "407613": {
+    "name": "Señal de la Luz",
+    "desc": "El objetivo se convierte en una Señal de la Luz para los miembros de tu grupo o banda en un radio de 40 m. La sanación que lances sobre los miembros de tu grupo o banda también sanará a la señal un 75% de la cantidad sanada. Solo un objetivo puede ser la Señal de la Luz cada vez. Dura $d."
+  },
+  "407632": {
+    "name": "Martillo del honrado",
+    "desc": "Da un martillazo al objetivo actual y hasta a 2 objetivos cercanos más, e inflige cuatro veces el daño por segundo de tu mano derecha como daño Sagrado."
+  },
+  "440658": {
+    "name": "Escudo de rectitud",
+    "desc": "Embistes al objetivo con tu escudo e infliges daño Sagrado basado en tu valor de bloqueo más 179 p."
+  },
+  "458856": {
+    "name": "Luz divina",
+    "desc": "Sana a un objetivo amistoso entre $m1 y $M1 p. Un $s2% de cualquier exceso de sanación se convierte en un escudo de absorción que dura $458857d. Varios lanzamientos no acumulan este escudo. Se beneficia de todos los talentos y efectos que se activan con Luz Sagrada o la modifican."
+  },
+  "458857": {
+    "name": "Luz divina",
+    "aura_desc": "Absorbe $s1 p. de daño."
+  },
+  "425609": {
+    "name": "Reprimenda",
+    "desc": "Interrumpe el lanzamiento de hechizos e impide lanzar hechizos de esa misma escuela durante 3 s."
+  },
   "426162": {
     "name": "Fanatismo",
     "aura_desc": "Sana $w1 p. cada $t1 s."

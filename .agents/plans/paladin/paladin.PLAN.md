@@ -24,7 +24,7 @@ El paladín es la siguiente en la cola. Estado de partida (commit `eeb72d6`): 10
 |---|---|---|---|---|
 | 1 | 7002011–7002014 | Infusion of Light (Cintura), Light's Grace (Muñecas), Improved Sanctuary (Cabeza), Aegis (Pecho) | medium | hecho (Improved Sanctuary sin efecto, ver TODO) |
 | 2 | 7002015–7002018 | Sheath of Light (Cintura), Guarded by the Light (Pies), Shock and Awe (Espalda), Hallowed Ground (Pecho) | high | hecho |
-| 3 | 7002019–7002023 | Beacon of Light (Manos), Hammer of the Righteous (Muñecas), Shield of Righteousness (Espalda), Divine Light (Espalda), Rebuke (Piernas) | high | pendiente |
+| 3 | 7002019–7002023 | Beacon of Light (Manos), Hammer of the Righteous (Muñecas), Shield of Righteousness (Espalda), Divine Light (Espalda), Rebuke (Piernas) | high | hecho |
 | 4 | 7002024–7002027 | Sacred Shield (Pies), Inspiration Exemplar (Piernas), Hand of Reckoning (Manos), Malleable Protection (Cintura) | high | pendiente |
 | 5 | — | Adquisición de los objetos-runa del paladín (venta en el Grabador y botín real de `docs/runas/fuentes-sod.json`), como `sod_druid_acquisition.sql` | medium | pendiente |
 

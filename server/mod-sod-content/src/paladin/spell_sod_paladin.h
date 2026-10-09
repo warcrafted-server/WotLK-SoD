@@ -38,6 +38,11 @@ enum SodPaladinSpells
     SPELL_SOD_PALADIN_SHOCK_AND_AWE = 462834,
     SPELL_SOD_PALADIN_SHOCK_AND_AWE_BUFF = 462832,
     SPELL_SOD_PALADIN_HALLOWED_GROUND = 458287,
+    SPELL_SOD_PALADIN_BEACON_OF_LIGHT = 407613,
+    SPELL_PALADIN_BEACON_OF_LIGHT_AURA = 53563,
+    SPELL_SOD_PALADIN_DIVINE_LIGHT = 458856,
+    SPELL_SOD_PALADIN_DIVINE_LIGHT_SHIELD = 458857,
+    SPELL_SOD_PALADIN_DIVINE_LIGHT_WATCH = 900025,
     SPELL_PALADIN_RIGHTEOUS_FURY = 25780,
 };
 
@@ -45,6 +50,8 @@ void AddSC_sod_paladin_sheath_of_light();
 void AddSC_sod_paladin_guarded_by_the_light();
 void AddSC_sod_paladin_shock_and_awe();
 void AddSC_sod_paladin_hallowed_ground();
+void AddSC_sod_paladin_beacon_of_light();
+void AddSC_sod_paladin_divine_light();
 
 constexpr uint32 SPELL_PALADIN_REDOUBT_RANKS[] = { 20127, 20130, 20135 };
 constexpr uint32 SPELL_PALADIN_REDOUBT_PROC_RANKS[] = { 20128, 20131, 20132 };
@@ -181,6 +188,26 @@ inline uint32 SodPaladinShockAndAweDurationSeconds()
 inline uint32 SodPaladinHallowedGroundHealingPct()
 {
     return sConfigMgr->GetOption<uint32>("SodPaladin.HallowedGround.HealingPct", 200);
+}
+
+inline uint32 SodPaladinBeaconOfLightHealingPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.BeaconOfLight.HealingPct", 75);
+}
+
+inline uint32 SodPaladinBeaconOfLightDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.BeaconOfLight.DurationSeconds", 3600);
+}
+
+inline uint32 SodPaladinDivineLightOverhealShieldPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.DivineLight.OverhealShieldPct", 50);
+}
+
+inline uint32 SodPaladinDivineLightShieldDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.DivineLight.ShieldDurationSeconds", 15);
 }
 
 #endif // MODULE_SOD_PALADIN_H

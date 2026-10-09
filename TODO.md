@@ -118,7 +118,7 @@ simplificaciones:
 - **Aegis** dispara los rangos de proc de Redoubt y Reckoning existentes en WotLK. No se ha
   hecho una compilación real ni probado en juego la interacción con los rangos de talentos.
 
-Las runas 7002015–7002018 están implementadas, pendientes de compilación real y prueba en juego.
+Las runas 7002015–7002023 están implementadas, pendientes de compilación real y prueba en juego.
 Simplificaciones:
 
 - **Sheath of Light:** reutiliza el aura de daño con hechizos, actualizada con el 30 % del poder de
@@ -138,6 +138,21 @@ Simplificaciones:
   probado que el evento informe el daño final deseado ni la interacción con varios enemigos.
   Consagración tiene radio de 8 yardas según la [ficha del rango 8 en Wowhead](https://www.wowhead.com/wotlk/spell=48819/consecration)
   (consulta del 2026-10-09); el código usa el radio del objeto de área dinámica.
+- **Beacon of Light:** el script del módulo lanza el aura original de WotLK (53563), porque el
+  proc del core busca ese id y los auxiliares 53651–53654. Se conserva la transferencia de sanación
+  del core, con el porcentaje y la duración de SoD. No se ha comprobado en juego qué hechizos de
+  sanación adicionales al Holy Light, Flash of Light y Holy Shock reciben una copia adecuada.
+- **Divine Light:** conserva las interacciones de Holy Light al clonar el rango 13 de WotLK. Un aura
+  temporal detecta la sanación efectiva y crea el escudo 458857 con el 50 % de la sanación excesiva;
+  cada escudo nuevo sustituye al anterior. El escudo dura 15 s según la ficha de
+  [Divine Light](https://www.wowhead.com/classic/spell=458856) y su
+  [aura](https://www.wowhead.com/classic/spell=458857), consultadas el 2026-10-09.
+- **Hammer of the Righteous:** conserva el efecto del talento de WotLK 53595; no se ha probado en
+  juego que el número de objetivos y el daño por segundo coincidan con SoD.
+- **Shield of Righteousness:** conserva el daño basado en el valor de bloqueo del rango 2 de WotLK y
+  fija el daño plano adicional en 179. No se ha probado en juego el escalado del daño por bloqueo.
+- **Rebuke:** reutiliza la interrupción de Kick (1766), con escuela Sagrada, coste de maná del 10 %,
+  reutilización de 15 s y bloqueo de escuela durante 3 s. No se ha probado en juego.
 
 ## Otras clases
 

@@ -509,3 +509,21 @@ SodPaladin.ShockAndAwe.DurationSeconds = 60
 #
 
 SodPaladin.HallowedGround.HealingPct = 200
+
+#
+#    SodPaladin.BeaconOfLight.*
+#        Porcentaje de transferencia de sanación y duración del aura.
+#        Valores predeterminados: 75 %, 3600 s
+#
+
+SodPaladin.BeaconOfLight.HealingPct = 75
+SodPaladin.BeaconOfLight.DurationSeconds = 3600
+
+#
+#    SodPaladin.DivineLight.*
+#        Porcentaje de la sanación excesiva que crea el escudo y su duración.
+#        Valores predeterminados: 50 %, 15 s
+#
+
+SodPaladin.DivineLight.OverhealShieldPct = 50
+SodPaladin.DivineLight.ShieldDurationSeconds = 15
