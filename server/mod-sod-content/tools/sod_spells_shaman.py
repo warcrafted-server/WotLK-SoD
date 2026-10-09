@@ -353,6 +353,7 @@ def build(idx):
             "name": "Molten Blast",
             "desc": "Blast up to $i enemies in a cone in front of you for ${$<damagepower>*$m1/100+$m2/100*$AP} to ${$<damagepower>*$M1/100+$m2/100*$AP} Fire damage. This ability generates a high amount of threat. Flame Shock periodic damage has a 10% chance to reset the cooldown on Molten Blast.",
             "bonus": {"direct": 0.143, "dot": 0.0, "ap": 0.05, "ap_dot": 0.0},
+            "bonus": {"direct": 0.143, "dot": 0, "ap": 0, "ap_dot": 0},
             "overrides": {
                 "SpellClassSet": 11,
                 "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
@@ -360,10 +361,9 @@ def build(idx):
                 "SchoolMask": 4, "SpellLevel": 0, "EquippedItemClass": -1,
                 "PowerType": 0, "ManaCost": 0, "ManaCostPct": 18,
                 "RecoveryTime": 6000, "CategoryRecoveryTime": 0,
-                "MaxAffectedTargets": 10,
+                "MaxTargets": 10,
                 "Effect_1": EFFECT_SCHOOL_DAMAGE, "EffectBasePoints_1": 71,
                 "EffectDieSides_1": 37,
-                "EffectBonusCoefficient_1": 0.143,
                 "EffectRadiusIndex_1": 13,  # 10 yd, según la ficha de SoD.
                 "ImplicitTargetA_1": 24, "ImplicitTargetB_1": 0,
                 "Effect_2": EFFECT_DUMMY, "EffectBasePoints_2": 5,
@@ -468,7 +468,7 @@ def build(idx):
              "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
              "DurationIndex": idx["dur"][15000], "RangeIndex": idx["range"][0.0],
              "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0, "SpellLevel": 0,
-             "StackAmount": 5, "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 22,
+             "CumulativeAura": 5, "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 22,
              "EffectBasePoints_1": 0, "EffectMiscValue_1": 1,
              "ImplicitTargetA_1": TARGET_UNIT_CASTER,
              "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,

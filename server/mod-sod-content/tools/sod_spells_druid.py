@@ -944,7 +944,7 @@ def build(idx):
                 "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][15000],
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": SCHOOL_MASK_ARCANE,
-                "SpellLevel": 0, "StackAmount": 4,
+                "SpellLevel": 0, "CumulativeAura": 4,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
                 "EffectBasePoints_1": 29, "EffectMiscValue_1": 7,
                 "ImplicitTargetA_1": TARGET_UNIT_CASTER,

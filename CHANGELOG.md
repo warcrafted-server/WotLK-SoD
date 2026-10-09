@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-09
 
+- Corregido: el generador descarta en silencio las claves de `overrides` que no son columnas de `spell_dbc`. `StackAmount` (columna real `CumulativeAura`) se perdía, así que el beneficio de Eclipse del druida (900023) no se acumulaba; arreglado en druida y chamán. El coeficiente de Molten Blast pasa a `spell_bonus_data`. SQL de hechizos regenerado.
 - Chamán: runas Ancestral Guidance `7007014`, Greater Ghost Wolf `7007015`, Way of Earth `7007016` y Molten Blast `7007017` (paso 3). Limitaciones documentadas en `TODO.md`: Lobo fantasmal sigue sin poder usarse en interiores (exige cambiar el hechizo 2645 en core y cliente) y Molten Blast sin amenaza extra (sin valor verificable). Sin compilar ni probar.
 - Chamán: runas Dual Wield Specialization `7007009`, Overload `7007010`, Shield Mastery `7007011`, Two-Handed Mastery `7007012` y Healing Rain `7007013` (paso 2). Corregido en la revisión: Dual Wield Specialization añadía un golpe extra a Golpe de tormenta (que en WotLK ya golpea con ambas armas); las copias de Overload no tenían efectos en el servidor (`inherit_server`) y habrían sumado dos veces el poder con hechizos. SQL de hechizos regenerado (incluye el arreglo de 460171). Sin compilar ni probar.
 - Paladín: Malleable Protection reutiliza Defender's Resolve (460171), que ya definía el druida; se elimina la definición duplicada del mismo id. Pendiente de regenerar el SQL de hechizos con el siguiente paso.
