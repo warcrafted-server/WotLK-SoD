@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-09
 
+- Paladín: runas Infusion of Light `7002011`, Light's Grace `7002012`, Improved Sanctuary `7002013` y Aegis `7002014` (paso 1 de `.agents/plans/paladin/`). Corregido en la revisión: máscaras y reembolso de Choque Sagrado, enfriamiento (en WotLK ya es de 6 s), orden de rangos de Expiación e iconos. Improved Sanctuary aún sin efecto (ver `TODO.md`). Pasan `clang++ -fsyntax-only`; sin compilar ni probar.
 - Paladín: recupera del historial (`d85f936`) las 6 runas retiradas el 2026-10-07 (The Art of War, Righteous Vengeance, Improved Hammer of Wrath, Purifying Power, Fanaticism, Wrath), con su configuración y su registro en el loader; SQL de hechizos regenerado. Pasan `clang++ -fsyntax-only` con los flags reales; sin compilar ni probar.
 - Lacerate (`7009003`): los worgen Moonrage de Silverpine (1769, 1770, 1782, 1924) sueltan la runa con un 1,0661 %, tasa conjunta de Wowhead para el Unbalanced Idol de SoD. Solo SQL; sin probar en juego.
 - `ESTADO.md`: los mensajes del servidor ya salen de tablas de cadenas (inglés y esES); se corrige la nota que lo daba por pendiente.

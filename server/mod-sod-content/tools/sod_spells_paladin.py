@@ -10,6 +10,7 @@ SKILL_HOLY = 594
 AURA_MOD_SPELL_CRIT_CHANCE_SCHOOL = 71
 AURA_ABILITY_PERIODIC_CRIT = 286
 AURA_ADD_PCT_MODIFIER = 108
+AURA_MOD_SHIELD_BLOCKVALUE_PCT = 150
 AURA_MOD_STUN = 12
 PROC_DONE_MAGIC_POS = 0x00004000
 PROC_DONE_PERIODIC = 0x00040000
@@ -25,12 +26,14 @@ def build(idx):
     cast_2s = idx["cast"][2000]
     duration_permanent = idx["dur"][-1]
     duration_12s = idx["dur"][12000]
+    duration_15s = idx["dur"][15000]
     duration_2s = idx["dur"][2000]
     range_self = idx["range"][0.0]
     icon_hammer_of_wrath = idx["icon"]["ability_thunderclap"]
     icon_holy_wrath = idx["icon"]["spell_holy_excorcism"]
     icon_fanaticism = idx["icon"]["spell_holy_greaterheal"]
     icon_wrath = idx["icon"]["ability_paladin_sanctifiedwrath"]
+    icon_sanctuary = idx["icon"]["spell_nature_lightningshield"]
 
     return [
         {  # Divine Storm: the core script handles the party heal.
@@ -390,6 +393,125 @@ def build(idx):
                 "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Infusión de Luz: modifica Choque Sagrado y devuelve maná/reduce enfriamiento en críticos.
+            "id": 426065, "client": True, "template": 53569,
+            "inherit_server": True,
+            "name": "Infusion of Light",
+            "script": "spell_sod_paladin_infusion_of_light",
+            "desc": "Increases the damage and healing done by your Holy Shock by $s1%, reduces the cooldown on Holy Shock to 6 sec, and your critical strikes with Holy Shock refund its mana cost and reduce its remaining cooldown by $s3 sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_permanent,
+                "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_ADD_PCT_MODIFIER,
+                "EffectBasePoints_1": 50, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0,
+                "EffectSpellClassMaskA_1": 2097152,
+                "EffectSpellClassMaskB_1": 65536,
+                "EffectSpellClassMaskC_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # Choque Sagrado ya tiene 6 s de enfriamiento en WotLK: sin modificador de enfriamiento.
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0,
+                "EffectSpellClassMaskA_2": 0,
+                "EffectSpellClassMaskB_2": 0,
+                "EffectSpellClassMaskC_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 3, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00004000 | 0x00010000,
+                "SpellTypeMask": 3, "SpellPhaseMask": 2,
+                "HitMask": PROC_HIT_CRITICAL,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Gracia de Luz: conserva el rango máximo de WotLK y su activación para un lanzamiento.
+            "id": 428909, "client": True, "template": 31836,
+            "inherit_server": True,
+            "name": "Light's Grace",
+            "desc": "Your Holy Light spell reduces the cast time of your next Holy Light spell by 0.5 sec. Lasts 15 sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "DurationIndex": duration_permanent,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 42,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 428912,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Auxiliar de Gracia de Luz de WotLK, con la ventana de 15 s de SoD.
+            "id": 428912, "client": False, "template": 31834,
+            "name": "Light's Grace",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "DurationIndex": duration_15s, "SpellLevel": 0,
+                "EquippedItemClass": -1,
+            },
+        },
+        {  # Salvaguardia mejorada: aplica el modificador del catálogo; el daño por bloqueo queda documentado.
+            "id": 429133, "client": True, "template": 31878,
+            "inherit_server": True,
+            "name": "Improved Sanctuary",
+            "desc": "Increases the damage prevented by your Blessing of Sanctuary by $s1%, and increases damage done by your Blessing of Sanctuary by $s2% of your shield block value.",
+            "overrides": {
+                "SpellIconID": icon_sanctuary,
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_ADD_PCT_MODIFIER,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 3,
+                "EffectSpellClassMaskA_1": 0,
+                "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 64,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 20, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Égida: aumenta el valor de bloqueo y ajusta los procs de Baluarte y Expiación.
+            "id": 425589, "client": True, "template": 20135,
+            "inherit_server": True,
+            "name": "Aegis",
+            "script": "spell_sod_paladin_aegis",
+            "desc": "Increases your block value by $s2% and modifies your Redoubt talent. Redoubt now also has a $s1% chance to trigger from any melee or ranged attack against you, and always triggers when you deal a melee critical strike. In addition, your Reckoning talent gains a $s3% chance per talent point to trigger from any melee or ranged attack against you.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_SHIELD_BLOCKVALUE_PCT,
+                "EffectBasePoints_2": 30, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 2, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x000000FC | 0x000003F0,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
             },
         },
     ]

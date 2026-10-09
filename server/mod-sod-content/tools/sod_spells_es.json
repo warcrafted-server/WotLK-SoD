@@ -26,6 +26,22 @@
     "name": "Consunción",
     "desc": "Aumenta tu probabilidad de golpe crítico con todos los hechizos un 15%, pero ahora tus golpes críticos con hechizos no periódicos tienen un coste de maná extra igual al 1% de tu maná base."
   },
+  "426065": {
+    "name": "Infusión de Luz",
+    "desc": "Aumenta un $s1% el daño y la sanación realizados con Choque Sagrado, reduce a 6 s el tiempo de reutilización de Choque Sagrado, y tus golpes críticos con Choque Sagrado devuelven su coste de maná y reducen $s3 s su tiempo de reutilización restante."
+  },
+  "428909": {
+    "name": "Gracia de Luz",
+    "desc": "Lanzar Luz Sagrada reduce 0,5 s el tiempo de lanzamiento de tu siguiente Luz Sagrada. Dura 15 s."
+  },
+  "429133": {
+    "name": "Salvaguardia mejorada",
+    "desc": "Aumenta un $s1% el daño evitado por tu Bendición de santuario y aumenta el daño infligido por tu Bendición de santuario el equivalente a un $s2% del valor de bloqueo de tu escudo."
+  },
+  "425589": {
+    "name": "Égida",
+    "desc": "Aumenta un $s2% tu valor de bloqueo y modifica tu talento Baluarte. Ahora, Baluarte tiene un $s1% de probabilidades de activarse con cualquier ataque a distancia o cuerpo a cuerpo que recibes y siempre se activa cuando asestas un golpe crítico cuerpo a cuerpo. Además, por cada punto de talento, tu talento Expiación obtiene un $s3% de probabilidades de activarse cuando recibes un ataque a distancia o cuerpo a cuerpo."
+  },
   "425121": {
     "name": "Venas heladas",
     "desc": "Acelera tu lanzamiento de hechizos, aumenta la velocidad con la que lanzas hechizos un 20% y reduce el retraso sufrido por los ataques dañinos mientras lanzas hechizos un 100%. Dura 20 s.",

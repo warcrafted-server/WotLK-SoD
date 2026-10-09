@@ -57,6 +57,8 @@ void AddSC_sod_paladin_improved_hammer_of_wrath();
 void AddSC_sod_paladin_purifying_power();
 void AddSC_sod_paladin_fanaticism();
 void AddSC_sod_paladin_wrath();
+void AddSC_sod_paladin_infusion_of_light();
+void AddSC_sod_paladin_aegis();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -120,5 +122,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_paladin_purifying_power();
     AddSC_sod_paladin_fanaticism();
     AddSC_sod_paladin_wrath();
+    AddSC_sod_paladin_infusion_of_light();
+    AddSC_sod_paladin_aegis();
 
 }

@@ -98,6 +98,24 @@ confirmar con precisión; se configura en 15 s como aproximación. La mecánica 
 los beneficios de crítico, tiempo de lanzamiento y retroceso hasta cuatro veces. Consulta del
 2026-10-07; comprobar la duración y el comportamiento de las cargas en juego.
 
+## Paladín
+
+Las runas 7002011–7002014 ya están implementadas. Queda probarlas en juego y revisar estas
+simplificaciones:
+
+- **Improved Sanctuary: hoy no tiene efecto en juego.** En este core la reducción de daño de
+  Blessing of Sanctuary (20911/25899) no está en la bendición: la aplica el aura compartida 68066
+  (`spell_gen_damage_reduction_aura`, también de Renewed Hope y Vigilance), así que el SpellMod de
+  la runa no la cambia. Falta un script de módulo sobre 20911/25899 (vía `spell_script_names`) que,
+  si el lanzador tiene la runa, aplique una reducción extra con un hechizo propio de servidor, y la
+  parte de daño por valor de bloqueo (20 %) sobre el proc de la bendición.
+- **Infusion of Light:** no reduce el enfriamiento de Choque Sagrado porque en WotLK ya es de 6 s.
+- **Light's Grace** reutiliza el aura auxiliar 31834 de WotLK con duración de 15 s. No se ha
+  hecho una compilación real ni comprobado en juego que el aura consuma el beneficio exactamente
+  tras el siguiente Holy Light.
+- **Aegis** dispara los rangos de proc de Redoubt y Reckoning existentes en WotLK. No se ha
+  hecho una compilación real ni probado en juego la interacción con los rangos de talentos.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

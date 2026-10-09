@@ -1,6 +1,6 @@
 # Cómo se consiguen las runas
 
-Estado a 2026-10-08. Las ocho runas de mago indicadas reproducen la adquisición de mundo de SoD con objetos reales. Las filas restantes describen la adquisición implementada o provisional; Lifebloom y Nourish se desbloquean con objetos comprados al Grabador. En SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento), pero muchas fuentes aún no se han verificado.
+Estado a 2026-10-09. Las ocho runas de mago indicadas reproducen la adquisición de mundo de SoD con objetos reales. Las filas restantes describen la adquisición implementada o provisional; Lifebloom, Nourish y las nuevas runas de paladín se desbloquean con objetos comprados al Grabador. En SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento), pero muchas fuentes aún no se han verificado.
 
 La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que usa este servidor: `https://www.wowhead.com/classic/spell=<id>` muestra el hechizo y, en su pestaña, qué objeto lo enseña y dónde se consigue. **La fuente de SoD real no está en los datos que tenemos (wago.tools no trae tablas de botín ni de misiones): hay que consultarla en Wowhead, y no la he verificado runa a runa.**
 
@@ -55,3 +55,7 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7009025 | Druida | Starfall | Espalda | 439748 | Compra provisional al Grabador (1 oro). Fuente real: Rune of the Falling Star (227749), botín de Arcterris (228814), y venta por Rune Brokers. | [spell=439748](https://www.wowhead.com/classic/spell=439748) |
 | 7009026 | Druida | Lifebloom | Piernas | 408124 | Compra «Rune of Lifebloom» (7009026) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=408124](https://www.wowhead.com/classic/spell=408124) |
 | 7009027 | Druida | Nourish | Cintura | 408247 | Compra «Rune of Nourish» (7009027) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=408247](https://www.wowhead.com/classic/spell=408247) |
+| 7002011 | Paladín | Infusion of Light | Cintura | 426065 | Compra «Infusion of Light» (7002011) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=426065](https://www.wowhead.com/classic/spell=426065) |
+| 7002012 | Paladín | Light's Grace | Muñecas | 428909 | Compra «Light's Grace» (7002012) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=428909](https://www.wowhead.com/classic/spell=428909) |
+| 7002013 | Paladín | Improved Sanctuary | Cabeza | 429133 | Compra «Improved Sanctuary» (7002013) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=429133](https://www.wowhead.com/classic/spell=429133) |
+| 7002014 | Paladín | Aegis | Pecho | 425589 | Compra «Aegis» (7002014) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=425589](https://www.wowhead.com/classic/spell=425589) |

@@ -22,7 +22,7 @@ El paladín es la siguiente en la cola. Estado de partida (commit `eeb72d6`): 10
 
 | Paso | rune_id | Runas | Esfuerzo | Estado |
 |---|---|---|---|---|
-| 1 | 7002011–7002014 | Infusion of Light (Cintura), Light's Grace (Muñecas), Improved Sanctuary (Cabeza), Aegis (Pecho) | medium | pendiente |
+| 1 | 7002011–7002014 | Infusion of Light (Cintura), Light's Grace (Muñecas), Improved Sanctuary (Cabeza), Aegis (Pecho) | medium | hecho (Improved Sanctuary sin efecto, ver TODO) |
 | 2 | 7002015–7002018 | Sheath of Light (Cintura), Guarded by the Light (Pies), Shock and Awe (Espalda), Hallowed Ground (Pecho) | high | pendiente |
 | 3 | 7002019–7002023 | Beacon of Light (Manos), Hammer of the Righteous (Muñecas), Shield of Righteousness (Espalda), Divine Light (Espalda), Rebuke (Piernas) | high | pendiente |
 | 4 | 7002024–7002027 | Sacred Shield (Pies), Inspiration Exemplar (Piernas), Hand of Reckoning (Manos), Malleable Protection (Cintura) | high | pendiente |

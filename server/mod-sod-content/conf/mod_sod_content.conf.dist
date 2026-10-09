@@ -447,3 +447,26 @@ SodPaladin.PurifyingPower.StunSeconds = 2
 
 SodPaladin.Fanaticism.HolyCritChancePct = 18
 SodPaladin.Fanaticism.HealingPct = 60
+
+#
+#    SodPaladin.InfusionOfLight.*
+#        DamageHealingPct aumenta el daño y la sanación de Choque Sagrado.
+#        CriticalCooldownSeconds se resta del tiempo restante tras un crítico de
+#        Choque Sagrado (que en WotLK ya tiene 6 s de enfriamiento, como en SoD).
+#        Valores predeterminados: 50, 3
+#
+
+SodPaladin.InfusionOfLight.DamageHealingPct = 50
+SodPaladin.InfusionOfLight.CriticalCooldownSeconds = 3
+
+#
+#    SodPaladin.Aegis.*
+#        BlockValuePct aumenta el valor de bloqueo. RedoubtChancePct se aplica a
+#        ataques cuerpo a cuerpo o a distancia recibidos. ReckoningChancePerPointPct
+#        se multiplica por el rango aprendido de Expiación.
+#        Valores predeterminados: 30, 10, 2
+#
+
+SodPaladin.Aegis.BlockValuePct = 30
+SodPaladin.Aegis.RedoubtChancePct = 10
+SodPaladin.Aegis.ReckoningChancePerPointPct = 2

@@ -49,6 +49,10 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Purifying Power `7002008`, Muñecas (5): Exorcismo y Cólera sagrada con un 50 % menos de enfriamiento; aturden 2 s a no-muertos y demonios.
 - [ ] Fanaticism `7002009`, Cabeza (0): +18 % de crítico en hechizos Sagrados; las curaciones críticas repiten un 60 % en 12 s.
 - [ ] Wrath `7002010`, Cabeza (0).
+- [ ] Infusion of Light `7002011`, Cintura (7): Choque Sagrado (talento) hace un 50 % más de daño y curación; un crítico devuelve su coste de maná y le quita 3 s de enfriamiento.
+- [ ] Light's Grace `7002012`, Muñecas (5): tras una Luz Sagrada, la siguiente tarda 0,5 s menos (15 s).
+- [ ] Improved Sanctuary `7002013`, Cabeza (0): **se sabe que hoy no tiene efecto** (ver `TODO.md`); solo comprobar que se graba sin errores.
+- [ ] Aegis `7002014`, Pecho (4): +30 % de valor de bloqueo; con el talento Baluarte, 10 % de probabilidad de activarlo al recibir golpes y siempre al hacer un crítico cuerpo a cuerpo; con Expiación, un 2 % por punto.
 
 ### Druida feral
 

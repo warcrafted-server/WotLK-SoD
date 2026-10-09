@@ -29,7 +29,16 @@ enum SodPaladinSpells
     SPELL_SOD_PALADIN_FANATICISM = 429142,
     SPELL_SOD_PALADIN_FANATICISM_HOT = 426162,
     SPELL_SOD_PALADIN_WRATH = 429139,
+    SPELL_SOD_PALADIN_INFUSION_OF_LIGHT = 426065,
+    SPELL_SOD_PALADIN_AEGIS = 425589,
 };
+
+constexpr uint32 SPELL_PALADIN_REDOUBT_RANKS[] = { 20127, 20130, 20135 };
+constexpr uint32 SPELL_PALADIN_REDOUBT_PROC_RANKS[] = { 20128, 20131, 20132 };
+// Orden de rangos según Spell.dbc 3.3.5a; 20178 es el efecto disparado, no un rango.
+constexpr uint32 SPELL_PALADIN_RECKONING_RANKS[] = { 20177, 20179, 20181, 20180, 20182 };
+constexpr uint32 SPELL_PALADIN_HOLY_SHOCK_RANKS[] = { 20473, 20929, 20930, 27174, 33072, 48824, 48825 };
+constexpr uint32 SPELL_PALADIN_RECKONING_PROC = 20178;
 
 constexpr uint32 SPELL_PALADIN_EXORCISM_RANKS[] =
     { 879, 5614, 5615, 10312, 10313, 10314, 27138, 48800, 48801 };
@@ -84,6 +93,31 @@ inline uint32 SodPaladinFanaticismHolyCritChancePct()
 inline uint32 SodPaladinFanaticismHealingPct()
 {
     return sConfigMgr->GetOption<uint32>("SodPaladin.Fanaticism.HealingPct", 60);
+}
+
+inline uint32 SodPaladinInfusionOfLightDamageHealingPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.InfusionOfLight.DamageHealingPct", 50);
+}
+
+inline uint32 SodPaladinInfusionOfLightCriticalCooldownSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.InfusionOfLight.CriticalCooldownSeconds", 3);
+}
+
+inline uint32 SodPaladinAegisBlockValuePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.Aegis.BlockValuePct", 30);
+}
+
+inline uint32 SodPaladinAegisRedoubtChancePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.Aegis.RedoubtChancePct", 10);
+}
+
+inline uint32 SodPaladinAegisReckoningChancePerPointPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.Aegis.ReckoningChancePerPointPct", 2);
 }
 
 #endif // MODULE_SOD_PALADIN_H
