@@ -62,6 +62,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7007006 | Chamán | Maelstrom Weapon | Cintura | 408498 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408498](https://www.wowhead.com/classic/spell=408498) |
 | 7007007 | Chamán | Tidal Waves | Cabeza | 432042 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=432042](https://www.wowhead.com/classic/spell=432042) |
 | 7007008 | Chamán | Ancestral Awakening | Pies | 425858 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=425858](https://www.wowhead.com/classic/spell=425858) |
+| 7007009 | Chamán | Dual Wield Specialization | Pecho | 408496 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408496](https://www.wowhead.com/classic/spell=408496) |
+| 7007010 | Chamán | Overload | Pecho | 408438 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408438](https://www.wowhead.com/classic/spell=408438) |
+| 7007011 | Chamán | Shield Mastery | Pecho | 408524 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408524](https://www.wowhead.com/classic/spell=408524) |
+| 7007012 | Chamán | Two-Handed Mastery | Pecho | 436364 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=436364](https://www.wowhead.com/classic/spell=436364) |
+| 7007013 | Chamán | Healing Rain | Pecho | 415236 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415236](https://www.wowhead.com/classic/spell=415236) |
 | 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
 | 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
 | 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |

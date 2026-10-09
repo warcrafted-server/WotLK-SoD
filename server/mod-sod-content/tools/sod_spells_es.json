@@ -221,6 +221,26 @@
     "name": "Mareas vivas",
     "desc": "Sana a un objetivo amistoso de ${$m1/100*$<healpower>} p. a ${$M1/100*$<healpower>} p. y luego ${5*$m2/100*$<healpower>} p. más durante $d. Tu Sanación en cadena lanzada a ese objetivo principal en menos de $d aumentará un $s3% el efecto de Sanación en cadena. Este hechizo también activa Despertar ancestral."
   },
+  "408496": {
+    "name": "Especialización en doble empuñadura",
+    "desc": "Aumenta un $s1% tu probabilidad de golpear con hechizos y ataques cuerpo a cuerpo con doble empuñadura, y tu Golpe de tormenta ahora golpea con ambas armas. Además, aumenta un $s3% el daño infligido con el arma de mano izquierda."
+  },
+  "408438": {
+    "name": "Sobrecarga",
+    "desc": "Otorga a tus hechizos Descarga de relámpagos, Cadena de relámpagos, Sanación en cadena, Ola de sanación y Ráfaga de lava un $h% de probabilidad de lanzar un segundo hechizo similar sobre el mismo objetivo sin coste extra, que inflige la mitad de daño o sanación y no genera amenaza."
+  },
+  "408524": {
+    "name": "Maestría con escudos",
+    "desc": "Cada vez que bloqueas, regeneras un 8% de tu maná máximo y obtienes armadura equivalente al 30% del valor de armadura de tu escudo. Se acumula hasta 5 veces durante 15 s. También aumentas un 10% la probabilidad de bloqueo y un 15% el valor de bloqueo. Cada vez que lanzas una facultad de Choque, obtienes 4 p. de daño con hechizos por cada punto de Defensa por encima de 5 veces tu nivel. Dura 15 s."
+  },
+  "436364": {
+    "name": "Maestría con arma a dos manos",
+    "desc": "Cada vez que golpeas a un enemigo con un arma a dos manos, obtienes un 45% de velocidad de ataque con armas a dos manos, un 10% más de poder de ataque y un 10% más de probabilidades de golpear con hechizos durante 10 s. Este efecto se pierde si golpeas a un enemigo con un arma de una mano."
+  },
+  "415236": {
+    "name": "Lluvia de sanación",
+    "desc": "Selecciona un área de 15 m alrededor del jugador seleccionado y sana a los miembros de su grupo que estén en su interior cada segundo."
+  },
   "440580": {
     "name": "Espíritu feral",
     "desc": "Invoca dos espíritus de lobo a las órdenes del chamán. Duran $d."
@@ -239,6 +259,21 @@
   "425858": {
     "name": "Despertar ancestral",
     "desc": "Cuando realizas sanación crítica con tu Ola de sanación u Ola de sanación inferior, invocas a un espíritu ancestral para que te ayude, lo que sana instantáneamente al objetivo de tu grupo con el porcentaje de salud más bajo en un radio de 40 m un $s1% de la cantidad de sanación realizada."
+  },
+  "900032": {
+    "name": "Descarga de relámpagos"
+  },
+  "900033": {
+    "name": "Cadena de relámpagos"
+  },
+  "900034": {
+    "name": "Sanación en cadena"
+  },
+  "900035": {
+    "name": "Ola de sanación"
+  },
+  "900036": {
+    "name": "Ráfaga de lava"
   },
   "408120": {
     "name": "Crecimiento salvaje"

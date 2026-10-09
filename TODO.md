@@ -183,8 +183,18 @@ Simplificaciones y datos por revisar:
 - [ ] Regenerar el SQL de hechizos y el parche de cliente y probar las seis runas nuevas `7007003–7007008` en el reino de desarrollo. Se clonan comportamientos de WotLK; no se han probado. Esta tanda no añade scripts C++ que requieran recompilar. La obtención de SoD no está verificada y la compra al Grabador es provisional.
 - [ ] Verificar Maelstrom Weapon: el aura auxiliar SoD `408505` conserva el manejador nativo de `53817`, y las máscaras limitan el modificador a Descarga de relámpagos, Cadena de relámpagos, Ola de sanación inferior y Ráfaga de lava. Falta comprobar en juego las bonificaciones de probabilidad de Viento furioso y arma a dos manos del texto de SoD.
 - [ ] Verificar que Ancestral Awakening solo se activa con críticos de Ola de sanación y Ola de sanación inferior como indica SoD; el efecto se hereda del talento de WotLK.
-- [ ] El interruptor `SodShaman.Enable` queda preparado para scripts propios; las seis runas de esta tanda reutilizan comportamientos nativos y no lo consultan.
+- [ ] El interruptor `SodShaman.Enable` lo consultan los scripts de las cinco runas nuevas `7007009–7007013`; las seis anteriores siguen reutilizando comportamientos nativos.
 - [ ] Wowhead no respondió durante esta tarea (curl terminó con error DNS 6); datos y descripciones se tomaron de `docs/runas/catalogo-sod.json` y no se contrastaron en la web.
+- [ ] Regenerar el SQL de hechizos y el parche de cliente, compilar y probar las cinco runas `7007009–7007013` en el reino de desarrollo. Aún no están compiladas ni probadas; la obtención por el Grabador sigue siendo provisional.
+- [ ] Dual Wield Specialization concede Doble empuñadura y simula el segundo golpe de Golpe de tormenta con un ataque de mano izquierda. El aumento de golpe se aplica de forma permanente mientras la runa está activa, incluso sin arma secundaria; confirmar si es aceptable. Valores contrastados en [Dual Wield Specialization](https://www.wowhead.com/classic/spell=408496) el 2026-10-09.
+- [ ] Overload repite el importe final de daño o sanación a mitad con hechizos auxiliares sin amenaza; comprobar especialmente los rebotes de Cadena de relámpagos y Sanación en cadena, y que los auxiliares no vuelvan a activar Overload. Valores contrastados en [Overload](https://www.wowhead.com/classic/spell=408438) el 2026-10-09.
+- [ ] Shield Mastery usa los valores actuales verificados de SoD: 8 % de maná, 30 % de armadura del escudo por acumulación (máximo 5, 15 s), +10 % de bloqueo, +15 % de valor de bloqueo y +4 de daño con hechizos por punto de Defensa sobre 5 × nivel durante 15 s. Se consultó [Shield Mastery](https://www.wowhead.com/classic/spell=408524) y [su hechizo auxiliar](https://www.wowhead.com/classic/spell=408525) el 2026-10-09; revisar en juego la mecánica del escudo.
+- [ ] Two-Handed Mastery concede +45 % de velocidad de ataque, +10 % de poder de ataque y +10 % de golpe con hechizos durante 10 s tras un golpe con arma a dos manos. Simplificación: el aura genérica de velocidad también afecta a ambas manos hasta que un golpe con arma de una mano la elimina. Valores contrastados en [Two-Handed Mastery](https://www.wowhead.com/classic/spell=436364) el 2026-10-09.
+- [ ] Healing Rain sustituye el área moderna de SoD por un aura persistente de WotLK y calcula sanación periódica para hasta cinco miembros del grupo. Se consultaron [Healing Rain](https://www.wowhead.com/classic/spell=415236) y [su efecto de sanación](https://www.wowhead.com/classic/spell=415242) el 2026-10-09; comprobar el área en juego.
+- **Dual Wield Specialization:** los bonos de golpe se aplican siempre, no solo con dos armas. Golpe de
+  tormenta ya golpea con ambas armas en WotLK, así que la runa no añade golpe extra.
+- **Overload:** las copias (900032–900036) usan la mitad del daño o la sanación final del hechizo original y
+  no vuelven a aplicar el poder con hechizos; pueden ser críticas.
 
 ## Otras clases
 

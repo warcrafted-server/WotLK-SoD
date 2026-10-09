@@ -69,6 +69,11 @@ void AddSC_sod_paladin_sacred_shield();
 void AddSC_sod_paladin_inspiration_exemplar();
 void AddSC_sod_paladin_hand_of_reckoning();
 void AddSC_sod_paladin_malleable_protection();
+void AddSC_sod_shaman_dual_wield_specialization();
+void AddSC_sod_shaman_overload();
+void AddSC_sod_shaman_shield_mastery();
+void AddSC_sod_shaman_two_handed_mastery();
+void AddSC_sod_shaman_healing_rain();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -125,6 +130,12 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_eclipse();
     AddSC_sod_druid_starfall();
     AddSC_sod_druid_requirements();
+
+    AddSC_sod_shaman_dual_wield_specialization();
+    AddSC_sod_shaman_overload();
+    AddSC_sod_shaman_shield_mastery();
+    AddSC_sod_shaman_two_handed_mastery();
+    AddSC_sod_shaman_healing_rain();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

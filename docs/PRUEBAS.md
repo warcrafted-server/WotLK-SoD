@@ -50,6 +50,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Tidal Waves `7007007`, Cabeza (0): lanzar Sanación en cadena y Mareas vivas; comprobar que se obtienen dos cargas y sus efectos en Ola de sanación, Sanación en cadena y Ola de sanación inferior.
 - [ ] Ancestral Awakening `7007008`, Pies (9): provocar críticos con Ola de sanación y Ola de sanación inferior y comprobar que el miembro del grupo con menor porcentaje de salud, dentro de 40 m, recibe el 30 % de la sanación.
 - [ ] Confirmar que los seis iconos y nombres aparecen correctamente en español y que la compra provisional al Grabador desbloquea cada runa.
+- [ ] Dual Wield Specialization `7007009`, Pecho (4): comprobar que se aprende Doble empuñadura, el aumento de golpe, el 60 % de daño adicional de la mano izquierda y que Golpe de tormenta genera también un ataque de mano izquierda. Comprobar si el aumento de golpe se aplica sin arma secundaria.
+- [ ] Overload `7007010`, Pecho (4): probar Descarga de relámpagos, Cadena de relámpagos, Sanación en cadena, Ola de sanación y Ráfaga de lava; cada una debe repetir aproximadamente un 60 % de las veces con la mitad del resultado, sin coste adicional, amenaza ni procs recursivos.
+- [ ] Shield Mastery `7007011`, Pecho (4): bloquear con escudo y comprobar el 8 % de maná, el 30 % de la armadura del escudo por acumulación (máximo 5, 15 s), el 10 % de probabilidad de bloqueo y el 15 % de valor de bloqueo. Lanzar Choque de tierra y Choque de llamas con Defensa por encima de 5 × nivel y comprobar el poder con hechizos durante 15 s.
+- [ ] Two-Handed Mastery `7007012`, Pecho (4): golpear con arma a dos manos y comprobar durante 10 s el 45 % de velocidad, el 10 % de poder de ataque y el 10 % de golpe con hechizos. El aura genérica de velocidad también afecta a ambas manos hasta que un golpe con arma de una mano la elimina.
+- [ ] Healing Rain `7007013`, Pecho (4): comprobar lanzamiento de 2 s, coste del 21 % de maná base, reutilización de 10 s, duración de 10 s y sanación cada segundo en un radio de 15 m alrededor del objetivo; no debe sanar más de cinco miembros del grupo.
+- [ ] Confirmar los cinco nombres e iconos en español y que la compra provisional al Grabador desbloquea cada runa.
 
 ### Paladín (recuperadas el 2026-10-09, sin compilar ni probar)
 
