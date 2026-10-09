@@ -6,6 +6,18 @@ jugarlas ya; aquí se documenta la cadena real, verificada en Wowhead, para impl
 
 Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio en `CHANGELOG.md`.
 
+## Druida: lo que falta
+
+Las 27 runas de las 11 ranuras tienen código (comparado con `docs/runas/catalogo-sod.json` el
+2026-10-09). Falta:
+
+- **Thrash (Cat)** (hechizo SoD 417448, ranura-fase 417437): no implementada. Comprobar en qué fase
+  y ranura entra antes de hacerla.
+- **Tiger's Fury** (417045): modificación de SoD asociada a King of the Jungle; la runa existe pero no
+  cambia Tiger's Fury.
+- Compilar y probar en juego las 27 runas (`docs/PRUEBAS.md`).
+- Fidelidad: las entradas de abajo (Tree of Life, cadenas de misión, Starfall, Eclipse).
+
 ## Druida feral
 
 ### Tree of Life

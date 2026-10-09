@@ -5,7 +5,8 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 ## 2026-10-09
 
 - Lacerate (`7009003`): los worgen Moonrage de Silverpine (1769, 1770, 1782, 1924) sueltan la runa con un 1,0661 %, tasa conjunta de Wowhead para el Unbalanced Idol de SoD. Solo SQL; sin probar en juego.
-- `TODO.md`: quita la distribución de parches (ya se publican con el launcher) y la fuente de Lacerate en Silverpine (hecha).
+- `ESTADO.md`: los mensajes del servidor ya salen de tablas de cadenas (inglés y esES); se corrige la nota que lo daba por pendiente.
+- `TODO.md`: anota lo que falta del druida (Thrash (Cat), Tiger's Fury). Quita la distribución de parches (ya se publican con el launcher) y la fuente de Lacerate en Silverpine (hecha).
 
 ## 2026-10-08
 
