@@ -378,6 +378,41 @@
     "name": "Llama de las Sombras",
     "desc": "Abrasa al enemigo con llamas sombrías e inflige daño periódico adicional."
   },
+  "427713": {
+    "name": "Explosión de humo",
+    "desc": "Tu facultad Conflagrar también te otorga un $427714s1% de celeridad con hechizos durante $427714d y ya no consume Inmolar."
+  },
+  "427714": {
+    "name": "Explosión de humo",
+    "aura_desc": "Celeridad con hechizos aumentada un $w1%."
+  },
+  "440870": {
+    "name": "Exterminio",
+    "desc": "Tu Fuego de alma ya no tiene tiempo de reutilización. Además, cuando tu Descarga de las Sombras, Cuchilla de las Sombras, Incinerar o Fuego de alma golpea a un objetivo que está al $s2% de salud o por debajo, el tiempo de lanzamiento de tu Fuego de alma se reduce un $s1% durante $440873d. Los Fuegos de alma lanzados bajo el efecto de Exterminio no cuestan fragmentos."
+  },
+  "440873": {
+    "name": "Exterminio",
+    "aura_desc": "El tiempo de lanzamiento de tu Fuego de alma se reduce un $s1% y no cuesta fragmentos."
+  },
+  "425464": {
+    "name": "Pacto demoníaco",
+    "desc": "Tus hechizos de Fuego y de las Sombras infligen un $s2% más de daño, y los golpes críticos de tu mascota aplican el efecto Pacto demoníaco a los miembros del grupo o banda durante $48090d. Pacto demoníaco aumenta el daño con hechizos y la sanación el equivalente a un $s1% de tu daño con hechizos o ${$PL/2} p., lo que sea mayor. No funciona con demonios subyugados."
+  },
+  "412689": {
+    "name": "Aflicción eterna",
+    "desc": "Drenar vida, Drenar alma, Descarga de las Sombras, Cuchilla de las Sombras, Dolor abrasador, Incinerar y Poseer restablecen la duración de tu Corrupción en el objetivo."
+  },
+  "412698": {
+    "name": "Aflicción eterna"
+  },
+  "412732": {
+    "name": "Conocimiento demoníaco",
+    "desc": "Aumenta el daño y la sanación con hechizos un valor igual al $s1% del aguante y del intelecto totales de tu mascota demoníaca."
+  },
+  "900048": {
+    "name": "Conocimiento demoníaco",
+    "aura_desc": "Aumenta el poder con hechizos del maestro un $s1% del aguante y del intelecto del demonio activo."
+  },
   "409428": {
     "name": "Maestro tirador",
     "desc": "Aumenta un 5% tu probabilidad de golpe crítico y reduce un 25% el coste de maná de todas tus facultades de disparo."

@@ -49,6 +49,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Incinerate `7008007`, Muñecas (5): comprobar daño, coste del 14 %, duración de 15 s y aumento del 40 % al daño de Fuego.
 - [ ] Shadowflame `7008008`, Pies (9): comprobar el impacto de Shadowflame, su daño periódico y coste del 27 %.
 - [ ] Comprobar nombres e iconos en español y que el Grabador venda las cinco runas por 1 oro. La fuente de adquisición de SoD no está verificada.
+- [ ] Backdraft `7008009`, Cabeza (0): comprobar que Conflagrar otorga un 30 % de celeridad con hechizos durante 15 s. Diferencia conocida: Conflagrar sigue consumiendo Inmolar; quitar ese consumo exige tocar el core (ver `TODO.md`).
+- [ ] Decimation `7008010`, Pies (9): comprobar que Fuego de alma ya no tiene enfriamiento y que, al golpear con Descarga de las Sombras, Incinerar o Fuego de alma a un objetivo al 35 % de salud o menos, el tiempo de lanzamiento de Fuego de alma se reduce un 40 % durante 10 s y ese lanzamiento no cuesta fragmento. Cuchilla de las Sombras no existe en 3.3.5a.
+- [ ] Demonic Pact `7008011`, Piernas (8): comprobar el +10 % de daño de Fuego y Sombras y que los críticos de la mascota aplican el efecto de grupo o banda. Reutiliza el script nativo de WotLK sobre el aura de mascota 54909.
+- [ ] Everlasting Affliction `7008012`, Piernas (8): comprobar que Drenar vida, Drenar alma, Descarga de las Sombras, Incinerar y Poseer devuelven Corrupción a su duración máxima. Diferencia: SoD incluye además Cuchilla de las Sombras y Dolor abrasador, que no existen en 3.3.5a.
+- [ ] Demonic Knowledge `7008013`, Pies (9): comprobar que el daño y la sanación con hechizos suben un 3 % del aguante más intelecto totales de la mascota demoníaca. Diferencia: usa el aura de mascota 900048 al 3 % en vez de la nativa 35696 (12 %).
+- [ ] Comprobar nombres e iconos en español de estas cinco runas y que el Grabador las venda por 1 oro. La fuente de adquisición de SoD no está verificada.
 
 ### Chamán (runas nuevas; sin compilar ni probar)
 
@@ -154,6 +160,8 @@ Las runas siguientes se han cotejado con `sod_druid_runes.sql`; todas están **s
 Después de compilar y de regenerar `build_patch.py`, copia de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq` desde `datos/parche-cliente/20261006-final/` y reinicia el reino 2. Los MPQ traen los iconos de bolsa de los objetos nuevos. Las siete runas de la segunda tanda son Mangle 7009007 (Manos, 6), Gore 7009008 (Cabeza, 0), Wild Strikes 7009009 (Pecho, 4), King of the Jungle 7009010 (Pies, 9), Skull Bash 7009011 (Manos, 6), Improved Frenzied Regeneration 7009012 (Muñecas, 5) e Improved Swipe 7009013 (Espalda, 3). El interruptor es `SodDruid.Enable` en `mod_sod_content.conf`, que `make install` deja solo como `.dist`: si quieres cambiar valores copia las secciones nuevas al `.conf`.
 
 El parche se regeneró sin «Rango N» en los clones; queda pendiente copiar de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`.
+
+Las cinco runas nuevas del brujo (Backdraft 7008009, Decimation 7008010, Demonic Pact 7008011, Everlasting Affliction 7008012 y Demonic Knowledge 7008013) **no necesitan recompilar**: son solo SQL y parche. Reinicia el reino 2 para que se aplique el SQL regenerado y copia `patch-z.mpq` y `esES/patch-esES-z.mpq` desde `datos/parche-cliente/20261009-brujo/` (ese parche aún no está publicado).
 
 La primera tanda feral (Lacerate 7009003, Savage Roar 7009004, Berserk 7009005 y Survival Instincts 7009006) requiere **solo SQL y parche, no recompilar**: copia de nuevo `patch-z.mpq` y `esES/patch-esES-z.mpq`, y reinicia el reino. Wild Growth 7009001 y Survival of the Fittest 7009002 ya estaban. También requiere solo SQL y parche, sin recompilar, Explosive Shot `7003003` (Manos): copiar de nuevo ambos MPQ y reiniciar; lo mismo para comprobar el daño de Chaos Bolt, Haunt, Avenger's Shield, Circle of Healing y Wild Growth que crece con el nivel (a 80 coinciden con WotLK), y los nombres de NPC y misiones del mundo de SoD en español.
 

@@ -132,4 +132,162 @@ def build(idx):
                 "SpellLevel": 0,
             },
         },
+        # --- Runas de fase 2: toda la mecánica vive en scripts nativos del core (sin C++ nuevo). ---
+        {  # Backdraft: aura 109 (disparo al golpear) que aplica el buff de celeridad sobre el brujo.
+            "id": 427713, "client": True, "template": 47260,
+            "skill_line": SKILL_DESTRUCTION,
+            "name": "Backdraft", "inherit_server": True,
+            "desc": "Your Conflagrate ability also grants $427714s1% spellcasting haste for $427714d and no longer consumes Immolate.",
+            "overrides": {
+                # EFFECT_0: APPLY_AURA + ADD_TARGET_TRIGGER; 99 + 1 = 100 % de probabilidad de disparo.
+                "Effect_1": 6, "EffectAura_1": 109,
+                "EffectBasePoints_1": 99, "EffectDieSides_1": 1,
+                "EffectTriggerSpell_1": 427714, "EffectMiscValue_1": 12,
+                # Sólo Conflagrar dispara el buff: palabra B, 0x800000.
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 8388608,
+                "EffectSpellClassMaskC_1": 0,
+            },
+        },
+        {  # Buff de Backdraft: aura 65 (velocidad de lanzamiento) para todos los hechizos, 15 s.
+            "id": 427714, "client": True, "template": 54277,
+            "name": "Backdraft", "inherit_server": True,
+            "aura_desc": "Spellcasting haste increased by $w1%.",
+            "overrides": {
+                # El talento de WotLK usaba aura 108 enmascarada; la runa usa aura 65 y sin máscara.
+                "EffectAura_1": 65, "EffectBasePoints_1": 30, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+                # El efecto 2 de 54277 (aura 108 + SPELLMOD_GLOBAL_COOLDOWN) no existe en SoD.
+                "Effect_2": 0, "EffectAura_2": 0, "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "ImplicitTargetA_2": 0,
+                "EffectSpellClassMaskA_2": 0, "EffectSpellClassMaskB_2": 0,
+                "EffectSpellClassMaskC_2": 0,
+            },
+        },
+        {  # Exterminio: el script nativo spell_warl_decimation exige objetivo por debajo del 35 %.
+            "id": 440870, "client": True, "template": 63158,
+            "skill_line": SKILL_DESTRUCTION,
+            "name": "Decimation", "script": "spell_warl_decimation",
+            "inherit_server": True,
+            "desc": "Your Soul Fire spell no longer has a cooldown. Additionally, when your Shadow Bolt, Shadow Cleave, Incinerate, or Soul Fire hits a target that is at or below $s2% health, the cast time of your Soul Fire spell is reduced by $s1% for $440873d. Soul Fires cast under the effect of Decimation cost no shard.",
+            "overrides": {
+                # EFFECT_0: aura 42 (proc) que aplica el buff 440873.
+                "EffectBasePoints_1": 40, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 440873, "EffectMiscValue_1": 0,
+                # EFFECT_1: dummy con el umbral del 35 % (palabra A, 0x1); sólo alimenta el tooltip.
+                "Effect_2": 6, "EffectAura_2": 4, "EffectBasePoints_2": 35, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "EffectSpellClassMaskA_2": 1, "EffectSpellClassMaskB_2": 0,
+                "EffectSpellClassMaskC_2": 0,
+                # EFFECT_2: aura 108 + SPELLMOD_COOLDOWN (11) sobre Piro de alma (palabra B, 0x80).
+                "Effect_3": 6, "EffectAura_3": 108, "EffectBasePoints_3": -100,
+                "EffectDieSides_3": 0, "EffectMiscValue_3": 11,
+                "EffectSpellClassMaskA_3": 0, "EffectSpellClassMaskB_3": 128,
+                "EffectSpellClassMaskC_3": 0, "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            # Conserva la fila `spell_proc` de la plantilla (-63156): máscaras de Piro de alma,
+            # sólo daño (SpellTypeMask=1) y al golpear (SpellPhaseMask=2). DisableEffectsMask=2
+            # es el valor de la fila nativa: desactiva el efecto 2 (el dummy del umbral).
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 5,
+                "SpellFamilyMask0": 1, "SpellFamilyMask1": 192,
+                "SpellFamilyMask2": 0, "ProcFlags": 0,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0,
+                "DisableEffectsMask": 2, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Buff de Exterminio: 10 s (índice 1 heredado de 63167).
+            "id": 440873, "client": True, "template": 63167,
+            "name": "Decimation", "inherit_server": True,
+            "aura_desc": "Your Soul Fire cast time is reduced by $s1%, and costs no shard.",
+            "overrides": {
+                "EffectBasePoints_1": -40, "EffectDieSides_1": 0,
+                # Piro de alma (palabra B, 0x80).
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 128,
+                "EffectSpellClassMaskC_1": 0,
+                # La plantilla de WotLK repetía el −40 % como aura 256 (palabra A/B/C); SoD deja sólo B.
+                "EffectBasePoints_2": -40, "EffectDieSides_2": 0,
+                "EffectSpellClassMaskA_2": 0, "EffectSpellClassMaskB_2": 128,
+                "EffectSpellClassMaskC_2": 0,
+            },
+        },
+        {  # Pacto demoníaco: el buff visible (48090) lo lanza el aura de familiar 54909 desde el core.
+            "id": 425464, "client": True, "template": 47236,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Demonic Pact", "inherit_server": True,
+            "desc": "Your Fire and Shadow spells deal $s2% more damage, and your pet's critical strikes apply the Demonic Pact effect to your party or raid members for $48090d. Demonic Pact increases spell damage and healing by $s1% of your spell damage or ${$PL/2}, whichever is higher. Does not work on Subjugated demons.",
+            "overrides": {
+                # EFFECT_0: dummy. No se tocan SpellIconID (3220) ni SpellClassSet (5): el script del
+                # core los usa para encontrar este dummy (familia 5 + icono 3220 + índice 0). Tampoco
+                # se toca EffectMiscValue_1 (12); sólo se quitan las máscaras de talento de WotLK.
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+                # EFFECT_1: aura 79 (daño de escuela) con +10 % a Fuego y Sombras.
+                "EffectAura_2": 79, "EffectBasePoints_2": 10, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 36,
+                "EffectSpellClassMaskA_2": 0, "EffectSpellClassMaskB_2": 0,
+                "EffectSpellClassMaskC_2": 0,
+                # EFFECT_2 y EFFECT_3 del talento (aura 107 y aura 79 de +1 %) no existen en la runa.
+                "Effect_3": 0, "EffectAura_3": 0, "EffectBasePoints_3": 0, "EffectDieSides_3": 0,
+                "EffectMiscValue_3": 0, "ImplicitTargetA_3": 0,
+                "EffectSpellClassMaskA_3": 0, "EffectSpellClassMaskB_3": 0,
+                "EffectSpellClassMaskC_3": 0,
+            },
+        },
+        {  # Aflicción eterna: aura 109 que refresca Corrupción al golpear con los hechizos de la lista.
+            "id": 412689, "client": True, "template": 47201,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Everlasting Affliction", "inherit_server": True,
+            "desc": "Drain Life, Drain Soul, Shadowbolt, Shadow Cleave, Searing Pain, Incinerate, and Haunt refresh the duration of your Corruption on the target back to its maximum duration.",
+            "overrides": {
+                # EFFECT_0: aura 109 (disparo) al 100 % con las máscaras de SoD.
+                "EffectAura_1": 109, "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 412698, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectSpellClassMaskA_1": 16649, "EffectSpellClassMaskB_1": 262208,
+                "EffectSpellClassMaskC_1": 131072,
+                # EFFECT_1 del talento de WotLK (aura 107 de +1 % de daño) no existe en la runa.
+                "Effect_2": 0, "EffectAura_2": 0, "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "ImplicitTargetA_2": 0,
+                "EffectSpellClassMaskA_2": 0, "EffectSpellClassMaskB_2": 0,
+                "EffectSpellClassMaskC_2": 0,
+            },
+        },
+        {  # Disparo de Aflicción eterna: el script nativo refresca Corrupción.
+            # Debe ser `client: True` para que el emisor materialice la fila completa (168
+            # columnas) clonando 47422; con `client: False` sólo se emiten los `overrides`
+            # declarados y el hechizo se quedaría sin efecto 77, así que el script no dispararía.
+            "id": 412698, "client": True, "template": 47422,
+            "name": "Everlasting Affliction", "inherit_server": True,
+            "script": "spell_warl_everlasting_affliction",
+            # Sin overrides de efectos: 47422 ya es efecto 77 (script), familia 5 y blanco 6, justo
+            # lo que exige spell_warl_everlasting_affliction. Sólo cambian id, nombre y descripción.
+            "overrides": {},
+        },
+        {  # Conocimiento demoníaco: dummy que el script nativo busca por familia 5 + icono 1876.
+            "id": 412732, "client": True, "template": 35693,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Demonic Knowledge", "inherit_server": True,
+            "desc": "Increases your spell damage and healing by a value equal to $s1% of your Demon pet's total Stamina plus Intellect.",
+            "overrides": {
+                # El importe alimenta el tooltip (3 %) y el valor inicial del aura del familiar.
+                # Las máscaras de 35693 son del talento de WotLK: se van a 0 como en SoD.
+                "EffectBasePoints_1": 3, "EffectDieSides_1": 0,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+            },
+        },
+        {  # Aura del familiar de Conocimiento demoníaco: id auxiliar de servidor (no existe en 3.3.5a).
+            "id": 900048, "client": True, "template": 35696,
+            "name": "Demonic Knowledge", "inherit_server": True,
+            "script": "spell_warl_demonic_knowledge",
+            "aura_desc": "Increases Master's spell power by $s1% of the active demon's Stamina plus Intellect.",
+            "overrides": {
+                # 3 % (SoD) en vez del 12 % de WotLK; el script lee el importe como base + die.
+                "EffectBasePoints_1": 3, "EffectDieSides_1": 0,
+            },
+        },
     ]

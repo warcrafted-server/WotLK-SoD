@@ -47,6 +47,19 @@ compilar de verdad y probarlas en juego. No se ha compilado ni enlazado este có
 del paladín y no empezar otra clase sin indicación del usuario. Chamán y brujo siguen aplazados. Handoff
 completo en la memoria del proyecto (`handoff.md`).
 
+**Brujo (2026-10-09):** las 13 runas de fase 1 tienen código (`7008001`–`7008013`), según
+`.agents/plans/brujo/`: piloto (`7008001` Chaos Bolt, `7008002` Haunt), primera tanda (`7008004`–`7008008`:
+Unstable Affliction, Summon Felguard, Metamorphosis, Incinerate, Shadowflame) y segunda tanda
+(`7008009`–`7008013`: Backdraft, Decimation, Demonic Pact, Everlasting Affliction, Demonic Knowledge).
+La segunda tanda es **solo SQL/Python/JSON** y reutiliza los manejadores nativos del core; el SQL de hechizos
+está regenerado (9 filas de `spell_dbc`, 3 de `spell_script_names`, la de `spell_proc` de Decimation) y el
+parche de cliente está generado en `datos/parche-cliente/20261009-brujo/` (**sin publicar**: `LISTO` creado,
+falta `~/Repos/launcher/scripts/publicar-parches.sh`). `check_syntax.py`: 86 archivos, 0 errores.
+**Sin compilar ni probar.** Limitaciones en `TODO.md` y `docs/runas/warlock.md`: Conflagrar sigue consumiendo
+Inmolar (vive en el core, `AURA_STATE_CONFLAGRATE`), Metamorphosis solo da la forma y Everlasting Affliction
+no cubre Cuchilla de las Sombras ni Dolor abrasador (no existen en 3.3.5a). El aviso de «brujo aplazado» del
+handoff del 2026-10-07 es anterior a estas dos tandas.
+
 **Datos:** catálogo (`docs/runas/catalogo-sod.json`), fuentes de Wowhead (`docs/runas/fuentes-sod.json`, 253 de
 256 runas con objeto; faltan Lava Lash, Nature's Fury y una runa de mago), clasificación P/T/C/R
 (`docs/runas/plan-implementacion.*`), cómo se consigue cada runa (`docs/runas/obtencion.md`). El usuario compila

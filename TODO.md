@@ -228,6 +228,13 @@ Simplificaciones y datos por revisar:
 - [ ] Metamorphosis clona Demon Form de WotLK (47241), desbloqueado por el talento 59672. Conserva su forma de tanque, pero no implementa Shadow Cleave, Menace ni Demon Charge; las auras modernas de SoD no existen en WotLK 3.3.5a. Confirmar también armadura, salud, reducción de críticos, amenaza y conversión de Life Tap.
 - [ ] Incinerate y Shadowflame reutilizan los hechizos y scripts nativos de WotLK; comprobar en juego el aumento de daño de Fuego y la aplicación del daño periódico de Shadowflame.
 - [ ] Wowhead no se consultó en esta ejecución; se usaron los datos facilitados en el encargo y el catálogo local.
+- [ ] Backdraft (Explosión de humo) `7008009`: se implementa con el aura 109 (disparo sobre Conflagrar) y el buff 427714 (30 % de celeridad, 15 s). SoD dice que Conflagrar «ya no consume Inmolar»; ese consumo vive en el core (`AURA_STATE_CONFLAGRATE` en `SpellEffects.cpp`) y no se puede evitar desde un módulo, así que queda pendiente (requeriría parchear el core).
+- [ ] Decimation `7008010`: reutiliza el manejador nativo `spell_warl_decimation` (umbral de salud 35 %) y su fila `spell_proc` copiada al id 440870; comprobar en juego el enfriamiento cero de Fuego de alma, la reducción de lanzamiento del buff 440873 y que ese lanzamiento no cuesta fragmento.
+- [ ] Demonic Pact `7008011`: el +10 % de daño de Fuego y Sombras va por aura 79 y el efecto de grupo depende del aura de mascota nativa 54909 (script `spell_warl_demonic_pact` de WotLK); el módulo inserta el `spell_pet_auras` 425464→54909.
+- [ ] Aflicción eterna `7008012`: el script nativo `spell_warl_everlasting_affliction` (sobre el disparador 412698) refresca Corrupción sólo con los hechizos de WotLK; SoD además incluye Cuchilla de las Sombras y Dolor abrasador, que no existen en 3.3.5a.
+- [ ] Conocimiento demoníaco `7008013`: usa el aura de mascota 900048 (3 %) en lugar de la nativa 35696 (12 %); el script nativo calcula el importe a partir del aguante más intelecto. El id auxiliar 900048 continúa la serie del chamán (900042–900047).
+- [ ] Compilar y probar `7008009–7008013`; el SQL de hechizos y el parche de cliente ya están regenerados el 2026-10-09 (`datos/parche-cliente/20261009-brujo/`, sin publicar). La compra al Grabador es provisional y no se verificaron las fuentes reales de SoD.
+- [ ] `src/warlock/spell_sod_warlock.h` (catálogo de ids y `SodWarlock.Enable`) no lo incluye ningún `.cpp`: el brujo no tiene C++ propio, todas sus runas usan manejadores nativos del core. Incluirlo desde el loader si algún día se añade el primer script propio.
 
 ## Otras clases
 
