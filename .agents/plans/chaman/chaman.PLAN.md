@@ -22,6 +22,6 @@ raíz falsa), comprueba la sintaxis con los flags reales, actualiza `CHANGELOG.m
 | 5 | 7007023–7007027 | Overcharged, Rolling Thunder, Static Shock, Coherence, Storm, Earth, and Fire | high | hecho |
 | 6 | — | Adquisición de los objetos-runa del chamán (como `sod_paladin_acquisition.sql`) | medium | hecho |
 
-**Descartadas:** Water Shield (408510; en WotLK se aprende a nivel 20, id 52127) y Fire Nova (408339; en
+**Pendientes de decisión del usuario** (`docs/runas/redundantes.md`, 2026-10-09): Water Shield (408510; en WotLK se aprende a nivel 20, id 52127) y Fire Nova (408339; en
 3.3.5a Nova de Fuego 1535 ya es el hechizo base que hace estallar el tótem de fuego), por redundantes (política
 del 2026-10-06). **Nature's Fury (408307):** sin objeto en SoD y clase dudosa en el catálogo; no se implementa.

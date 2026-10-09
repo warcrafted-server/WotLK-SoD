@@ -6,6 +6,13 @@ jugarlas ya; aquí se documenta la cadena real, verificada en Wowhead, para impl
 
 Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio en `CHANGELOG.md`.
 
+## Revisión pendiente con el usuario (2026-10-09)
+
+- **Runas sin su fuente real de SoD:** `docs/runas/fuentes-no-disponibles.md`. Ninguna se descarta: se compran en el
+  Grabador. Además, 33 runas implementadas aún no tienen objeto-runa y no se pueden comprar (sección 1): crearlo.
+- **Runas que coinciden con algo que la clase ya aprende:** `docs/runas/redundantes.md`, para decidir una a una.
+  Hasta entonces no se descartan: Hand of Sacrifice, Water Shield y Fire Nova quedan pendientes de esa decisión.
+
 ## Druida: lo que falta
 
 Las 27 runas de las 11 ranuras tienen código (comparado con `docs/runas/catalogo-sod.json` el
@@ -109,8 +116,7 @@ simplificaciones:
   la runa no la cambia. Falta un script de módulo sobre 20911/25899 (vía `spell_script_names`) que,
   si el lanzador tiene la runa, aplique una reducción extra con un hechizo propio de servidor, y la
   parte de daño por valor de bloqueo (20 %) sobre el proc de la bendición.
-- **Hand of Sacrifice (462853): descartada.** En WotLK el paladín ya aprende Mano de sacrificio (6940) a nivel 46
-  y se empieza en 60; política del 2026-10-06: las runas redundantes quedan fuera.
+- **Hand of Sacrifice (462853): pendiente de decisión** (`docs/runas/redundantes.md`).
 - **Infusion of Light:** no reduce el enfriamiento de Choque Sagrado porque en WotLK ya es de 6 s.
 - **Light's Grace** reutiliza el aura auxiliar 31834 de WotLK con duración de 15 s. No se ha
   hecho una compilación real ni comprobado en juego que el aura consuma el beneficio exactamente

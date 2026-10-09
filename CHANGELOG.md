@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-09
 
+- Política nueva (decidida por el usuario): ninguna runa se descarta. `docs/runas/fuentes-no-disponibles.md` lista las runas sin su fuente real de SoD (se compran en el Grabador) y las 33 que aún no tienen objeto-runa; `docs/runas/redundantes.md` analiza las que coinciden con hechizos o talentos de WotLK, para decidir una a una.
 - Brujo: runas Unstable Affliction `7008004`, Summon Felguard `7008005`, Metamorphosis `7008006`, Incinerate `7008007` y Shadowflame `7008008` (paso 1 de `.agents/plans/brujo/`). El ejecutor se quedó sin saldo a mitad; el orquestador lo terminó: el +40 % de daño de Fuego de Incinerate no estaba implementado (efecto vacío) e icono de Shadowflame inexistente. Metamorphosis solo da la forma, sin Shadow Cleave, Menace ni Demon Charge. Sin compilar ni probar.
 - Chamán: adquisición de 26 runas (`sod_shaman_acquisition.sql`, paso 6): objetos con su id real de SoD, venta en el Grabador y botín real de WotLK (Overload, Lava Burst, Storm, Earth, and Fire) solo para chamanes. Lava Lash sin objeto (no figura en las fuentes). Sin aplicar ni probar.
 - Chamán: runas Overcharged `7007023`, Rolling Thunder `7007024`, Static Shock `7007025`, Coherence `7007026` y Storm, Earth, and Fire `7007027` (paso 5), con valores de Wowhead aportados por el orquestador. Corregido en la revisión: el salto extra de Coherence valía 0 (la plantilla tiene `DieSides` 0). Sin compilar ni probar.
