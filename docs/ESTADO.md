@@ -1,7 +1,7 @@
 # Estado del proyecto
 
 **Mantén este archivo al día con cada cambio relevante, no al final de la tarea.** Es lo primero que
-lee una sesión nueva. Última actualización: **2026-10-08**.
+lee una sesión nueva. Última actualización: **2026-10-09**.
 
 ## 0. Trabajo en curso y cómo reanudarlo (2026-10-07)
 
@@ -30,6 +30,7 @@ mejor documentado sin implementar que inventado. Gore sí tiene su fuente real d
 `docs/runas/obtencion.md` (4 intendentes, verificados en wago.tools), aunque esos NPC no existen todavía en
 el mundo. **Falta compilar y probar en juego** (nunca se ha hecho con este código).
 Lifebloom `7009026` y Nourish `7009027` ya tienen specs, SQL y venta en el Grabador; la fuente real de SoD no está verificada. Sin compilar ni probar.
+**2026-10-09:** el fallo de compilación del druida del 2026-10-07 (`RegisterSpellScript` sin definir, `AuraEffect` incompleto) ya no se reproduce: todos los `.cpp` de `server/` pasan `clang++ -fsyntax-only` con los flags reales de `acore-test/build/modules/CMakeFiles/modules.dir/flags.make` (salvo los tests de gtest, que no entran en el build). Falta que el usuario compile de verdad. El checkout desplegado (`acore-test/.subrepos/WotLK-SoD`) está en `d9d5a6b`: Lifebloom y Nourish (`05cf830`) no llegarán al build hasta hacer push y desplegar.
 Las demás clases (paladín 2, chamán, brujo) están `descartadas` en la cola hasta terminar el feral (el paladín 1 se ejecutó
 por error; su código existe y pasa la sintaxis). Handoff completo en la memoria del proyecto (`handoff.md`).
 

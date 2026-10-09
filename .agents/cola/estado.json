@@ -160,13 +160,13 @@
     {
       "nombre": "druid-balance-restor-3",
       "archivo": "tareas/druid-balance-restor-3.json",
-      "estado": "revisar",
+      "estado": "hecha",
       "orden": 4,
       "nota": "Druida Balance/Resto 3 (final): Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall",
       "previo_sql": false,
       "run_id": "20261007-095747-b6a4",
       "inicio": "2026-10-07T09:57:46+02:00",
-      "fin": "2026-10-07T10:36:15+02:00",
+      "fin": "2026-10-09T05:24:34+02:00",
       "resultado": "awaiting_review"
     }
   ]
