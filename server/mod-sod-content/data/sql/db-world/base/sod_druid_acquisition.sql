@@ -155,6 +155,10 @@ REPLACE INTO `conditions`
     (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`,
      `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`,
      `NegativeCondition`, `Comment`) VALUES
+    (1, 1769, 208687, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Lacerate item for class only'),
+    (1, 1770, 208687, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Lacerate item for class only'),
+    (1, 1782, 208687, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Lacerate item for class only'),
+    (1, 1924, 208687, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Lacerate item for class only'),
     (1, 2960, 206954, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Mangle item for class only'),
     (1, 2964, 206954, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Mangle item for class only'),
     (1, 2965, 206954, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Mangle item for class only'),

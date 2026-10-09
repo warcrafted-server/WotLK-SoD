@@ -43,6 +43,8 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 
 ### Paladín (recuperadas el 2026-10-09, sin compilar ni probar)
 
+- [ ] Adquisición: comprobar que el Grabador vende los 27 objetos de runa del paladín por 1 oro y que caen Libram of Banishment (211472) de Defias Night Runner/Defias Night Blade/Defias Enchanter, Libram of Judgement (205420) de Defias Thug/Frostmane Troll Whelp y Libram of Justice (208851) de Leprithus/Ghoul/Defias Drone.
+
 - [ ] The Art of War `7002005`, Pies (9): los críticos cuerpo a cuerpo abaratan Exorcismo un 80 % y le quitan 2 s de enfriamiento.
 - [ ] Righteous Vengeance `7002006`, Espalda (3): los críticos añaden un 30 % como daño periódico durante 8 s.
 - [ ] Improved Hammer of Wrath `7002007`, Muñecas (5): Martillo de cólera reinicia su enfriamiento si el objetivo queda por debajo del 10 % de vida.

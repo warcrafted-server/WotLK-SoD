@@ -52,13 +52,13 @@
     {
       "nombre": "p2",
       "archivo": "tareas/p2-pendiente.json",
-      "estado": "descartada",
+      "estado": "hecha",
       "orden": 910,
       "nota": "Paladín 2",
       "previo_sql": true,
       "run_id": null,
       "inicio": null,
-      "fin": null,
+      "fin": "2026-10-09T07:54:51+02:00",
       "resultado": null
     },
     {

@@ -17,6 +17,11 @@ No se avanza a otra clase después del paladín sin nueva indicación. El alcanc
 de las 8 fases de SoD** (build 1.15.9), priorizado por fase y dificultad; la mecánica de las runas debe
 parecerse lo más posible a SoD.
 
+**Paladín (2026-10-09):** 27 runas con código y adquisición (`7002001`–`7002027`; Hand of Sacrifice descartada por
+redundante), según `.agents/plans/paladin/paladin.PLAN.md` (5 pasos, todos hechos). Pasan `clang++ -fsyntax-only` con
+los flags reales y el SQL de hechizos está regenerado; **sin compilar ni probar**. Improved Sanctuary aún sin efecto
+(ver `TODO.md`). Hace falta un parche de cliente nuevo (hechizos y objetos del paladín) antes de probar.
+
 **Estado del feral (2026-10-07):** las 14 runas (13 + Improved Barkskin) tienen código, sin compilar
 (sintaxis OK, `check_syntax.py`: 41 OK, 0 errores), con adquisición: objetos reales de SoD, botín de WotLK con
 tasas reales para Mangle/Savage Roar/Wild Strikes/Improved Swipe, Grizzby, oficiales de suministros y compra

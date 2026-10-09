@@ -26,7 +26,7 @@ El paladín es la siguiente en la cola. Estado de partida (commit `eeb72d6`): 10
 | 2 | 7002015–7002018 | Sheath of Light (Cintura), Guarded by the Light (Pies), Shock and Awe (Espalda), Hallowed Ground (Pecho) | high | hecho |
 | 3 | 7002019–7002023 | Beacon of Light (Manos), Hammer of the Righteous (Muñecas), Shield of Righteousness (Espalda), Divine Light (Espalda), Rebuke (Piernas) | high | hecho |
 | 4 | 7002024–7002027 | Sacred Shield (Pies), Inspiration Exemplar (Piernas), Hand of Reckoning (Manos), Malleable Protection (Cintura) | high | hecho |
-| 5 | — | Adquisición de los objetos-runa del paladín (venta en el Grabador y botín real de `docs/runas/fuentes-sod.json`), como `sod_druid_acquisition.sql` | medium | pendiente |
+| 5 | — | Adquisición de los objetos-runa del paladín (venta en el Grabador y botín real de `docs/runas/fuentes-sod.json`), como `sod_druid_acquisition.sql` | medium | hecho |
 
 **Hand of Sacrifice (462853), descartada:** en WotLK el paladín ya aprende Mano de sacrificio (6940) a nivel
 46 y se empieza en 60 (política del 2026-10-06: las runas redundantes quedan fuera). Anotada en `TODO.md`.
