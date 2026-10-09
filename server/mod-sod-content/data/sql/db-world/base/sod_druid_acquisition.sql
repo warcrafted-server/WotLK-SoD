@@ -2,6 +2,8 @@
 -- Real Rune Brokers sell these items throughout the capitals and starting zones;
 -- the summoned Rune Engraver is the local substitute. Broker-only vendor stock uses 10000 copper
 -- because this core has no per-vendor price hook. Grizzby's recorded coin cost overrides ItemSparse.
+-- Lacerate: SoD drops Unbalanced Idol (210195) from Silverpine Moonrage worgen; this core lacks that item, so they drop rune item 208687.
+-- Wowhead samples per NPC are tiny (1/2, 1/8...), so all four use the pooled rate 5/469 = 1.0661 %.
 -- Shared WotLK gameobject lootid 3318 for SoD objects 3642, 152608, 152618; one loot row uses the first source rate.
 
 REPLACE INTO `item_template`
@@ -139,7 +141,11 @@ REPLACE INTO `creature_loot_template`
     (6505, 227444, 0, 1.5504, 0, 1, 0, 1, 1, 'mod-sod-druid Improved Swipe rune'),
     (6506, 227444, 0, 1.7032, 0, 1, 0, 1, 1, 'mod-sod-druid Improved Swipe rune'),
     (6507, 227444, 0, 2.2936, 0, 1, 0, 1, 1, 'mod-sod-druid Improved Swipe rune'),
-    (6508, 227444, 0, 3.6055, 0, 1, 0, 1, 1, 'mod-sod-druid Improved Swipe rune');
+    (6508, 227444, 0, 3.6055, 0, 1, 0, 1, 1, 'mod-sod-druid Improved Swipe rune'),
+    (1769, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune'),
+    (1770, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune'),
+    (1782, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune'),
+    (1924, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune');
 
 REPLACE INTO `gameobject_loot_template`
     (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES

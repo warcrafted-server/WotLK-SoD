@@ -44,7 +44,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 ### Druida feral
 
 - [ ] Wild Growth `7009001`, Manos (6); Survival of the Fittest `7009002`, Pecho (4). Wild Growth también está en las pruebas de crecimiento con nivel (a 80 coincide con WotLK).
-- [ ] Lacerate `7009003`, Piernas (8): aparece en el libro con icono y texto, se lanza, y su daño periódico crece con el nivel. Diferencia conocida con SoD: sin el daño de arma por acumulación.
+- [ ] Lacerate `7009003`, Piernas (8): aparece en el libro con icono y texto, se lanza, y su daño periódico crece con el nivel. Diferencia conocida con SoD: sin el daño de arma por acumulación. Fuente nueva (solo SQL): matar worgen Moonrage en Silverpine (~1 % por muerte; con `.npc add 1770` o `.go creature` se puede probar rápido) debe soltar la Runa de Lacerar.
 - [ ] Savage Roar `7009004`, Piernas (8).
 - [ ] Berserk `7009005`, Cintura (7). Diferencias conocidas con SoD: sin multiobjetivo de Lacerate, sin quitar el miedo ni inmunidad.
 - [ ] Survival Instincts `7009006`, Pies (9). Diferencias conocidas con SoD: sin regeneración al esquivar ni sanación no física.
@@ -58,7 +58,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Improved Barkskin `7009014`, ranura no indicada en el texto original: comprobar uso sobre aliados y en forma, sin ralentizar ataques ni lanzamiento.
 - [ ] Los objetos-runa del druida ya existen con su id real de SoD y se consiguen como indica `docs/runas/obtencion.md`: botín con las tasas reales (bajas, del 0,2 al 2 %) de criaturas de WotLK, Grizzby y oficiales de suministros.
 - [ ] Requisitos de uso de ídolos del druida: Wild Strikes (curar 10 bestias distintas), Savage Roar (20 sangrados a humanoides), Mangle (50 de ira en oso 60 s seguidos), Improved Barkskin (5 muertes con daño de Naturaleza bajo Piel de corteza) e Improved Swipe (5 muertes de dormidos en gato); con `RuneEngraving.Requirements.Enable = 0` se saltan.
-- [ ] Fidelidad extra aún pendiente de verificar (sin inventar mecánica): Lacerate/Aggressive Squashling, King of the Jungle/Supply Bag, Survival Instincts/evento «Amaryllis», Improved Frenzied Regeneration. No se pudo confirmar la mecánica exacta porque Wowhead usa páginas dinámicas que WebFetch no renderiza (sin herramienta de navegador en esa sesión); es mejor documentarlo sin implementar que inventar. Gore tiene su fuente real documentada en `docs/runas/obtencion.md` (4 intendentes, verificados en wago.tools), aunque esos NPC todavía no existen en el mundo.
+- [ ] Fidelidad extra aún pendiente de verificar (sin inventar mecánica): King of the Jungle/Supply Bag, Survival Instincts/evento «Amaryllis», Improved Frenzied Regeneration. No se pudo confirmar la mecánica exacta porque Wowhead usa páginas dinámicas que WebFetch no renderiza (sin herramienta de navegador en esa sesión); es mejor documentarlo sin implementar que inventar. Gore tiene su fuente real documentada en `docs/runas/obtencion.md` (4 intendentes, verificados en wago.tools), aunque esos NPC todavía no existen en el mundo.
 - [ ] Las diferencias con SoD de las siete runas de C++ nuevas están descritas en el informe de cada tarea (`agentrelay show`).
 
 ### Druida Balance/Restauración

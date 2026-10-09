@@ -6,10 +6,6 @@ jugarlas ya; aquí se documenta la cadena real, verificada en Wowhead, para impl
 
 Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio en `CHANGELOG.md`.
 
-## Distribución de parches y addon
-
-Pendiente de que Marc indique repositorio y ruta: los parches de cliente (`patch-z.mpq`, `esES/patch-esES-z.mpq`) y el addon RuneEngraver irán a GitHub para que el launcher los descargue. Hasta entonces las copias están en `datos/parche-cliente/` (ignorado por git).
-
 ## Druida feral
 
 ### Tree of Life
@@ -68,28 +64,11 @@ No hace falta el Sello de Ariden para que los Jinetes Oscuros suelten las reliqu
 **invocarlos** (según un comentario; no verificado del todo). No montar al matar al jinete o no se
 obtiene el buff necesario («Presencia Oscura»).
 
-### Lacerate (runa de Laceración, piernas, hechizo SoD 414644, objeto 208687) — alternativa más simple
+### Lacerate: vía de pesca (no prioritaria)
 
-Tiene una fuente directa en SoD, más simple que las dos anteriores: el objeto **«Ídolo
-Desequilibrado»** (Unbalanced Idol, id SoD 210195, ídolo alternativo que también enseña Lacerate)
-lo sueltan Worgen y Osos comunes de **Bosque de Argénteo Lunar (Silverpine Forest)**. Comprobado en
-la base de datos de este core (`acore_world`, usuario de solo lectura, 2026-10-07): **no existe
-ningún Worgen humanoide común en Silverpine Forest en WotLK 3.3.5a** (el único «Worgen» del juego es
-el Nightbane Worgen, exclusivo de la mazmorra Karazhan). Sí hay dos osos cuyas coordenadas
-(`creature_template` 1778 «Ferocious Grizzled Bear» y 1797 «Giant Grizzled Bear», mapa 0, X entre
--300 y 1300, Y entre 1100 y 2000) son compatibles con esa zona, pero no he confirmado con una
-segunda fuente que esas coordenadas sean exactamente Silverpine (podrían ser Tirisfal Glades,
-zona vecina). Pendiente: confirmar la zona exacta de esas dos entradas de criatura (comparando con
-un mapa de referencia o con `WorldSafeLocs`/`areatriggers` de esa zona) y, si se confirma, añadir el
-botín del ídolo en
-`server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql`. Es tarea pequeña, no
-cadena de misión — hacerla antes que las dos anteriores en cuanto se confirme la zona.
-
-Hay una segunda vía alternativa para Alianza (pesca): comprar «Cebo de Albacora Arcoíris»
-(Rainbow Fin Albacore Chum, objeto 208855) a Khara Deepwater en Lago Thom (Loch Modan), y usarlo
-cerca de un Young Threshadon; o pescar en Costa Oscura (Darkshore) cerca de la ruta de vuelo para
-obtener «Golosinas de Cangrejo» (Crab Treats) y dárselas a los Jóvenes Cangrejos de Arrecife (Young
-Reef Crawlers) cercanos. Es más compleja que la fuente de Silverpine; no priorizar.
+La fuente principal (worgen Moonrage de Silverpine) ya está implementada. Queda sin hacer la vía de
+pesca de SoD: «Cebo de Albacora Arcoíris» (objeto 208855) de Khara Deepwater en Lago Thom, usado
+junto a un Young Threshadon, o «Golosinas de Cangrejo» para los Young Reef Crawlers de Costa Oscura.
 
 ### Starfall
 
