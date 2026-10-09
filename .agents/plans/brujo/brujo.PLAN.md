@@ -19,3 +19,11 @@ duplicados), regeneración del SQL de hechizos, sintaxis con los flags reales y 
 | 4 | 7008019–7008023 | Demonic Grace, Invocation, Dance of the Wicked, Vengeance, Immolation Aura | high | pendiente |
 | 5 | 7008024–7008027 | Infernal Armor, Mark of Chaos, Pandemic, Grimoire of Synergy | high | pendiente |
 | 6 | — | Adquisición de los objetos-runa del brujo (como `sod_shaman_acquisition.sql`) | medium | pendiente |
+
+## Cómo seguir
+Los encargos de los pasos 2–5 están listos en `tareas/war2.json`…`war5.json` (con ids de WotLK, scripts y
+`spell_proc` del core ya verificados). Lanzar con `agentrelay run .agents/plans/brujo/tareas/warN.json`.
+El 2026-10-09 a las 12:36 el ejecutor (Codex) se quedó sin cuota gratuita y sin saldo en la clave de pago; la única
+alternativa que ofrece AgentRelay es DeepSeek (`agentrelay use cline deepseek-v4-flash`, necesita su clave): decide
+el usuario. El paso 6 (adquisición) falta por preparar, como `sha6.json` del chamán.
+
