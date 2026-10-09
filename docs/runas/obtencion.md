@@ -71,6 +71,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7007015 | Chamán | Greater Ghost Wolf | Piernas | 415813 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415813](https://www.wowhead.com/classic/spell=415813) |
 | 7007016 | Chamán | Way of Earth | Piernas | 408531 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408531](https://www.wowhead.com/classic/spell=408531) |
 | 7007017 | Chamán | Molten Blast | Manos | 425339 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=425339](https://www.wowhead.com/classic/spell=425339) |
+| 7007018 | Chamán | Power Surge | Cintura | 415100 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415100](https://www.wowhead.com/classic/spell=415100) |
+| 7007019 | Chamán | Decoy Totem | Pies | 425874 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=425874](https://www.wowhead.com/classic/spell=425874) |
+| 7007020 | Chamán | Spirit of the Alpha | Pies | 408696 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408696](https://www.wowhead.com/classic/spell=408696) |
+| 7007021 | Chamán | Burn | Cabeza | 415231 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415231](https://www.wowhead.com/classic/spell=415231) |
+| 7007022 | Chamán | Mental Dexterity | Cabeza | 415140 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415140](https://www.wowhead.com/classic/spell=415140) |
 | 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
 | 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
 | 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |

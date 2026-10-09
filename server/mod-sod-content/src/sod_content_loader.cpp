@@ -78,6 +78,11 @@ void AddSC_sod_shaman_ancestral_guidance();
 void AddSC_sod_shaman_greater_ghost_wolf();
 void AddSC_sod_shaman_way_of_earth();
 void AddSC_sod_shaman_molten_blast();
+void AddSC_sod_shaman_power_surge();
+void AddSC_sod_shaman_decoy_totem();
+void AddSC_sod_shaman_spirit_of_the_alpha();
+void AddSC_sod_shaman_burn();
+void AddSC_sod_shaman_mental_dexterity();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -144,6 +149,11 @@ void Addmod_sod_contentScripts()
     AddSC_sod_shaman_greater_ghost_wolf();
     AddSC_sod_shaman_way_of_earth();
     AddSC_sod_shaman_molten_blast();
+    AddSC_sod_shaman_power_surge();
+    AddSC_sod_shaman_decoy_totem();
+    AddSC_sod_shaman_spirit_of_the_alpha();
+    AddSC_sod_shaman_burn();
+    AddSC_sod_shaman_mental_dexterity();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

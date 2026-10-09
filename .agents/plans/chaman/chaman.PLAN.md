@@ -18,7 +18,7 @@ raíz falsa), comprueba la sintaxis con los flags reales, actualiza `CHANGELOG.m
 | 1 | 7007003–7007008 | Lava Burst, Riptide, Feral Spirit, Maelstrom Weapon, Tidal Waves, Ancestral Awakening (clones de WotLK) | medium | hecho |
 | 2 | 7007009–7007013 | Dual Wield Specialization, Overload, Shield Mastery, Two-Handed Mastery, Healing Rain | high | hecho |
 | 3 | 7007014–7007017 | Ancestral Guidance, Greater Ghost Wolf, Way of Earth, Molten Blast | high | hecho |
-| 4 | 7007018–7007022 | Power Surge, Decoy Totem, Spirit of the Alpha, Burn, Mental Dexterity | high | pendiente |
+| 4 | 7007018–7007022 | Power Surge, Decoy Totem, Spirit of the Alpha, Burn, Mental Dexterity | high | hecho |
 | 5 | 7007023–7007027 | Overcharged, Rolling Thunder, Static Shock, Coherence, Storm, Earth, and Fire | high | pendiente |
 | 6 | — | Adquisición de los objetos-runa del chamán (como `sod_paladin_acquisition.sql`) | medium | pendiente |
 

@@ -276,6 +276,26 @@
     "name": "Despertar ancestral",
     "desc": "Cuando realizas sanación crítica con tu Ola de sanación u Ola de sanación inferior, invocas a un espíritu ancestral para que te ayude, lo que sana instantáneamente al objetivo de tu grupo con el porcentaje de salud más bajo en un radio de 40 m un $s1% de la cantidad de sanación realizada."
   },
+  "415100": {
+    "name": "Oleada de poder",
+    "desc": "Cada vez que Choque de llamas inflige daño, hay un $h% de probabilidades de que se restablezca el tiempo de reutilización de Ráfaga de lava y Cadena de relámpagos, y de que tu siguiente lanzamiento de Ráfaga de lava o Cadena de relámpagos en $415105d sea instantáneo. Cada vez que Mareas Vivas sana, tiene un $h% de probabilidad de provocar que tu siguiente Sanación en cadena en $468526d sea instantánea. Además, obtienes una cantidad de maná equivalente a un $s2% de tu intelecto cada $440285t s."
+  },
+  "425874": {
+    "name": "Tótem señuelo",
+    "desc": "Invoca un tótem señuelo con $s1 p. de salud durante $d a los pies del objetivo que redirigirá a sí mismo el siguiente ataque cuerpo a cuerpo o a distancia realizado contra el objetivo. El tótem también otorga al objetivo inmunidad a los efectos de reducción de movimiento durante $436391d."
+  },
+  "408696": {
+    "name": "Espíritu del alfa",
+    "desc": "Imbuye al objetivo del espíritu de un lobo alfa, lo que aumenta un $s1% toda la amenaza que genera durante $d. Afecta a 1 objetivo como máximo. Si se lanza sobre otro objetivo, el chamán obtiene Beta leal, que aumenta un $443320s1% el daño físico infligido y reduce un $443320s2% toda la amenaza generada durante $d. Un objetivo no puede contar con Espíritu del alfa y Beta leal a la vez."
+  },
+  "415231": {
+    "name": "Quemar",
+    "desc": "Ahora, tu Choque de llamas golpea a un máximo de $s1 objetivos, su duración aumenta ${$m5/1000} s e inflige un $s3% más de daño. Además, si tienes la facultad Arma Lengua de Fuego imbuida en el arma que llevas equipada en la mano principal, obtienes un aumento al daño con hechizos equivalente a un $s7% de tu intelecto."
+  },
+  "415140": {
+    "name": "Maña mental",
+    "desc": "Al infligir daño con Golpe de tormenta, aumentas tu poder de ataque el equivalente a un $s1% de tu intelecto, y tu daño con hechizos el equivalente a un $s2% de tu poder de ataque total durante $415144d."
+  },
   "900032": {
     "name": "Descarga de relámpagos"
   },
