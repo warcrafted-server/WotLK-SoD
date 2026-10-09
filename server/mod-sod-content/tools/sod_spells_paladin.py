@@ -1012,23 +1012,4 @@ def build(idx):
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
-        {  # Poder de ataque de Protección maleable; el script fija la cantidad y la duración.
-            "id": 460171, "client": True, "template": 774,
-            "name": "Malleable Protection",
-            "aura_desc": "Attack Power increased by $s1.",
-            "overrides": {
-                "Attributes": 0,
-                "DurationIndex": duration_15s,
-                "RangeIndex": range_self,
-                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
-                "SpellLevel": 0, "EquippedItemClass": -1,
-                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
-                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 99,
-                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
-                "EffectMiscValue_1": 0,
-                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
-                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
-                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
-            },
-        },
     ]

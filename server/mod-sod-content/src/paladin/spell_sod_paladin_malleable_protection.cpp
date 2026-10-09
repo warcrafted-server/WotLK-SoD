@@ -81,6 +81,7 @@ public:
 
         CustomSpellValues values;
         values.AddSpellMod(SPELLVALUE_BASE_POINT0, attackPowerAmount);
+        values.AddSpellMod(SPELLVALUE_BASE_POINT1, attackPowerAmount);
         values.AddSpellMod(SPELLVALUE_AURA_DURATION, int32(
             SodPaladinMalleableProtectionAttackPowerDurationSeconds() * IN_MILLISECONDS));
         player->CastCustomSpell(SPELL_SOD_PALADIN_MALLEABLE_PROTECTION_AP,
