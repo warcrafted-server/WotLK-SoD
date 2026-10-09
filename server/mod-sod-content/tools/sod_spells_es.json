@@ -296,6 +296,26 @@
     "name": "Maña mental",
     "desc": "Al infligir daño con Golpe de tormenta, aumentas tu poder de ataque el equivalente a un $s1% de tu intelecto, y tu daño con hechizos el equivalente a un $s2% de tu poder de ataque total durante $415144d."
   },
+  "432140": {
+    "name": "Sobrecargado",
+    "desc": "Tu Escudo de relámpagos nunca pierde cargas, tiene 3 s de tiempo de reutilización e inflige daño a los enemigos en un radio de 8 yardas."
+  },
+  "432056": {
+    "name": "Trueno ondulante",
+    "desc": "Descarga de relámpagos y Cadena de relámpagos tienen un 50% de probabilidades de añadir una carga a tu Escudo de relámpagos activo, hasta un máximo de 9. Choque de tierra libera las cargas por encima de 3, inflige su daño al objetivo y restaura un 2% de tu maná máximo por carga liberada."
+  },
+  "432134": {
+    "name": "Choque estático",
+    "desc": "Tu Escudo de relámpagos obtiene 6 cargas adicionales. Tus ataques cuerpo a cuerpo tienen un 12% de probabilidades, o un 6% si empuñas dos armas, de activar una carga e infligir daño al objetivo."
+  },
+  "415096": {
+    "name": "Coherencia",
+    "desc": "Sanación en cadena pierde solo un 35% de efectividad por salto y Cadena de relámpagos solo un 20%. Cada hechizo salta a un objetivo adicional."
+  },
+  "440569": {
+    "name": "Tormenta, Tierra y Fuego",
+    "desc": "Reduce un 25% el tiempo de reutilización de Cadena de relámpagos, hace que Tótem Nexo Terrestre enraíce a los objetivos durante 5 s al lanzarse y aumenta un 60% el daño periódico de Choque de llamas."
+  },
   "900032": {
     "name": "Descarga de relámpagos"
   },

@@ -83,6 +83,10 @@ void AddSC_sod_shaman_decoy_totem();
 void AddSC_sod_shaman_spirit_of_the_alpha();
 void AddSC_sod_shaman_burn();
 void AddSC_sod_shaman_mental_dexterity();
+void AddSC_sod_shaman_overcharged();
+void AddSC_sod_shaman_rolling_thunder();
+void AddSC_sod_shaman_static_shock();
+void AddSC_sod_shaman_storm_earth_fire();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -154,6 +158,10 @@ void Addmod_sod_contentScripts()
     AddSC_sod_shaman_spirit_of_the_alpha();
     AddSC_sod_shaman_burn();
     AddSC_sod_shaman_mental_dexterity();
+    AddSC_sod_shaman_overcharged();
+    AddSC_sod_shaman_rolling_thunder();
+    AddSC_sod_shaman_static_shock();
+    AddSC_sod_shaman_storm_earth_fire();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

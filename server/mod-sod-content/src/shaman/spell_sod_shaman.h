@@ -32,6 +32,11 @@ enum SodShamanSpells
     SPELL_SOD_SHAMAN_SPIRIT_OF_THE_ALPHA = 408696,
     SPELL_SOD_SHAMAN_BURN = 415231,
     SPELL_SOD_SHAMAN_MENTAL_DEXTERITY = 415140,
+    SPELL_SOD_SHAMAN_OVERCHARGED = 432140,
+    SPELL_SOD_SHAMAN_ROLLING_THUNDER = 432056,
+    SPELL_SOD_SHAMAN_STATIC_SHOCK = 432134,
+    SPELL_SOD_SHAMAN_COHERENCE = 415096,
+    SPELL_SOD_SHAMAN_STORM_EARTH_FIRE = 440569,
     SPELL_SOD_SHAMAN_SHIELD_MASTERY_ARMOR = 900029,
     SPELL_SOD_SHAMAN_SHIELD_MASTERY_SPELL_DAMAGE = 900030,
     SPELL_SOD_SHAMAN_TWO_HANDED_MASTERY_BUFF = 900031,
@@ -56,6 +61,10 @@ enum SodShamanSpells
     SPELL_SHAMAN_EARTH_SHOCK = 8042,
     SPELL_SHAMAN_FROST_SHOCK = 8056,
     SPELL_SHAMAN_CHAIN_LIGHTNING = 49271,
+    SPELL_SHAMAN_LIGHTNING_SHIELD_R1 = 324,
+    SPELL_SHAMAN_LIGHTNING_SHIELD_DAMAGE_R1 = 26364,
+    SPELL_SHAMAN_EARTHBIND_PERIODIC = 6474,
+    SPELL_SHAMAN_EARTHGRAB = 64695,
     SPELL_WARRIOR_TAUNT = 355,
 };
 
@@ -73,6 +82,10 @@ void AddSC_sod_shaman_decoy_totem();
 void AddSC_sod_shaman_spirit_of_the_alpha();
 void AddSC_sod_shaman_burn();
 void AddSC_sod_shaman_mental_dexterity();
+void AddSC_sod_shaman_overcharged();
+void AddSC_sod_shaman_rolling_thunder();
+void AddSC_sod_shaman_static_shock();
+void AddSC_sod_shaman_storm_earth_fire();
 
 inline bool SodShamanEnabled()
 {

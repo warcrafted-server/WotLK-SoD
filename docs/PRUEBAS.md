@@ -64,9 +64,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Spirit of the Alpha `7007020`, Pies (9): comprobar el aumento de amenaza del 45 % durante 30 min y que solo afecta a un objetivo a la vez. Beta leal no está implementada: sus porcentajes no constan en el catálogo local.
 - [ ] Burn `7007021`, Cabeza (0): con la runa activa, comprobar que Choque de llamas dura 6 s más e inflige el doble de daño directo y periódico, y que Arma Lengua de Fuego en la mano principal concede daño con hechizos igual al 150 % del intelecto. La propagación a cinco objetivos no está implementada.
 - [ ] Mental Dexterity `7007022`, Cabeza (0): al infligir daño con Golpe de tormenta, comprobar el poder de ataque equivalente al 150 % del intelecto y el daño con hechizos equivalente al 35 % del poder de ataque total. La duración auxiliar está fijada provisionalmente en 15 s; el valor de `415144d` no consta en el catálogo local.
-- [ ] Comprobar que las cinco runas nuevas aparecen con nombre e icono en español y que el Grabador las vende por 1 oro. Aún no se han compilado ni probado.
-- [ ] Confirmar los cuatro nombres e iconos en español y que la compra provisional al Grabador desbloquea cada runa.
-- [ ] Confirmar los cinco nombres e iconos en español y que la compra provisional al Grabador desbloquea cada runa.
+- [ ] Overcharged `7007023`, Muñecas (5): comprobar que Escudo de relámpagos conserva hasta 9 cargas, se activa como máximo cada 3 s e inflige daño a enemigos adicionales en 8 yardas. El atacante principal ya recibe el proc nativo de WotLK; comprobar que no recibe daño duplicado.
+- [ ] Rolling Thunder `7007024`, Muñecas (5): lanzar Descarga de relámpagos y Cadena de relámpagos para comprobar la probabilidad del 50 % de sumar una carga hasta 9. Con más de 3 cargas, lanzar Choque de tierra y comprobar el daño por carga liberada y la restauración del 2 % del maná máximo por carga.
+- [ ] Static Shock `7007025`, Muñecas (5): comprobar las 9 cargas de Escudo de relámpagos, la probabilidad del 12 % con una mano secundaria vacía y del 6 % con dos armas, el daño al objetivo y el consumo de una carga. Con Overcharged activo, comprobar que las cargas no se consumen.
+- [ ] Coherence `7007026`, Espalda (11): comprobar la efectividad por salto del 65 % para Sanación en cadena y del 80 % para Cadena de relámpagos, más un objetivo en ambos hechizos. Los porcentajes se implementan mediante los SpellModOp de WotLK y deben contrastarse en juego.
+- [ ] Storm, Earth, and Fire `7007027`, Espalda (11): comprobar −25 % al tiempo de reutilización de Cadena de relámpagos, el enraizamiento de 5 s del Tótem Nexo Terrestre al aplicarse el aura del tótem y +60 % al daño periódico de Choque de llamas.
+- [ ] Confirmar los textos esES, los iconos y que la compra provisional al Grabador desbloquea las cinco runas `7007023–7007027`.
 
 ### Paladín (recuperadas el 2026-10-09, sin compilar ni probar)
 

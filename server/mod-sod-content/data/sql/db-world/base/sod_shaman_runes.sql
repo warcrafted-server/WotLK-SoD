@@ -77,6 +77,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-shaman'', 1),
     (7007022, 415140, 64, 1, ''Mental Dexterity'', ''ability_dualwield'',
      ''Stormstrike damage increases Attack Power based on Intellect and spell damage based on Attack Power for 15 seconds.'',
+     ''mod-sod-shaman'', 1),
+    (7007023, 432140, 64, 32, ''Overcharged'', ''spell_nature_lightningshield'',
+     ''Lightning Shield never loses charges, has a 3 second cooldown and damages enemies within 8 yards.'',
+     ''mod-sod-shaman'', 1),
+    (7007024, 432056, 64, 32, ''Rolling Thunder'', ''spell_nature_lightningoverload'',
+     ''Lightning Bolt and Chain Lightning can add charges to Lightning Shield, and Earth Shock releases charges above three.'',
+     ''mod-sod-shaman'', 1),
+    (7007025, 432134, 64, 32, ''Static Shock'', ''spell_nature_lightningshield'',
+     ''Lightning Shield gains six charges. Melee attacks may trigger a charge and damage the target.'',
+     ''mod-sod-shaman'', 1),
+    (7007026, 415096, 64, 8, ''Coherence'', ''spell_nature_tranquility'',
+     ''Chain Heal and Chain Lightning lose less effectiveness per jump and each jumps to one additional target.'',
+     ''mod-sod-shaman'', 1),
+    (7007027, 440569, 64, 8, ''Storm, Earth, and Fire'', ''spell_nature_rockbiter'',
+     ''Reduces Chain Lightning cooldown, roots targets hit by Earthbind Totem and increases Flame Shock periodic damage.'',
      ''mod-sod-shaman'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -106,6 +121,14 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (-8042, 'spell_sod_shaman_way_of_earth_shock_cooldown'),
     (-8050, 'spell_sod_shaman_way_of_earth_shock_cooldown'),
     (-8056, 'spell_sod_shaman_way_of_earth_shock_cooldown');
+
+-- Runas que se enganchan a hechizos nativos de WotLK.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-324, 'spell_sod_shaman_overcharged_lightning_shield'),
+    (-324, 'spell_sod_shaman_static_shock_lightning_shield'),
+    (-8042, 'spell_sod_shaman_rolling_thunder_earth_shock'),
+    (6474, 'spell_sod_shaman_storm_earth_fire_earthbind'),
+    (432134, 'spell_sod_shaman_static_shock');
 
 -- Quemar modifica el daño directo, la duración y el daño periódico de Choque de llamas de cualquier rango.
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)

@@ -76,6 +76,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7007020 | Chamán | Spirit of the Alpha | Pies | 408696 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408696](https://www.wowhead.com/classic/spell=408696) |
 | 7007021 | Chamán | Burn | Cabeza | 415231 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415231](https://www.wowhead.com/classic/spell=415231) |
 | 7007022 | Chamán | Mental Dexterity | Cabeza | 415140 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415140](https://www.wowhead.com/classic/spell=415140) |
+| 7007023 | Chamán | Overcharged | Muñecas | 432140 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=432140](https://www.wowhead.com/classic/spell=432140) |
+| 7007024 | Chamán | Rolling Thunder | Muñecas | 432056 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=432056](https://www.wowhead.com/classic/spell=432056) |
+| 7007025 | Chamán | Static Shock | Muñecas | 432134 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=432134](https://www.wowhead.com/classic/spell=432134) |
+| 7007026 | Chamán | Coherence | Espalda | 415096 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415096](https://www.wowhead.com/classic/spell=415096) |
+| 7007027 | Chamán | Storm, Earth, and Fire | Espalda | 440569 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=440569](https://www.wowhead.com/classic/spell=440569) |
 | 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
 | 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
 | 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |

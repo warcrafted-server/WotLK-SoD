@@ -183,7 +183,7 @@ Simplificaciones y datos por revisar:
 - [ ] Regenerar el SQL de hechizos y el parche de cliente y probar las seis runas nuevas `7007003–7007008` en el reino de desarrollo. Se clonan comportamientos de WotLK; no se han probado. Esta tanda no añade scripts C++ que requieran recompilar. La obtención de SoD no está verificada y la compra al Grabador es provisional.
 - [ ] Verificar Maelstrom Weapon: el aura auxiliar SoD `408505` conserva el manejador nativo de `53817`, y las máscaras limitan el modificador a Descarga de relámpagos, Cadena de relámpagos, Ola de sanación inferior y Ráfaga de lava. Falta comprobar en juego las bonificaciones de probabilidad de Viento furioso y arma a dos manos del texto de SoD.
 - [ ] Verificar que Ancestral Awakening solo se activa con críticos de Ola de sanación y Ola de sanación inferior como indica SoD; el efecto se hereda del talento de WotLK.
-- [ ] El interruptor `SodShaman.Enable` lo consultan los scripts de las cinco runas nuevas `7007009–7007013`; las seis anteriores siguen reutilizando comportamientos nativos.
+- [ ] El interruptor `SodShaman.Enable` lo consultan los scripts propios de `7007009–7007013` y `7007023–7007025`, `7007027`; las runas anteriores siguen reutilizando comportamientos nativos.
 - [ ] Wowhead no respondió durante esta tarea (curl terminó con error DNS 6); datos y descripciones se tomaron de `docs/runas/catalogo-sod.json` y no se contrastaron en la web.
 - [ ] Regenerar el SQL de hechizos y el parche de cliente, compilar y probar las cinco runas `7007009–7007013` en el reino de desarrollo. Aún no están compiladas ni probadas; la obtención por el Grabador sigue siendo provisional.
 - [ ] Dual Wield Specialization concede Doble empuñadura y simula el segundo golpe de Golpe de tormenta con un ataque de mano izquierda. El aumento de golpe se aplica de forma permanente mientras la runa está activa, incluso sin arma secundaria; confirmar si es aceptable. Valores contrastados en [Dual Wield Specialization](https://www.wowhead.com/classic/spell=408496) el 2026-10-09.
@@ -208,6 +208,12 @@ Simplificaciones y datos por revisar:
   tormenta ya golpea con ambas armas en WotLK, así que la runa no añade golpe extra.
 - **Overload:** las copias (900032–900036) usan la mitad del daño o la sanación final del hechizo original y
   no vuelven a aplicar el poder con hechizos; pueden ser críticas.
+- [ ] Regenerar el SQL de hechizos y el parche de cliente, compilar y probar las runas `7007023–7007027` en el reino de desarrollo. Esta tanda no se ha compilado ni probado; la obtención por el Grabador sigue siendo provisional.
+- [ ] Overcharged restaura la carga consumida por Escudo de relámpagos y reduce su cooldown nativo a 3 s; combinado con Rolling Thunder o Static Shock conserva hasta nueve cargas. El proc nativo golpea al atacante y el script añade el daño de la misma carga a los demás enemigos en 8 yd. Verificar que no se duplique el objetivo principal.
+- [ ] Rolling Thunder añade cargas hasta 9 con probabilidad del 50 % en golpes de Descarga y Cadena de relámpagos. Choque de tierra libera las cargas por encima de 3, lanza el daño de Escudo de relámpagos una vez por carga y restaura el 2 % del maná máximo por carga.
+- [ ] Static Shock clona el talento WotLK 51527 y conserva su manejador nativo de daño; el script propio limita el proc al 12 % con una mano secundaria vacía y al 6 % al empuñar dos armas. Overcharged evita que este proc consuma cargas.
+- [ ] Coherence usa SpellModOp 20 con modificadores derivados para dejar el multiplicador por salto en 65 % y 80 %, y SpellModOp 17 para un objetivo adicional. Verificar esos resultados en juego.
+- [ ] Storm, Earth, and Fire aplica −25 % al cooldown de Cadena de relámpagos y +60 % al daño periódico de Choque de llamas con SpellModOp 11 y 22. Un hook en el aura 6474 de Tótem Nexo Terrestre lanza Pillaterra (64695); comprobar su duración y selección de objetivos.
 
 ## Otras clases
 
