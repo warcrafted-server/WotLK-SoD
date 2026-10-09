@@ -163,10 +163,6 @@ edites nada del repo del launcher desde aquí: si el script falla, informa del e
 
 ### 4. Legalidad y procedencia
 
-- Solo se usa código de proyectos con licencia compatible (GPL/AGPL) y se respeta y documenta
-  su licencia y atribución en `docs/decisiones/`.
-- **No se distribuyen** datos ni binarios del cliente de WoW. El usuario aporta su propio
-  cliente legítimo; nosotros solo escribimos herramientas que lo leen en local.
 - Nada de este proyecto sirve para eludir la autenticación de servicios de Blizzard ni para
   operar un servidor público sin valorar antes las implicaciones. Es un servidor privado de
   estudio.
