@@ -59,3 +59,7 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7002012 | Paladín | Light's Grace | Muñecas | 428909 | Compra «Light's Grace» (7002012) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=428909](https://www.wowhead.com/classic/spell=428909) |
 | 7002013 | Paladín | Improved Sanctuary | Cabeza | 429133 | Compra «Improved Sanctuary» (7002013) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=429133](https://www.wowhead.com/classic/spell=429133) |
 | 7002014 | Paladín | Aegis | Pecho | 425589 | Compra «Aegis» (7002014) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=425589](https://www.wowhead.com/classic/spell=425589) |
+| 7002015 | Paladín | Sheath of Light | Cintura | 426158 | Compra «Sheath of Light» (7002015) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=426158](https://www.wowhead.com/classic/spell=426158) |
+| 7002016 | Paladín | Guarded by the Light | Pies | 415059 | Compra «Guarded by the Light» (7002016) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=415059](https://www.wowhead.com/classic/spell=415059) |
+| 7002017 | Paladín | Shock and Awe | Espalda | 462834 | Compra «Shock and Awe» (7002017) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=462834](https://www.wowhead.com/classic/spell=462834) |
+| 7002018 | Paladín | Hallowed Ground | Pecho | 458287 | Compra «Hallowed Ground» (7002018) al Grabador por 1 oro; fuente real de SoD no verificada. | [spell=458287](https://www.wowhead.com/classic/spell=458287) |

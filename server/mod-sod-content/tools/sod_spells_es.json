@@ -139,6 +139,34 @@
     "name": "Cólera",
     "desc": "Ahora, el daño infligido por tu Consagración puede convertirse en golpes críticos. Aumenta la probabilidad de golpe crítico de Exorcismo, Choque Sagrado, Luz solar, Cólera Sagrada y Consagración una cantidad equivalente a tu probabilidad de golpe crítico cuerpo a cuerpo."
   },
+  "426158": {
+    "name": "Vaina de Luz",
+    "desc": "Al infligir daño con tu arma cuerpo a cuerpo, tu daño con hechizos aumenta una cantidad equivalente al $s1% de tu poder de ataque durante $426159d."
+  },
+  "426159": {
+    "name": "Vaina de Luz",
+    "aura_desc": "El daño con hechizos aumenta $s1."
+  },
+  "415059": {
+    "name": "Custodiado por la Luz",
+    "desc": "Cada vez que golpeas a un objetivo con tu arma cuerpo a cuerpo, ganas un $415058m1% de tu maná máximo cada $415058t1 s durante $415058d, pero la cantidad sanada por tus hechizos de sanación se reduce un $415058s2% mientras dura esta regeneración de maná."
+  },
+  "415058": {
+    "name": "Custodiado por la Luz",
+    "aura_desc": "Obtienes un 5% de tu maná máximo cada 3 s. La sanación realizada se reduce un 50%."
+  },
+  "462834": {
+    "name": "Conmoción y terror",
+    "desc": "Mientras Furia justa no esté activa, al infligir daño con Choque Sagrado obtienes un daño con hechizos equivalente al $s1% de tu intelecto y reduces la amenaza que generas un $462832s2% durante $462832d."
+  },
+  "462832": {
+    "name": "Conmoción y terror",
+    "aura_desc": "El daño con hechizos aumenta $s1. La amenaza generada se reduce un $s2%."
+  },
+  "458287": {
+    "name": "Suelo sacralizado",
+    "desc": "Tu Consagración también sana a los miembros del grupo que están dentro de su zona un $s1% del daño de Consagración."
+  },
   "426162": {
     "name": "Fanatismo",
     "aura_desc": "Sana $w1 p. cada $t1 s."

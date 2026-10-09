@@ -59,6 +59,10 @@ void AddSC_sod_paladin_fanaticism();
 void AddSC_sod_paladin_wrath();
 void AddSC_sod_paladin_infusion_of_light();
 void AddSC_sod_paladin_aegis();
+void AddSC_sod_paladin_sheath_of_light();
+void AddSC_sod_paladin_guarded_by_the_light();
+void AddSC_sod_paladin_shock_and_awe();
+void AddSC_sod_paladin_hallowed_ground();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -124,5 +128,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_paladin_wrath();
     AddSC_sod_paladin_infusion_of_light();
     AddSC_sod_paladin_aegis();
+    AddSC_sod_paladin_sheath_of_light();
+    AddSC_sod_paladin_guarded_by_the_light();
+    AddSC_sod_paladin_shock_and_awe();
+    AddSC_sod_paladin_hallowed_ground();
 
 }

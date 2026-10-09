@@ -118,6 +118,27 @@ simplificaciones:
 - **Aegis** dispara los rangos de proc de Redoubt y Reckoning existentes en WotLK. No se ha
   hecho una compilación real ni probado en juego la interacción con los rangos de talentos.
 
+Las runas 7002015–7002018 están implementadas, pendientes de compilación real y prueba en juego.
+Simplificaciones:
+
+- **Sheath of Light:** reutiliza el aura de daño con hechizos, actualizada con el 30 % del poder de
+  ataque al acertar un golpe cuerpo a cuerpo. La ficha de [Wowhead](https://www.wowhead.com/classic/spell=426158)
+  indica una duración de 1 min (consulta del 2026-10-09).
+- **Guarded by the Light:** cada impacto cuerpo a cuerpo renueva el aura de 15 s; recupera el 5 %
+  del maná máximo cada 3 s y reduce la sanación realizada un 50 %. Valores contrastados con la
+  [ficha de Wowhead](https://www.wowhead.com/classic/spell=415058) (consulta del 2026-10-09).
+- **Shock and Awe:** aplica el beneficio de 1 min con 200 % del intelecto como daño con hechizos y
+  30 % menos de amenaza tras el daño de Choque Sagrado, solo sin Furia justa. No implementa el
+  beneficio Sunlight condicional a Infusion of Light; requiere añadir daño extra para Golpe de
+  cruzado, Tormenta divina y ataques contra criaturas. Valores contrastados con las fichas de
+  [Shock and Awe](https://www.wowhead.com/classic/spell=462834) y su
+  [aura](https://www.wowhead.com/classic/spell=462832) en Wowhead (consulta del 2026-10-09).
+- **Hallowed Ground:** calcula la sanación al recibir cada evento de daño periódico de Consagración
+  y usa el objeto de área dinámica de ese rango para localizar a los miembros del grupo. No se ha
+  probado que el evento informe el daño final deseado ni la interacción con varios enemigos.
+  Consagración tiene radio de 8 yardas según la [ficha del rango 8 en Wowhead](https://www.wowhead.com/wotlk/spell=48819/consecration)
+  (consulta del 2026-10-09); el código usa el radio del objeto de área dinámica.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

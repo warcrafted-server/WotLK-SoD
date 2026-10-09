@@ -11,11 +11,11 @@ de fuentes de Wowhead) y, en una sesión nueva, leer `docs/guias/reanudar-tras-r
 `python3 tools/cola/cola.py status`. Las tareas están en `.agents/cola/` (estado en `estado.json`). Las
 revisiones y los commits siguen siendo del orquestador.
 
-**Prioridad del usuario:** probar a fondo el **druida feral** antes de pasar a otra clase (regla estricta: no se
-toca ninguna otra clase hasta que él confirme el feral al 100 %; por error se añadió código de paladín el
-2026-10-07, ya retirado — ver commit `d85f936` y copia en `/tmp/paladin_hoy/`, fuera del repo). Después de
-cerrar el feral: el usuario pide ir directamente a por **todo el contenido de las 8 fases de SoD** (build
-1.15.9), no solo la fase 2. Quiere que la mecánica de las runas sea lo más parecida posible a SoD.
+**Prioridad del usuario:** el druida feral sigue pendiente de compilación y prueba en juego. El 2026-10-09,
+como Marc no puede probarlo ahora, autorizó avanzar con el paladín según `.agents/plans/paladin/paladin.PLAN.md`.
+No se avanza a otra clase después del paladín sin nueva indicación. El alcance acordado es **todo el contenido
+de las 8 fases de SoD** (build 1.15.9), priorizado por fase y dificultad; la mecánica de las runas debe
+parecerse lo más posible a SoD.
 
 **Estado del feral (2026-10-07):** las 14 runas (13 + Improved Barkskin) tienen código, sin compilar
 (sintaxis OK, `check_syntax.py`: 41 OK, 0 errores), con adquisición: objetos reales de SoD, botín de WotLK con
@@ -31,8 +31,11 @@ mejor documentado sin implementar que inventado. Gore sí tiene su fuente real d
 el mundo. **Falta compilar y probar en juego** (nunca se ha hecho con este código).
 Lifebloom `7009026` y Nourish `7009027` ya tienen specs, SQL y venta en el Grabador; la fuente real de SoD no está verificada. Sin compilar ni probar.
 **2026-10-09:** el fallo de compilación del druida del 2026-10-07 (`RegisterSpellScript` sin definir, `AuraEffect` incompleto) ya no se reproduce: todos los `.cpp` de `server/` pasan `clang++ -fsyntax-only` con los flags reales de `acore-test/build/modules/CMakeFiles/modules.dir/flags.make` (salvo los tests de gtest, que no entran en el build). Falta que el usuario compile de verdad. El checkout desplegado (`acore-test/.subrepos/WotLK-SoD`) está en `d9d5a6b`: Lifebloom y Nourish (`05cf830`) no llegarán al build hasta hacer push y desplegar.
-Las demás clases (paladín 2, chamán, brujo) están `descartadas` en la cola hasta terminar el feral (el paladín 1 se ejecutó
-por error; su código existe y pasa la sintaxis). Handoff completo en la memoria del proyecto (`handoff.md`).
+**Paladín:** autorización vigente desde el 2026-10-09 mientras el druida feral espera pruebas. Las runas
+`7002011–7002018` están implementadas en el árbol de trabajo, incluidas las cuatro de este encargo; falta
+compilar de verdad y probarlas en juego. No se ha compilado ni enlazado este código. Continuar con el plan
+del paladín y no empezar otra clase sin indicación del usuario. Chamán y brujo siguen aplazados. Handoff
+completo en la memoria del proyecto (`handoff.md`).
 
 **Datos:** catálogo (`docs/runas/catalogo-sod.json`), fuentes de Wowhead (`docs/runas/fuentes-sod.json`, 253 de
 256 runas con objeto; faltan Lava Lash, Nature's Fury y una runa de mago), clasificación P/T/C/R
@@ -41,10 +44,12 @@ y prueba: ver `docs/PRUEBAS.md` para lo que debe hacer.
 
 ## 1. Dónde estamos
 
-- **Fase:** primer hito (fase 1 de SoD, nivel 25 de partida, hacia 80). **2026-10-06: compilado por el
-  usuario, reino 2 arrancado con 29 runas, grabador, textos en español, addon y tooltip comprobados en
-  juego; Ice Lance probada. El resto de las 29 runas, sin probar.** Datos de SoD de la build 1.15.9
-  (wago.tools); **se implementa la fase 1** (decisiones 0002 y 0004); las demás fases no son objetivo hoy.
+- **Fase:** primer hito (fase 1 de SoD, nivel 25 de partida, hacia 80). **2026-10-06: el usuario compiló
+  el estado de entonces y arrancó el reino 2 con 29 runas; comprobó grabador, textos en español, addon y
+  tooltip, y probó Ice Lance.** Desde ese build, los SQL del repositorio contienen 69 runas; no se ha
+  compilado ni probado ese conjunto actualizado. Datos de SoD de la build 1.15.9
+  (wago.tools); **el primer hito implementa la fase 1** (decisiones 0002 y 0004), y después se continuará
+  con el resto de las 8 fases en orden, según la decisión del 2026-10-06.
 - **Dónde se trabaja:** `/home/stark/Repos/acore-sod`, en el servidor Debian `warcrafted`
   (`192.168.1.150`, usuario `stark`). **Es una máquina de producción.**
 - **Dónde se compila:** `/home/stark/Repos/acore-test`, **solo lo hace el usuario**. Es el reino de
@@ -180,7 +185,8 @@ Documentos clave: decisiones `docs/decisiones/0001`–`0005`, informes en `docs/
   De las 9 clases solo el mago tiene contenido (~11 habilidades, 2.715 líneas); el resto eran
   plantillas vacías. De las 12 runas de fase 1 del mago hay 8 hechas.
 - **Fase 1 de SoD:** 3 ranuras de grabado (pecho, piernas, manos), 4 runas cada una = 12 por clase.
-  SoD completo (8 fases, 218 runas mínimo, 9 raids) **no es objetivo**.
+  El alcance acordado es todo SoD: las 8 fases, implementadas por orden de fase y dificultad; el primer
+  hito sigue siendo la fase 1.
 - **Niveles:** se empieza en 60 y se llegará al 80 (decisión 0002). **Ningún tope de nivel va como
   constante en el código**: siempre parámetro de configuración (patrón `SodMage.LivingBomb.ScalingCapLevel`).
 - **Hechizos sustitutos:** la runa de Arcane Blast concede un hechizo sustituto (Arcane Burst) hasta

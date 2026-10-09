@@ -470,3 +470,42 @@ SodPaladin.InfusionOfLight.CriticalCooldownSeconds = 3
 SodPaladin.Aegis.BlockValuePct = 30
 SodPaladin.Aegis.RedoubtChancePct = 10
 SodPaladin.Aegis.ReckoningChancePerPointPct = 2
+
+#
+#    SodPaladin.SheathOfLight.*
+#        Porcentaje del poder de ataque convertido en daño con hechizos y duración.
+#        Valores predeterminados: 30, 60 s
+#
+
+SodPaladin.SheathOfLight.AttackPowerPct = 30
+SodPaladin.SheathOfLight.DurationSeconds = 60
+
+#
+#    SodPaladin.GuardedByTheLight.*
+#        Maná máximo recuperado por pulso, intervalo, duración y reducción de sanación.
+#        Valores predeterminados: 5 %, 3 s, 15 s, 50 %
+#
+
+SodPaladin.GuardedByTheLight.ManaPctPerTick = 5
+SodPaladin.GuardedByTheLight.TickSeconds = 3
+SodPaladin.GuardedByTheLight.DurationSeconds = 15
+SodPaladin.GuardedByTheLight.HealingReductionPct = 50
+
+#
+#    SodPaladin.ShockAndAwe.*
+#        Porcentaje del intelecto convertido en daño con hechizos, reducción de amenaza
+#        y duración del beneficio.
+#        Valores predeterminados: 200 %, 30 %, 60 s
+#
+
+SodPaladin.ShockAndAwe.IntellectSpellDamagePct = 200
+SodPaladin.ShockAndAwe.ThreatReductionPct = 30
+SodPaladin.ShockAndAwe.DurationSeconds = 60
+
+#
+#    SodPaladin.HallowedGround.HealingPct
+#        Porcentaje del daño periódico de Consagración convertido en sanación al grupo.
+#        Valor predeterminado: 200
+#
+
+SodPaladin.HallowedGround.HealingPct = 200
