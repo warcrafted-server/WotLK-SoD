@@ -70,6 +70,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Coherence `7007026`, Espalda (11): comprobar la efectividad por salto del 65 % para Sanación en cadena y del 80 % para Cadena de relámpagos, más un objetivo en ambos hechizos. Los porcentajes se implementan mediante los SpellModOp de WotLK y deben contrastarse en juego.
 - [ ] Storm, Earth, and Fire `7007027`, Espalda (11): comprobar −25 % al tiempo de reutilización de Cadena de relámpagos, el enraizamiento de 5 s del Tótem Nexo Terrestre al aplicarse el aura del tótem y +60 % al daño periódico de Choque de llamas.
 - [ ] Confirmar los textos esES, los iconos y que la compra provisional al Grabador desbloquea las cinco runas `7007023–7007027`.
+- [ ] Adquisición del chamán: comprar y usar los 26 objetos de runa en el Grabador; comprobar que Bristleback Shaman (2953) y Scorpid Worker (3124) pueden soltar Dyadic Icon, Mudsnout Shaman (2373) Kajaric Icon y Deadwood Shaman (7158) Voltaic Icon, y que los botines solo aparecen para chamanes.
 
 ### Paladín (recuperadas el 2026-10-09, sin compilar ni probar)
 

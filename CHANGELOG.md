@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-09
 
+- Chamán: adquisición de 26 runas (`sod_shaman_acquisition.sql`, paso 6): objetos con su id real de SoD, venta en el Grabador y botín real de WotLK (Overload, Lava Burst, Storm, Earth, and Fire) solo para chamanes. Lava Lash sin objeto (no figura en las fuentes). Sin aplicar ni probar.
 - Chamán: runas Overcharged `7007023`, Rolling Thunder `7007024`, Static Shock `7007025`, Coherence `7007026` y Storm, Earth, and Fire `7007027` (paso 5), con valores de Wowhead aportados por el orquestador. Corregido en la revisión: el salto extra de Coherence valía 0 (la plantilla tiene `DieSides` 0). Sin compilar ni probar.
 - Chamán: runas Power Surge `7007018`, Decoy Totem `7007019`, Spirit of the Alpha `7007020`, Burn `7007021` y Mental Dexterity `7007022` (paso 4). Completado en la revisión con valores de Wowhead (tooltips consultados el 2026-10-09): duraciones de Power Surge (10 s) y Mental Dexterity (30 s) y el beneficio Loyal Beta (443320) de Spirit of the Alpha. Limitaciones en `TODO.md` (Decoy Totem no redirige el ataque al tótem; Burn no propaga Choque de llamas). Sin compilar ni probar.
 - Corregido: el generador descarta en silencio las claves de `overrides` que no son columnas de `spell_dbc`. `StackAmount` (columna real `CumulativeAura`) se perdía, así que el beneficio de Eclipse del druida (900023) no se acumulaba; arreglado en druida y chamán. El coeficiente de Molten Blast pasa a `spell_bonus_data`. SQL de hechizos regenerado.

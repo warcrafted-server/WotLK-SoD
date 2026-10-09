@@ -64,25 +64,25 @@
     {
       "nombre": "s1",
       "archivo": "tareas/s1-pendiente.json",
-      "estado": "descartada",
+      "estado": "hecha",
       "orden": 920,
       "nota": "Chamán elemental 1",
       "previo_sql": true,
       "run_id": null,
       "inicio": null,
-      "fin": null,
+      "fin": "2026-10-09T12:27:24+02:00",
       "resultado": null
     },
     {
       "nombre": "s2",
       "archivo": "tareas/s2-pendiente.json",
-      "estado": "descartada",
+      "estado": "hecha",
       "orden": 930,
       "nota": "Chamán elemental 2",
       "previo_sql": true,
       "run_id": null,
       "inicio": null,
-      "fin": null,
+      "fin": "2026-10-09T12:27:24+02:00",
       "resultado": null
     },
     {

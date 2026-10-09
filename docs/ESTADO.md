@@ -22,6 +22,11 @@ redundante), según `.agents/plans/paladin/paladin.PLAN.md` (5 pasos, todos hech
 los flags reales y el SQL de hechizos está regenerado; **sin compilar ni probar**. Improved Sanctuary aún sin efecto
 (ver `TODO.md`). Hace falta un parche de cliente nuevo (hechizos y objetos del paladín) antes de probar.
 
+**Chamán (2026-10-09):** 27 runas con código (`7007001`–`7007027`) y adquisición, según
+`.agents/plans/chaman/chaman.PLAN.md` (6 pasos hechos). Descartadas Water Shield y Fire Nova (redundantes) y Nature's
+Fury (clase dudosa). Pasan `clang++ -fsyntax-only` con los flags reales y el SQL de hechizos está regenerado; **sin
+compilar ni probar**. Limitaciones en `TODO.md` (Lobo fantasmal en interiores, Decoy Totem, Burn, Molten Blast).
+
 **Estado del feral (2026-10-07):** las 14 runas (13 + Improved Barkskin) tienen código, sin compilar
 (sintaxis OK, `check_syntax.py`: 41 OK, 0 errores), con adquisición: objetos reales de SoD, botín de WotLK con
 tasas reales para Mangle/Savage Roar/Wild Strikes/Improved Swipe, Grizzby, oficiales de suministros y compra
