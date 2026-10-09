@@ -53,8 +53,11 @@ Unstable Affliction, Summon Felguard, Metamorphosis, Incinerate, Shadowflame) y 
 (`7008009`–`7008013`: Backdraft, Decimation, Demonic Pact, Everlasting Affliction, Demonic Knowledge).
 La segunda tanda es **solo SQL/Python/JSON** y reutiliza los manejadores nativos del core; el SQL de hechizos
 está regenerado (9 filas de `spell_dbc`, 3 de `spell_script_names`, la de `spell_proc` de Decimation) y el
-parche de cliente está generado en `datos/parche-cliente/20261009-brujo/` (**sin publicar**: `LISTO` creado,
-falta `~/Repos/launcher/scripts/publicar-parches.sh`). `check_syntax.py`: 86 archivos, 0 errores.
+parche de cliente está generado en `datos/parche-cliente/20261009-brujo/` (**sin publicar**: `LISTO` creado y
+validado con `publicar_parches.py --dry-run` — subiría `patch-Z-20261009-brujo.MPQ` y
+`patch-esES-Z-20261009-brujo.MPQ` con `manifestVersion` 4; falta `~/Repos/launcher/scripts/publicar-parches.sh`).
+`check_syntax.py`: 86 archivos, 0 errores (no revisa cabeceras: `spell_sod_warlock.h` se comprobó aparte con
+`clang++ -fsyntax-only`).
 **Sin compilar ni probar.** Limitaciones en `TODO.md` y `docs/runas/warlock.md`: Conflagrar sigue consumiendo
 Inmolar (vive en el core, `AURA_STATE_CONFLAGRATE`), Metamorphosis solo da la forma y Everlasting Affliction
 no cubre Cuchilla de las Sombras ni Dolor abrasador (no existen en 3.3.5a). El aviso de «brujo aplazado» del

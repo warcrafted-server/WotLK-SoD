@@ -234,7 +234,7 @@ Simplificaciones y datos por revisar:
 - [ ] Aflicción eterna `7008012`: el script nativo `spell_warl_everlasting_affliction` (sobre el disparador 412698) refresca Corrupción sólo con los hechizos de WotLK; SoD además incluye Cuchilla de las Sombras y Dolor abrasador, que no existen en 3.3.5a.
 - [ ] Conocimiento demoníaco `7008013`: usa el aura de mascota 900048 (3 %) en lugar de la nativa 35696 (12 %); el script nativo calcula el importe a partir del aguante más intelecto. El id auxiliar 900048 continúa la serie del chamán (900042–900047).
 - [ ] Compilar y probar `7008009–7008013`; el SQL de hechizos y el parche de cliente ya están regenerados el 2026-10-09 (`datos/parche-cliente/20261009-brujo/`, sin publicar). La compra al Grabador es provisional y no se verificaron las fuentes reales de SoD.
-- [ ] `src/warlock/spell_sod_warlock.h` (catálogo de ids y `SodWarlock.Enable`) no lo incluye ningún `.cpp`: el brujo no tiene C++ propio, todas sus runas usan manejadores nativos del core. Incluirlo desde el loader si algún día se añade el primer script propio.
+- [ ] `src/warlock/spell_sod_warlock.h` (catálogo de ids y `SodWarlock.Enable`) no lo incluye ningún `.cpp`: el brujo no tiene C++ propio, todas sus runas usan manejadores nativos del core. Incluirlo desde el loader si algún día se añade el primer script propio. El bloque `SodWarlock.Enable` sí está en `mod_sod_content.conf.dist` (línea 420), pero el `mod_sod_content.conf` vivo del reino de desarrollo es anterior y no lo tiene: da igual mientras nadie lea la clave, porque `SodWarlockEnabled()` usa `true` por defecto.
 
 ## Otras clases
 
