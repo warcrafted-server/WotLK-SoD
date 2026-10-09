@@ -215,6 +215,14 @@ Simplificaciones y datos por revisar:
 - [ ] Coherence usa SpellModOp 20 con modificadores derivados para dejar el multiplicador por salto en 65 % y 80 %, y SpellModOp 17 para un objetivo adicional. Verificar esos resultados en juego.
 - [ ] Storm, Earth, and Fire aplica −25 % al cooldown de Cadena de relámpagos y +60 % al daño periódico de Choque de llamas con SpellModOp 11 y 22. Un hook en el aura 6474 de Tótem Nexo Terrestre lanza Pillaterra (64695); comprobar su duración y selección de objetivos.
 
+## Brujo
+
+- [ ] Compilar y probar `7008004–7008008` (el SQL de hechizos ya está regenerado); esta tanda no se ha compilado ni probado. La adquisición al Grabador es provisional y no se verificaron las fuentes reales de SoD.
+- [ ] Unstable Affliction conserva el manejador nativo de disipación de WotLK. No se implementó la exclusión mutua con Immolate que describe SoD; comprobar daño, silencio y conflicto con Immolate en juego.
+- [ ] Metamorphosis clona Demon Form de WotLK (47241), desbloqueado por el talento 59672. Conserva su forma de tanque, pero no implementa Shadow Cleave, Menace ni Demon Charge; las auras modernas de SoD no existen en WotLK 3.3.5a. Confirmar también armadura, salud, reducción de críticos, amenaza y conversión de Life Tap.
+- [ ] Incinerate y Shadowflame reutilizan los hechizos y scripts nativos de WotLK; comprobar en juego el aumento de daño de Fuego y la aplicación del daño periódico de Shadowflame.
+- [ ] Wowhead no se consultó en esta ejecución; se usaron los datos facilitados en el encargo y el catálogo local.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

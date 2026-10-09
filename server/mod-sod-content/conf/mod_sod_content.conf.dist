@@ -413,6 +413,19 @@ SodShaman.Enable = 1
 
 SodPaladin.Enable = 1
 
+###############################################################################
+# WARLOCK
+###############################################################################
+#
+#    SodWarlock.Enable
+#        Descripción: interruptor para los scripts propios de runas del brujo.
+#                     Los clones que usan el comportamiento nativo del core no lo consultan.
+#        Valor predeterminado: 1 - (Activado)
+#                              0 - (Desactivado)
+#
+
+SodWarlock.Enable = 1
+
 #
 #    SodPaladin.ArtOfWar.*
 #        ManaCostReductionPct changes Exorcism's spell-modifier discount.

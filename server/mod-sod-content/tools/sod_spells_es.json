@@ -358,6 +358,26 @@
     "name": "Tácticas demoníacas",
     "desc": "Aumenta un 10% la probabilidad de asestar golpes críticos cuerpo a cuerpo y con hechizos tanto para ti como para tu mascota."
   },
+  "427717": {
+    "name": "Aflicción inestable",
+    "desc": "La energía de las Sombras destruye lentamente al objetivo e inflige daño durante 18 s. Si se disipa, inflige daño y silencia a quien la disipe."
+  },
+  "427733": {
+    "name": "Invocar guardia vil",
+    "desc": "Invoca a un guardia vil que queda bajo tu control y se beneficia de los talentos y efectos que afectan a tus otros demonios."
+  },
+  "403789": {
+    "name": "Metamorfosis",
+    "desc": "Te transformas en demonio y aumentas tu armadura y amenaza. Esta forma de tanque modifica algunas facultades de brujo."
+  },
+  "412758": {
+    "name": "Incinerar",
+    "desc": "Abrasa al enemigo y aumenta un 40% todo el daño de Fuego que infliges durante 15 s."
+  },
+  "426320": {
+    "name": "Llama de las Sombras",
+    "desc": "Abrasa al enemigo con llamas sombrías e inflige daño periódico adicional."
+  },
   "409428": {
     "name": "Maestro tirador",
     "desc": "Aumenta un 5% tu probabilidad de golpe crítico y reduce un 25% el coste de maná de todas tus facultades de disparo."

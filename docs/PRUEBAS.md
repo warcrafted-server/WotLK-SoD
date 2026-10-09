@@ -41,6 +41,15 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Comprobar el daño de Avenger's Shield, Circle of Healing y Wild Growth creciendo con el nivel (a 80 coinciden con WotLK).
 - [ ] Comprobar nombres de NPC y misiones del mundo de SoD en español.
 
+### Brujo (runas nuevas; sin compilar ni probar)
+
+- [ ] Unstable Affliction `7008004`, Muñecas (5): comprobar daño periódico durante 18 s, coste del 15 % y que disiparla daña y silencia al disipador. El límite de una Unstable Affliction o Immolate por brujo y objetivo puede diferir del comportamiento de SoD.
+- [ ] Summon Felguard `7008005`, Muñecas (5): comprobar coste del 80 %, invocación, control y beneficios de talentos/efectos de demonios.
+- [ ] Metamorphosis `7008006`, Manos (6): comprobar forma de demonio, armadura, salud, amenaza, críticos recibidos, Life Tap y las habilidades alteradas. El clon reutiliza Demon Form de WotLK y no implementa las facultades nuevas Shadow Cleave, Menace ni Demon Charge.
+- [ ] Incinerate `7008007`, Muñecas (5): comprobar daño, coste del 14 %, duración de 15 s y aumento del 40 % al daño de Fuego.
+- [ ] Shadowflame `7008008`, Pies (9): comprobar el impacto de Shadowflame, su daño periódico y coste del 27 %.
+- [ ] Comprobar nombres e iconos en español y que el Grabador venda las cinco runas por 1 oro. La fuente de adquisición de SoD no está verificada.
+
 ### Chamán (runas nuevas; sin compilar ni probar)
 
 - [ ] Lava Burst `7007003`, Manos (6): comprobar el lanzamiento de 2 s, el crítico garantizado sobre un objetivo con Choque de llamas, el daño, el coste del 10 % y la reutilización de 8 s.

@@ -13,7 +13,7 @@ duplicados), regeneración del SQL de hechizos, sintaxis con los flags reales y 
 
 | Paso | rune_id | Runas | Esfuerzo | Estado |
 |---|---|---|---|---|
-| 1 | 7008004–7008008 | Unstable Affliction, Summon Felguard, Metamorphosis, Incinerate, Shadowflame (clones de WotLK) | medium | pendiente |
+| 1 | 7008004–7008008 | Unstable Affliction, Summon Felguard, Metamorphosis, Incinerate, Shadowflame (clones de WotLK) | medium | hecho |
 | 2 | 7008009–7008013 | Backdraft, Decimation, Demonic Pact, Everlasting Affliction, Demonic Knowledge (talentos de WotLK) | medium | pendiente |
 | 3 | 7008014–7008018 | Soul Siphon, Shadow and Flame, Lake of Fire, Master Channeler, Shadow Bolt Volley | high | pendiente |
 | 4 | 7008019–7008023 | Demonic Grace, Invocation, Dance of the Wicked, Vengeance, Immolation Aura | high | pendiente |
