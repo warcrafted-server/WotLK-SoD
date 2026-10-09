@@ -40,13 +40,13 @@
     {
       "nombre": "p1",
       "archivo": "tareas/p1-pendiente.json",
-      "estado": "revisar",
+      "estado": "hecha",
       "orden": 900,
       "nota": "Paladín represión 1 (diferido: primero termina el druida feral)",
       "previo_sql": true,
       "run_id": "20261007-033257-b6d7",
       "inicio": "2026-10-07T03:32:56+02:00",
-      "fin": "2026-10-07T03:48:29+02:00",
+      "fin": "2026-10-09T06:22:47+02:00",
       "resultado": "awaiting_review"
     },
     {

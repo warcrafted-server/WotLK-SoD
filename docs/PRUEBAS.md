@@ -41,6 +41,15 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Comprobar el daño de Avenger's Shield, Circle of Healing y Wild Growth creciendo con el nivel (a 80 coinciden con WotLK).
 - [ ] Comprobar nombres de NPC y misiones del mundo de SoD en español.
 
+### Paladín (recuperadas el 2026-10-09, sin compilar ni probar)
+
+- [ ] The Art of War `7002005`, Pies (9): los críticos cuerpo a cuerpo abaratan Exorcismo un 80 % y le quitan 2 s de enfriamiento.
+- [ ] Righteous Vengeance `7002006`, Espalda (3): los críticos añaden un 30 % como daño periódico durante 8 s.
+- [ ] Improved Hammer of Wrath `7002007`, Muñecas (5): Martillo de cólera reinicia su enfriamiento si el objetivo queda por debajo del 10 % de vida.
+- [ ] Purifying Power `7002008`, Muñecas (5): Exorcismo y Cólera sagrada con un 50 % menos de enfriamiento; aturden 2 s a no-muertos y demonios.
+- [ ] Fanaticism `7002009`, Cabeza (0): +18 % de crítico en hechizos Sagrados; las curaciones críticas repiten un 60 % en 12 s.
+- [ ] Wrath `7002010`, Cabeza (0).
+
 ### Druida feral
 
 - [ ] Wild Growth `7009001`, Manos (6); Survival of the Fittest `7009002`, Pecho (4). Wild Growth también está en las pruebas de crecimiento con nivel (a 80 coincide con WotLK).
