@@ -67,6 +67,10 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7007011 | Chamán | Shield Mastery | Pecho | 408524 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408524](https://www.wowhead.com/classic/spell=408524) |
 | 7007012 | Chamán | Two-Handed Mastery | Pecho | 436364 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=436364](https://www.wowhead.com/classic/spell=436364) |
 | 7007013 | Chamán | Healing Rain | Pecho | 415236 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415236](https://www.wowhead.com/classic/spell=415236) |
+| 7007014 | Chamán | Ancestral Guidance | Piernas | 409324 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=409324](https://www.wowhead.com/classic/spell=409324) |
+| 7007015 | Chamán | Greater Ghost Wolf | Piernas | 415813 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=415813](https://www.wowhead.com/classic/spell=415813) |
+| 7007016 | Chamán | Way of Earth | Piernas | 408531 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408531](https://www.wowhead.com/classic/spell=408531) |
+| 7007017 | Chamán | Molten Blast | Manos | 425339 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=425339](https://www.wowhead.com/classic/spell=425339) |
 | 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
 | 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
 | 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |

@@ -50,6 +50,18 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-shaman'', 1),
     (7007013, 415236, 64, 16, ''Healing Rain'', ''spell_nature_tranquility'',
      ''Selects an area around the target player and heals up to five nearby party members every second.'',
+     ''mod-sod-shaman'', 1),
+    (7007014, 409324, 64, 256, ''Ancestral Guidance'', ''spell_nature_rejuvenation'',
+     ''For the next 10 sec, 25% of your damage is converted to healing on up to 3 nearby party members, and 100% of your healing is converted to damage on your most recent Flame Shock target.'',
+     ''mod-sod-shaman'', 1),
+    (7007015, 415813, 64, 256, ''Greater Ghost Wolf'', ''spell_nature_spiritwolf'',
+     ''Your Ghost Wolf ability can now be used indoors, and reduces all damage you take by 10% while active.'',
+     ''mod-sod-shaman'', 1),
+    (7007016, 408531, 64, 256, ''Way of Earth'', ''spell_nature_rockbiter'',
+     ''While Rockbiter Weapon is active on your main hand weapon and you have a shield equipped, you deal 65% increased threat, gain 25% increased health, take 10% reduced damage, gain 6% reduced chance to be critically hit by melee attacks, and Earth Shock taunts targets to attack you and has a separate cooldown from other Shock spells but has its range reduced to melee range. The range of Lightning Bolt, Chain Lightning, Chain Heal, Healing Wave, and Lava Burst is reduced by 20 yards.'',
+     ''mod-sod-shaman'', 1),
+    (7007017, 425339, 64, 64, ''Molten Blast'', ''spell_shaman_lavaburst'',
+     ''Blast enemies in a cone in front of you for Fire damage. Flame Shock periodic damage has a 10% chance to reset the Molten Blast cooldown.'',
      ''mod-sod-shaman'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -69,3 +81,13 @@ DEALLOCATE PREPARE stmt;
 -- Reutiliza el manejador nativo de AzerothCore para el aura auxiliar de Maelstrom Weapon.
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
 VALUES (408505, 'spell_sha_maelstrom_weapon');
+
+-- Scripts sobre hechizos de WotLK: ids negativos enlazan todas las filas de rango.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (2645, 'spell_sod_shaman_ghost_wolf_aura'),
+    (-8050, 'spell_sod_shaman_ancestral_guidance_flame_shock'),
+    (-8050, 'spell_sod_shaman_molten_blast_flame_shock'),
+    (-8042, 'spell_sod_shaman_way_of_earth_earth_shock'),
+    (-8042, 'spell_sod_shaman_way_of_earth_shock_cooldown'),
+    (-8050, 'spell_sod_shaman_way_of_earth_shock_cooldown'),
+    (-8056, 'spell_sod_shaman_way_of_earth_shock_cooldown');

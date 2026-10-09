@@ -74,6 +74,10 @@ void AddSC_sod_shaman_overload();
 void AddSC_sod_shaman_shield_mastery();
 void AddSC_sod_shaman_two_handed_mastery();
 void AddSC_sod_shaman_healing_rain();
+void AddSC_sod_shaman_ancestral_guidance();
+void AddSC_sod_shaman_greater_ghost_wolf();
+void AddSC_sod_shaman_way_of_earth();
+void AddSC_sod_shaman_molten_blast();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -136,6 +140,10 @@ void Addmod_sod_contentScripts()
     AddSC_sod_shaman_shield_mastery();
     AddSC_sod_shaman_two_handed_mastery();
     AddSC_sod_shaman_healing_rain();
+    AddSC_sod_shaman_ancestral_guidance();
+    AddSC_sod_shaman_greater_ghost_wolf();
+    AddSC_sod_shaman_way_of_earth();
+    AddSC_sod_shaman_molten_blast();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

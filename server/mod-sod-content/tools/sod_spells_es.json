@@ -241,6 +241,22 @@
     "name": "Lluvia de sanación",
     "desc": "Selecciona un área de 15 m alrededor del jugador seleccionado y sana a los miembros de su grupo que estén en su interior cada segundo."
   },
+  "409324": {
+    "name": "Guía ancestral",
+    "desc": "Durante los siguientes $d, un $s1% de tu daño se convertirá en sanación y sanará a un máximo de 3 miembros cercanos del grupo. Además, se infligirá como daño un $s2% de tu sanación al objetivo más reciente de tu Choque de llamas."
+  },
+  "415813": {
+    "name": "Lobo fantasmal superior",
+    "desc": "Ahora puedes usar la facultad Lobo fantasmal dentro de un lugar. Además, reduce un 10% todo el daño que sufres mientras está activa."
+  },
+  "408531": {
+    "name": "Camino de la tierra",
+    "desc": "Cuando Arma Muerdepiedras está activa en el arma de la mano principal y tienes un escudo equipado, generas un 65% más de amenaza, obtienes un 25% más de salud, recibes un 10% menos de daño y reduces un 6% la probabilidad de recibir golpes críticos por ataques cuerpo a cuerpo. Choque de tierra provoca a los objetivos para que te ataquen, tiene una reutilización independiente del resto de los hechizos de choque y su alcance se reduce al cuerpo a cuerpo. El alcance de Descarga de relámpagos, Cadena de relámpagos, Sanación en cadena, Ola de sanación y Ráfaga de lava se reduce 20 m."
+  },
+  "425339": {
+    "name": "Explosión de arrabio",
+    "desc": "Golpea a un máximo de $i enemigos que se encuentran en un cono frente a ti, que reciben de ${$<damagepower>*$m1/100+$m2/100*$AP} a ${$<damagepower>*$M1/100+$m2/100*$AP} p. de daño de Fuego. Esta facultad genera una gran cantidad de amenaza. El daño periódico de Choque de llamas tiene un 10% de probabilidades de restablecer el tiempo de reutilización de Explosión de arrabio."
+  },
   "440580": {
     "name": "Espíritu feral",
     "desc": "Invoca dos espíritus de lobo a las órdenes del chamán. Duran $d."
