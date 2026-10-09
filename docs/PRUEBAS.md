@@ -62,6 +62,10 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Shield of Righteousness `7002021`, Espalda (3): daño Sagrado según el valor de bloqueo + 179; 6 s de enfriamiento.
 - [ ] Divine Light `7002022`, Espalda (3): curación grande (61 % de maná base, 8 s de enfriamiento); el 50 % de la sobrecuración queda como escudo de absorción 15 s; comprobar que se beneficia de talentos de Luz Sagrada.
 - [ ] Rebuke `7002023`, Piernas (8): interrumpe y bloquea la escuela 3 s, cuerpo a cuerpo, 15 s de enfriamiento, coste 10 % de maná (no energía).
+- [ ] Sacred Shield `7002024`, Pies (9): sobre un aliado 60 s; al recibir daño gana un escudo (como mucho cada 5 s) y Destello de Luz le cura un 100 % extra en 12 s. Diferencia: no se limita a un solo objetivo.
+- [ ] Inspiration Exemplar `7002025`, Piernas (8): durante 120 s quita miedo y sueño a los miembros del grupo a 10 yd cada 4 s.
+- [ ] Hand of Reckoning `7002026`, Manos (6): pasiva; con Furia recta, las curaciones de otros te devuelven un 25 % en maná y el golpe que te deja por debajo del 35 % se reduce un 20 %.
+- [ ] Malleable Protection `7002027`, Cintura (7): Protección divina dura 18 s en vez de 12; Escudo Sagrado da poder de ataque por la defensa sobre 5 × nivel durante 15 s.
 
 ### Druida feral
 

@@ -80,6 +80,18 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-paladin'', 1),
     (7002023, 425609, 2, 256, ''Rebuke'', ''ability_paladin_judgementred'',
      ''Interrupts spellcasting and prevents spells from that school for 3 sec.'',
+     ''mod-sod-paladin'', 1),
+    (7002024, 412019, 2, 512, ''Sacred Shield'', ''ability_paladin_blessedmending'',
+     ''Damage grants a shield that increases Flash of Light critical chance. Flash of Light also heals the shielded target over time.'',
+     ''mod-sod-paladin'', 1),
+    (7002025, 407880, 2, 256, ''Inspiration Exemplar'', ''spell_holy_prayerofhealing'',
+     ''Your inspiring presence periodically dispels Fear and Sleep effects on nearby party members.'',
+     ''mod-sod-paladin'', 1),
+    (7002026, 407631, 2, 64, ''Hand of Reckoning'', ''spell_holy_unyieldingfaith'',
+     ''While Righteous Fury is active, healing from others restores mana and damage that takes you below 35% health is reduced.'',
+     ''mod-sod-paladin'', 1),
+    (7002027, 458318, 2, 128, ''Malleable Protection'', ''spell_holy_blessingofprotection'',
+     ''Divine Protection lasts 50% longer and allows actions. Holy Shield grants Attack Power based on Defense skill.'',
      ''mod-sod-paladin'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -95,3 +107,7 @@ SET @sql := IF(@rune_tbl > 0,
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
+
+-- Protección maleable alarga Protección divina (498) si el lanzador tiene la runa 458318.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES (498, 'spell_sod_paladin_malleable_divine_protection');

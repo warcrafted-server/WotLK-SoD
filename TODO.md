@@ -138,6 +138,30 @@ Simplificaciones:
   probado que el evento informe el daño final deseado ni la interacción con varios enemigos.
   Consagración tiene radio de 8 yardas según la [ficha del rango 8 en Wowhead](https://www.wowhead.com/wotlk/spell=48819/consecration)
   (consulta del 2026-10-09); el código usa el radio del objeto de área dinámica.
+
+Las runas 7002024–7002027 están implementadas, pendientes de compilación real y prueba en juego.
+Simplificaciones y datos por revisar:
+
+- **Sacred Shield:** el escudo de absorción conserva el hechizo auxiliar 58597 y su implementación
+  de absorción de WotLK. La sanación adicional de Destello de Luz usa la sanación efectiva dividida en
+  pulsos de 1 s durante 12 s. No se ha igualado el cálculo de absorción con la fórmula de SoD ni se
+  fuerza la restricción de un único objetivo; comprobar ambas diferencias en juego. La ficha
+  consultada de [Sacred Shield](https://www.wowhead.com/classic-ptr/spell=412019/sacred-shield)
+  muestra un bloqueo de 6 s; el encargo y los datos locales indican 5 s, que es el valor configurado.
+- **Inspiration Exemplar:** disipa miedo y sueño cada 4 s entre miembros del grupo en un radio
+  configurable de 10 yardas. El catálogo confirma el intervalo; el radio es una aproximación porque
+  no se encontró un valor publicado. Revisar su alcance y las mecánicas de sueño en juego.
+- **Hand of Reckoning:** se implementan el reembolso del 25 % del maná recibido por sanación y la
+  reducción del 20 % del golpe que cruza el umbral del 35 %, mientras Furia recta está activa. La
+  amenaza Sagrada del 80 % ya existe en WotLK; se omite la facultad activa porque Mano de expiación
+  (62124) ya se aprende en el core. Valores contrastados con [Hand of Reckoning](https://www.wowhead.com/classic/spell=409911/hand-of-reckoning)
+  y [Righteous Fury de SoD](https://www.wowhead.com/classic-ptr/spell=407627/righteous-fury), consulta del 2026-10-09.
+- **Malleable Protection:** en WotLK Protección divina (498) ya reduce el daño un 50 % y permite
+  actuar, que es lo que la runa hace en SoD; la runa solo la alarga un 50 % (de 12 a 18 s) con un script
+  enganchado a 498 y da 4 p. de poder de ataque por punto de defensa sobre 5 × nivel durante 15 s al
+  activar Escudo Sagrado (hechizo 460171). La versión de SoD sustituye el botón con el aura 332, que no
+  existe en 3.3.5a (máximo 316). Valores contrastados con [Malleable Protection](https://www.wowhead.com/classic/spell=458318/malleable-protection),
+  consulta del 2026-10-09.
 - **Beacon of Light:** el script del módulo lanza el aura original de WotLK (53563), porque el
   proc del core busca ese id y los auxiliares 53651–53654. Se conserva la transferencia de sanación
   del core, con el porcentaje y la duración de SoD. No se ha comprobado en juego qué hechizos de

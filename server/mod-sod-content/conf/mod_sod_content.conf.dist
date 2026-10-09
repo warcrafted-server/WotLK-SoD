@@ -527,3 +527,49 @@ SodPaladin.BeaconOfLight.DurationSeconds = 3600
 
 SodPaladin.DivineLight.OverhealShieldPct = 50
 SodPaladin.DivineLight.ShieldDurationSeconds = 15
+
+#
+#    SodPaladin.SacredShield.*
+#        Cooldown del escudo tras recibir daño, porcentaje del Destello de Luz
+#        repetido como sanación periódica y duración de esa sanación.
+#        Probabilidad crítica extra y duración también se pueden ajustar.
+#        Valores predeterminados: 5 s, 100 %, 12 s, 50 %, 6 s
+#
+
+SodPaladin.SacredShield.CooldownSeconds = 5
+SodPaladin.SacredShield.FlashOfLightHealPct = 100
+SodPaladin.SacredShield.HotDurationSeconds = 12
+SodPaladin.SacredShield.FlashOfLightCritPct = 50
+SodPaladin.SacredShield.FlashOfLightCritSeconds = 6
+
+#
+#    SodPaladin.InspirationExemplar.*
+#        Intervalo de disipación y radio de búsqueda para miembros del grupo.
+#        El catálogo fija 4 s; el radio predeterminado de 10 yardas es aproximado.
+#
+
+SodPaladin.InspirationExemplar.IntervalSeconds = 4
+SodPaladin.InspirationExemplar.RadiusYards = 10
+
+#
+#    SodPaladin.HandOfReckoning.*
+#        Reembolso de maná y reducción del daño al cruzar el umbral de salud,
+#        mientras Furia recta esté activa. WotLK ya aplica un 80 % de amenaza Sagrada.
+#        Valores predeterminados: 25 %, umbral 35 %, reducción 20 %
+#
+
+SodPaladin.HandOfReckoning.ManaRestorePct = 25
+SodPaladin.HandOfReckoning.DamageThresholdPct = 35
+SodPaladin.HandOfReckoning.DamageReductionPct = 20
+
+#
+#    SodPaladin.MalleableProtection.*
+#        Aumento de duración de Protección divina, poder de ataque por punto de
+#        defensa sobre el valor base del nivel y duración de ese beneficio.
+#        Valores predeterminados: 50 %, 4 AP, 5 de defensa por nivel, 15 s
+#
+
+SodPaladin.MalleableProtection.DurationIncreasePct = 50
+SodPaladin.MalleableProtection.AttackPowerPerDefense = 4
+SodPaladin.MalleableProtection.DefenseSkillPerLevel = 5
+SodPaladin.MalleableProtection.AttackPowerDurationSeconds = 15

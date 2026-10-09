@@ -43,6 +43,15 @@ enum SodPaladinSpells
     SPELL_SOD_PALADIN_DIVINE_LIGHT = 458856,
     SPELL_SOD_PALADIN_DIVINE_LIGHT_SHIELD = 458857,
     SPELL_SOD_PALADIN_DIVINE_LIGHT_WATCH = 900025,
+    SPELL_SOD_PALADIN_SACRED_SHIELD = 412019,
+    SPELL_SOD_PALADIN_SACRED_SHIELD_CRIT = 900026,
+    SPELL_SOD_PALADIN_SACRED_SHIELD_HOT = 900027,
+    SPELL_SOD_PALADIN_SACRED_SHIELD_WATCH = 900028,
+    SPELL_PALADIN_SACRED_SHIELD_ABSORB = 58597,
+    SPELL_SOD_PALADIN_INSPIRATION_EXEMPLAR = 407880,
+    SPELL_SOD_PALADIN_HAND_OF_RECKONING = 407631,
+    SPELL_SOD_PALADIN_MALLEABLE_PROTECTION = 458318,
+    SPELL_SOD_PALADIN_MALLEABLE_PROTECTION_AP = 460171,
     SPELL_PALADIN_RIGHTEOUS_FURY = 25780,
 };
 
@@ -52,6 +61,10 @@ void AddSC_sod_paladin_shock_and_awe();
 void AddSC_sod_paladin_hallowed_ground();
 void AddSC_sod_paladin_beacon_of_light();
 void AddSC_sod_paladin_divine_light();
+void AddSC_sod_paladin_sacred_shield();
+void AddSC_sod_paladin_inspiration_exemplar();
+void AddSC_sod_paladin_hand_of_reckoning();
+void AddSC_sod_paladin_malleable_protection();
 
 constexpr uint32 SPELL_PALADIN_REDOUBT_RANKS[] = { 20127, 20130, 20135 };
 constexpr uint32 SPELL_PALADIN_REDOUBT_PROC_RANKS[] = { 20128, 20131, 20132 };
@@ -59,6 +72,7 @@ constexpr uint32 SPELL_PALADIN_REDOUBT_PROC_RANKS[] = { 20128, 20131, 20132 };
 constexpr uint32 SPELL_PALADIN_RECKONING_RANKS[] = { 20177, 20179, 20181, 20180, 20182 };
 constexpr uint32 SPELL_PALADIN_HOLY_SHOCK_RANKS[] = { 20473, 20929, 20930, 27174, 33072, 48824, 48825 };
 constexpr uint32 SPELL_PALADIN_RECKONING_PROC = 20178;
+constexpr uint32 SPELL_PALADIN_HOLY_SHIELD_RANKS[] = { 20925, 20927, 20928, 27179, 48951, 48952 };
 
 constexpr uint32 SPELL_PALADIN_EXORCISM_RANKS[] =
     { 879, 5614, 5615, 10312, 10313, 10314, 27138, 48800, 48801 };
@@ -208,6 +222,76 @@ inline uint32 SodPaladinDivineLightOverhealShieldPct()
 inline uint32 SodPaladinDivineLightShieldDurationSeconds()
 {
     return sConfigMgr->GetOption<uint32>("SodPaladin.DivineLight.ShieldDurationSeconds", 15);
+}
+
+inline uint32 SodPaladinSacredShieldCooldownSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.SacredShield.CooldownSeconds", 5);
+}
+
+inline uint32 SodPaladinSacredShieldFlashOfLightHealPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.SacredShield.FlashOfLightHealPct", 100);
+}
+
+inline uint32 SodPaladinSacredShieldHotDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.SacredShield.HotDurationSeconds", 12);
+}
+
+inline uint32 SodPaladinSacredShieldFlashOfLightCritPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.SacredShield.FlashOfLightCritPct", 50);
+}
+
+inline uint32 SodPaladinSacredShieldFlashOfLightCritSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.SacredShield.FlashOfLightCritSeconds", 6);
+}
+
+inline uint32 SodPaladinInspirationExemplarIntervalSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.InspirationExemplar.IntervalSeconds", 4);
+}
+
+inline float SodPaladinInspirationExemplarRadiusYards()
+{
+    return sConfigMgr->GetOption<float>("SodPaladin.InspirationExemplar.RadiusYards", 10.0f);
+}
+
+inline uint32 SodPaladinHandOfReckoningManaRestorePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.HandOfReckoning.ManaRestorePct", 25);
+}
+
+inline uint32 SodPaladinHandOfReckoningDamageThresholdPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.HandOfReckoning.DamageThresholdPct", 35);
+}
+
+inline uint32 SodPaladinHandOfReckoningDamageReductionPct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.HandOfReckoning.DamageReductionPct", 20);
+}
+
+inline uint32 SodPaladinMalleableProtectionDurationIncreasePct()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.MalleableProtection.DurationIncreasePct", 50);
+}
+
+inline uint32 SodPaladinMalleableProtectionAttackPowerPerDefense()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.MalleableProtection.AttackPowerPerDefense", 4);
+}
+
+inline uint32 SodPaladinMalleableProtectionDefenseSkillPerLevel()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.MalleableProtection.DefenseSkillPerLevel", 5);
+}
+
+inline uint32 SodPaladinMalleableProtectionAttackPowerDurationSeconds()
+{
+    return sConfigMgr->GetOption<uint32>("SodPaladin.MalleableProtection.AttackPowerDurationSeconds", 15);
 }
 
 #endif // MODULE_SOD_PALADIN_H

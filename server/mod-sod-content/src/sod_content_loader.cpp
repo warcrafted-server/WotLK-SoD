@@ -65,6 +65,10 @@ void AddSC_sod_paladin_shock_and_awe();
 void AddSC_sod_paladin_hallowed_ground();
 void AddSC_sod_paladin_beacon_of_light();
 void AddSC_sod_paladin_divine_light();
+void AddSC_sod_paladin_sacred_shield();
+void AddSC_sod_paladin_inspiration_exemplar();
+void AddSC_sod_paladin_hand_of_reckoning();
+void AddSC_sod_paladin_malleable_protection();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -136,5 +140,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_paladin_hallowed_ground();
     AddSC_sod_paladin_beacon_of_light();
     AddSC_sod_paladin_divine_light();
+    AddSC_sod_paladin_sacred_shield();
+    AddSC_sod_paladin_inspiration_exemplar();
+    AddSC_sod_paladin_hand_of_reckoning();
+    AddSC_sod_paladin_malleable_protection();
 
 }

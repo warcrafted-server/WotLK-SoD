@@ -386,5 +386,40 @@
   "900024": {
     "name": "Impacto de Lluvia de estrellas",
     "desc": "Inflige daño Arcano a los enemigos cercanos."
+  },
+  "412019": {
+    "name": "Escudo sacro",
+    "desc": "Cada vez que el objetivo recibe daño, obtiene un escudo que absorbe daño y aumenta un 50% la probabilidad del paladín de asestar un golpe crítico con Destello de Luz durante un máximo de 6 s. Destello de Luz también sana al objetivo protegido un 100% extra durante 12 s. No puede obtener este efecto más de una vez cada 5 s. Dura 1 min. Solo un objetivo."
+  },
+  "900026": {
+    "name": "Escudo sacro",
+    "aura_desc": "La probabilidad de golpe crítico de Destello de Luz aumenta un $s1%."
+  },
+  "900027": {
+    "name": "Escudo sacro",
+    "aura_desc": "Sana $s1 p. de salud cada segundo."
+  },
+  "407880": {
+    "name": "Inspiración ejemplar",
+    "desc": "Tu presencia inspiradora disipa periódicamente los efectos de miedo y sueño que afectan a miembros del grupo cercanos.",
+    "aura_desc": "Disipa periódicamente los efectos de miedo y sueño que afectan a miembros del grupo cercanos."
+  },
+  "407631": {
+    "name": "Mano de expiación",
+    "desc": "Mientras Furia recta está activa, aumenta la amenaza Sagrada hasta un 80%, las sanaciones de otros objetivos amistosos restauran un 25% de maná y reduce un 20% el daño que te dejaría por debajo del 35% de salud.",
+    "aura_desc": "Mientras Furia recta está activa, las sanaciones de otros objetivos amistosos restauran maná y se reduce el daño que te dejaría por debajo del 35% de salud."
+  },
+  "458312": {
+    "name": "Protección divina",
+    "desc": "Reduce todo el daño recibido un $s1% durante $d."
+  },
+  "458371": {
+    "name": "Protección divina",
+    "desc": "Reduce todo el daño recibido un $s1% durante $d."
+  },
+  "458318": {
+    "name": "Protección maleable",
+    "desc": "Ahora puedes actuar durante Protección divina y su duración aumenta un 50%, pero solo reduce un 50% el daño que recibes en lugar de volverte inmune. Además, activar Escudo sagrado también te otorga 4 p. de poder de ataque por cada punto de habilidad de defensa que supere 5 veces tu nivel durante 15 s.",
+    "aura_desc": "Protección divina dura un 50% más. Escudo sagrado otorga poder de ataque según tu habilidad de defensa."
   }
 }

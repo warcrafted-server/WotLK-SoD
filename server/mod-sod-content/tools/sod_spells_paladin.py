@@ -15,9 +15,15 @@ AURA_MOD_STUN = 12
 AURA_MOD_DAMAGE_DONE = 13
 AURA_MOD_THREAT = 10
 AURA_MOD_HEALING_DONE_PERCENT = 136
+AURA_MOD_SPELL_CRIT_CHANCE = 57
+AURA_SCHOOL_ABSORB = 69
+AURA_MOD_DAMAGE_PERCENT_TAKEN = 87
 PROC_DONE_MAGIC_POS = 0x00004000
 PROC_DONE_PERIODIC = 0x00040000
 PROC_HIT_CRITICAL = 0x00000002
+PROC_TAKEN_NONE_POS = 0x00000800
+PROC_TAKEN_MAGIC_POS = 0x00008000
+PROC_TAKEN_PERIODIC = 0x00080000
 
 
 def build(idx):
@@ -32,6 +38,8 @@ def build(idx):
     duration_15s = idx["dur"][15000]
     duration_2s = idx["dur"][2000]
     duration_60s = idx["dur"][60000]
+    duration_120s = idx["dur"][120000]
+    duration_12s = idx["dur"][12000]
     duration_3s = idx["dur"][3000]
     duration_60m = idx["dur"][3600000]
     range_self = idx["range"][0.0]
@@ -825,6 +833,192 @@ def build(idx):
                 # Sin la familia, categoría ni icono de Patada (pícaro).
                 "Category": 0, "SpellClassSet": 10, "SpellClassMask_1": 0,
                 "SpellIconID": icon_rebuke,
+            },
+        },
+        {  # Escudo sacro reutiliza el aura de absorción del paladín de WotLK.
+            "id": 412019, "client": True, "template": 53601,
+            "skill_line": SKILL_HOLY,
+            "name": "Sacred Shield", "script": "spell_sod_paladin_sacred_shield",
+            "inherit_server": True,
+            "desc": "Each time the target takes damage they gain a Sacred Shield, absorbing damage and increasing the Paladin's chance to critically hit with Flash of Light by 50% for up to 6 sec. In addition, causes your Flash of Light to heal targets with Sacred Shield for an additional 100% over 12 sec. They cannot gain this effect more than once every 5 sec. Lasts 1 min. Only one target.",
+            "overrides": {
+                "CategoryRecoveryTime": 0,
+                "DurationIndex": duration_60s,
+                "RangeIndex": range_40,
+                "ManaCostPct": 12,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 4, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
+                "Effect_2": 0, "EffectAura_2": 0,
+                "EffectBasePoints_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0,
+                "EffectBasePoints_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00000008 | 0x00000020 | 0x00000080 | 0x00000200
+                    | 0x00080000 | 0x00100000,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # El vigilante concede la sanación periódica a quien tenga Escudo sacro.
+            "id": 900026, "client": True, "template": 774,
+            "name": "Sacred Shield", "aura_desc": "Flash of Light critical strike chance increased by $s1%.",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "DurationIndex": idx["dur"][6000],
+                "RangeIndex": range_self,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_SPELL_CRIT_CHANCE,
+                "EffectBasePoints_1": 49, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "EffectSpellClassMaskA_1": 0x40000000,
+                "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "bonus": {"direct": 0.0, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
+        },
+        {  # El beneficio aplica una doceava parte de la sanación cada segundo.
+            "id": 900027, "client": True, "template": 774,
+            "name": "Sacred Shield", "aura_desc": "Heals for $s1 every second.",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_12s,
+                "RangeIndex": range_self,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_HEAL,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectAuraPeriod_1": 1000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "bonus": {"direct": 0.0, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
+        },
+        {  # Aura invisible que observa las sanaciones del paladín.
+            "id": 900028, "client": False, "template": 774,
+            "name": "Sacred Shield", "script": "spell_sod_paladin_sacred_shield_watch",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "DurationIndex": duration_permanent,
+                "RangeIndex": range_self,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_DONE_MAGIC_POS | PROC_DONE_PERIODIC,
+                "SpellTypeMask": 2, "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Inspiración ejemplar limpia miedo y sueño en los miembros cercanos del grupo.
+            "id": 407880, "client": True, "template": 774,
+            "name": "Inspiration Exemplar", "script": "spell_sod_paladin_inspiration_exemplar",
+            "desc": "Your inspiring presence periodically dispels Fear and Sleep effects on nearby party members.",
+            "aura_desc": "Periodically dispelling Fear and Sleep effects on nearby party members.",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant,
+                "DurationIndex": duration_120s,
+                "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 2,
+                "SchoolMask": 2, "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectAuraPeriod_1": 4000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Mano de expiación solo añade sus mejoras pasivas a Furia recta.
+            "id": 407631, "client": True, "template": 774,
+            "name": "Hand of Reckoning", "script": "spell_sod_paladin_hand_of_reckoning",
+            "desc": "While Righteous Fury is active, Holy threat is increased to 80%, healing from other friendly targets restores mana equal to 25% of the amount healed, and damage that takes you below 35% health is reduced by 20%.",
+            "aura_desc": "While Righteous Fury is active, healing from other friendly targets restores mana and damage below 35% health is reduced.",
+            "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "DurationIndex": duration_permanent,
+                "RangeIndex": range_self,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_SCHOOL_ABSORB,
+                "EffectBasePoints_2": -1, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 127,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_TAKEN_NONE_POS | PROC_TAKEN_MAGIC_POS | PROC_TAKEN_PERIODIC,
+                "SpellTypeMask": 2, "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100,
+                "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Protección maleable: en WotLK Protección divina (498) ya reduce el daño un 50 % y deja
+           # actuar; la runa solo alarga su duración (script sobre 498) y da poder de ataque con
+           # Escudo Sagrado (PlayerScript). El aura 332 de SoD no existe en 3.3.5a.
+            "id": 458318, "client": True, "template": 774,
+            "name": "Malleable Protection",
+            "desc": "Your Divine Protection lasts 50% longer. In addition, activating Holy Shield also grants you 4 Attack Power for each point of your defense skill beyond 5 per level, lasting 15 sec.",
+            "aura_desc": "Divine Protection lasts 50% longer. Holy Shield grants Attack Power based on Defense skill.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "DurationIndex": duration_permanent,
+                "RangeIndex": range_self,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Poder de ataque de Protección maleable; el script fija la cantidad y la duración.
+            "id": 460171, "client": True, "template": 774,
+            "name": "Malleable Protection",
+            "aura_desc": "Attack Power increased by $s1.",
+            "overrides": {
+                "Attributes": 0,
+                "DurationIndex": duration_15s,
+                "RangeIndex": range_self,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 99,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
     ]
