@@ -15,7 +15,7 @@ raíz falsa), comprueba la sintaxis con los flags reales, actualiza `CHANGELOG.m
 
 | Paso | rune_id | Runas | Esfuerzo | Estado |
 |---|---|---|---|---|
-| 1 | 7007003–7007008 | Lava Burst, Riptide, Feral Spirit, Maelstrom Weapon, Tidal Waves, Ancestral Awakening (clones de WotLK) | medium | pendiente |
+| 1 | 7007003–7007008 | Lava Burst, Riptide, Feral Spirit, Maelstrom Weapon, Tidal Waves, Ancestral Awakening (clones de WotLK) | medium | hecho |
 | 2 | 7007009–7007013 | Dual Wield Specialization, Overload, Shield Mastery, Two-Handed Mastery, Healing Rain | high | pendiente |
 | 3 | 7007014–7007017 | Ancestral Guidance, Greater Ghost Wolf, Way of Earth, Molten Blast | high | pendiente |
 | 4 | 7007018–7007022 | Power Surge, Decoy Totem, Spirit of the Alpha, Burn, Mental Dexterity | high | pendiente |

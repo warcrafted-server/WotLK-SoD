@@ -459,6 +459,16 @@ def build(idx):
             "id": 428909, "client": True, "template": 31836,
             "inherit_server": True,
             "name": "Light's Grace",
+            # Copia de spell_proc -31833 (Luz Sagrada); el id nuevo no la hereda.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 10,
+                "SpellFamilyMask0": 0x80000000, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0, "ProcFlags": 0,
+                "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
             "desc": "Your Holy Light spell reduces the cast time of your next Holy Light spell by 0.5 sec. Lasts 15 sec.",
             "overrides": {
                 "Attributes": SPELL_ATTR0_PASSIVE,

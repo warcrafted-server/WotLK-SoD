@@ -178,6 +178,14 @@ Simplificaciones y datos por revisar:
 - **Rebuke:** reutiliza la interrupción de Kick (1766), con escuela Sagrada, coste de maná del 10 %,
   reutilización de 15 s y bloqueo de escuela durante 3 s. No se ha probado en juego.
 
+## Chamán
+
+- [ ] Regenerar el SQL de hechizos y el parche de cliente y probar las seis runas nuevas `7007003–7007008` en el reino de desarrollo. Se clonan comportamientos de WotLK; no se han probado. Esta tanda no añade scripts C++ que requieran recompilar. La obtención de SoD no está verificada y la compra al Grabador es provisional.
+- [ ] Verificar Maelstrom Weapon: el aura auxiliar SoD `408505` conserva el manejador nativo de `53817`, y las máscaras limitan el modificador a Descarga de relámpagos, Cadena de relámpagos, Ola de sanación inferior y Ráfaga de lava. Falta comprobar en juego las bonificaciones de probabilidad de Viento furioso y arma a dos manos del texto de SoD.
+- [ ] Verificar que Ancestral Awakening solo se activa con críticos de Ola de sanación y Ola de sanación inferior como indica SoD; el efecto se hereda del talento de WotLK.
+- [ ] El interruptor `SodShaman.Enable` queda preparado para scripts propios; las seis runas de esta tanda reutilizan comportamientos nativos y no lo consultan.
+- [ ] Wowhead no respondió durante esta tarea (curl terminó con error DNS 6); datos y descripciones se tomaron de `docs/runas/catalogo-sod.json` y no se contrastaron en la web.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

@@ -1,6 +1,6 @@
 # Cómo se consiguen las runas
 
-Estado a 2026-10-09. Las ocho runas de mago indicadas reproducen la adquisición de mundo de SoD con objetos reales. Las filas restantes describen la adquisición implementada o provisional; Lifebloom, Nourish y las nuevas runas de paladín se desbloquean con objetos comprados al Grabador. En SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento), pero muchas fuentes aún no se han verificado.
+Estado a 2026-10-09. Las ocho runas de mago indicadas reproducen la adquisición de mundo de SoD con objetos reales. Las filas restantes describen la adquisición implementada o provisional; Lifebloom, Nourish y las nuevas runas de paladín y chamán se desbloquean con objetos comprados al Grabador. En SoD real cada runa se consigue en el mundo (misión, objeto, vendedor o evento), pero muchas fuentes aún no se han verificado.
 
 La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que usa este servidor: `https://www.wowhead.com/classic/spell=<id>` muestra el hechizo y, en su pestaña, qué objeto lo enseña y dónde se consigue. **wago.tools no trae tablas de botín ni de misiones.** Para el paladín, las correspondencias de objetos y fuentes de SoD se han contrastado con `docs/runas/fuentes-sod.json`; las fuentes de SoD no disponibles en este core se señalan como pendientes. Para las demás clases, la adquisición aún no se ha verificado runa a runa.
 
@@ -56,6 +56,12 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
 | 7007001 | Chamán | Earth Shield | Piernas | 408514 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408514](https://www.wowhead.com/classic/spell=408514) |
 | 7007002 | Chamán | Lava Lash | Manos | 408507 | Libre: se puede grabar sin descubrirla (provisional) | [spell=408507](https://www.wowhead.com/classic/spell=408507) |
+| 7007003 | Chamán | Lava Burst | Manos | 408490 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408490](https://www.wowhead.com/classic/spell=408490) |
+| 7007004 | Chamán | Riptide | Muñecas | 408521 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408521](https://www.wowhead.com/classic/spell=408521) |
+| 7007005 | Chamán | Feral Spirit | Espalda | 440580 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=440580](https://www.wowhead.com/classic/spell=440580) |
+| 7007006 | Chamán | Maelstrom Weapon | Cintura | 408498 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=408498](https://www.wowhead.com/classic/spell=408498) |
+| 7007007 | Chamán | Tidal Waves | Cabeza | 432042 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=432042](https://www.wowhead.com/classic/spell=432042) |
+| 7007008 | Chamán | Ancestral Awakening | Pies | 425858 | Compra al Grabador por 1 oro (provisional); fuente real de SoD no verificada. | [spell=425858](https://www.wowhead.com/classic/spell=425858) |
 | 7008001 | Brujo | Chaos Bolt | Manos | 403629 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403629](https://www.wowhead.com/classic/spell=403629) |
 | 7008002 | Brujo | Haunt | Manos | 403501 | Libre: se puede grabar sin descubrirla (provisional) | [spell=403501](https://www.wowhead.com/classic/spell=403501) |
 | 7008003 | Brujo | Demonic Tactics | Pecho | 412727 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412727](https://www.wowhead.com/classic/spell=412727) |

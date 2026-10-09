@@ -213,6 +213,33 @@
   "408507": {
     "name": "Latigazo de lava"
   },
+  "408490": {
+    "name": "Ráfaga de lava",
+    "desc": "Lanzas al objetivo lava fundida que inflige entre ${$m1/100*$<damagepower>} y ${$M1/100*$<damagepower>} p. de daño de Fuego. Si el objetivo tiene tu Choque de llamas, Ráfaga de lava asestará un golpe crítico."
+  },
+  "408521": {
+    "name": "Mareas vivas",
+    "desc": "Sana a un objetivo amistoso de ${$m1/100*$<healpower>} p. a ${$M1/100*$<healpower>} p. y luego ${5*$m2/100*$<healpower>} p. más durante $d. Tu Sanación en cadena lanzada a ese objetivo principal en menos de $d aumentará un $s3% el efecto de Sanación en cadena. Este hechizo también activa Despertar ancestral."
+  },
+  "440580": {
+    "name": "Espíritu feral",
+    "desc": "Invoca dos espíritus de lobo a las órdenes del chamán. Duran $d."
+  },
+  "408498": {
+    "name": "Arma vorágine",
+    "desc": "Cuando infliges daño con un arma cuerpo a cuerpo, existe la posibilidad de que se reduzcan un $408505s1% el tiempo de lanzamiento y el coste de maná de tu siguiente hechizo de Descarga de relámpagos, Cadena de relámpagos, Ola de sanación inferior o Ráfaga de lava. La probabilidad aumenta un $s2% mientras el arma de la mano derecha esté encantada con Arma Viento furioso y un $s2% más si empuñas un arma a dos manos. Se acumula hasta $s3 veces. Dura $408505d."
+  },
+  "408505": {
+    "name": "Arma vorágine"
+  },
+  "432042": {
+    "name": "Maremotos",
+    "desc": "Cuando lanzas Sanación en cadena o Mareas vivas, obtienes $s1 cargas de Maremotos, lo que reduce un $432041s1% el tiempo de lanzamiento de tu Ola de sanación, reduce un $432041s3% el tiempo de lanzamiento de tu Sanación en cadena y aumenta un $432041s2% la probabilidad de crítico de tu Ola de sanación inferior."
+  },
+  "425858": {
+    "name": "Despertar ancestral",
+    "desc": "Cuando realizas sanación crítica con tu Ola de sanación u Ola de sanación inferior, invocas a un espíritu ancestral para que te ayude, lo que sana instantáneamente al objetivo de tu grupo con el porcentaje de salud más bajo en un radio de 40 m un $s1% de la cantidad de sanación realizada."
+  },
   "408120": {
     "name": "Crecimiento salvaje"
   },

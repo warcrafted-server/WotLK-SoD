@@ -389,6 +389,19 @@ SodDruid.TreeOfLife.HotManaCostReductionPct = 20
 SodDruid.TreeOfLife.WildGrowthHealingPct = 60
 
 ###############################################################################
+# SHAMAN
+###############################################################################
+#
+#    SodShaman.Enable
+#        Descripción: interruptor para los scripts propios de runas del chamán.
+#                     Los clones que usan el comportamiento nativo del core no lo consultan.
+#        Valor predeterminado: 1 - (Activado)
+#                              0 - (Desactivado)
+#
+
+SodShaman.Enable = 1
+
+###############################################################################
 # PALADIN
 ###############################################################################
 #
