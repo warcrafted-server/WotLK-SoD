@@ -109,6 +109,8 @@ simplificaciones:
   la runa no la cambia. Falta un script de módulo sobre 20911/25899 (vía `spell_script_names`) que,
   si el lanzador tiene la runa, aplique una reducción extra con un hechizo propio de servidor, y la
   parte de daño por valor de bloqueo (20 %) sobre el proc de la bendición.
+- **Hand of Sacrifice (462853): descartada.** En WotLK el paladín ya aprende Mano de sacrificio (6940) a nivel 46
+  y se empieza en 60; política del 2026-10-06: las runas redundantes quedan fuera.
 - **Infusion of Light:** no reduce el enfriamiento de Choque Sagrado porque en WotLK ya es de 6 s.
 - **Light's Grace** reutiliza el aura auxiliar 31834 de WotLK con duración de 15 s. No se ha
   hecho una compilación real ni comprobado en juego que el aura consuma el beneficio exactamente
