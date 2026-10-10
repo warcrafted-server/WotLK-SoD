@@ -72,6 +72,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Pandemic `7008026`, Cabeza (0): con la runa activa, comprobar que el daño periódico de Corrupción, Aflicción inestable, Maldición de agonía, Inmolar, Maldición del Apocalipsis y Succionar vida puede dar golpes críticos. Diferencia conocida: se usa el aura nativa 286 de crítico periódico del core; se omite el segundo efecto del catálogo porque el SpellModOp 15 de 3.3.5a es el bono de daño crítico, no el crítico periódico (ver `TODO.md`).
 - [ ] Grimoire of Synergy `7008027`, Cintura (7): comprobar que al infligir daño el brujo o su demonio, con un 10 % de probabilidad, el otro gana +10 % de daño durante 15 s. La parte del demonio llega por un aura auxiliar de servidor 900051 que el familiar recibe al invocarse, así que hay que invocarlo después de grabar la runa. Ver `TODO.md`.
 - [ ] Estas cuatro runas (fase 5) necesitan recompilar el módulo: Infernal Armor y Grimoire of Synergy añaden scripts C++ propios (`spell_sod_warlock_infernal_armor`, `spell_sod_warlock_grimoire_of_synergy`).
+- [ ] Adquisición del brujo: las 27 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para brujos: Shadow Bolt Volley (criaturas 2191, 3662, 10373) y Master Channeler (2336, 2337).
 
 ### Chamán (runas nuevas; sin compilar ni probar)
 

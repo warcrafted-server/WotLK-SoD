@@ -928,5 +928,285 @@
     "display": 1102,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 204912,
+    "name": "Rune of Grace",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205022,
+    "name": "Rune of Soul Siphon",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205215,
+    "name": "Rune of Tactics",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205218,
+    "name": "Libram of Discovery",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205228,
+    "name": "Rune of Chaos Bolt",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205230,
+    "name": "Rune of Haunting",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208744,
+    "name": "Rune of Shadowbolts",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208750,
+    "name": "Rune of Channeling",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210824,
+    "name": "Rune of the Pact",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210980,
+    "name": "Rune of Metamorphosis",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211392,
+    "name": "Rune of Everlasting Affliction",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211476,
+    "name": "Rune of Fires Wake",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211477,
+    "name": "Rune of Incinerate",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 212561,
+    "name": "Rune of Burning Darkness",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213090,
+    "name": "Rune of Synergy",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213098,
+    "name": "Rune of Invocation",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213100,
+    "name": "Rune of Forbidden Knowledge",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213101,
+    "name": "Rune of Shadowflames",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213102,
+    "name": "Rune of Wickedness",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220617,
+    "name": "Rune of Pandemic",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220618,
+    "name": "Rune of Immolation Aura",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221482,
+    "name": "Rune of Affliction",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221489,
+    "name": "Rune of Vengeance",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221499,
+    "name": "Rune of the Felguard",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 225686,
+    "name": "Rune of Decimation",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 225687,
+    "name": "Rune of Infernal Armor",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 225688,
+    "name": "Rune of Mark of Chaos",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 232459,
+    "name": "Rune of Backdraft",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
   }
 ]

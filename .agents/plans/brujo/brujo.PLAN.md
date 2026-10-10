@@ -18,7 +18,7 @@ duplicados), regeneración del SQL de hechizos, sintaxis con los flags reales y 
 | 3 | 7008014–7008018 | Soul Siphon, Shadow and Flame, Lake of Fire, Master Channeler, Shadow Bolt Volley | high | hecho |
 | 4 | 7008019–7008023 | Demonic Grace, Invocation, Dance of the Wicked, Vengeance, Immolation Aura | high | hecho |
 | 5 | 7008024–7008027 | Infernal Armor, Mark of Chaos, Pandemic, Grimoire of Synergy | high | hecho |
-| 6 | — | Adquisición de los objetos-runa del brujo (como `sod_shaman_acquisition.sql`) | medium | pendiente |
+| 6 | — | Adquisición de los objetos-runa del brujo (como `sod_shaman_acquisition.sql`) | medium | hecho (generada con gen_rune_acquisition.py) |
 
 ## Cómo seguir
 Los encargos de los pasos 2–5 están listos en `tareas/war2.json`…`war5.json` (con ids de WotLK, scripts y

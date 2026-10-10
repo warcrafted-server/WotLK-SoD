@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Brujo, completo (27 runas `7008001`–`7008027`): adquisición generada con `tools/sod-data/gen_rune_acquisition.py --class warlock` (28 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para brujos) y `obtencion.md` actualizado con la nueva herramienta `tools/sod-data/actualizar_obtencion.py`. Sin aplicar ni probar.
 - Brujo: runas Infernal Armor `7008024`, Mark of Chaos `7008025`, Pandemic `7008026` y Grimoire of Synergy `7008027` (paso 5). Corregido en la revisión: la probabilidad de Grimoire of Synergy es del 10 % (Wowhead, hechizo 426301), no 6 %. Mark of Chaos sin escalado con el nivel. Sin compilar ni probar.
 - Brujo: runas Demonic Grace `7008019`, Invocation `7008020`, Dance of the Wicked `7008021`, Vengeance `7008022` e Immolation Aura `7008023` (paso 4). Corregido en la revisión: la duración de Dance of the Wicked es de 15 s (Wowhead), no 10 s. Invocation simplificada (un pulso del daño periódico) y sin Siphon Life, que en WotLK es un talento pasivo. Sin compilar ni probar.
 - Brujo: runas Soul Siphon `7008014`, Shadow and Flame `7008015`, Lake of Fire `7008016`, Master Channeler `7008017` y Shadow Bolt Volley `7008018` (paso 3, hecho por DeepSeek en ~15 min). Lake of Fire y Master Channeler son parciales (el aura 332 que quita el canal no existe en 3.3.5a); Soul Siphon sin el ramal bajo el 20 % de vida. Sin compilar ni probar.
