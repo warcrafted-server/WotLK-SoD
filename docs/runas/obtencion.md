@@ -77,34 +77,34 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7002027 | Paladín | Malleable Protection | Cintura | 458318 | Compra al Grabador por 1 oro; en SoD se vende en Rune Brokers. Brother Atticus (no implementado) también entrega la runa. | [spell=458318](https://www.wowhead.com/classic/spell=458318) |
 
 **Paladín:** todos los objetos de runa se compran al Grabador por 1 oro; en SoD los venden Rune Brokers. Hand of Sacrifice (210820) queda descartada por redundante con WotLK y no se crea. Las fuentes de SoD que requieren contenido ausente siguen pendientes: Dro’zem, Vengeful Spirit, Rix Xizzix, oficiales de suministros e intendentes; Undying Laborer; Jewel-Encrusted Box (212553), Supply Bag (217014), Libram of Blessings (objeto del mundo 407844) y Libram of Deliverance (objeto del mundo 423695); y las interacciones de Wounded Adventurer, Ada Gelhardt, Liv Bradford y Brother Atticus. No están implementadas.
-| 7003001 | Cazador | Chimera Shot | Manos | 409433 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409433](https://www.wowhead.com/classic/spell=409433) |
-| 7003002 | Cazador | Master Marksman | Pecho | 409428 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409428](https://www.wowhead.com/classic/spell=409428) |
-| 7003003 | Cazador | Explosive Shot | Manos | 409552 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409552](https://www.wowhead.com/classic/spell=409552) |
-| 7003004 | Cazador | Beast Mastery | Pecho | 409368 | Compra al Grabador (1 oro), provisional. | [spell=409368](https://www.wowhead.com/classic/spell=409368) |
-| 7003005 | Cazador | Cobra Strikes | Pecho | 425713 | Compra al Grabador (1 oro), provisional. | [spell=425713](https://www.wowhead.com/classic/spell=425713) |
-| 7003006 | Cazador | Lone Wolf | Pecho | 415370 | Compra al Grabador (1 oro), provisional. | [spell=415370](https://www.wowhead.com/classic/spell=415370) |
-| 7003007 | Cazador | Flanking Strike | Piernas | 415320 | Compra al Grabador (1 oro), provisional. | [spell=415320](https://www.wowhead.com/classic/spell=415320) |
-| 7003008 | Cazador | Kill Shot | Piernas | 409593 | Compra al Grabador (1 oro), provisional. | [spell=409593](https://www.wowhead.com/classic/spell=409593) |
-| 7003009 | Cazador | Serpent Spread | Piernas | 425738 | Compra al Grabador (1 oro), provisional. | [spell=425738](https://www.wowhead.com/classic/spell=425738) |
-| 7003010 | Cazador | Sniper Training | Piernas | 415399 | Compra al Grabador (1 oro), provisional. | [spell=415399](https://www.wowhead.com/classic/spell=415399) |
-| 7003011 | Cazador | Carve | Manos | 425711 | Compra al Grabador (1 oro), provisional. | [spell=425711](https://www.wowhead.com/classic/spell=425711) |
-| 7003012 | Cazador | Cobra Slayer | Manos | 458393 | Compra al Grabador (1 oro), provisional. | [spell=458393](https://www.wowhead.com/classic/spell=458393) |
-| 7003013 | Cazador | Aspect of the Viper | Cintura | 415423 | Compra al Grabador (1 oro), provisional. | [spell=415423](https://www.wowhead.com/classic/spell=415423) |
-| 7003014 | Cazador | Expose Weakness | Cintura | 409504 | Compra al Grabador (1 oro), provisional. | [spell=409504](https://www.wowhead.com/classic/spell=409504) |
-| 7003015 | Cazador | Melee Specialist | Cintura | 415352 | Compra al Grabador (1 oro), provisional. | [spell=415352](https://www.wowhead.com/classic/spell=415352) |
-| 7003016 | Cazador | Steady Shot | Cintura | 437123 | Compra al Grabador (1 oro), provisional. | [spell=437123](https://www.wowhead.com/classic/spell=437123) |
-| 7003017 | Cazador | Dual Wield Specialization | Pies | 409687 | Compra al Grabador (1 oro), provisional. | [spell=409687](https://www.wowhead.com/classic/spell=409687) |
-| 7003018 | Cazador | Trap Launcher | Pies | 409541 | Compra al Grabador (1 oro), provisional. | [spell=409541](https://www.wowhead.com/classic/spell=409541) |
-| 7003019 | Cazador | Wyvern Strike | Pies | 458479 | Compra al Grabador (1 oro), provisional. | [spell=458479](https://www.wowhead.com/classic/spell=458479) |
-| 7003020 | Cazador | Catlike Reflexes | Cabeza | 415428 | Compra al Grabador (1 oro), provisional. | [spell=415428](https://www.wowhead.com/classic/spell=415428) |
-| 7003021 | Cazador | Lock and Load | Cabeza | 415413 | Compra al Grabador (1 oro), provisional. | [spell=415413](https://www.wowhead.com/classic/spell=415413) |
-| 7003022 | Cazador | Rapid Killing | Cabeza | 415405 | Compra al Grabador (1 oro), provisional. | [spell=415405](https://www.wowhead.com/classic/spell=415405) |
-| 7003023 | Cazador | Focus Fire | Muñecas | 428726 | Compra al Grabador (1 oro), provisional. | [spell=428726](https://www.wowhead.com/classic/spell=428726) |
-| 7003024 | Cazador | Raptor Fury | Muñecas | 415358 | Compra al Grabador (1 oro), provisional. | [spell=415358](https://www.wowhead.com/classic/spell=415358) |
-| 7003025 | Cazador | T.N.T. | Muñecas | 428717 | Compra al Grabador (1 oro), provisional. | [spell=428717](https://www.wowhead.com/classic/spell=428717) |
-| 7003026 | Cazador | Hit and Run | Espalda | 440533 | Compra al Grabador (1 oro), provisional. | [spell=440533](https://www.wowhead.com/classic/spell=440533) |
-| 7003027 | Cazador | Improved Volley | Espalda | 440520 | Compra al Grabador (1 oro), provisional. | [spell=440520](https://www.wowhead.com/classic/spell=440520) |
-| 7003028 | Cazador | Resourcefulness | Espalda | 440529 | Compra al Grabador (1 oro), provisional. | [spell=440529](https://www.wowhead.com/classic/spell=440529) |
+| 7003001 | Cazador | Chimera Shot | Manos | 409433 | Objeto «Rune of the Chimera» (206168): compra al Grabador (1 oro); botín de Githyiss the Vile (1994) 25.8258 %, Bristleback Battleboar (2954) 1.3381 %, Scorpid Worker (3124) 1.3467 %. | [spell=409433](https://www.wowhead.com/classic/spell=409433) |
+| 7003002 | Cazador | Master Marksman | Pecho | 409428 | Objeto «Rune of Marksmanship» (206155): compra al Grabador (1 oro). | [spell=409428](https://www.wowhead.com/classic/spell=409428) |
+| 7003003 | Cazador | Explosive Shot | Manos | 409552 | Objeto «Rune of Explosive Shot» (206169): compra al Grabador (1 oro); botín de Bjarn (1130) 2.8571 %, Timber (1132) 3.1915 %, Edan the Howler (1137) 8.1633 %, Old Icebeard (1271) 6.9444 %, Vagash (1388) 3.3898 %, Mangeclaw (1961) 0.6542 %, Ghost Howl (3056) 2.2059 %, Arra'chea (3058) 3.1646 %, Mazzranache (3068) 2.5862 %, Sarkoth (3281) 15.7534 %, The Rake (5807) 3.5088 %, Rageclaw (7318) 15.864 %. | [spell=409552](https://www.wowhead.com/classic/spell=409552) |
+| 7003004 | Cazador | Beast Mastery | Pecho | 409368 | Objeto «Rune of Beast Mastery» (208701): compra al Grabador (1 oro). | [spell=409368](https://www.wowhead.com/classic/spell=409368) |
+| 7003005 | Cazador | Cobra Strikes | Pecho | 425713 | Objeto «Rune of Cobra Strikes» (210596): compra al Grabador (1 oro). | [spell=425713](https://www.wowhead.com/classic/spell=425713) |
+| 7003006 | Cazador | Lone Wolf | Pecho | 415370 | Objeto «Rune of Lone Wolf» (210818): compra al Grabador (1 oro). | [spell=415370](https://www.wowhead.com/classic/spell=415370) |
+| 7003007 | Cazador | Flanking Strike | Piernas | 415320 | Objeto «Rune of Flanking» (205979): compra al Grabador (1 oro). | [spell=415320](https://www.wowhead.com/classic/spell=415320) |
+| 7003008 | Cazador | Kill Shot | Piernas | 409593 | Objeto «Rune of Kill Command» (209852): compra al Grabador (1 oro). | [spell=409593](https://www.wowhead.com/classic/spell=409593) |
+| 7003009 | Cazador | Serpent Spread | Piernas | 425738 | Objeto «Rune of Serpent Spread» (211385): compra al Grabador (1 oro). | [spell=425738](https://www.wowhead.com/classic/spell=425738) |
+| 7003010 | Cazador | Sniper Training | Piernas | 415399 | Objeto «Rune of the Sniper» (208777): compra al Grabador (1 oro). | [spell=415399](https://www.wowhead.com/classic/spell=415399) |
+| 7003011 | Cazador | Carve | Manos | 425711 | Objeto «Rune of Carve» (206032): compra al Grabador (1 oro). | [spell=425711](https://www.wowhead.com/classic/spell=425711) |
+| 7003012 | Cazador | Cobra Slayer | Manos | 458393 | Objeto «Rune of Cobra Slayer» (211205): compra al Grabador (1 oro). | [spell=458393](https://www.wowhead.com/classic/spell=458393) |
+| 7003013 | Cazador | Aspect of the Viper | Cintura | 415423 | Objeto «Treatise on Aspect of the Viper» (216770): compra al Grabador (1 oro); botín de Archaedas (2748) 0.1425 %, Houndmaster Loksey (3974) 0.7594 %, Herod (3975) 0.5013 %, Scarlet Commander Mograine (3976) 0.2636 %, High Inquisitor Whitemane (3977) 0.3013 %, Interrogator Vishas (3983) 2.8137 %, High Inquisitor Fairbanks (4542) 0.4295 %, Bloodmage Thalnos (4543) 1.5529 %, Grimlok (4854) 0.2392 %, Arcanist Doan (6487) 0.5005 %, Fallen Champion (6488) 0.4959 %, Ironspine (6489) 0.8501 %. | [spell=415423](https://www.wowhead.com/classic/spell=415423) |
+| 7003014 | Cazador | Expose Weakness | Cintura | 409504 | Objeto «Rune of Expose Weakness» (211301): compra al Grabador (1 oro). | [spell=409504](https://www.wowhead.com/classic/spell=409504) |
+| 7003015 | Cazador | Melee Specialist | Cintura | 415352 | Objeto «Rune of Close Combat» (213124): compra al Grabador (1 oro). | [spell=415352](https://www.wowhead.com/classic/spell=415352) |
+| 7003016 | Cazador | Steady Shot | Cintura | 437123 | Objeto «Rune of Steady Shot» (213122): compra al Grabador (1 oro). | [spell=437123](https://www.wowhead.com/classic/spell=437123) |
+| 7003017 | Cazador | Dual Wield Specialization | Pies | 409687 | Objeto «Rune of Dual Wield Specialization» (210823): compra al Grabador (1 oro). | [spell=409687](https://www.wowhead.com/classic/spell=409687) |
+| 7003018 | Cazador | Trap Launcher | Pies | 409541 | Objeto «Rune of the Trapper» (212549): compra al Grabador (1 oro). | [spell=409541](https://www.wowhead.com/classic/spell=409541) |
+| 7003019 | Cazador | Wyvern Strike | Pies | 458479 | Objeto «Rune of Invigoration» (213125): compra al Grabador (1 oro). | [spell=458479](https://www.wowhead.com/classic/spell=458479) |
+| 7003020 | Cazador | Catlike Reflexes | Cabeza | 415428 | Objeto «Rune of the Jungle Cat» (220791): compra al Grabador (1 oro). | [spell=415428](https://www.wowhead.com/classic/spell=415428) |
+| 7003021 | Cazador | Lock and Load | Cabeza | 415413 | Objeto «Rune of Firepower» (221514): compra al Grabador (1 oro). | [spell=415413](https://www.wowhead.com/classic/spell=415413) |
+| 7003022 | Cazador | Rapid Killing | Cabeza | 415405 | Objeto «Rune of the Ravenous» (220217): compra al Grabador (1 oro). | [spell=415405](https://www.wowhead.com/classic/spell=415405) |
+| 7003023 | Cazador | Focus Fire | Muñecas | 428726 | Objeto «Rune of Focused Fire» (221445): compra al Grabador (1 oro). | [spell=428726](https://www.wowhead.com/classic/spell=428726) |
+| 7003024 | Cazador | Raptor Fury | Muñecas | 415358 | Objeto «Rune of the Raptor» (220687): compra al Grabador (1 oro). | [spell=415358](https://www.wowhead.com/classic/spell=415358) |
+| 7003025 | Cazador | T.N.T. | Muñecas | 428717 | Objeto «Rune of Detonation» (221515): compra al Grabador (1 oro). | [spell=428717](https://www.wowhead.com/classic/spell=428717) |
+| 7003026 | Cazador | Hit and Run | Espalda | 440533 | Objeto «Rune of the Guerrilla» (226252): compra al Grabador (1 oro). | [spell=440533](https://www.wowhead.com/classic/spell=440533) |
+| 7003027 | Cazador | Improved Volley | Espalda | 440520 | Objeto «Rune of Shelling» (226587): compra al Grabador (1 oro). | [spell=440520](https://www.wowhead.com/classic/spell=440520) |
+| 7003028 | Cazador | Resourcefulness | Espalda | 440529 | Objeto «Rune of the Resourceful» (225955): compra al Grabador (1 oro). | [spell=440529](https://www.wowhead.com/classic/spell=440529) |
 | 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
