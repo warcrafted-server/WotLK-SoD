@@ -12,7 +12,10 @@ TARGET_UNIT_PET = 5
 def build(idx):
     """Return Warlock spells cloned from the level-80 WotLK talent ranks."""
     cast_instant = idx["cast"][0]
+    duration_6000 = idx["dur"][6000]
+    duration_10000 = idx["dur"][10000]
     duration_15000 = idx["dur"][15000]
+    duration_20000 = idx["dur"][20000]
     duration_perm = idx["dur"][-1]
     range_self = idx["range"][0.0]
     icon_demonic_tactics = idx["icon"]["spell_shadow_demonictactics"]
@@ -20,6 +23,11 @@ def build(idx):
     icon_shadow_and_flame = idx["icon"]["spell_shadow_shadowandflame"]
     icon_rain_of_fire = idx["icon"]["spell_shadow_rainoffire"]
     icon_shadow_bolt = idx["icon"]["spell_shadow_shadowbolt"]
+    icon_demonic_grace = idx["icon"]["ability_warlock_avoidance"]
+    icon_invocation = idx["icon"]["spell_shadow_lastingafflictions"]
+    icon_dance_of_the_wicked = idx["icon"]["spell_shadow_siphonmana"]
+    icon_vengeance = idx["icon"]["spell_shadow_metamorphosis"]
+    icon_immolation_aura = idx["icon"]["spell_fire_immolation"]
 
     return [
         {  # Chaos Bolt: retain WotLK rank effects; apply the confirmed SoD cooldown.
@@ -458,6 +466,198 @@ def build(idx):
                 "EffectBasePoints_2": -30, "EffectDieSides_2": 0,
                 "EffectMiscValue_2": 0, "EffectSpellClassMaskA_2": 1,
                 "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        # --- Cuarta tanda (fase 4): Gracia demoníaca, Invocación, Danza de los malditos,
+        # Venganza y Aura de Inmolación. ---
+        {  # Gracia demoníaca: se activa (enfriamiento 20 s) y durante 6 s da +20 % de
+           # esquiva al brujo y a su mascota y +20 % de crítico con todos los ataques al
+           # brujo. El crítico global es el aura 290 de 3.3.5a; la esquiva (49) va al
+           # caster y a la mascota.
+            "id": 425463, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Demonic Grace",
+            "desc": "Surge with fel energy, increasing your pet's and your own dodge chance by $s1%, and your chance to critically strike with all attacks by $s2%. Lasts $d.",
+            "overrides": {
+                "Attributes": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_demonic_grace,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_6000,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "RecoveryTime": 20000, "CategoryRecoveryTime": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 49,
+                "EffectBasePoints_1": 20, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "ImplicitTargetB_1": TARGET_UNIT_PET,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 290,
+                "EffectBasePoints_2": 20, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Venganza: se activa (enfriamiento 180 s) y durante 20 s aumenta un 30 % la salud
+           # máxima. El core ya resta la salud al expirar (aura 133). El catálogo pide el aura
+           # 34, pero en 3.3.5a el aura 34 es un aumento plano y el porcentaje es el 133
+           # (como en el chamán); se anota en el informe.
+            "id": 426195, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Vengeance",
+            "desc": "When activated, this ability temporarily grants you a $s1% increase to your maximum health for $d. After the effect expires, the health is lost. Additionally, while in Metamorphosis, Vengeance causes your wings to slow your falling speed.",
+            "overrides": {
+                "Attributes": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_vengeance,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_20000,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "RecoveryTime": 180000, "CategoryRecoveryTime": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 133,
+                "EffectBasePoints_1": 30, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Invocación: pasiva. El script propio (spell_sod_warlock_invocation, enganchado a
+           # las auras de los DoT) inflige un pulso de daño al objetivo al aplicar o refrescar
+           # Corrupción, Inmolar, Maldición de agonía, Aflicción inestable, Llama de las Sombras
+           # o Succionar vida. El 6 del efecto es el umbral de 6 s de SoD para el refresco.
+            "id": 426243, "client": True, "template": 774,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Invocation",
+            "desc": "Applying Corruption, Immolate, Curse of Agony, Unstable Affliction, Shadowflame, or Siphon Life will cause you to deal instant damage to the target equal to one tick of the spell's periodic damage. Refreshing any of those spells when it has less than $s1 seconds duration remaining will cause you to deal instant damage to the target equal to the spell's remaining periodic damage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_invocation,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 4,
+                "EffectBasePoints_1": 6, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Danza de los malditos: pasiva con proc por crítico. Al asestar un crítico aplica
+           # el beneficio 900050 al brujo y a su mascota, con esquiva igual al 70 % (efecto del
+           # catálogo) de la probabilidad de crítico con hechizos. El script calcula el importe.
+            "id": 412798, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Dance of the Wicked", "script": "spell_sod_warlock_dance_of_the_wicked",
+            "desc": "You and your demon pet gain dodge chance equal to $s1% of your spell critical strike chance each time you deal a critical strike to an enemy, and also both regain $412800s2% of maximum mana.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_dance_of_the_wicked,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "ProcChance": 100,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 4,
+                "EffectBasePoints_1": 70, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 0, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            # Sólo dispara con golpes críticos (HitMask 2) de daño mágico del brujo.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_DONE_MAGIC_NEG, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Aura de Inmolación: pasiva. El aura 42 dispara el daño 427725 cuando un enemigo
+           # ataca cuerpo a cuerpo (como mucho una vez por segundo, vía enfriamiento del proc);
+           # además reduce un 10 % el daño mágico recibido (aura 87, escuelas mágicas 126) y
+           # aumenta un 10 % el daño de Fuego infligido (aura 79, escuela 4).
+            "id": 427726, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Immolation Aura",
+            "desc": "Burns nearby enemies for ${$<power>*$427725m1/100} damage every time an enemy makes a melee attack against you (no more than once per sec), reduces all magic damage taken by $s2%, and increases Fire damage done by $s3%. Lasts $d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_immolation_aura,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 4, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "ProcChance": 100,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 42,
+                "EffectBasePoints_1": 20, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 427725, "EffectMiscValue_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 87,
+                "EffectBasePoints_2": -10, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 126, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": 79,
+                "EffectBasePoints_3": 10, "EffectDieSides_3": 0,
+                "EffectMiscValue_3": 4, "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            # 0x8 ataque cuerpo a cuerpo recibido + 0x20 hechizo con clase de daño melee
+            # recibido; el enfriamiento de 1 s limita el proc a una vez por segundo.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 40, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 1000, "Charges": 0,
+            },
+        },
+        {  # Daño de Aura de Inmolación: clon del daño de Aura de Inmolación de WotLK (50590,
+           # el hechizo de Metamorfosis), que ya es un área de Fuego centrada en el lanzador.
+           # inherit_server copia la fila completa (daño y escalado por nivel incluidos).
+            "id": 427725, "client": True, "template": 50590,
+            "name": "Immolation Aura", "inherit_server": True,
+            "overrides": {
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellIconID": icon_immolation_aura, "SpellLevel": 0,
+            },
+        },
+        # Auxiliares de servidor (client: False): filas sólo en spell_dbc.
+        {  # Daño instantáneo de Invocación: el script fija su importe (un pulso del DoT), sin
+           # amenaza y sin volver a aplicar modificadores del lanzador (ya van en el pulso).
+            "id": 900049, "client": False, "template": None,
+            "name": "Invocation",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "AttributesEx": SPELL_ATTR1_NO_THREAT,
+                "AttributesEx3": 0x20000000,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 32, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 5, "SpellLevel": 0, "DefenseType": 1,
+                "Effect_1": EFFECT_SCHOOL_DAMAGE,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Beneficio de Danza de los malditos: esquiva que fija el script (70 % del crítico
+           # con hechizos). Duración auxiliar de 10 s (no consta en el catálogo); ver TODO.
+            "id": 900050, "client": False, "template": None,
+            "name": "Dance of the Wicked",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "DurationIndex": duration_15000, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 5, "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 49,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },

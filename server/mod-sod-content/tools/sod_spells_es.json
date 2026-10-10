@@ -619,5 +619,31 @@
   "403628": {
     "name": "Salva de descarga de las Sombras",
     "desc": "Tu Descarga de las Sombras ahora golpea hasta $s1 objetivos dentro de una distancia de cadena de 10 metros, pero inflige un $s3% menos de daño."
+  },
+  "425463": {
+    "name": "Gracia demoníaca",
+    "desc": "Te sobrecarga de energía vil, lo que aumenta tu probabilidad de esquivar y la de tu mascota un $s1%, y tu probabilidad de asestar golpes críticos con todos tus ataques un $s2%. Dura $d.",
+    "aura_desc": "Probabilidad de esquivar aumentada un $s1%.\nProbabilidad de golpe crítico del maestro aumentada un $s2%."
+  },
+  "426195": {
+    "name": "Venganza",
+    "desc": "Cuando se activa, esta facultad aumenta un $s1% tu salud máxima durante $d. Perderás la salud cuando se acabe el efecto. Además, Metamorfosis hace que tus alas ralenticen tu velocidad de caída.",
+    "aura_desc": "Salud aumentada un $s1% de su máximo, y velocidad de caída reducida mientras estás en Metamorfosis."
+  },
+  "426243": {
+    "name": "Invocación",
+    "desc": "Si aplicas Corrupción, Inmolar, Maldición de agonía, Aflicción inestable, Llama de las Sombras o Succionar vida, infligirás al objetivo una cantidad de daño instantáneo equivalente a un pulso del daño periódico del hechizo. Si reinicias cualquiera de esos hechizos cuando les queden menos de $s1 s de duración, infligirás al objetivo una cantidad de daño instantáneo equivalente al daño periódico restante de ese hechizo."
+  },
+  "412798": {
+    "name": "Danza de los malditos",
+    "desc": "Tu mascota demoníaca y tú aumentáis vuestra probabilidad de esquivar el equivalente a un $s1% de tu probabilidad de golpe crítico con hechizos cada vez que asestáis un golpe crítico a un enemigo y también recuperáis un $412800s2% del maná máximo."
+  },
+  "427726": {
+    "name": "Aura de Inmolación",
+    "desc": "Quema a los enemigos cercanos. Inflige ${$<power>*$427725m1/100} p. de daño cada vez que un enemigo te ataca cuerpo a cuerpo (no más de una vez cada segundo), reduce un $s2% todo el daño mágico que recibes y aumenta un $s3% el daño mágico que infliges. Dura $d.",
+    "aura_desc": "Quemando a los enemigos cercanos e infligiendo $w1 p. de daño al recibir ataques. Recibiendo un $s2% menos de daño mágico e infligiendo un $s3% más de daño de Fuego."
+  },
+  "427725": {
+    "name": "Aura de Inmolación"
   }
 }

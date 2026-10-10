@@ -65,6 +65,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warlock'', 1),
     (7008018, 403628, 256, 64, ''Shadow Bolt Volley'', ''spell_shadow_shadowbolt'',
      ''Your Shadow Bolt now strikes up to 5 targets within a chain distance of 10 yards, but for 30% reduced damage.'',
+     ''mod-sod-warlock'', 1),
+    (7008019, 425463, 256, 256, ''Demonic Grace'', ''ability_warlock_avoidance'',
+     ''Surge with fel energy, increasing your pet and your own dodge chance by 20%, and your chance to critically strike with all attacks by 20%. Lasts 6 sec.'',
+     ''mod-sod-warlock'', 1),
+    (7008020, 426243, 256, 128, ''Invocation'', ''spell_shadow_lastingafflictions'',
+     ''Applying Corruption, Immolate, Curse of Agony, Unstable Affliction, Shadowflame or Siphon Life deals instant damage equal to one tick of the periodic damage.'',
+     ''mod-sod-warlock'', 1),
+    (7008021, 412798, 256, 512, ''Dance of the Wicked'', ''spell_shadow_siphonmana'',
+     ''You and your demon pet gain dodge chance equal to 70% of your spell critical strike chance each time you deal a critical strike to an enemy, and also both regain maximum mana.'',
+     ''mod-sod-warlock'', 1),
+    (7008022, 426195, 256, 1, ''Vengeance'', ''spell_shadow_metamorphosis'',
+     ''When activated, temporarily grants you a 30% increase to your maximum health. After the effect expires, the health is lost.'',
+     ''mod-sod-warlock'', 1),
+    (7008023, 427726, 256, 32, ''Immolation Aura'', ''spell_fire_immolation'',
+     ''Burns nearby enemies when an enemy makes a melee attack against you, reduces all magic damage taken by 10%, and increases Fire damage done by 10%.'',
      ''mod-sod-warlock'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -106,3 +121,15 @@ DELETE FROM `spell_pet_auras` WHERE `spell` IN (425464, 412732);
 INSERT INTO `spell_pet_auras` (`spell`, `effectId`, `pet`, `aura`) VALUES
     (425464, 0, 0, 54909),
     (412732, 0, 0, 900048);
+
+-- Invocación engancha las auras de daño periódico de los seis hechizos que enumera SoD
+-- (ids negativos = todas las filas de rango; el primer rango debe ser el menor). El script
+-- inflige un pulso del daño periódico al aplicar o refrescar el DoT. 35195 (Succionar vida)
+-- va sin signo: no se pudo verificar que sea el primer rango de la cadena.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-172, 'spell_sod_warlock_invocation'),
+    (-348, 'spell_sod_warlock_invocation'),
+    (-980, 'spell_sod_warlock_invocation'),
+    (-30108, 'spell_sod_warlock_invocation'),
+    (-47960, 'spell_sod_warlock_invocation'),
+    (35195, 'spell_sod_warlock_invocation');

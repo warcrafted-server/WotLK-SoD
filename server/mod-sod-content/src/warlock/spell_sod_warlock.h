@@ -35,6 +35,16 @@ enum SodWarlockSpells
     SPELL_SOD_WARLOCK_LAKE_OF_FIRE = 403666,
     SPELL_SOD_WARLOCK_MASTER_CHANNELER = 403668,
     SPELL_SOD_WARLOCK_SHADOW_BOLT_VOLLEY = 403628,
+    // Cuarta tanda (fase 4): Gracia demoníaca, Invocación, Danza de los malditos, Venganza
+    // y Aura de Inmolación. Sólo Invocación y Danza de los malditos necesitan C++ propio.
+    SPELL_SOD_WARLOCK_DEMONIC_GRACE = 425463,
+    SPELL_SOD_WARLOCK_VENGEANCE = 426195,
+    SPELL_SOD_WARLOCK_INVOCATION = 426243,
+    SPELL_SOD_WARLOCK_INVOCATION_DAMAGE = 900049,
+    SPELL_SOD_WARLOCK_DANCE_OF_THE_WICKED = 412798,
+    SPELL_SOD_WARLOCK_DANCE_OF_THE_WICKED_BUFF = 900050,
+    SPELL_SOD_WARLOCK_IMMOLATION_AURA = 427726,
+    SPELL_SOD_WARLOCK_IMMOLATION_AURA_DAMAGE = 427725,
     // Hechizos nativos de WotLK que usan los scripts de esta tanda.
     SPELL_WARLOCK_DRAIN_SOUL = 1120,
     SPELL_WARLOCK_DRAIN_LIFE = 689,
@@ -44,6 +54,8 @@ enum SodWarlockSpells
 
 void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
+void AddSC_sod_warlock_invocation();
+void AddSC_sod_warlock_dance_of_the_wicked();
 
 inline bool SodWarlockEnabled()
 {
