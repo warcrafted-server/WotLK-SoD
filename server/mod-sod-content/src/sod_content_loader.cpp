@@ -102,6 +102,7 @@ void AddSC_sod_warrior_frenzied_assault();
 void AddSC_sod_warrior_meathook();
 void AddSC_sod_warrior_quick_strike();
 void AddSC_sod_warrior_single_minded_fury();
+void AddSC_sod_warrior_gladiator_stance();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -194,6 +195,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_warrior_meathook();
     AddSC_sod_warrior_quick_strike();
     AddSC_sod_warrior_single_minded_fury();
+    AddSC_sod_warrior_gladiator_stance();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

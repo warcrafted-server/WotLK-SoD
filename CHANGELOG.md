@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Guerrero: runas Enraged Regeneration `7001017`, Gladiator Stance `7001018`, Intervene `7001019`, Rallying Cry `7001020`, Endless Rage `7001021` (tanda 4 de `.agents/plans/guerrero/`). Gladiator Stance usa la forma 24, inexistente en 3.3.5a (solo error en el log, sin caída; ver TODO). Sin compilar ni probar.
 - Guerrero: runas Single-Minded Fury `7001012`, Victory Rush `7001013`, Blood Surge `7001014`, Focused Rage `7001015`, Precise Timing `7001016` (tanda 3 de `.agents/plans/guerrero/`). Blood Surge sin el golpe con ambas armas de Embate; Victory Rush depende de que el core conceda el estado Victorioso. Sin compilar ni probar.
 - Guerrero: runas Consumed By Rage `7001007`, Frenzied Assault `7001008`, Furious Thunder `7001009`, Meathook `7001010`, Quick Strike `7001011` (tanda 2 de `.agents/plans/guerrero/`). Furious Thunder sin el +75 % de amenaza y Meathook sin enraizar (límites de 3.3.5a). Sin compilar ni probar.
 - Guerrero: runas Blood Frenzy `7001002`, Flagellation `7001003`, Raging Blow `7001004`, Warbringer `7001005` y Commanding Shout `7001006` (tanda 1 de `.agents/plans/guerrero/`). Sin compilar ni probar; Commanding Shout sube salud máxima (WotLK) en vez de aguante.

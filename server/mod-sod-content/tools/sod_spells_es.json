@@ -28,6 +28,29 @@
   "413399": {
     "name": "Oleada sangrienta"
   },
+  "402913": {
+    "name": "Regeneración iracunda",
+    "desc": "Te sana un $o1% de tu salud máxima durante $d, pero solo se puede usar si Enfurecer, Ira rabiosa o Ira sangrienta están activos. Se puede usar mientras estás aturdido.",
+    "aura_desc": "Sanando un $s1% de la salud máxima cada $t s."
+  },
+  "412513": {
+    "name": "Actitud de gladiador",
+    "desc": "Una actitud agresiva: mientras llevas un escudo aumenta un 10% tu daño y un 10% tu probabilidad de bloqueo, pero reduce un 30% tu armadura y un 30% la amenaza que generas. Con un escudo durante Actitud de gladiador puedes usar todas las facultades restringidas a otras actitudes."
+  },
+  "403338": {
+    "name": "Intervenir",
+    "desc": "Corres a gran velocidad hacia un miembro del grupo e interceptas el siguiente ataque cuerpo a cuerpo o a distancia que le hagan, además de reducir su amenaza total.",
+    "aura_desc": "El próximo ataque cuerpo a cuerpo o a distancia contra ti se dirigirá al guerrero que intervenga."
+  },
+  "426490": {
+    "name": "Berrido de convocación",
+    "desc": "Sueltas un berrido de convocación que otorga a todos los miembros del grupo y la banda que se encuentren en un radio de 40 m un $s1% más de salud máxima durante $d.",
+    "aura_desc": "Salud aumentada un $s1% de su máximo."
+  },
+  "403218": {
+    "name": "Ira interminable",
+    "desc": "Generas un $s1% más de ira con todo el daño que infliges."
+  },
   "403629": {
     "name": "Descarga de caos"
   },

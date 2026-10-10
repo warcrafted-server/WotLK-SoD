@@ -45,6 +45,17 @@ MASK_CHARGE = 0x1
 MASK_INTERCEPT = 0x40000000
 MASK_INTERVENE = 0x10000
 
+# Auras nativas de 3.3.5a que usan las runas de la cuarta tanda.
+AURA_MOD_SHAPESHIFT = 36              # actitud (forma)
+AURA_MOD_BLOCK_PERCENT = 51           # % de probabilidad de bloqueo
+# AURA_MOD_DAMAGE_PERCENT_DONE (79) ya la define sod_dbc.
+AURA_MOD_RESISTANCE_PCT = 101         # % de armadura/resistencia; miscvalue = escuela
+AURA_MOD_THREAT = 10                  # % de amenaza generada
+AURA_MOD_INCREASE_HEALTH_PERCENT = 133  # % de salud máxima
+
+FORM_SOD_GLADIATOR = 24               # forma de Actitud de gladiador (no existe en 3.3.5a)
+MASK_ALL_SPELLS = 0xFFFFFFFF          # todas las máscaras de familia (actitud de gladiador)
+
 
 def build(idx):
     """Return Warrior spells cloned from the level-80 WotLK talent ranks."""
@@ -501,6 +512,88 @@ def build(idx):
                 "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
             },
         },
+        {  # Regeneración iracunda: clon del de WotLK (55694), que ya sana un 3 % de la salud
+           # máxima cada segundo durante 10 s, exige estar enfurecido (estado de aura 17, que
+           # cubren Enfurecer, Ira rabiosa e Ira sangrienta) y es usable aturdido (inmunidad al
+           # aturdimiento del efecto 2).
+            "id": 402913, "client": True, "template": 55694,
+            "skill_line": SKILL_FURY,
+            "name": "Enraged Regeneration", "inherit_server": True,
+            "desc": "Heals you for $o1% of your maximum health over $d, but can only be used "
+                    "while Enrage, Berserker Rage, or Bloodrage is active. Useable while "
+                    "Stunned.",
+            "overrides": {"SpellLevel": 0},
+        },
+        {  # Actitud de gladiador: el aura 36 (forma 24) la marca como actitud; el sondeo de 1 s
+           # (aura 226) mantiene el auxiliar 900053 (bono con escudo: +10 % de daño y +10 % de
+           # bloqueo, más el aura 275 con todas las máscaras para poder usar facultades de otras
+           # actitudes) y el auxiliar 900054 (−30 % de armadura y −30 % de amenaza). Diferencias
+           # conocidas en TODO.md: la forma 24 no existe en el cliente de 3.3.5a y no se
+           # implementa el bono de ira de los ataques automáticos contra quien no te ataca.
+            "id": 412513, "client": True, "template": 774,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Gladiator Stance", "script": "spell_sod_warrior_gladiator_stance",
+            "desc": "An aggressive stance: while you are wearing a shield it increases your "
+                    "damage by 10% and your block chance by 10%, but it reduces your armor by "
+                    "30% and the threat you generate by 30%. While wearing a shield in "
+                    "Gladiator Stance you may use all abilities that are restricted to other "
+                    "stances.",
+            "overrides": {
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 1, "ManaCost": 0, "ManaCostPct": 0,
+                "RecoveryTime": 0, "CategoryRecoveryTime": 1000,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_offensivestance"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_SHAPESHIFT,
+                "EffectBasePoints_1": -1, "EffectDieSides_1": 1,
+                "EffectMiscValue_1": FORM_SOD_GLADIATOR,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_2": 50, "EffectDieSides_2": 0, "EffectAuraPeriod_2": 1000,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_MOD_DAMAGE_PERCENT_DONE,
+                "EffectBasePoints_3": 0, "EffectDieSides_3": 0, "EffectMiscValue_3": 127,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Intervenir: clon del de WotLK (3411), que ya corre hacia el aliado, intercepta el
+           # siguiente ataque y le reduce la amenaza. Se copia el script del core que lanza el
+           # disparo 59667 (el id nuevo no hereda la fila de spell_script_names de 3411).
+            "id": 403338, "client": True, "template": 3411,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Intervene", "script": "spell_warr_intervene",
+            "inherit_server": True,
+            "desc": "Run at high speed towards a party member, intercepting the next melee or "
+                    "ranged attack made against them, and reducing their total threat.",
+            "overrides": {"SpellLevel": 0},
+        },
+        {  # Berrido de convocación: +15 % de salud máxima al grupo y la banda durante 10 s.
+           # Clon del Grito de orden (47440) con la salud fija (aura 230) cambiada a porcentaje
+           # (aura 133); conserva el objetivo de raid, el radio y el coste nativos.
+            "id": 426490, "client": True, "template": 47440,
+            "skill_line": SKILL_FURY,
+            "name": "Rallying Cry", "inherit_server": True,
+            "desc": "Let loose a rallying cry, granting all party and raid members within $a1 "
+                    "yards $s1% increased maximum health for $d.",
+            "overrides": {
+                "SpellLevel": 0, "DurationIndex": idx["dur"][10000],
+                "RecoveryTime": 180000,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": AURA_MOD_INCREASE_HEALTH_PERCENT,
+                "EffectBasePoints_1": 15, "EffectDieSides_1": 0, "EffectMiscValue_1": 0,
+            },
+        },
+        {  # Ira interminable: clon del talento de WotLK (29623, aura 213) como pasiva gratuita;
+           # +25 % de ira por todo el daño infligido.
+            "id": 403218, "client": True, "template": 29623,
+            "skill_line": SKILL_FURY,
+            "name": "Endless Rage", "inherit_server": True,
+            "desc": "You generate $s1% more Rage from all damage you deal.",
+            "overrides": {"SpellLevel": 0},
+        },
         # Auxiliares de servidor (client: False): filas sólo en spell_dbc. Celeridad de Asalto
         # frenético, aplicada por el script mientras el guerrero empuñe un arma a dos manos.
         {"id": 900052, "client": False, "template": None, "name": "Frenzied Assault",
@@ -513,6 +606,44 @@ def build(idx):
              "EffectBasePoints_1": 40, "EffectDieSides_1": 0,
              "ImplicitTargetA_1": TARGET_UNIT_CASTER,
              "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+             "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+         }},
+        # Bono de Actitud de gladiador mientras se empuña un escudo: +10 % de daño (todas las
+        # escuelas), +10 % de bloqueo y el aura 275 con todas las máscaras (deja usar las
+        # facultades restringidas a otras actitudes).
+        {"id": 900053, "client": False, "template": None, "name": "Gladiator Stance Shield",
+         "overrides": {
+             "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+             "DurationIndex": duration_perm, "RangeIndex": range_self,
+             "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0, "SpellLevel": 0,
+             "SpellClassSet": 4, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+             "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_DAMAGE_PERCENT_DONE,
+             "EffectBasePoints_1": 10, "EffectDieSides_1": 0, "EffectMiscValue_1": 127,
+             "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+             "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_BLOCK_PERCENT,
+             "EffectBasePoints_2": 10, "EffectDieSides_2": 0,
+             "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+             "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_MOD_IGNORE_SHAPESHIFT,
+             "EffectBasePoints_3": 0, "EffectDieSides_3": 0,
+             "EffectSpellClassMaskA_3": MASK_ALL_SPELLS,
+             "EffectSpellClassMaskB_3": MASK_ALL_SPELLS,
+             "EffectSpellClassMaskC_3": MASK_ALL_SPELLS,
+             "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+         }},
+        # Penalización de Actitud de gladiador: −30 % de armadura (aura 101, escuela física) y
+        # −30 % de amenaza (aura 10, todas las escuelas), mientras la actitud esté activa.
+        {"id": 900054, "client": False, "template": None, "name": "Gladiator Stance Penalty",
+         "overrides": {
+             "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+             "DurationIndex": duration_perm, "RangeIndex": range_self,
+             "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0, "SpellLevel": 0,
+             "SpellClassSet": 4, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+             "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_RESISTANCE_PCT,
+             "EffectBasePoints_1": -30, "EffectDieSides_1": 0, "EffectMiscValue_1": 1,
+             "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+             "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_THREAT,
+             "EffectBasePoints_2": -30, "EffectDieSides_2": 0, "EffectMiscValue_2": 127,
+             "ImplicitTargetA_2": TARGET_UNIT_CASTER,
              "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
          }},
     ]
