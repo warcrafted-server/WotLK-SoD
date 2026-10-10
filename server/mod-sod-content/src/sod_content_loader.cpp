@@ -101,6 +101,7 @@ void AddSC_sod_hunter_catlike_reflexes();
 void AddSC_sod_hunter_lock_and_load();
 void AddSC_sod_hunter_rapid_killing();
 void AddSC_sod_hunter_focus_fire();
+void AddSC_sod_hunter_improved_volley();
 void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
 void AddSC_sod_warlock_invocation();
@@ -211,6 +212,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_hunter_lock_and_load();
     AddSC_sod_hunter_rapid_killing();
     AddSC_sod_hunter_focus_fire();
+    AddSC_sod_hunter_improved_volley();
 
     AddSC_sod_warlock_soul_siphon();
     AddSC_sod_warlock_master_channeler();

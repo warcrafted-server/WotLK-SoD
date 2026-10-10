@@ -80,6 +80,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-hunter'', 1),
     (7003023, 428726, 4, 32, ''Focus Fire'', ''ability_hunter_beastmastery'',
      ''Consumes all applications of Frenzy from your pet, increasing your ranged attack speed by 3% and granting your pet 4 Focus per application. Lasts 20 sec. Your pet gains Frenzy each time it uses a Basic Attack.'',
+     ''mod-sod-hunter'', 1),
+    (7003024, 415358, 4, 32, ''Raptor Fury'', ''ability_hunter_swiftstrike'',
+     ''Raptor Strike increases the damage done by Raptor Strike and Mongoose Bite by 10%. The effect stacks. Subsequent doses do not extend its duration.'',
+     ''mod-sod-hunter'', 1),
+    (7003025, 428717, 4, 32, ''T.N.T.'', ''ability_hunter_assassinate2'',
+     ''Increases the damage done by Explosive Shot and all your damaging traps by 9%. Additionally, the initial damage of Explosive Trap and the total periodic damage of your Immolation Trap are increased by 25% of your melee or ranged Attack Power.'',
+     ''mod-sod-hunter'', 1),
+    (7003026, 440533, 4, 8, ''Hit and Run'', ''ability_hunter_swiftstrike'',
+     ''After using Raptor Strike, you gain 100% movement speed for the duration of the effect. Your pet''s damaging abilities increase the target''s melee attack power by 14 and reduce its armor by 50 for the duration of the effect. Rabid enemies will not flee and will ignore Fear and Horror effects.'',
+     ''mod-sod-hunter'', 1),
+    (7003027, 440520, 4, 8, ''Improved Volley'', ''ability_hunter_steadyshot'',
+     ''Reduces the mana cost of Volley by 50%, reduces its cooldown by 100%, increases its damage by 100%, and prevents pushback from damaging attacks. Volley also deals 3% of your ranged Attack Power as additional damage each time it deals damage.'',
+     ''mod-sod-hunter'', 1),
+    (7003028, 440529, 4, 8, ''Resourcefulness'', ''ability_hunter_snipershot'',
+     ''Reduces the mana cost of your Traps by 100% and their cooldowns by 40%.'',
      ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -146,3 +161,7 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (415413, 'spell_hun_lock_and_load'),
     (900062, 'spell_sod_hunter_rapid_killing_rapid_fire_buff'),
     (428726, 'spell_sod_hunter_focus_fire');
+
+-- Salva mejorada suma daño a cada impacto de Volley (id negativo = todos los rangos del trigger).
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-42243, 'spell_sod_hunter_improved_volley');

@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Cazador: runas Raptor Fury `7003024`, T.N.T. `7003025`, Hit and Run `7003026`, Improved Volley `7003027`, Resourcefulness `7003028` (tanda 5 de `.agents/plans/cazador/`). Raptor Fury, T.N.T. y Hit and Run con efectos parciales o sin implementar por falta de datos (ver TODO.md). Sin compilar ni probar.
 - Cazador: runas Wyvern Strike `7003019`, Catlike Reflexes `7003020`, Lock and Load `7003021`, Rapid Killing `7003022`, Focus Fire `7003023` (tanda 4 de `.agents/plans/cazador/`). Wyvern Strike y Focus Fire con fidelidad parcial (ver TODO.md); corregida la fila spell_proc sin SchoolMask. Sin compilar ni probar.
 - Cazador: runas Expose Weakness `7003014`, Melee Specialist `7003015`, Steady Shot `7003016`, Dual Wield Specialization `7003017`, Trap Launcher `7003018` (tanda 3 de `.agents/plans/cazador/`). Trap Launcher sin separar enfriamientos de trampas (requiere core). Sin compilar ni probar.
 - Cazador: runas Serpent Spread `7003009`, Sniper Training `7003010`, Carve `7003011`, Cobra Slayer `7003012`, Aspect of the Viper `7003013` (tanda 2 de `.agents/plans/cazador/`). Sniper Training con guion propio (sin copiar el talento de WotLK); Serpent Spread con la Picadura de serpiente aprendida. Corregido sod_dbc.set_int para máscaras de 32 bits sin signo. Sin compilar ni probar.

@@ -35,6 +35,11 @@ def build(idx):
     icon_steady_shot = idx["icon"]["ability_hunter_steadyshot"]
     icon_dual_wield_specialization = idx["icon"]["ability_dualwield"]
     duration_20000 = idx["dur"][20000]
+    icon_raptor_fury = icon_melee_specialist
+    icon_tnt = icon_kill_shot
+    icon_hit_and_run = icon_flanking_strike
+    icon_improved_volley = icon_steady_shot
+    icon_resourcefulness = icon_expose_weakness
 
     return [
         {  # Keep the WotLK script effect; apply Chimera Shot's SoD costs.
@@ -787,6 +792,147 @@ def build(idx):
                 "EffectBasePoints_1": 2, "EffectDieSides_1": 1,
                 "ImplicitTargetA_1": TARGET_UNIT_CASTER,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        # --- Quinta tanda (fase 1): Raptor Fury, T.N.T., Hit and Run, Improved Volley
+        # y Resourcefulness. ---
+        {  # Furia de raptor: la ficha confirma el 10 % por acumulación, pero el catálogo local
+           # no contiene la duración ni el máximo de acumulaciones del auxiliar 415362.
+            "id": 415358, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Raptor Fury",
+            "desc": "Raptor Strike increases the damage done by Raptor Strike and Mongoose Bite by 10%. The effect stacks. Subsequent doses do not extend its duration.",
+            "aura_desc": "Raptor Strike and Mongoose Bite damage increased by 10% per stack.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_raptor_fury,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # Valor del catálogo conservado solo para el texto; no se aplica sin conocer
+                # duración y límite de acumulaciones del hechizo auxiliar.
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # T.N.T.: +9 % a daño directo y periódico de Trampas dañinas y Disparo explosivo.
+           # El +25 % del poder de ataque a las dos trampas queda como texto: los hechizos de daño
+           # que ejecutan las trampas no están identificados en los datos locales.
+            "id": 428717, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "T.N.T.",
+            "desc": "Increases the damage done by Explosive Shot and all your damaging traps by 9%. Additionally, the initial damage of Explosive Trap and the total periodic damage of Immolation Trap are increased by 25% of your melee or ranged Attack Power.",
+            "aura_desc": "Explosive Shot and damaging traps deal 9% increased damage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_tnt,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # SpellModOp 22 aumenta daño periódico; la familia incluye trampas y Explosive Shot.
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": 8, "EffectDieSides_1": 1, "EffectMiscValue_1": 22,
+                "EffectSpellClassMaskA_1": 0x80,
+                "EffectSpellClassMaskB_1": -2147483648,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # SpellModOp 0 aumenta el daño directo de esas mismas familias.
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 108,
+                "EffectBasePoints_2": 8, "EffectDieSides_2": 1, "EffectMiscValue_2": 0,
+                "EffectSpellClassMaskA_2": 0x80,
+                "EffectSpellClassMaskB_2": -2147483648,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                # El efecto conocido de 25 % AP se conserva para el texto, sin fingir daño adicional.
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 24, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Ataque fugaz: faltan en el catálogo los valores del auxiliar de velocidad y la
+           # duración del perjuicio aplicado por las facultades dañinas de la mascota.
+            "id": 440533, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Hit and Run",
+            "desc": "After using Raptor Strike, you gain 100% movement speed for the duration of the effect. Your pet's damaging abilities increase the target's melee attack power by 14 and reduce its armor by 50 for the duration of the effect. Rabid enemies will not flee and will ignore Fear and Horror effects.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_hit_and_run,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 14, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": -50, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Salva mejorada: reduce coste, reutilización y rechazo con SpellMods. El script
+           # de -42243 dobla el daño de cada tick y suma el 3 % del poder de ataque a distancia.
+            "id": 440520, "client": True, "template": 774,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Improved Volley", "script": "spell_sod_hunter_improved_volley",
+            "desc": "Reduces the mana cost of Volley by 50%, reduces its cooldown by 100%, increases its damage by 100%, and prevents pushback from damaging attacks. Volley also deals 3% of your ranged Attack Power as additional damage each time it deals damage.",
+            "aura_desc": "Volley costs 50% less mana, has 100% less cooldown, deals 100% more damage, and does not suffer pushback.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_improved_volley,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # Menos coste de maná (SpellModOp 14) y reutilización (op 11) para Volley.
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": -50, "EffectDieSides_1": 0, "EffectMiscValue_1": 14,
+                "EffectSpellClassMaskA_1": 0x2000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 108,
+                "EffectBasePoints_2": -100, "EffectDieSides_2": 0, "EffectMiscValue_2": 11,
+                "EffectSpellClassMaskA_2": 0x2000,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                # SpellModOp 9 impide el rechazo y se limita igualmente a la familia de Volley.
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": 108,
+                "EffectBasePoints_3": 99, "EffectDieSides_3": 1, "EffectMiscValue_3": 9,
+                "EffectSpellClassMaskA_3": 0x2000,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Ingenio: replica los modificadores de la plantilla de talento 34493 para trampas.
+            "id": 440529, "client": True, "template": 34493,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Resourcefulness", "inherit_server": True,
+            "desc": "Reduces the mana cost of your Traps by 100% and their cooldowns by 40%.",
+            "aura_desc": "Trap mana cost reduced by 100% and cooldowns by 40%.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_resourcefulness,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": -100, "EffectDieSides_1": 0, "EffectMiscValue_1": 14,
+                "EffectSpellClassMaskA_1": 0x80,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 108,
+                "EffectBasePoints_2": -40, "EffectDieSides_2": 0, "EffectMiscValue_2": 11,
+                "EffectSpellClassMaskA_2": 0x80,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },

@@ -100,6 +100,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7003021 | Cazador | Lock and Load | Cabeza | 415413 | Compra al Grabador (1 oro), provisional. | [spell=415413](https://www.wowhead.com/classic/spell=415413) |
 | 7003022 | Cazador | Rapid Killing | Cabeza | 415405 | Compra al Grabador (1 oro), provisional. | [spell=415405](https://www.wowhead.com/classic/spell=415405) |
 | 7003023 | Cazador | Focus Fire | Muñecas | 428726 | Compra al Grabador (1 oro), provisional. | [spell=428726](https://www.wowhead.com/classic/spell=428726) |
+| 7003024 | Cazador | Raptor Fury | Muñecas | 415358 | Compra al Grabador (1 oro), provisional. | [spell=415358](https://www.wowhead.com/classic/spell=415358) |
+| 7003025 | Cazador | T.N.T. | Muñecas | 428717 | Compra al Grabador (1 oro), provisional. | [spell=428717](https://www.wowhead.com/classic/spell=428717) |
+| 7003026 | Cazador | Hit and Run | Espalda | 440533 | Compra al Grabador (1 oro), provisional. | [spell=440533](https://www.wowhead.com/classic/spell=440533) |
+| 7003027 | Cazador | Improved Volley | Espalda | 440520 | Compra al Grabador (1 oro), provisional. | [spell=440520](https://www.wowhead.com/classic/spell=440520) |
+| 7003028 | Cazador | Resourcefulness | Espalda | 440529 | Compra al Grabador (1 oro), provisional. | [spell=440529](https://www.wowhead.com/classic/spell=440529) |
 | 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |

@@ -930,5 +930,29 @@
   "900065": {
     "name": "Enfocar fuego",
     "aura_desc": "La velocidad de ataque a distancia aumenta un $s1%."
+  },
+  "415358": {
+    "name": "Furia de raptor",
+    "desc": "Golpe de raptor aumenta un 10% el daño que infligen Golpe de raptor y Mordedura de mangosta. El efecto se acumula. Las aplicaciones posteriores no prolongan su duración.",
+    "aura_desc": "El daño de Golpe de raptor y Mordedura de mangosta aumenta un 10% por acumulación."
+  },
+  "428717": {
+    "name": "T.N.T.",
+    "desc": "Aumenta un 9% el daño de Disparo explosivo y de todas tus trampas dañinas. Además, el daño inicial de Trampa explosiva y el daño periódico total de Trampa de inmolación aumentan un 25% de tu poder de ataque cuerpo a cuerpo o a distancia.",
+    "aura_desc": "Disparo explosivo y las trampas dañinas infligen un 9% más de daño."
+  },
+  "440533": {
+    "name": "Ataque fugaz",
+    "desc": "Tras usar Golpe de raptor, obtienes un 100% más de velocidad de movimiento durante el efecto. Las facultades dañinas de tu mascota provocan un frenesí rabioso en el objetivo, que aumenta su poder de ataque cuerpo a cuerpo en 14 p. y reduce su armadura en 50 p. durante el efecto. Los enemigos rabiosos no huirán e ignorarán los efectos de miedo y horror."
+  },
+  "440520": {
+    "name": "Salva mejorada",
+    "desc": "Reduce un 50% el coste de maná de Salva y un 100% su tiempo de reutilización, aumenta un 100% su daño y evita que los ataques que infligen daño retrasen el lanzamiento. Salva también inflige un 3% de tu poder de ataque a distancia como daño adicional cada vez que inflige daño.",
+    "aura_desc": "Salva cuesta un 50% menos de maná, tiene un 100% menos de reutilización, inflige un 100% más de daño y no sufre rechazo."
+  },
+  "440529": {
+    "name": "Ingenio",
+    "desc": "Reduce un 100% el coste de maná de tus trampas y un 40% sus tiempos de reutilización.",
+    "aura_desc": "El coste de maná de las trampas se reduce un 100% y su tiempo de reutilización un 40%."
   }
 }

@@ -47,6 +47,7 @@ enum SodHunterSpells
     SPELL_SOD_HUNTER_FOCUS_FIRE_PET_AURA = 900063,
     SPELL_SOD_HUNTER_FOCUS_FIRE_PET_FRENZY = 900064,
     SPELL_SOD_HUNTER_FOCUS_FIRE_RANGED_HASTE = 900065,
+    SPELL_SOD_HUNTER_IMPROVED_VOLLEY = 440520,
     SPELL_SOD_HUNTER_WYVERN_STING_R1 = 19386,
     SPELL_SOD_HUNTER_RAPID_FIRE_R1 = 3045,
     SPELL_SOD_HUNTER_LOCK_AND_LOAD_TRIGGER = 56453,
@@ -75,6 +76,7 @@ void AddSC_sod_hunter_catlike_reflexes();
 void AddSC_sod_hunter_lock_and_load();
 void AddSC_sod_hunter_rapid_killing();
 void AddSC_sod_hunter_focus_fire();
+void AddSC_sod_hunter_improved_volley();
 
 inline bool SodHunterEnabled()
 {
