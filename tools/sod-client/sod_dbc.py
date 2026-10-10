@@ -133,7 +133,11 @@ class WDBC:
         return struct.unpack_from("<f", rec, field * 4)[0]
 
     def set_int(self, rec, field, value):
-        struct.pack_into("<i", rec, field * 4, int(value))
+        # Las máscaras de familia llegan como sin signo (p. ej. 0x80820001): se guardan como los mismos 32 bits.
+        value = int(value)
+        if value > 0x7FFFFFFF:
+            value -= 1 << 32
+        struct.pack_into("<i", rec, field * 4, value)
 
     def set_float(self, rec, field, value):
         struct.pack_into("<f", rec, field * 4, float(value))

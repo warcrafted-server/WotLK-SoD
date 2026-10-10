@@ -22,6 +22,11 @@ def build(idx):
     icon_lone_wolf = idx["icon"]["ability_hunter_pet_wolf"]
     icon_flanking_strike = idx["icon"]["ability_hunter_swiftstrike"]
     icon_kill_shot = idx["icon"]["ability_hunter_assassinate2"]
+    icon_serpent_spread = idx["icon"]["ability_hunter_serpentswiftness"]
+    icon_sniper_training = idx["icon"]["ability_hunter_snipertraining"]
+    icon_carve = idx["icon"]["ability_warrior_cleave"]
+    icon_cobra_slayer = idx["icon"]["ability_hunter_swiftstrike"]
+    icon_aspect_viper = idx["icon"]["ability_hunter_aspectoftheviper"]
 
     return [
         {  # Keep the WotLK script effect; apply Chimera Shot's SoD costs.
@@ -244,6 +249,176 @@ def build(idx):
                 "SpellIconID": icon_kill_shot, "SpellLevel": 0,
                 "EffectBasePoints_1": 586, "EffectDieSides_1": 1,
                 "EffectBasePoints_2": 99, "EffectDieSides_2": 1,
+            },
+        },
+        # --- Segunda tanda (fase 1): Serpent Spread, Sniper Training, Carve, Cobra Slayer
+        # y Aspect of the Viper. ---
+        {  # Propagar serpientes: pasiva de piernas. El gancho vive en Multidisparo (SQL, id
+           # negativo -2643): cada objetivo golpeado recibe la Picadura de serpiente del cazador.
+            "id": 425738, "client": True, "template": 774,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Serpent Spread",
+            "desc": "Targets hit by your Multi-Shot are also afflicted by your Serpent Sting.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_serpent_spread,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 5, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Instrucción de francotirador: pasiva con sondeo de 1 s. El script acumula la
+           # mejora 415401 mientras el cazador no se mueve y la retira al moverse.
+            "id": 415399, "client": True, "template": 774,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Sniper Training", "script": "spell_sod_hunter_sniper_training",
+            "desc": "Your Shot abilities gain $415401s1% increased critical strike chance while you have not moved for the last $s1 sec, stacking every sec up to $415401u times. At full stacks, your Aimed Shot becomes instant. While moving, you will lose 1 stack per sec.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_sniper_training,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_1": 1, "EffectDieSides_1": 1,
+                "EffectAuraPeriod_1": 1000, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Mejora de Instrucción de francotirador: +2 % de crítico con disparos por
+           # acumulación (hasta 5). Las máscaras son las de SoD (facultades de disparo).
+            "id": 415401, "client": True, "template": 774,
+            "name": "Sniper Training",
+            "aura_desc": "Critical strike chance with Shot abilities increased by $s1%.",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_sniper_training,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "CumulativeAura": 5,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 107,
+                "EffectBasePoints_1": 1, "EffectDieSides_1": 1,
+                "EffectMiscValue_1": 7,
+                "EffectSpellClassMaskA_1": 0x61A00,
+                "EffectSpellClassMaskB_1": 0x80820001,
+                "EffectSpellClassMaskC_1": 0x8341,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Lanzamiento instantáneo de Disparo de puntería que aplica el script al llegar a
+           # la acumulación máxima (aura 108 + SpellModOp 10, máscara de Disparo de puntería).
+            "id": 900058, "client": False, "template": None,
+            "name": "Sniper Training",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0, "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": -100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 10, "EffectSpellClassMaskA_1": 0x20000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Trinchar: golpe de barrido cuerpo a cuerpo. Clona Trinchar de guerrero (845) para
+           # heredar la selección de enemigos contiguos y le da los valores de SoD. El script
+           # añade el 50 % extra al objetivo principal (efecto dummy 3 del catálogo).
+            "id": 425711, "client": True, "template": 845,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Carve", "script": "spell_sod_hunter_carve",
+            "inherit_server": True,
+            "desc": "A sweeping attack that strikes all enemies in front of you with your melee weapons for $s2% weapon damage. Your primary target takes $s3% increased damage.",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_carve,
+                "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "EquippedItemSubclass": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 4,
+                "RecoveryTime": 6000, "CategoryRecoveryTime": 0,
+                "Effect_1": 121, "EffectBasePoints_1": 0, "EffectDieSides_1": 1,
+                "EffectChainTargets_1": 8, "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": 31, "EffectBasePoints_2": 64, "EffectDieSides_2": 1,
+                "EffectChainTargets_2": 8, "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": EFFECT_DUMMY, "EffectBasePoints_3": 49, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+        },
+        {  # Destripacobras: pasiva. El proc por ataques cuerpo a cuerpo va en la fila
+           # spell_proc; el script acumula la probabilidad y reinicia Mordedura de mangosta.
+            "id": 458393, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Cobra Slayer", "script": "spell_sod_hunter_cobra_slayer",
+            "desc": "Mongoose Bite now has a $s3% chance to activate on each of your melee attacks, a 100% chance when an enemy dodges. This chance accumulates, with the chance rising by $s3% from each subsequent attack if it does not reset. Mongoose Bite also deals additional damage equal to $s2% of your Attack Power.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_cobra_slayer,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 44, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 9, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            # Ataques automáticos y facultades cuerpo a cuerpo hechas por el cazador.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0x14, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Aspecto de la víbora: clon del aspecto de WotLK (34074) con los valores de SoD.
+           # Conserva el script y el spell_proc del core; el tercer efecto dummy permite que
+           # el manejador de proc de WotLK (ligado a EFFECT_2) siga activo en el clon.
+            "id": 415423, "client": True, "template": 34074,
+            "skill_line": SKILL_BEAST_MASTERY,
+            "name": "Aspect of the Viper", "script": "spell_hun_ascpect_of_the_viper",
+            "inherit_server": True,
+            "desc": "The hunter takes on the aspect of the viper, causing your ranged and melee auto attacks to regenerate mana but reducing your total damage done by $s2%. In addition, you gain $s1% of maximum mana every $t sec. Mana gained is based on the speed of your weapon. Only one Aspect can be active at a time.",
+            "aura_desc": "Your ranged and melee auto attacks regenerate a percentage of your base mana, but your total damage done is reduced by $s2%. In addition, you gain $s1% of maximum mana every $t sec.",
+            "overrides": {
+                "SpellLevel": 0,
+                "EffectBasePoints_1": 9, "EffectDieSides_1": 1,
+                "EffectBasePoints_2": -11, "EffectDieSides_2": 1,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 0, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+            # Copia de spell_proc de 34074; ProcFlags 0 hereda el del hechizo (ataques
+            # automáticos) y el script del core reparte el maná según la velocidad del arma.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
             },
         },
     ]

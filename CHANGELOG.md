@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Cazador: runas Serpent Spread `7003009`, Sniper Training `7003010`, Carve `7003011`, Cobra Slayer `7003012`, Aspect of the Viper `7003013` (tanda 2 de `.agents/plans/cazador/`). Sniper Training con guion propio (sin copiar el talento de WotLK); Serpent Spread con la Picadura de serpiente aprendida. Corregido sod_dbc.set_int para máscaras de 32 bits sin signo. Sin compilar ni probar.
 - Cazador: runas Beast Mastery `7003004`, Cobra Strikes `7003005`, Lone Wolf `7003006`, Flanking Strike `7003007`, Kill Shot `7003008` (tanda 1 de `.agents/plans/cazador/`). Cobra Strikes: el beneficio copia el script y el spell_proc del core (sin ellos las cargas no se gastaban). Flanking Strike y Kill Shot simplificados. Sin compilar ni probar.
 - Guerrero: adquisición de 29 runas generada con `gen_rune_acquisition.py --class warrior` (29 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para esta clase en 31 criaturas). Sin aplicar ni probar.
 - Guerrero: runas Wrecking Crew `7001027`, Fresh Meat `7001028`, Shockwave `7001029`, Sudden Death `7001030` (tanda 6 de `.agents/plans/guerrero/`). Sudden Death copia el spell_proc del core (gasta el beneficio al ejecutar); Fresh Meat y Shockwave con aproximaciones documentadas. Sin compilar ni probar.

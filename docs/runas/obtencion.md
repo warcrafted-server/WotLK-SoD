@@ -85,6 +85,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7003006 | Cazador | Lone Wolf | Pecho | 415370 | Compra al Grabador (1 oro), provisional. | [spell=415370](https://www.wowhead.com/classic/spell=415370) |
 | 7003007 | Cazador | Flanking Strike | Piernas | 415320 | Compra al Grabador (1 oro), provisional. | [spell=415320](https://www.wowhead.com/classic/spell=415320) |
 | 7003008 | Cazador | Kill Shot | Piernas | 409593 | Compra al Grabador (1 oro), provisional. | [spell=409593](https://www.wowhead.com/classic/spell=409593) |
+| 7003009 | Cazador | Serpent Spread | Piernas | 425738 | Compra al Grabador (1 oro), provisional. | [spell=425738](https://www.wowhead.com/classic/spell=425738) |
+| 7003010 | Cazador | Sniper Training | Piernas | 415399 | Compra al Grabador (1 oro), provisional. | [spell=415399](https://www.wowhead.com/classic/spell=415399) |
+| 7003011 | Cazador | Carve | Manos | 425711 | Compra al Grabador (1 oro), provisional. | [spell=425711](https://www.wowhead.com/classic/spell=425711) |
+| 7003012 | Cazador | Cobra Slayer | Manos | 458393 | Compra al Grabador (1 oro), provisional. | [spell=458393](https://www.wowhead.com/classic/spell=458393) |
+| 7003013 | Cazador | Aspect of the Viper | Cintura | 415423 | Compra al Grabador (1 oro), provisional. | [spell=415423](https://www.wowhead.com/classic/spell=415423) |
 | 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |

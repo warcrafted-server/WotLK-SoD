@@ -35,6 +35,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-hunter'', 1),
     (7003008, 409593, 4, 256, ''Kill Shot'', ''ability_hunter_assassinate2'',
      ''You attempt to finish off a wounded target with a ranged attack that has no minimum range. Kill Shot's cooldown is reset if used on an enemy that has 20% or less health.'',
+     ''mod-sod-hunter'', 1),
+    (7003009, 425738, 4, 256, ''Serpent Spread'', ''ability_hunter_serpentswiftness'',
+     ''Targets hit by your Multi-Shot are also afflicted by your Serpent Sting.'',
+     ''mod-sod-hunter'', 1),
+    (7003010, 415399, 4, 256, ''Sniper Training'', ''ability_hunter_snipertraining'',
+     ''Your Shot abilities gain increased critical strike chance while you have not moved, stacking up to its maximum. At full stacks your Aimed Shot becomes instant.'',
+     ''mod-sod-hunter'', 1),
+    (7003011, 425711, 4, 64, ''Carve'', ''ability_warrior_cleave'',
+     ''A sweeping attack that strikes all enemies in front of you with your melee weapons for 65% weapon damage. Your primary target takes 50% increased damage.'',
+     ''mod-sod-hunter'', 1),
+    (7003012, 458393, 4, 64, ''Cobra Slayer'', ''ability_hunter_swiftstrike'',
+     ''Mongoose Bite has a chance to activate on each melee attack, rising with each attack and guaranteed when an enemy dodges. Mongoose Bite also deals additional damage equal to a percentage of your Attack Power.'',
+     ''mod-sod-hunter'', 1),
+    (7003013, 415423, 4, 128, ''Aspect of the Viper'', ''ability_hunter_aspectoftheviper'',
+     ''The hunter takes on the aspect of the viper, causing auto attacks to regenerate mana but reducing the total damage done. Only one Aspect can be active at a time.'',
      ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -55,7 +70,19 @@ DEALLOCATE PREPARE stmt;
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (425713, 'spell_hun_cobra_strikes'),
     (415370, 'spell_sod_hunter_lone_wolf'),
-    (409593, 'spell_sod_hunter_kill_shot');
+    (409593, 'spell_sod_hunter_kill_shot'),
+    (415399, 'spell_sod_hunter_sniper_training'),
+    (425711, 'spell_sod_hunter_carve'),
+    (458393, 'spell_sod_hunter_cobra_slayer');
+
+-- Aspecto de la víbora reutiliza el manejador nativo de WotLK sobre el hechizo clonado.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES (415423, 'spell_hun_ascpect_of_the_viper');
+
+-- Ganchos de la segunda tanda sobre hechizos de WotLK (id negativo = todos los rangos).
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-2643, 'spell_sod_hunter_serpent_spread'),
+    (-1495, 'spell_sod_hunter_cobra_slayer_mongoose_bite');
 
 -- Bestialidad hace que el Bramido de la mascota provoque al objetivo (id negativo = todos los
 -- rangos de 2649).

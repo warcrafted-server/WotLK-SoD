@@ -846,5 +846,30 @@
   "409593": {
     "name": "Disparo mortal",
     "desc": "Intentas darle el golpe de gracia a un objetivo herido con un ataque a distancia que inflige un $s2% de daño con arma más ${$m1/100*$m2/100*$<damagepower>} p. Disparo mortal no tiene alcance mínimo. El tiempo de reutilización de Disparo mortal se restablece si se usa contra un enemigo que tiene un 20% de salud o menos."
+  },
+  "425738": {
+    "name": "Propagar serpientes",
+    "desc": "Los objetivos golpeados por tu Multidisparo también se ven afectados por tu Picadura de serpiente."
+  },
+  "415399": {
+    "name": "Instrucción de francotirador",
+    "desc": "Tus facultades de disparo tienen un $415401s1% más de probabilidad de golpe crítico si no te has movido durante $s1 s. Se acumula cada segundo hasta un máximo de $415401u veces. Con el máximo de acumulaciones, tu Disparo de puntería se vuelve instantáneo. Si te mueves, perderás 1 acumulación cada segundo."
+  },
+  "415401": {
+    "name": "Instrucción de francotirador",
+    "aura_desc": "Probabilidad de golpe crítico con facultades de disparo aumentada un $s1%."
+  },
+  "425711": {
+    "name": "Trinchar",
+    "desc": "Un ataque de barrido que golpea a todos los enemigos situados frente a ti con tus armas cuerpo a cuerpo e inflige un $s2% de daño con arma. Tu objetivo principal recibe un $s3% más de daño."
+  },
+  "458393": {
+    "name": "Destripacobras",
+    "desc": "Ahora Mordedura de mangosta tiene un $s3% de probabilidades de activarse con cada uno de tus ataques cuerpo a cuerpo, que pasa a ser de un 100% cuando el enemigo esquiva un ataque. Esta probabilidad se acumula y el porcentaje aumenta un $s3% con cada ataque si no se reinicia. Mordedura de mangosta también inflige una cantidad de daño extra equivalente a un $s2% de tu poder de ataque."
+  },
+  "415423": {
+    "name": "Aspecto de la víbora",
+    "desc": "El cazador asume el aspecto de la víbora, lo que hace que los ataques cuerpo a cuerpo y a distancia automáticos regeneren maná, pero reduce el daño total que inflige en $s2%. Además, obtiene un $s1% del maná máximo cada $t s. El maná ganado se basa en la velocidad de su arma. Solo puede haber 1 aspecto activo cada vez.",
+    "aura_desc": "Tus ataques a distancia y cuerpo a cuerpo automáticos regeneran un porcentaje de tu maná base, pero el daño total que infliges se reduce en $s2%. Además, obtienes un $s1% del maná máximo cada $t s."
   }
 }
