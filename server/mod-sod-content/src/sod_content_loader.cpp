@@ -104,6 +104,9 @@ void AddSC_sod_warrior_quick_strike();
 void AddSC_sod_warrior_single_minded_fury();
 void AddSC_sod_warrior_gladiator_stance();
 void AddSC_sod_warrior_shield_mastery();
+void AddSC_sod_warrior_wrecking_crew();
+void AddSC_sod_warrior_fresh_meat();
+void AddSC_sod_warrior_shockwave();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -198,6 +201,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_warrior_single_minded_fury();
     AddSC_sod_warrior_gladiator_stance();
     AddSC_sod_warrior_shield_mastery();
+    AddSC_sod_warrior_wrecking_crew();
+    AddSC_sod_warrior_fresh_meat();
+    AddSC_sod_warrior_shockwave();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

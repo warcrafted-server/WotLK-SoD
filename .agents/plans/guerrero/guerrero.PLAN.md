@@ -19,5 +19,5 @@ CHANGELOG y commit. Lanzar con `agentrelay run .agents/plans/guerrero/tareas/war
 | 3 | Single-Minded Fury (7001012), Victory Rush (7001013), Blood Surge (7001014), Focused Rage (7001015), Precise Timing (7001016) | high | hecho |
 | 4 | Enraged Regeneration (7001017), Gladiator Stance (7001018), Intervene (7001019), Rallying Cry (7001020), Endless Rage (7001021) | high | hecho |
 | 5 | Shield Mastery (7001022), Taste for Blood (7001023), Vigilance (7001024), Rampage (7001025), Sword and Board (7001026) | high | hecho |
-| 6 | Wrecking Crew (7001027), Fresh Meat (7001028), Shockwave (7001029), Sudden Death (7001030) | high | pendiente |
+| 6 | Wrecking Crew (7001027), Fresh Meat (7001028), Shockwave (7001029), Sudden Death (7001030) | high | hecho |
 | 7 | Adquisición de los objetos-runa (como `sod_shaman_acquisition.sql`) | medium | pendiente |

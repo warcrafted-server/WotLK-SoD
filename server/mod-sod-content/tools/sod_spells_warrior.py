@@ -21,6 +21,7 @@ AURA_MOD_ATTACK_POWER_PCT = 166       # % de poder de ataque (Desenfreno)
 AURA_MECHANIC_DURATION_MOD_NOT_STACK = 234
 MECHANIC_DISARMED = 3                 # índice del mecánico de desarme
 SPELLMOD_THREAT = 2                   # SpellModOp 2 de 3.3.5a: amenaza
+SPELLMOD_DAMAGE = 0                   # SpellModOp 0: daño total de la facultad
 SPELLMOD_EFFECT1 = 3                  # SpellModOp 3: valor del efecto 1 (daño)
 SPELLMOD_CASTING_TIME = 10            # SpellModOp 10: tiempo de lanzamiento (Embate de Sincronización precisa)
 SPELLMOD_COOLDOWN = 11                # SpellModOp 11: enfriamiento
@@ -48,6 +49,11 @@ MASK_REND = 0x20
 MASK_CHARGE = 0x1
 MASK_INTERCEPT = 0x40000000
 MASK_INTERVENE = 0x10000
+# Golpe mortal (palabra A), Sed de sangre y Embate con escudo (palabra B): las usan Equipo de
+# demolición y Carne fresca.
+MASK_MORTAL_STRIKE = 0x2000000
+MASK_BLOODTHIRST = 0x400
+MASK_SHIELD_SLAM = 0x200
 
 # Auras nativas de 3.3.5a que usan las runas de la cuarta tanda.
 AURA_MOD_SHAPESHIFT = 36              # actitud (forma)
@@ -743,6 +749,187 @@ def build(idx):
             "id": 426979, "client": True, "template": 50227,
             "name": "Sword and Board", "inherit_server": True,
             "overrides": {"SpellLevel": 0},
+        },
+        {  # Equipo de demolición: pasiva; los críticos cuerpo a cuerpo disparan el Enfurecer
+           # 427066 mediante el aura 42. La fila spell_proc limita el proc a los críticos
+           # (HitMask 2) de ataques automáticos y facultades cuerpo a cuerpo.
+            "id": 427065, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Wrecking Crew",
+            "desc": "Your melee critical hits Enrage you (activating abilities which require "
+                    "being Enraged), and increase Mortal Strike, Bloodthirst, and Shield Slam "
+                    "damage by $427066s1% for $427066d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_trauma"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PROC_TRIGGER_SPELL,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 427066,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                # Ataques automáticos (mano principal y secundaria) y facultades cuerpo a
+                # cuerpo, siempre que el golpe sea crítico.
+                "ProcFlags": PROC_MELEE_HITS, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Enfurecer de Equipo de demolición: +10 % al daño de Golpe mortal, Sed de sangre y
+           # Embate con escudo (aura 108 + SpellModOp 0 de daño total sobre sus máscaras)
+           # durante 12 s. El script aplica Enfurecer nativo (12880) al concederse para que
+           # Arremetida enfurecida y las facultades que exigen estar enfurecido lo detecten.
+            "id": 427066, "client": True, "template": 774,
+            "name": "Enrage", "script": "spell_sod_warrior_wrecking_crew",
+            "aura_desc": "Mortal Strike, Bloodthirst, and Shield Slam damage increased by $s1%.",
+            "overrides": {
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][12000],
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["spell_shadow_unholyfrenzy"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_ADD_PCT_MODIFIER,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": SPELLMOD_DAMAGE,
+                "EffectSpellClassMaskA_1": MASK_MORTAL_STRIKE,
+                "EffectSpellClassMaskB_1": MASK_BLOODTHIRST | MASK_SHIELD_SLAM,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Carne fresca: pasiva con aura dummy; `spell_sod_warrior_fresh_meat` aplica Enfurecer
+           # nativo (12880) y el beneficio 440483 (+10 % de daño físico, 12 s) al infligir daño
+           # con Sed de sangre, Golpe mortal o Embate con escudo (proc por familia y máscaras).
+            "id": 440484, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Fresh Meat", "script": "spell_sod_warrior_fresh_meat",
+            "desc": "Damaging a target with Bloodthirst, Mortal Strike, or Shield Slam has a "
+                    "100% chance the first time and a $s2% chance each subsequent time to "
+                    "Enrage you (activating abilities which requiring being Enraged), and "
+                    "cause you to deal $440483s1% increased Physical damage for $440483d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["spell_deathknight_butcher"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 10, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 4,
+                "SpellFamilyMask0": MASK_MORTAL_STRIKE,
+                "SpellFamilyMask1": MASK_BLOODTHIRST | MASK_SHIELD_SLAM,
+                "SpellFamilyMask2": 0, "ProcFlags": 0x10,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2, "HitMask": 0,
+                "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Enfurecer de Carne fresca: +10 % de daño físico (aura 79, escuela física) durante
+           # 12 s; lo aplica `spell_sod_warrior_fresh_meat` junto con Enfurecer nativo.
+            "id": 440483, "client": True, "template": 774,
+            "name": "Enrage",
+            "aura_desc": "Physical damage done increased by $s1%.",
+            "overrides": {
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][12000],
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["spell_shadow_unholyfrenzy"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_DAMAGE_PERCENT_DONE,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0, "EffectMiscValue_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Ola de choque: cono frontal de daño físico y aturdimiento; clon del talento de WotLK
+           # 46968. La ficha de SoD da el daño como el 50 % del poder de ataque, pero el core
+           # solo aplica ese coeficiente al id 46968 exacto, así que lo añade
+           # `spell_sod_warrior_shockwave` sobre el efecto de daño (el dummy 50 queda para la
+           # ficha del cliente).
+            "id": 440488, "client": True, "template": 46968,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Shockwave", "script": "spell_sod_warrior_shockwave",
+            "inherit_server": True,
+            "desc": "Sends a wave of force in front of the warrior, causing ${$m3/100*$AP} "
+                    "damage and stunning all enemy targets within $a1 yards in a frontal cone "
+                    "for $d.",
+            "overrides": {"SpellLevel": 0, "EffectBasePoints_3": 49},
+        },
+        {  # Muerte súbita: pasiva con familia genérica (0) como el talento de WotLK 29725, que
+           # el script de Ejecutar del core busca por aura 42 + icono 1989; dispara el beneficio
+           # 440114 al golpear cuerpo a cuerpo (10 %). El efecto dummy conserva la ira (10) que
+           # el core retiene tras Ejecutar (lee CalcValue del efecto 1, 9 + 1).
+            "id": 440113, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Sudden Death",
+            "desc": "Your melee hits have a $h% chance to grant Sudden Death. Sudden Death "
+                    "allows one use of Execute regardless of the target's health state. When "
+                    "Execute is enabled by Sudden Death, you will retain $s2 rage after using "
+                    "Execute.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 0, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_improveddisciplines"],
+                "ProcChance": 10,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PROC_TRIGGER_SPELL,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 440114,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 9, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_MELEE_HITS, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 10, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Beneficio de Muerte súbita: clon del de WotLK 52437 (aura 262 sobre Ejecutar,
+           # 0x20000000), que deja usar Ejecutar sin el requisito de salud. 10 s.
+            "id": 440114, "client": True, "template": 52437,
+            "name": "Sudden Death", "inherit_server": True,
+            # Copia de spell_proc 52437: gasta el beneficio al lanzar Ejecutar; el id nuevo no la hereda.
+            "proc": {
+                "SchoolMask": 1, "SpellFamilyName": 4,
+                "SpellFamilyMask0": 536870912, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 16, "SpellTypeMask": 0, "SpellPhaseMask": 4,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+            "aura_desc": "You may use Execute regardless of the target's health state.",
+            "overrides": {"SpellLevel": 0, "DurationIndex": idx["dur"][10000]},
         },
         # Auxiliares de servidor (client: False): filas sólo en spell_dbc. Celeridad de Asalto
         # frenético, aplicada por el script mientras el guerrero empuñe un arma a dos manos.

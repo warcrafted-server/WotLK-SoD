@@ -89,6 +89,18 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warrior'', 1),
     (7001026, 426978, 1, 32, ''Sword and Board'', ''ability_warrior_swordandboard'',
      ''When your Devastate and Revenge abilities deal damage they have a 30% chance of refreshing the cooldown of your Shield Slam ability and reducing its Rage cost by 100% for 5 sec.'',
+     ''mod-sod-warrior'', 1),
+    (7001027, 427065, 1, 32, ''Wrecking Crew'', ''ability_warrior_trauma'',
+     ''Your melee critical hits Enrage you (activating abilities which require being Enraged), and increase Mortal Strike, Bloodthirst, and Shield Slam damage by 10% for 12 sec.'',
+     ''mod-sod-warrior'', 1),
+    (7001028, 440484, 1, 8, ''Fresh Meat'', ''spell_deathknight_butcher'',
+     ''Damaging a target with Bloodthirst, Mortal Strike, or Shield Slam has a 100% chance the first time and a 10% chance each subsequent time to Enrage you (activating abilities which requiring being Enraged), and cause you to deal 10% increased Physical damage for 12 sec.'',
+     ''mod-sod-warrior'', 1),
+    (7001029, 440488, 1, 8, ''Shockwave'', ''ability_warrior_shockwave'',
+     ''Sends a wave of force in front of the warrior, causing damage equal to 50% of your Attack Power and stunning all enemy targets within 10 yards in a frontal cone for 4 sec.'',
+     ''mod-sod-warrior'', 1),
+    (7001030, 440113, 1, 8, ''Sudden Death'', ''ability_warrior_improveddisciplines'',
+     ''Your melee hits have a 10% chance to grant Sudden Death. Sudden Death allows one use of Execute regardless of the target''s health state. When Execute is enabled by Sudden Death, you will retain 10 rage after using Execute.'',
      ''mod-sod-warrior'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -136,3 +148,11 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (426980, 'spell_sod_warrior_shield_mastery'),
     (426972, 'spell_warr_vigilance'),
     (426978, 'spell_warr_sword_and_board');
+
+-- Sexta tanda: Equipo de demolición engancha su beneficio; Carne fresca y Ola de choque, su
+-- script propio. Muerte súbita no necesita C++ (el aura 42 y el script de Ejecutar del core
+-- bastan).
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (427066, 'spell_sod_warrior_wrecking_crew'),
+    (440484, 'spell_sod_warrior_fresh_meat'),
+    (440488, 'spell_sod_warrior_shockwave');

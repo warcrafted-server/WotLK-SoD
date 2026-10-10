@@ -790,5 +790,33 @@
   },
   "426979": {
     "name": "Escudo y espada"
+  },
+  "427065": {
+    "name": "Equipo de demolición",
+    "desc": "Tus golpes críticos cuerpo a cuerpo te enfurecen (lo que activa las facultades que requieren este estado), y aumenta un $427066s1% el daño de Golpe mortal, Sed de sangre y Embate con escudo durante $427066d."
+  },
+  "427066": {
+    "name": "Enfurecer",
+    "aura_desc": "Aumenta un $s1% el daño de Golpe mortal, Sed de sangre y Embate con escudo."
+  },
+  "440484": {
+    "name": "Carne fresca",
+    "desc": "La primera vez que infliges daño a un objetivo con Sed de sangre, Golpe mortal o Embate con escudo, tienes un 100% de probabilidades de enfurecerte (lo que activa las facultades que requieran dicho estado) y, con cada ataque posterior, tienes un $s2% de probabilidades. Al enfurecerte, infliges un $440483s1% más de daño físico durante $440483d."
+  },
+  "440483": {
+    "name": "Enfurecer",
+    "aura_desc": "Aumenta un $s1% el daño físico infligido."
+  },
+  "440488": {
+    "name": "Ola de choque",
+    "desc": "Lanza una ola de fuerza delante del guerrero, inflige ${$m3/100*$AP} p. de daño y aturde a todos los objetivos cercanos que se encuentren en un radio de $a1 m en un cono frontal durante $d."
+  },
+  "440113": {
+    "name": "Muerte súbita",
+    "desc": "Tus golpes cuerpo a cuerpo tienen un $h% de probabilidades de otorgar Muerte súbita. Muerte súbita permite usar Ejecutar con independencia de la salud del objetivo. Cuando Ejecutar se activa con Muerte súbita, conservas $s2 p. de ira tras usarla."
+  },
+  "440114": {
+    "name": "Muerte súbita",
+    "aura_desc": "Puedes usar Ejecutar con independencia de la salud del objetivo."
   }
 }

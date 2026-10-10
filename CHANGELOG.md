@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Guerrero: runas Wrecking Crew `7001027`, Fresh Meat `7001028`, Shockwave `7001029`, Sudden Death `7001030` (tanda 6 de `.agents/plans/guerrero/`). Sudden Death copia el spell_proc del core (gasta el beneficio al ejecutar); Fresh Meat y Shockwave con aproximaciones documentadas. Sin compilar ni probar.
 - Guerrero: runas Shield Mastery `7001022`, Taste for Blood `7001023`, Vigilance `7001024`, Rampage `7001025`, Sword and Board `7001026` (tanda 5 de `.agents/plans/guerrero/`). Duración de Taste for Blood (9 s) contrastada con Wowhead; el +9 % de Shield Mastery sin verificar. Sin compilar ni probar.
 - Guerrero: runas Enraged Regeneration `7001017`, Gladiator Stance `7001018`, Intervene `7001019`, Rallying Cry `7001020`, Endless Rage `7001021` (tanda 4 de `.agents/plans/guerrero/`). Gladiator Stance usa la forma 24, inexistente en 3.3.5a (solo error en el log, sin caída; ver TODO). Sin compilar ni probar.
 - Guerrero: runas Single-Minded Fury `7001012`, Victory Rush `7001013`, Blood Surge `7001014`, Focused Rage `7001015`, Precise Timing `7001016` (tanda 3 de `.agents/plans/guerrero/`). Blood Surge sin el golpe con ambas armas de Embate; Victory Rush depende de que el core conceda el estado Victorioso. Sin compilar ni probar.
