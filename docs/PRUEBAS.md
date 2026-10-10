@@ -133,6 +133,15 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Hand of Reckoning `7002026`, Manos (6): pasiva; con Furia recta, las curaciones de otros te devuelven un 25 % en maná y el golpe que te deja por debajo del 35 % se reduce un 20 %.
 - [ ] Malleable Protection `7002027`, Cintura (7): Protección divina dura 18 s en vez de 12; Escudo Sagrado da poder de ataque por la defensa sobre 5 × nivel durante 15 s.
 
+### Guerrero (runas nuevas; sin compilar ni probar)
+
+- [ ] Blood Frenzy `7001002`, Pecho (4): con Desgarrar activo, comprobar que se puede usar en actitud rabiosa, que su daño periódico sube un 100 % y que cada tick añade un 4 % del poder de ataque. Diferencia conocida: el daño por poder de ataque se fija al aplicar Desgarrar, no se recalcula en cada tick.
+- [ ] Flagellation `7001003`, Pecho (4): recibir daño físico de un enemigo y comprobar que se gana ira como si no llevaras armadura. Diferencia conocida: se cubren los ataques automáticos y las facultades físicas con arma; el cálculo usa la armadura actual del guerrero.
+- [ ] Raging Blow `7001004`, Pecho (4): solo se puede usar con Enfurecer, Ira rabiosa o Ira sangrienta activos; hace 115 % del daño del arma, con 8 s de enfriamiento. Cada facultad de escuela física usada con esos estados reduce 1 s el enfriamiento restante. Diferencia conocida: «facultad cuerpo a cuerpo» se aproxima a los hechizos de escuela física (puede contar Ira rabiosa e Ira sangrienta); Ira sangrienta solo cuenta con su rango que aplica aura (29131).
+- [ ] Warbringer `7001005`, Pecho (4): Cargar, Interceptar e Intervenir usables en combate y en cualquier actitud; al activarlos quitan raíces y ralentizaciones. Diferencia conocida: la parte de combate/actitud la resuelven las auras nativas 262 y 275 del core.
+- [ ] Commanding Shout `7001006`, Piernas (8): grito de grupo con 5 min de duración. Diferencia conocida: clona el Grito de orden de WotLK, que en 3.3.5a sube la salud máxima (aura 230) en vez del aguante que pide SoD (aura 29).
+- [ ] Estas cinco runas (fase 1) necesitan recompilar el módulo: Blood Frenzy, Flagellation, Raging Blow y Warbringer añaden scripts C++ propios (`spell_sod_warrior_blood_frenzy`, `unit_sod_warrior_flagellation`, `spell_sod_warrior_raging_blow`/`player_sod_warrior_raging_blow` y `spell_sod_warrior_warbringer`).
+
 ### Druida feral
 
 - [ ] Wild Growth `7009001`, Manos (6); Survival of the Fittest `7009002`, Pecho (4). Wild Growth también está en las pruebas de crecimiento con nivel (a 80 coincide con WotLK).

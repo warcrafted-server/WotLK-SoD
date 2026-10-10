@@ -599,3 +599,16 @@ SodPaladin.MalleableProtection.DurationIncreasePct = 50
 SodPaladin.MalleableProtection.AttackPowerPerDefense = 4
 SodPaladin.MalleableProtection.DefenseSkillPerLevel = 5
 SodPaladin.MalleableProtection.AttackPowerDurationSeconds = 15
+
+###############################################################################
+# WARRIOR
+###############################################################################
+#
+#    SodWarrior.Enable
+#        Descripción: interruptor para los scripts propios de runas del guerrero.
+#                     Los clones que usan el comportamiento nativo del core no lo consultan.
+#        Valor predeterminado: 1 - (Activado)
+#                              0 - (Desactivado)
+#
+
+SodWarrior.Enable = 1

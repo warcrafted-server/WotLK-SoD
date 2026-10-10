@@ -93,6 +93,10 @@ void AddSC_sod_warlock_invocation();
 void AddSC_sod_warlock_dance_of_the_wicked();
 void AddSC_sod_warlock_infernal_armor();
 void AddSC_sod_warlock_grimoire_of_synergy();
+void AddSC_sod_warrior_blood_frenzy();
+void AddSC_sod_warrior_flagellation();
+void AddSC_sod_warrior_raging_blow();
+void AddSC_sod_warrior_warbringer();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -175,6 +179,11 @@ void Addmod_sod_contentScripts()
     AddSC_sod_warlock_dance_of_the_wicked();
     AddSC_sod_warlock_infernal_armor();
     AddSC_sod_warlock_grimoire_of_synergy();
+
+    AddSC_sod_warrior_blood_frenzy();
+    AddSC_sod_warrior_flagellation();
+    AddSC_sod_warrior_raging_blow();
+    AddSC_sod_warrior_warbringer();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

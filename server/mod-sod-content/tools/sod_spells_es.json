@@ -671,5 +671,26 @@
     "name": "Grimorio de sinergia",
     "desc": "Aumenta todo el daño infligido un $s1%.",
     "aura_desc": "Aumenta todo el daño infligido un $s1%."
+  },
+  "412507": {
+    "name": "Frenesí sangriento",
+    "desc": "Ahora, Desgarrar se puede usar en actitud rabiosa. El daño de Desgarrar aumenta un $s2% y la facultad inflige una cantidad de daño adicional equivalente a un $s3% de tu poder de ataque cada vez que inflige daño."
+  },
+  "402877": {
+    "name": "Flagelación",
+    "desc": "Obtienes ira del daño físico recibido como si no llevases armadura."
+  },
+  "402911": {
+    "name": "Arremetida enfurecida",
+    "desc": "Un golpe feroz que inflige un $s1% de daño con arma, pero solo se puede usar si Enfurecer, Ira rabiosa o Ira sangrienta están activos. Al usar el resto de facultades cuerpo a cuerpo cuando Enfurecer, Ira rabiosa o Ira sangrienta están activos reducirá $s3 s el tiempo de reutilización restante de Arremetida enfurecida."
+  },
+  "425421": {
+    "name": "Belisario",
+    "desc": "Tus facultades Cargar, Interceptar e Intervenir ahora se pueden usar en combate y en cualquier actitud. Además, eliminarán todos los efectos de reducción de movimiento al activarse."
+  },
+  "403215": {
+    "name": "Grito de orden",
+    "desc": "El guerrero grita y aumenta $s1 p. el aguante de los miembros del grupo en un radio de $a1 m. Dura $d.",
+    "aura_desc": "Aumenta tu aguante $s1 p."
   }
 }

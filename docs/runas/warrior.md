@@ -31,3 +31,22 @@ Estos datos corresponden a la build moderna y no están escalados a 3.3.5a.
 | Devastar / Devastate | 403195 | While you are in Defensive Stance and have a shield equipped, Sunder Armor also deals damage equal to $403196s1% of your equipped weapon's damage per second, increased by $403196s2% per application of Sunder Armor alread | — | — | 0 s | no |
 | Furia enfocada / Single-Minded Fury | 413404 | While dual-wielding, your movement speed is increased by $430472s2% and you gain $461470s1% attack speed each time your melee auto-attack strikes the same target as your previous auto-attack, stacking up to $461470u time | — | — | 0 s | no |
 | Golpe rápido / Quick Strike | 429765 | A reckless instant melee attack with your two-handed weapon dealing ${$AP*$m1/100} to ${$AP*$M1/100} physical damage. This ability benefits from and triggers all effects associated with Heroic Strike.    | 200 | 0 s | 0 s | no |
+
+## Primera tanda (fase 1, 2026-10-10)
+
+Se añaden Frenesí sangriento (`7001002`), Flagelación (`7001003`), Arremetida enfurecida
+(`7001004`), Belisario (`7001005`) y Grito de orden (`7001006`). **Sin compilar ni probar.**
+Desviaciones conocidas (detalle en `TODO.md` y casillas en `docs/PRUEBAS.md`):
+
+- **Blood Frenzy:** `412507` usa las auras nativas 275 (Desgarrar en actitud rabiosa) y 108 con
+  SpellModOp 22 (+100 % de daño periódico); el +4 % del poder de ataque por tick lo añade
+  `spell_sod_warrior_blood_frenzy`.
+- **Flagellation:** `402877` es el marcador; `unit_sod_warrior_flagellation` concede la ira del
+  daño físico recibido sin armadura.
+- **Raging Blow:** `402911` hace 115 % del arma y exige Enfurecer/Ira rabiosa/Ira sangrienta
+  (`spell_sod_warrior_raging_blow`); `player_sod_warrior_raging_blow` recorta 1 s el enfriamiento.
+- **Warbringer:** `425421` usa las auras nativas 262 y 275; `spell_sod_warrior_warbringer` quita
+  raíces y ralentizaciones al usar Cargar, Interceptar o Intervenir.
+- **Commanding Shout:** `403215` clona el Grito de orden de WotLK (47440); en 3.3.5a sube la
+  salud máxima, no el aguante.
+
