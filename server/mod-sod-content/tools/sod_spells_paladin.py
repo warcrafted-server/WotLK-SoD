@@ -292,6 +292,7 @@ def build(idx):
             "id": 426162, "client": True, "template": 774,
             "name": "Fanaticism", "aura_desc": "Heals $w1 every $t1 sec.",
             "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
                 "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
                 "CastingTimeIndex": cast_instant, "DurationIndex": duration_12s,
                 "RangeIndex": idx["range"][40.0], "PowerType": 0,
@@ -802,6 +803,7 @@ def build(idx):
             "name": "Divine Light",
             "script": "spell_sod_paladin_divine_light_watch",
             "overrides": {
+                "SpellClassSet": 10, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
                 "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
                 "DurationIndex": duration_3s,
                 "RangeIndex": range_self,

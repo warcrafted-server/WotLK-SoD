@@ -17,6 +17,14 @@ def build(idx):
             "name": "Earth Shield", "script": "spell_sha_earth_shield",
             "bonus": {"direct": 0.5371, "dot": 0, "ap": 0, "ap_dot": 0},
             "inherit_server": True,
+            # Copia de spell_proc -974: solo daño recibido y 3,5 s entre curaciones; el id nuevo no la hereda.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 1, "SpellPhaseMask": 0,
+                "HitMask": 0, "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 3500, "Charges": 0,
+            },
             "overrides": {
                 "ManaCostPct": 5,
                 "SpellLevel": 0,

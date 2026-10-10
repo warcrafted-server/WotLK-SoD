@@ -23,7 +23,7 @@ Escribe `Data/patch-z.mpq` y `Data/<locale>/patch-<locale>-z.mpq`, y regenera `s
 
 ## Servidor y parche, a la par
 
-Tras cada hechizo nuevo: regenerar, subir ese SQL, aplicarlo al servidor y redistribuir el MPQ. Un desajuste da hechizos sin icono o sin efecto.
+Tras cada hechizo nuevo: regenerar, subir ese SQL, aplicarlo al servidor y redistribuir el MPQ. Para regenerar solo el SQL sin tocar `acore-test` ni escribir MPQ: `tools/sod-data/regenerar_sql_hechizos.sh`. Para revisar las runas de una clase antes de aceptar un trabajo (iconos, auras, familias, claves de spec inexistentes, scripts y `spell_proc` del core que un clon no hereda): `python3 tools/sod-data/revisar_runas.py <clase> <familia>`. Un desajuste da hechizos sin icono o sin efecto.
 
 **Causó un crash real (2026-10-07):** se añadieron 5 runas de druida (Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall) con su código C++ y su spec en `sod_spells_druid.py`, pero sin volver a ejecutar `build_patch.py`. `sod_content_spell_dbc.sql` se quedó con la versión vieja, sin esos `spell_id`; el worldserver no los encontraba en `Spell.dbc`, repetía el aviso sin parar durante el login de 200 bots y el hilo del mundo colgó 20 s (`World Thread hangs ... forcing a crash`). **Regla:** cualquier `spell_id` nuevo en `tools/sod_spells_<clase>.py` exige regenerar este SQL (al menos con `--dry-run`) antes de dar el código por terminado, aunque el servidor no se vaya a probar ese mismo día.
 

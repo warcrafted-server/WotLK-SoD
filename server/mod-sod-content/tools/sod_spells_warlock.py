@@ -151,6 +151,14 @@ def build(idx):
         {  # Buff de Backdraft: aura 65 (velocidad de lanzamiento) para todos los hechizos, 15 s.
             "id": 427714, "client": True, "template": 54277,
             "name": "Backdraft", "inherit_server": True,
+            # Copia de spell_proc 54274: qué hechizos gastan las cargas; el id nuevo no la hereda.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 5,
+                "SpellFamilyMask0": 357, "SpellFamilyMask1": 131264, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 1,
+                "HitMask": 0, "AttributesMask": 8, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
             "aura_desc": "Spellcasting haste increased by $w1%.",
             "overrides": {
                 # El talento de WotLK usaba aura 108 enmascarada; la runa usa aura 65 y sin máscara.

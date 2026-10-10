@@ -562,6 +562,15 @@ def build(idx):
             "id": 414677, "client": True, "template": 48500,
             "skill_line": SKILL_RESTORATION,
             "name": "Living Seed", "inherit_server": True,
+            # El script y el spell_proc del core van ligados a -48496 (primer rango); el id nuevo no los hereda.
+            "script": "spell_dru_living_seed",
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 7,
+                "SpellFamilyMask0": 96, "SpellFamilyMask1": 33554434, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
             "overrides": {"SpellLevel": 0},
         },
         {  # Gale Winds applies its Hurricane-only SpellMods in the rune script.

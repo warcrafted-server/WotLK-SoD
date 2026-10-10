@@ -2,6 +2,11 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-10
+
+- Herramientas nuevas: `tools/sod-data/revisar_runas.py` (revisión automática de las runas de una clase) y `tools/sod-data/regenerar_sql_hechizos.sh` (regenera el SQL de hechizos sin tocar `acore-test`).
+- Corregido con el revisor: **Living Seed del druida no hacía nada** (le faltaban el script `spell_dru_living_seed` y su `spell_proc`, ligados al id de WotLK); **Earth Shield del chamán** curaba sin el enfriamiento de 3,5 s del core; el beneficio de **Backdraft** del brujo no copiaba su regla de consumo de cargas; iconos inexistentes en la tabla de runas del druida (Sunfire, Fury of Stormrage, Starfall); familia de dos auxiliares del paladín.
+
 ## 2026-10-09
 
 - Brujo: runas Backdraft `7008009`, Decimation `7008010`, Demonic Pact `7008011`, Everlasting Affliction `7008012` y Demonic Knowledge `7008013` (segunda tanda de `.agents/plans/brujo/`), clones de plantillas de WotLK que reutilizan los manejadores nativos del core (`spell_warl_decimation`, `spell_warl_everlasting_affliction`, `spell_warl_demonic_knowledge`): **sin C++ nuevo** (enumerado de ids, `tools/sod_spells_warlock.py` y SQL). SQL de hechizos regenerado (9 filas de `spell_dbc`, 3 de `spell_script_names` y la de `spell_proc` de Decimation) y parche de cliente creado en `datos/parche-cliente/20261009-brujo/` (sin publicar). `check_syntax.py`: 86 archivos, 0 errores. Limitaciones en `TODO.md` y `docs/runas/warlock.md`: Conflagrar sigue consumiendo Inmolar (exige parchear el core) y Everlasting Affliction no cubre Cuchilla de las Sombras ni Dolor abrasador (no existen en 3.3.5a). Sin compilar ni probar.
