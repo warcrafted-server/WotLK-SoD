@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Guerrero: runas Consumed By Rage `7001007`, Frenzied Assault `7001008`, Furious Thunder `7001009`, Meathook `7001010`, Quick Strike `7001011` (tanda 2 de `.agents/plans/guerrero/`). Furious Thunder sin el +75 % de amenaza y Meathook sin enraizar (límites de 3.3.5a). Sin compilar ni probar.
 - Guerrero: runas Blood Frenzy `7001002`, Flagellation `7001003`, Raging Blow `7001004`, Warbringer `7001005` y Commanding Shout `7001006` (tanda 1 de `.agents/plans/guerrero/`). Sin compilar ni probar; Commanding Shout sube salud máxima (WotLK) en vez de aguante.
 - Brujo, completo (27 runas `7008001`–`7008027`): adquisición generada con `tools/sod-data/gen_rune_acquisition.py --class warlock` (28 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para brujos) y `obtencion.md` actualizado con la nueva herramienta `tools/sod-data/actualizar_obtencion.py`. Sin aplicar ni probar.
 - Brujo: runas Infernal Armor `7008024`, Mark of Chaos `7008025`, Pandemic `7008026` y Grimoire of Synergy `7008027` (paso 5). Corregido en la revisión: la probabilidad de Grimoire of Synergy es del 10 % (Wowhead, hechizo 426301), no 6 %. Mark of Chaos sin escalado con el nivel. Sin compilar ni probar.

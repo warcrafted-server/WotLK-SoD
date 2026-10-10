@@ -692,5 +692,25 @@
     "name": "Grito de orden",
     "desc": "El guerrero grita y aumenta $s1 p. el aguante de los miembros del grupo en un radio de $a1 m. Dura $d.",
     "aura_desc": "Aumenta tu aguante $s1 p."
+  },
+  "425418": {
+    "name": "Consumido por la ira",
+    "desc": "Te enfurece durante 12 s después de superar los 60 de ira, lo que permite usar facultades que requieren estar enfurecido. Además, mientras estás enfurecido, Torbellino también golpea con el arma de mano izquierda."
+  },
+  "425412": {
+    "name": "Asalto frenético",
+    "desc": "Mientras empuñas armas a dos manos, tu velocidad de ataque aumenta un $s1% y tus golpes cuerpo a cuerpo certeros generan $s2 de ira adicional, o ${$m2*2} de ira adicional si son críticos."
+  },
+  "403219": {
+    "name": "Trueno de furia",
+    "desc": "Ahora Atronar aumenta el tiempo entre ataques un 6% adicional, se puede usar en cualquier actitud e inflige un 100% más de daño."
+  },
+  "403228": {
+    "name": "Gancho",
+    "desc": "Lanza una cadena con gancho que restringe al objetivo y lo arrastra hacia ti. No se puede usar contra enemigos de más de un nivel por encima del tuyo ni que estén marcados como jefes."
+  },
+  "429765": {
+    "name": "Golpe rápido",
+    "desc": "Un ataque cuerpo a cuerpo instantáneo e imprudente con tu arma a dos manos que inflige daño según tu poder de ataque. Esta facultad se beneficia de, y activa, todos los efectos asociados a Golpe heroico."
   }
 }

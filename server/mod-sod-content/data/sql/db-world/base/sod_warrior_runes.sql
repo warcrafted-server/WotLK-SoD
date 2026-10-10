@@ -29,6 +29,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warrior'', 1),
     (7001006, 403215, 1, 256, ''Commanding Shout'', ''ability_warrior_commandingshout'',
      ''The warrior shouts, increasing the Stamina of all party members within 30 yards. Lasts 5 min.'',
+     ''mod-sod-warrior'', 1),
+    (7001007, 425418, 1, 256, ''Consumed By Rage'', ''ability_warrior_intensifyrage'',
+     ''Enrages you for 12 sec after you exceed 60 Rage, allowing abilities that require being Enraged. In addition, Whirlwind also strikes with off-hand melee weapons while you are Enraged.'',
+     ''mod-sod-warrior'', 1),
+    (7001008, 425412, 1, 256, ''Frenzied Assault'', ''ability_warrior_unrelentingassault'',
+     ''While wielding 2-handed weapons, your attack speed is increased by 40% and your successful melee hits generate 2 additional Rage, or 4 additional Rage if they are critical hits.'',
+     ''mod-sod-warrior'', 1),
+    (7001009, 403219, 1, 256, ''Furious Thunder'', ''ability_thunderclap'',
+     ''Thunder Clap now increases the time between attacks by an additional 6%, can be used in any stance, and deals 100% increased damage.'',
+     ''mod-sod-warrior'', 1),
+    (7001010, 403228, 1, 256, ''Meathook'', ''inv_misc_hook_01'',
+     ''Throw out a hooked chain to restrain the target and pull them toward you. May not be used on enemies higher than your level by more than 1, or which are marked as boss enemies.'',
+     ''mod-sod-warrior'', 1),
+    (7001011, 429765, 1, 64, ''Quick Strike'', ''ability_warrior_decisivestrike'',
+     ''A reckless instant melee attack with your two-handed weapon dealing damage based on your Attack Power. This ability benefits from and triggers all effects associated with Heroic Strike.'',
      ''mod-sod-warrior'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -65,3 +80,7 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 -- Arremetida enfurecida usa su propio script de requisitos (el emisor también lo escribe).
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
 VALUES (402911, 'spell_sod_warrior_raging_blow');
+
+-- Golpe rápido activa los efectos asociados a Golpe heroico reutilizando su script del core.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES (429765, 'spell_warr_heroic_strike');
