@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Corregido: las 12 runas de Balance y Restauración del druida (`7009014`–`7009025`) se aprendían de inicio porque no tenían objeto. Ahora cada una tiene su objeto real de SoD (venta en el Grabador y, en Improved Barkskin y Fury of Stormrage, botín real) y queda bloqueada hasta usarlo. `gen_rune_acquisition.py` admite `--runes` y `--output`. Sin compilar ni probar; hace falta parche de cliente nuevo para los objetos.
 - Corregido: Gore y Dreamstate del druida usaban el icono de interrogación (`ability_druid_ravage` y `ability_druid_dreamstate`; el hechizo necesita parche de cliente nuevo).
 - Añadido: `tools/sod-data/gen_rune_locale.py` y `sod_runes_locale_es.sql` con el nombre y la descripción esES de 133 runas que se veían en inglés. Sin compilar ni probar.
 - Corregido: el buff de Fury of Stormrage (`900017`) no tenía fila en `spell_script_names` y el worldserver registraba «Script … is not assigned in the database». Sin compilar ni probar.

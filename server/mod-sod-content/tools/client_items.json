@@ -1768,5 +1768,125 @@
     "display": 1102,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 206963,
+    "name": "Rune of Natural Potential",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 206989,
+    "name": "Rune of the Sun",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208414,
+    "name": "Lunar Idol",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210500,
+    "name": "Rune of the Stars",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 212548,
+    "name": "Rune of Eclipse",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213120,
+    "name": "Rune of the Dreamer",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220360,
+    "name": "Rune of Efflorescence",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220754,
+    "name": "Rune of the Windstorm",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220915,
+    "name": "Idol of the Raging Shambler",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221020,
+    "name": "Rune of the Moon Goddess",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 227746,
+    "name": "Rune of the World Tree",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 227749,
+    "name": "Rune of the Falling Star",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
   }
 ]

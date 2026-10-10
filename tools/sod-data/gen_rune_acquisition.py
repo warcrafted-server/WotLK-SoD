@@ -466,10 +466,18 @@ def update_client_manifest(records: dict[int, tuple[dict[str, Any], dict[str, An
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--class", dest="class_name", required=True, choices=sorted(CLASS_MASKS))
+    parser.add_argument("--runes", help="solo estas runas: ids o rangos separados por comas (p. ej. 7009014-7009025)")
+    parser.add_argument("--output", help="nombre del archivo de salida en la carpeta base (por defecto sod_<clase>_acquisition.sql)")
     args = parser.parse_args()
     class_name = args.class_name
     rune_path = CONTENT_BASE / f"sod_{class_name}_runes.sql"
     runes = load_runes(rune_path, class_name)
+    if args.runes:
+        wanted: set[int] = set()
+        for part in args.runes.split(","):
+            low, _, high = part.partition("-")
+            wanted.update(range(int(low), int(high or low) + 1))
+        runes = [rune for rune in runes if rune["rune_id"] in wanted]
     sources = json.loads(SOURCE_FILE.read_text(encoding="utf-8"))
     spells = {rune["spell_id"] for rune in runes}
     item_ids = {
@@ -511,7 +519,7 @@ def main() -> int:
         GAMEOBJECT_DATA1_INDEX,
     )
     sql = make_sql(class_name, runes, sources, en_items, es_items, creatures, gameobjects)
-    target = CONTENT_BASE / f"sod_{class_name}_acquisition.sql"
+    target = CONTENT_BASE / (args.output or f"sod_{class_name}_acquisition.sql")
     target.write_text(sql, encoding="utf-8")
 
     records = {}
