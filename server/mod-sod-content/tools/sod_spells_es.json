@@ -818,5 +818,33 @@
   "440114": {
     "name": "Muerte súbita",
     "aura_desc": "Puedes usar Ejecutar con independencia de la salud del objetivo."
+  },
+  "409368": {
+    "name": "Maestría en bestias",
+    "desc": "El daño y la salud de tu mascota aumentan un $s1% y su regeneración de enfoque aumenta un $s3%. Además, el Bramido de tu mascota también provoca al objetivo para que la ataque durante $409372d.",
+    "aura_desc": "El daño y la salud de tu mascota aumentan un $s1% y su regeneración de enfoque aumenta un $s3%."
+  },
+  "425713": {
+    "name": "Golpes de cobra",
+    "desc": "Tus golpes críticos con facultades de disparo, de ataque y con Mordedura de mangosta hacen que los siguientes 2 ataques especiales de tu mascota asesten un golpe crítico.",
+    "aura_desc": "Los siguientes 2 ataques especiales de tu mascota asestan un golpe crítico."
+  },
+  "425714": {
+    "name": "Golpes de cobra",
+    "aura_desc": "Tus siguientes $u ataques especiales asestan un golpe crítico."
+  },
+  "415370": {
+    "name": "Lobo solitario",
+    "desc": "Infliges un $s1% más de daño con todos tus ataques cuando no tienes una mascota activa.",
+    "aura_desc": "Infliges un $s1% más de daño cuando no tienes una mascota activa."
+  },
+  "415320": {
+    "name": "Golpe de flanco",
+    "desc": "Tu mascota y tú infligís simultáneamente un $s2% de daño cuerpo a cuerpo. Después infliges un $s3% más de daño durante $d. Se acumula hasta $u veces. Los ataques básicos de tu mascota tienen un $s4% de probabilidades de restablecer el tiempo de reutilización de Golpe de flanco.",
+    "aura_desc": "Todo el daño aumentado un $s3%."
+  },
+  "409593": {
+    "name": "Disparo mortal",
+    "desc": "Intentas darle el golpe de gracia a un objetivo herido con un ataque a distancia que inflige un $s2% de daño con arma más ${$m1/100*$m2/100*$<damagepower>} p. Disparo mortal no tiene alcance mínimo. El tiempo de reutilización de Disparo mortal se restablece si se usa contra un enemigo que tiene un 20% de salud o menos."
   }
 }

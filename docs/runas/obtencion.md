@@ -80,6 +80,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7003001 | Cazador | Chimera Shot | Manos | 409433 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409433](https://www.wowhead.com/classic/spell=409433) |
 | 7003002 | Cazador | Master Marksman | Pecho | 409428 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409428](https://www.wowhead.com/classic/spell=409428) |
 | 7003003 | Cazador | Explosive Shot | Manos | 409552 | Libre: se puede grabar sin descubrirla (provisional) | [spell=409552](https://www.wowhead.com/classic/spell=409552) |
+| 7003004 | Cazador | Beast Mastery | Pecho | 409368 | Compra al Grabador (1 oro), provisional. | [spell=409368](https://www.wowhead.com/classic/spell=409368) |
+| 7003005 | Cazador | Cobra Strikes | Pecho | 425713 | Compra al Grabador (1 oro), provisional. | [spell=425713](https://www.wowhead.com/classic/spell=425713) |
+| 7003006 | Cazador | Lone Wolf | Pecho | 415370 | Compra al Grabador (1 oro), provisional. | [spell=415370](https://www.wowhead.com/classic/spell=415370) |
+| 7003007 | Cazador | Flanking Strike | Piernas | 415320 | Compra al Grabador (1 oro), provisional. | [spell=415320](https://www.wowhead.com/classic/spell=415320) |
+| 7003008 | Cazador | Kill Shot | Piernas | 409593 | Compra al Grabador (1 oro), provisional. | [spell=409593](https://www.wowhead.com/classic/spell=409593) |
 | 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |

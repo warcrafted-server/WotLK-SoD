@@ -402,6 +402,19 @@ SodDruid.TreeOfLife.WildGrowthHealingPct = 60
 SodShaman.Enable = 1
 
 ###############################################################################
+# HUNTER
+###############################################################################
+#
+#    SodHunter.Enable
+#        Descripción: interruptor para los scripts propios de runas del cazador.
+#                     Los clones que usan el comportamiento nativo del core no lo consultan.
+#        Valor predeterminado: 1 - (Activado)
+#                              0 - (Desactivado)
+#
+
+SodHunter.Enable = 1
+
+###############################################################################
 # PALADIN
 ###############################################################################
 #

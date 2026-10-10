@@ -87,6 +87,9 @@ void AddSC_sod_shaman_overcharged();
 void AddSC_sod_shaman_rolling_thunder();
 void AddSC_sod_shaman_static_shock();
 void AddSC_sod_shaman_storm_earth_fire();
+void AddSC_sod_hunter_beast_mastery();
+void AddSC_sod_hunter_lone_wolf();
+void AddSC_sod_hunter_kill_shot();
 void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
 void AddSC_sod_warlock_invocation();
@@ -182,6 +185,10 @@ void Addmod_sod_contentScripts()
     AddSC_sod_shaman_rolling_thunder();
     AddSC_sod_shaman_static_shock();
     AddSC_sod_shaman_storm_earth_fire();
+
+    AddSC_sod_hunter_beast_mastery();
+    AddSC_sod_hunter_lone_wolf();
+    AddSC_sod_hunter_kill_shot();
 
     AddSC_sod_warlock_soul_siphon();
     AddSC_sod_warlock_master_channeler();

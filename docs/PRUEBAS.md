@@ -173,6 +173,16 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] La sexta tanda de runas de guerrero necesita recompilar el módulo: Wrecking Crew, Fresh Meat y Shockwave añaden los scripts C++ `spell_sod_warrior_wrecking_crew`, `spell_sod_warrior_fresh_meat` y `spell_sod_warrior_shockwave`; Sudden Death no añade C++ propio.
 - [ ] Adquisición del guerrero: las 29 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para esta clase en 31 criaturas (ver `docs/runas/obtencion.md`).
 
+### Cazador (runas nuevas; sin compilar ni probar)
+
+- [ ] Beast Mastery `7003004`, Pecho (4): con mascota invocada, comprobar que su daño y su salud suben un 15 % y su regeneración de enfoque un 50 %, y que usarla con la runa grabada provoca al objetivo (Bramido). Diferencia conocida: la duración de la provocación de SoD (`409372d`) no consta en el catálogo local, así que se conserva la de Provocar de WotLK; ver `TODO.md`.
+- [ ] Cobra Strikes `7003005`, Pecho (4): provocar un crítico con facultades de disparo o ataque (o con Mordedura de mangosta) y comprobar que los siguientes 2 ataques especiales de la mascota asestan un golpe crítico. Reutiliza el manejador nativo de WotLK `spell_hun_cobra_strikes`; no añade C++ propio.
+- [ ] Lone Wolf `7003006`, Pecho (4): sin mascota activa, comprobar el +25 % de daño con todos los ataques; al invocar una mascota debe perderse (sondeo de 1 s, puede tardar hasta 1 s). Ver `TODO.md`.
+- [ ] Flanking Strike `7003007`, Piernas (8): comprobar el golpe instantáneo cuerpo a cuerpo, el +8 % de daño propio durante 10 s acumulable y el coste de maná (1,5 %) y la reutilización (30 s). Diferencia conocida: el ataque simultáneo de la mascota y el reinicio del enfriamiento por sus ataques básicos no están implementados (requieren un guion sobre las habilidades básicas de la mascota); ver `TODO.md`.
+- [ ] Kill Shot `7003008`, Piernas (8): comprobar el disparo a distancia sin alcance mínimo, el coste del 3 %, la reutilización de 12 s y que el enfriamiento se restablece si el objetivo queda al 20 % de salud o menos. Ver `TODO.md`.
+- [ ] Confirmar los textos esES, los iconos y que la compra provisional al Grabador desbloquea las cinco runas `7003004–7003008`.
+- [ ] Esta tanda necesita recompilar el módulo: Beast Mastery, Lone Wolf y Kill Shot añaden scripts C++ propios (`spell_sod_hunter_beast_mastery_growl`, `spell_sod_hunter_lone_wolf` y `spell_sod_hunter_kill_shot`); Cobra Strikes sólo usa datos y el script nativo del core.
+
 ### Druida feral
 
 - [ ] Wild Growth `7009001`, Manos (6); Survival of the Fittest `7009002`, Pecho (4). Wild Growth también está en las pruebas de crecimiento con nivel (a 80 coincide con WotLK).
