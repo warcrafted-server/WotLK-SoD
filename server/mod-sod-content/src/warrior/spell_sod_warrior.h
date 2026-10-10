@@ -21,6 +21,9 @@ enum SodWarriorSpells
     SPELL_SOD_WARRIOR_FURIOUS_THUNDER = 403219,
     SPELL_SOD_WARRIOR_MEATHOOK = 403228,
     SPELL_SOD_WARRIOR_QUICK_STRIKE = 429765,
+    SPELL_SOD_WARRIOR_SINGLE_MINDED_FURY = 413404,
+    SPELL_SOD_WARRIOR_SINGLE_MINDED_FURY_SPEED = 430472,
+    SPELL_SOD_WARRIOR_SINGLE_MINDED_FURY_HASTE = 461470,
     // Hechizos nativos de WotLK que enganchan los scripts de esta tanda.
     SPELL_WARRIOR_REND = 772,
     SPELL_WARRIOR_CHARGE = 100,
@@ -39,6 +42,7 @@ void AddSC_sod_warrior_consumed_by_rage();
 void AddSC_sod_warrior_frenzied_assault();
 void AddSC_sod_warrior_meathook();
 void AddSC_sod_warrior_quick_strike();
+void AddSC_sod_warrior_single_minded_fury();
 
 inline bool SodWarriorEnabled()
 {

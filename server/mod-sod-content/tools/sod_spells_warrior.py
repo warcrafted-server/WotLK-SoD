@@ -14,17 +14,27 @@ AURA_ABILITY_IGNORE_AURASTATE = 262   # ignora el estado del lanzador; con MiscV
 AURA_ADD_FLAT_MODIFIER = 107
 AURA_ADD_PCT_MODIFIER = 108
 AURA_MELEE_HASTE = 138                # % de celeridad cuerpo a cuerpo
+AURA_MOD_SPEED_ALWAYS = 129           # % de velocidad de movimiento (Acecho / Furia enfocada)
+AURA_PROC_TRIGGER_SPELL = 42          # dispara otro hechizo al procar
 SPELLMOD_THREAT = 2                   # SpellModOp 2 de 3.3.5a: amenaza
 SPELLMOD_EFFECT1 = 3                  # SpellModOp 3: valor del efecto 1 (daño)
+SPELLMOD_CASTING_TIME = 10            # SpellModOp 10: tiempo de lanzamiento (Embate de Sincronización precisa)
+SPELLMOD_COOLDOWN = 11                # SpellModOp 11: enfriamiento
 SPELLMOD_EFFECT2 = 12                 # SpellModOp 12: valor del efecto 2 (ralentización de Atronar)
+SPELLMOD_COST = 14                    # SpellModOp 14: coste de recurso (ira)
 SPELLMOD_DOT = 22                     # SpellModOp 22 de 3.3.5a: daño periódico
 
 EFFECT_PULL_TOWARDS = 124             # arrastra al objetivo hacia el lanzador
 EFFECT_WEAPON_PERCENT_DAMAGE = 31
+EFFECT_HEAL_PCT = 136                 # cura un porcentaje de la salud máxima
 
-# Máscara de familia de Atronar (SpellClassMask_1 0x80) y de Golpe heroico (0x40).
+# Máscara de familia de Atronar (SpellClassMask_1 0x80), Golpe heroico (0x40) y Embate (0x200000).
 MASK_THUNDER_CLAP = 0x80
 MASK_HEROIC_STRIKE = 0x40
+MASK_SLAM = 0x200000
+
+# Ataques automáticos cuerpo a cuerpo con éxito (para el proc de Furia enfocada).
+PROC_MELEE_AUTO_ATTACK = 0x4
 
 # Ataques cuerpo a cuerpo con éxito: automáticos y facultades de escuela física.
 PROC_MELEE_HITS = 0x400014
@@ -308,6 +318,187 @@ def build(idx):
                 "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Furia enfocada: marcador pasivo (aura 226 periódica) y aura dummy para el proc de
+           # ataque automático. El script concede la velocidad si hay doble empuñadura y acumula
+           # celeridad (461470) al golpear al mismo objetivo que el ataque automático anterior.
+            "id": 413404, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Single-Minded Fury", "script": "spell_sod_warrior_single_minded_fury",
+            "desc": "While dual-wielding, your movement speed is increased by 10% and you gain "
+                    "4% attack speed each time your melee auto-attack strikes the same target as "
+                    "your previous auto-attack, stacking up to 5 times. Lasts 10 sec or until "
+                    "your auto-attack strikes a different target.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_dualwield"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0, "EffectAuraPeriod_1": 2000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": PROC_MELEE_AUTO_ATTACK, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Ataque de la victoria: clon del de WotLK (34428), que ya escala con el poder de ataque
+           # por los flags de familia del core; se le añaden la sanación de SoD (30 %) y 8 s de
+           # enfriamiento. El script del core retira el estado Victorioso al lanzarlo.
+            "id": 402927, "client": True, "template": 34428,
+            "skill_line": SKILL_ARMS,
+            "name": "Victory Rush", "script": "spell_warr_victory_rush",
+            "inherit_server": True,
+            "desc": "Instantly attack the target causing ${1+$AP*$m3/100} damage and healing you "
+                    "for $s2% of your maximum health. Only useable within $32216d after you kill "
+                    "an enemy that yields experience or honor.",
+            "overrides": {
+                "SpellLevel": 0, "RecoveryTime": 8000,
+                "Effect_2": EFFECT_HEAL_PCT, "EffectAura_2": 0,
+                "EffectBasePoints_2": 30, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_DUMMY, "EffectAura_3": 0,
+                "EffectBasePoints_3": 45, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+        },
+        {  # Oleada sangrienta: pasiva con aura 42 que dispara la marca 413399 al acertar Golpe
+           # heroico, Sed de sangre o Torbellino. La probabilidad (30 %) va en la fila spell_proc.
+            "id": 413380, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Blood Surge",
+            "desc": "Heroic Strike, Bloodthirst, and Whirlwind have a $h% chance to make your "
+                    "next Slam within $413399d instant and cost no Rage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_bloodsurge"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PROC_TRIGGER_SPELL,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 413399,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 4,
+                "SpellFamilyMask0": MASK_HEROIC_STRIKE, "SpellFamilyMask1": 0x404,
+                "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 30, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Ira enfocada: clon del talento de WotLK 29787 (aura 107, SpellModOp 14) con el valor de
+           # SoD (−30 = −3 de ira). El id de SoD (29787) ya existe en el cliente y el generador no
+           # permite crear una fila con un id existente, así que se usa un id nuevo (413405).
+            "id": 413405, "client": True, "template": 29787,
+            "skill_line": SKILL_FURY,
+            "name": "Focused Rage",
+            "desc": "Reduces the rage cost of your offensive abilities by $/10;s1.",
+            "overrides": {
+                "SpellLevel": 0,
+                "EffectBasePoints_1": -30, "EffectDieSides_1": 0,
+            },
+        },
+        {  # Sincronización precisa: Embate instantáneo con 6 s de enfriamiento (auras nativas 108 y
+           # 107 sobre la máscara de Embate 0x200000).
+            "id": 402922, "client": True, "template": 774,
+            "skill_line": SKILL_ARMS,
+            "name": "Precise Timing",
+            "desc": "Slam is now instant but has a ${$m2/1000} sec cooldown.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_decisivestrike"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_ADD_PCT_MODIFIER,
+                "EffectBasePoints_1": -100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": SPELLMOD_CASTING_TIME,
+                "EffectSpellClassMaskA_1": MASK_SLAM,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_ADD_FLAT_MODIFIER,
+                "EffectBasePoints_2": 6000, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": SPELLMOD_COOLDOWN,
+                "EffectSpellClassMaskA_2": MASK_SLAM,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Furia enfocada (velocidad): +10 % de velocidad de movimiento durante 3 s; el sondeo de
+           # 2 s del marcador la renueva mientras haya doble empuñadura.
+            "id": 430472, "client": True, "template": 774,
+            "name": "Single-Minded Fury",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][3000],
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_SPEED_ALWAYS,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Furia enfocada (celeridad): +4 % de velocidad de ataque, hasta 5 acumulaciones, 10 s.
+            "id": 461470, "client": True, "template": 774,
+            "name": "Single-Minded",
+            "overrides": {
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][10000],
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "CumulativeAura": 5, "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MELEE_HASTE,
+                "EffectBasePoints_1": 4, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Oleada sangrienta (marca): clon del ¡Embate! de WotLK (46916) que además deja Embate
+           # instantáneo lo deja sin coste. Se copia el proc nativo de 46916 para que la marca se
+           # consuma al lanzar Embate.
+            "id": 413399, "client": True, "template": 46916,
+            "name": "Blood Surge",
+            "overrides": {
+                "SpellLevel": 0, "DurationIndex": idx["dur"][15000],
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_ADD_PCT_MODIFIER,
+                "EffectBasePoints_2": -100, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": SPELLMOD_COST,
+                "EffectSpellClassMaskA_2": MASK_SLAM,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 4,
+                "SpellFamilyMask0": MASK_SLAM, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 4,
+                "HitMask": 0, "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
             },
         },
         # Auxiliares de servidor (client: False): filas sólo en spell_dbc. Celeridad de Asalto

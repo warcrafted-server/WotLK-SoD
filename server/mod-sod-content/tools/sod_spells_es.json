@@ -1,4 +1,33 @@
 {
+  "413404": {
+    "name": "Furia enfocada",
+    "desc": "Con la doble empuñadura, tu velocidad de movimiento aumenta un 10% y obtienes un 4% de velocidad de ataque cada vez que tus ataques automáticos cuerpo a cuerpo golpean al mismo objetivo que tu ataque automático anterior. Se acumula hasta 5 veces. Dura 10 s o hasta que tus ataques automáticos golpean a otro objetivo."
+  },
+  "402927": {
+    "name": "Ataque de la victoria",
+    "desc": "Ataca al objetivo de manera instantánea y le inflige ${1+$AP*$m3/100} p. de daño, además de sanarte un $s2% de tu salud máxima. Solo se puede usar en $32216d después de haber matado a un enemigo que otorgue experiencia u honor."
+  },
+  "413380": {
+    "name": "Oleada sangrienta",
+    "desc": "Golpe heroico, Sed de sangre y Torbellino tienen un $h% de probabilidad de hacer que tu siguiente Embate en $413399d sea instantáneo y no cueste ira."
+  },
+  "413405": {
+    "name": "Ira enfocada",
+    "desc": "Reduce el coste de ira de tus facultades ofensivas $/10;s1 p."
+  },
+  "402922": {
+    "name": "Sincronización precisa",
+    "desc": "Ahora, Embate es instantáneo, pero tiene un tiempo de reutilización de ${$m2/1000} s."
+  },
+  "430472": {
+    "name": "Furia enfocada"
+  },
+  "461470": {
+    "name": "Enfocado"
+  },
+  "413399": {
+    "name": "Oleada sangrienta"
+  },
   "403629": {
     "name": "Descarga de caos"
   },
