@@ -94,6 +94,8 @@ void AddSC_sod_hunter_serpent_spread();
 void AddSC_sod_hunter_sniper_training();
 void AddSC_sod_hunter_carve();
 void AddSC_sod_hunter_cobra_slayer();
+void AddSC_sod_hunter_melee_specialist();
+void AddSC_sod_hunter_dual_wield_specialization();
 void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
 void AddSC_sod_warlock_invocation();
@@ -197,6 +199,8 @@ void Addmod_sod_contentScripts()
     AddSC_sod_hunter_sniper_training();
     AddSC_sod_hunter_carve();
     AddSC_sod_hunter_cobra_slayer();
+    AddSC_sod_hunter_melee_specialist();
+    AddSC_sod_hunter_dual_wield_specialization();
 
     AddSC_sod_warlock_soul_siphon();
     AddSC_sod_warlock_master_channeler();

@@ -90,6 +90,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7003011 | Cazador | Carve | Manos | 425711 | Compra al Grabador (1 oro), provisional. | [spell=425711](https://www.wowhead.com/classic/spell=425711) |
 | 7003012 | Cazador | Cobra Slayer | Manos | 458393 | Compra al Grabador (1 oro), provisional. | [spell=458393](https://www.wowhead.com/classic/spell=458393) |
 | 7003013 | Cazador | Aspect of the Viper | Cintura | 415423 | Compra al Grabador (1 oro), provisional. | [spell=415423](https://www.wowhead.com/classic/spell=415423) |
+| 7003014 | Cazador | Expose Weakness | Cintura | 409504 | Compra al Grabador (1 oro), provisional. | [spell=409504](https://www.wowhead.com/classic/spell=409504) |
+| 7003015 | Cazador | Melee Specialist | Cintura | 415352 | Compra al Grabador (1 oro), provisional. | [spell=415352](https://www.wowhead.com/classic/spell=415352) |
+| 7003016 | Cazador | Steady Shot | Cintura | 437123 | Compra al Grabador (1 oro), provisional. | [spell=437123](https://www.wowhead.com/classic/spell=437123) |
+| 7003017 | Cazador | Dual Wield Specialization | Pies | 409687 | Compra al Grabador (1 oro), provisional. | [spell=409687](https://www.wowhead.com/classic/spell=409687) |
+| 7003018 | Cazador | Trap Launcher | Pies | 409541 | Compra al Grabador (1 oro), provisional. | [spell=409541](https://www.wowhead.com/classic/spell=409541) |
 | 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |

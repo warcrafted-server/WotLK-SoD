@@ -871,5 +871,32 @@
     "name": "Aspecto de la víbora",
     "desc": "El cazador asume el aspecto de la víbora, lo que hace que los ataques cuerpo a cuerpo y a distancia automáticos regeneren maná, pero reduce el daño total que inflige en $s2%. Además, obtiene un $s1% del maná máximo cada $t s. El maná ganado se basa en la velocidad de su arma. Solo puede haber 1 aspecto activo cada vez.",
     "aura_desc": "Tus ataques a distancia y cuerpo a cuerpo automáticos regeneran un porcentaje de tu maná base, pero el daño total que infliges se reduce en $s2%. Además, obtienes un $s1% del maná máximo cada $t s."
+  },
+  "409504": {
+    "name": "Debilidad expuesta",
+    "desc": "Tus golpes críticos cuerpo a cuerpo y a distancia aumentan tu poder de ataque un $409507s1% de tu agilidad actual durante $409507d.",
+    "aura_desc": "Tu poder de ataque aumenta según tu agilidad actual."
+  },
+  "409507": {
+    "name": "Debilidad expuesta",
+    "aura_desc": "Aumenta tu poder de ataque un $s1% de tu agilidad actual."
+  },
+  "415352": {
+    "name": "Especialista en combate cuerpo a cuerpo",
+    "desc": "Golpe de raptor se lanza al instante, y Mordedura de mangosta y Golpe de raptor tienen un $s3% de probabilidad con cada ataque de restablecer el tiempo de reutilización de ambas facultades.",
+    "aura_desc": "Golpe de raptor se lanza al instante."
+  },
+  "437123": {
+    "name": "Disparo firme",
+    "desc": "Un disparo firme que inflige un $s2% de daño con arma a distancia."
+  },
+  "409687": {
+    "name": "Especialización en doble empuñadura",
+    "desc": "Aumenta un $s1% el daño de tu arma de mano izquierda y hace que Golpe de raptor golpee con ambas armas cuando llevas dos armas.",
+    "aura_desc": "Aumenta un $s1% el daño de tu arma de mano izquierda."
+  },
+  "409541": {
+    "name": "Lanzador de trampas",
+    "desc": "Ahora puedes colocar tus trampas congelantes, de inmolación y explosivas en cualquier ubicación dentro del alcance del Lanzador de trampas. Además, tus trampas de Fuego y de Escarcha comparten tiempos de reutilización distintos."
   }
 }

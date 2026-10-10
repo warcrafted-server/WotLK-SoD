@@ -13,6 +13,7 @@ def build(idx):
     """Return Hunter spells cloned from the level-80 WotLK talent ranks."""
     cast_instant = idx["cast"][0]
     duration_perm = idx["dur"][-1]
+    duration_7000 = idx["dur"][7000]
     duration_10000 = idx["dur"][10000]
     range_self = idx["range"][0.0]
     range_35 = idx["range"][35.0]
@@ -27,6 +28,10 @@ def build(idx):
     icon_carve = idx["icon"]["ability_warrior_cleave"]
     icon_cobra_slayer = idx["icon"]["ability_hunter_swiftstrike"]
     icon_aspect_viper = idx["icon"]["ability_hunter_aspectoftheviper"]
+    icon_expose_weakness = idx["icon"]["ability_hunter_snipershot"]
+    icon_melee_specialist = idx["icon"]["ability_hunter_swiftstrike"]
+    icon_steady_shot = idx["icon"]["ability_hunter_steadyshot"]
+    icon_dual_wield_specialization = idx["icon"]["ability_dualwield"]
 
     return [
         {  # Keep the WotLK script effect; apply Chimera Shot's SoD costs.
@@ -420,5 +425,145 @@ def build(idx):
                 "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
                 "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
             },
+        },
+        # --- Tercera tanda (fase 1): Expose Weakness, Melee Specialist, Steady Shot,
+        # Dual Wield Specialization y Trap Launcher. ---
+        {  # Debilidad expuesta: conserva el disparador de crítico del talento de WotLK y
+           # aplica el beneficio auxiliar 409507 durante 7 s.
+            "id": 409504, "client": True, "template": 34503,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Expose Weakness",
+            "inherit_server": True,
+            "desc": "Your melee and ranged criticals increase your attack power by $409507s1% of your current Agility for $409507d.",
+            "aura_desc": "Your attack power is increased by 5% of your current Agility.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_expose_weakness,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SpellLevel": 0,
+                "ProcChance": 100,
+                "EffectBasePoints_1": 4, "EffectDieSides_1": 1,
+                "EffectTriggerSpell_1": 409507,
+            },
+            # Copia de spell_proc -34500: solo daño crítico; el id negativo comprende los rangos.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Beneficio de Debilidad expuesta: el aura nativa convierte un 5 % de agilidad en AP.
+            "id": 409507, "client": True, "template": 774,
+            "name": "Expose Weakness",
+            "aura_desc": "Your attack power is increased by $s1% of your current Agility.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_7000, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_expose_weakness, "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 268,
+                "EffectBasePoints_1": 4, "EffectDieSides_1": 1, "EffectMiscValue_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Especialista cuerpo a cuerpo: la runa activa una SpellMod oculta para hacer
+           # instantáneo Golpe de raptor; el script de impacto gestiona los reinicios.
+            "id": 415352, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Melee Specialist", "script": "spell_sod_hunter_melee_specialist",
+            "desc": "Your Raptor Strike is now instant, and Mongoose Bite and Raptor Strike have a $s3% chance on each attack to reset the cooldowns of Mongoose Bite and Raptor Strike.",
+            "aura_desc": "Your Raptor Strike is now instant.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_melee_specialist,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 39, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Modificador oculto de tiempo de lanzamiento, limitado a la familia de Golpe de raptor.
+            "id": 900060, "client": False, "template": None,
+            "name": "Melee Specialist Instant Raptor Strike",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": -100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 10,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0x10000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Disparo firme: se parte del rango máximo de WotLK y se sustituye el coeficiente
+           # de disparo del cliente por el 100 % de daño con arma del catálogo de SoD.
+            "id": 437123, "client": True, "template": 49052,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Steady Shot", "inherit_server": True,
+            "desc": "A steady shot that causes $s2% ranged weapon damage.",
+            "overrides": {
+                "CategoryRecoveryTime": 0, "RecoveryTime": 0,
+                "ManaCostPct": 5, "SpellLevel": 0,
+                "SpellIconID": icon_steady_shot,
+                "Effect_1": 58, "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "Effect_2": 31, "EffectBasePoints_2": 99, "EffectDieSides_2": 1,
+            },
+        },
+        {  # Especialización en doble empuñadura: aura 122 nativa de aumento del daño de mano
+           # izquierda y golpe extra de Golpe de raptor cuando hay arma secundaria.
+            "id": 409687, "client": True, "template": 774,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Dual Wield Specialization",
+            "desc": "Increases the damage done by your offhand weapon by $s1% and causes your Raptor Strike to strike with both weapons when you are dual-wielding.",
+            "aura_desc": "Increases the damage done by your offhand weapon by $s1%.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_dual_wield_specialization,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 122,
+                "EffectBasePoints_1": 59, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 29, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Lanzador de trampas: se hereda la definición de WotLK; no se recrea el aura 332,
+           # que no existe en 3.3.5a.
+            "id": 409541, "client": True, "template": 63461,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Trap Launcher", "inherit_server": True,
+            "desc": "Your Freezing, Immolation, and Explosive Traps can now be placed at any location within the range of Trap Launcher. Additionally, your Fire-based and Frost-based traps now have separate shared cooldowns.",
+            "overrides": {"SpellLevel": 0},
         },
     ]

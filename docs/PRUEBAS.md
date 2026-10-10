@@ -189,6 +189,13 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Cobra Slayer `7003012`, Manos (6): golpear cuerpo a cuerpo y comprobar que la probabilidad de Mordedura de mangosta arranca en 10 % y sube 10 puntos por ataque hasta activarse (100 % al esquivar), y que Mordedura de mangosta inflige un 45 % del poder de ataque extra. Diferencia conocida: en 3.3.5a Mordedura de mangosta ya es usable siempre, así que «activar» se implementa como reinicio de su enfriamiento; ver `TODO.md`.
 - [ ] Aspect of the Viper `7003013`, Cintura (7): activar y comprobar el maná periódico (% del máximo cada 3 s) y el maná por ataques automáticos, con −10 % de daño total. Diferencia conocida: clona el aspecto de WotLK (34074) con los valores de SoD; se añade un tercer efecto dummy para conservar el reparto de maná por ataques; ver `TODO.md`.
 - [ ] Confirmar los textos esES y los iconos de `7003009–7003013` y que la compra provisional al Grabador las desbloquea.
+- [ ] Tercera tanda `7003014–7003018` (fase 1): necesita regenerar el SQL de hechizos y el parche de cliente; también recompilar el módulo por Melee Specialist y Dual Wield Specialization. Compra provisional al Grabador (1 oro). Sin compilar ni probar.
+- [ ] Expose Weakness `7003014`, Cintura (7): provocar críticos cuerpo a cuerpo y a distancia y comprobar que aumentan el poder de ataque según el 5 % de la agilidad actual durante 7 s.
+- [ ] Melee Specialist `7003015`, Cintura (7): comprobar que Golpe de raptor es instantáneo y que un impacto de Mordedura de mangosta o Golpe de raptor tiene un 40 % de probabilidad de reiniciar ambos enfriamientos.
+- [ ] Steady Shot `7003016`, Cintura (7): comprobar que inflige el 100 % de daño con arma a distancia y cuesta un 5 % de maná.
+- [ ] Dual Wield Specialization `7003017`, Pies (9): con un arma en la mano izquierda, comprobar el +60 % de daño de esa mano y que Golpe de raptor también realiza un ataque con ella. Comprobar que no ocurre sin arma secundaria.
+- [ ] Trap Launcher `7003018`, Pies (9): comprobar el uso de Trampa congelante, Trampa de inmolación y Trampa explosiva a distancia. El alcance del clon no está verificado; la separación de enfriamientos compartidos de trampas de Fuego y Escarcha queda pendiente.
+- [ ] Confirmar los textos esES y los iconos de `7003014–7003018` y que la compra provisional al Grabador las desbloquea.
 
 ### Druida feral
 

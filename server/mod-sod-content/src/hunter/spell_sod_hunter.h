@@ -29,6 +29,13 @@ enum SodHunterSpells
     SPELL_SOD_HUNTER_CARVE = 425711,
     SPELL_SOD_HUNTER_COBRA_SLAYER = 458393,
     SPELL_SOD_HUNTER_ASPECT_OF_THE_VIPER = 415423,
+    SPELL_SOD_HUNTER_EXPOSE_WEAKNESS = 409504,
+    SPELL_SOD_HUNTER_EXPOSE_WEAKNESS_BUFF = 409507,
+    SPELL_SOD_HUNTER_MELEE_SPECIALIST = 415352,
+    SPELL_SOD_HUNTER_MELEE_SPECIALIST_INSTANT = 900060,
+    SPELL_SOD_HUNTER_STEADY_SHOT = 437123,
+    SPELL_SOD_HUNTER_DUAL_WIELD_SPECIALIZATION = 409687,
+    SPELL_SOD_HUNTER_TRAP_LAUNCHER = 409541,
     // Hechizos nativos de WotLK que usan los scripts de estas runas.
     SPELL_SOD_HUNTER_GROWL = 2649,
     SPELL_SOD_HUNTER_TAUNT = 355,
@@ -46,6 +53,8 @@ void AddSC_sod_hunter_serpent_spread();
 void AddSC_sod_hunter_sniper_training();
 void AddSC_sod_hunter_carve();
 void AddSC_sod_hunter_cobra_slayer();
+void AddSC_sod_hunter_melee_specialist();
+void AddSC_sod_hunter_dual_wield_specialization();
 
 inline bool SodHunterEnabled()
 {

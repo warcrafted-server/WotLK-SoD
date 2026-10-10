@@ -50,6 +50,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-hunter'', 1),
     (7003013, 415423, 4, 128, ''Aspect of the Viper'', ''ability_hunter_aspectoftheviper'',
      ''The hunter takes on the aspect of the viper, causing auto attacks to regenerate mana but reducing the total damage done. Only one Aspect can be active at a time.'',
+     ''mod-sod-hunter'', 1),
+    (7003014, 409504, 4, 128, ''Expose Weakness'', ''ability_hunter_snipershot'',
+     ''Your melee and ranged criticals increase your attack power by 5% of your current Agility for 7 sec.'',
+     ''mod-sod-hunter'', 1),
+    (7003015, 415352, 4, 128, ''Melee Specialist'', ''ability_hunter_swiftstrike'',
+     ''Your Raptor Strike is now instant, and Mongoose Bite and Raptor Strike have a 40% chance on each attack to reset the cooldowns of Mongoose Bite and Raptor Strike.'',
+     ''mod-sod-hunter'', 1),
+    (7003016, 437123, 4, 128, ''Steady Shot'', ''ability_hunter_steadyshot'',
+     ''A steady shot that causes 100% ranged weapon damage.'',
+     ''mod-sod-hunter'', 1),
+    (7003017, 409687, 4, 512, ''Dual Wield Specialization'', ''ability_dualwield'',
+     ''Increases the damage done by your offhand weapon by 60% and causes your Raptor Strike to strike with both weapons when dual-wielding.'',
+     ''mod-sod-hunter'', 1),
+    (7003018, 409541, 4, 512, ''Trap Launcher'', ''spell_frost_stun'',
+     ''Your Freezing, Immolation, and Explosive Traps can now be placed at any location within the range of Trap Launcher. Additionally, your Fire-based and Frost-based traps now have separate shared cooldowns.'',
      ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -83,6 +98,14 @@ VALUES (415423, 'spell_hun_ascpect_of_the_viper');
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (-2643, 'spell_sod_hunter_serpent_spread'),
     (-1495, 'spell_sod_hunter_cobra_slayer_mongoose_bite');
+
+-- Tercera tanda: reinicios de Mordedura de mangosta y Golpe de raptor (id negativo = todos
+-- los rangos) y el segundo ataque de Golpe de raptor con mano izquierda.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (415352, 'spell_sod_hunter_melee_specialist'),
+    (-1495, 'spell_sod_hunter_melee_specialist_mongoose_bite'),
+    (-2973, 'spell_sod_hunter_melee_specialist_raptor_strike'),
+    (-2973, 'spell_sod_hunter_dual_wield_specialization_raptor_strike');
 
 -- Bestialidad hace que el Bramido de la mascota provoque al objetivo (id negativo = todos los
 -- rangos de 2649).
