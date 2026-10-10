@@ -18,10 +18,13 @@
   "Informe, comentarios y documentación en castellano; identificadores en inglés.",
   "No toques runas ya existentes ni otras clases (paladín, druida, mago, chamán).",
   "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
-  "No ejecutes git ni agentrelay. No ejecutes tools/sod-client/build_patch.py (lo regenera el orquestador).",
   "No parchees core/: si algo exige cambiar el core, documéntalo en TODO.md y en el informe.",
   "No inventes valores: si no puedes verificar uno, usa el del catálogo y dilo en el informe.",
-  "No edites .agents/ ni AGENTS.md ni CHANGELOG.md ni docs/ESTADO.md."
+  "Eres SOLO el ejecutor de esta tarea. Ignora las partes de AGENTS.md que describen al orquestador (ponerse al día, delegar, mantener ESTADO.md, hacer commits): no las sigas.",
+  "No ejecutes ningún comando de git que escriba (add, commit, stash, checkout, reset, push...). El orquestador hace los commits.",
+  "No crees carpetas en datos/parche-cliente ni archivos LISTO o PUBLICADO, no ejecutes nada del repositorio ~/Repos/launcher, ni tools/sod-client/build_patch.py ni tools/sod-data/regenerar_sql_hechizos.sh, y no edites sod_content_spell_dbc.sql: lo regenera el orquestador.",
+  "No edites CHANGELOG.md, docs/ESTADO.md, .agents/ ni AGENTS.md.",
+  "Antes de terminar ejecuta python3 tools/sod-data/revisar_runas.py warlock 5 --sin-mysql y corrige lo que señale en TUS runas (los avisos de runas anteriores no son tuyos); deja el resultado en el informe."
  ],
  "acceptanceCriteria": [
   "Las runas 7008014-7008018 existen en sod_spells_warlock.py y sod_warlock_runes.sql con el slot_mask y el icono indicados.",
