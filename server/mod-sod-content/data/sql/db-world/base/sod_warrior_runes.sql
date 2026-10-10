@@ -74,6 +74,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warrior'', 1),
     (7001021, 403218, 1, 1, ''Endless Rage'', ''ability_warrior_endlessrage'',
      ''You generate 25% more Rage from all damage you deal.'',
+     ''mod-sod-warrior'', 1),
+    (7001022, 426980, 1, 1, ''Shield Mastery'', ''ability_warrior_shieldmastery'',
+     ''Increases all physical damage you deal by 9% while you have a shield equipped, and reduces the duration of all Disarm effects used against you by 51%. This does not stack with other Disarm duration reducing effects.'',
+     ''mod-sod-warrior'', 1),
+    (7001023, 426953, 1, 1, ''Taste for Blood'', ''ability_rogue_hungerforblood'',
+     ''Whenever your Rend ability causes damage, your Overpower ability will activate for 9 sec or 1 attack. This effect will not occur more than once every 6 sec.'',
+     ''mod-sod-warrior'', 1),
+    (7001024, 426972, 1, 1, ''Vigilance'', ''ability_warrior_vigilance'',
+     ''Focus your protective gaze on a party or raid member, reducing their damage taken by 3% and transferring 10% of the threat they cause to you. In addition, each time they are hit by an attack your Taunt cooldown is refreshed. Lasts 30 min. This effect can only be on one target at a time.'',
+     ''mod-sod-warrior'', 1),
+    (7001025, 426940, 1, 32, ''Rampage'', ''ability_warrior_rampage'',
+     ''Go on a rampage, increasing your attack power by 15% for 30 sec. This ability can only be used while Enraged.'',
+     ''mod-sod-warrior'', 1),
+    (7001026, 426978, 1, 32, ''Sword and Board'', ''ability_warrior_swordandboard'',
+     ''When your Devastate and Revenge abilities deal damage they have a 30% chance of refreshing the cooldown of your Shield Slam ability and reducing its Rage cost by 100% for 5 sec.'',
      ''mod-sod-warrior'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -114,3 +129,10 @@ VALUES (402911, 'spell_sod_warrior_raging_blow');
 -- Golpe rápido activa los efectos asociados a Golpe heroico reutilizando su script del core.
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`)
 VALUES (429765, 'spell_warr_heroic_strike');
+
+-- Maestría con escudos usa su propio script; Vigilancia y Escudo y espada reutilizan los
+-- scripts del core (el emisor también escribe estas filas).
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (426980, 'spell_sod_warrior_shield_mastery'),
+    (426972, 'spell_warr_vigilance'),
+    (426978, 'spell_warr_sword_and_board');

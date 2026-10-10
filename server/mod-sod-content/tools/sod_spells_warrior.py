@@ -16,6 +16,10 @@ AURA_ADD_PCT_MODIFIER = 108
 AURA_MELEE_HASTE = 138                # % de celeridad cuerpo a cuerpo
 AURA_MOD_SPEED_ALWAYS = 129           # % de velocidad de movimiento (Acecho / Furia enfocada)
 AURA_PROC_TRIGGER_SPELL = 42          # dispara otro hechizo al procar
+AURA_MOD_ATTACK_POWER_PCT = 166       # % de poder de ataque (Desenfreno)
+# Duración de un mecánico, sin acumularse con otros reductores (Maestría con escudos).
+AURA_MECHANIC_DURATION_MOD_NOT_STACK = 234
+MECHANIC_DISARMED = 3                 # índice del mecánico de desarme
 SPELLMOD_THREAT = 2                   # SpellModOp 2 de 3.3.5a: amenaza
 SPELLMOD_EFFECT1 = 3                  # SpellModOp 3: valor del efecto 1 (daño)
 SPELLMOD_CASTING_TIME = 10            # SpellModOp 10: tiempo de lanzamiento (Embate de Sincronización precisa)
@@ -594,6 +598,152 @@ def build(idx):
             "desc": "You generate $s1% more Rage from all damage you deal.",
             "overrides": {"SpellLevel": 0},
         },
+        {  # Maestría con escudos: marcador pasivo. El sondeo de 2 s (aura 226) concede el +9 %
+           # al daño físico (auxiliar 900055, aura 79 de escuela física) mientras el guerrero
+           # empuñe un escudo, y lo retira si no lo lleva; el aura 234 reduce un 51 % la
+           # duración de todo desarme (mecánico 3) de forma nativa y sin acumularse.
+            "id": 426980, "client": True, "template": 774,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Shield Mastery", "script": "spell_sod_warrior_shield_mastery",
+            "desc": "Increases all physical damage you deal by 9% while you have a shield "
+                    "equipped, and reduces the duration of all Disarm effects used against "
+                    "you by 51%. This does not stack with other Disarm duration reducing "
+                    "effects.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_shieldmastery"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_1": 9, "EffectDieSides_1": 0, "EffectAuraPeriod_1": 2000,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA,
+                "EffectAura_2": AURA_MECHANIC_DURATION_MOD_NOT_STACK,
+                "EffectBasePoints_2": -51, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": MECHANIC_DISARMED,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Gusto por la sangre: pasiva; el aura 42 dispara la marca 426969 cuando Desgarrar
+           # inflige daño. El filtro de proc se copia de la fila spell_proc de -56636 (familia 4,
+           # máscara de Desgarrar 0x20, máximo una vez cada 5,8 s).
+            "id": 426953, "client": True, "template": 56636,
+            "skill_line": SKILL_ARMS,
+            "name": "Taste for Blood", "inherit_server": True,
+            "desc": "Whenever your Rend ability causes damage, your Overpower ability will "
+                    "activate for $426969d or 1 attack. This effect will not occur more than "
+                    "once every $s1 sec.",
+            "overrides": {
+                "SpellLevel": 0, "ProcChance": 100,
+                "EffectBasePoints_1": 6, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 426969, "EffectMiscValue_1": 0,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 4,
+                "SpellFamilyMask0": MASK_REND, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 5800, "Charges": 0,
+            },
+        },
+        {  # Marca de Gusto por la sangre: clon del beneficio de WotLK 60503 (aura 262 sobre
+           # Abrumar), que deja usar Abrumar sin el requisito de estado. La aplica la marca
+           # 426953 durante su duración.
+            "id": 426969, "client": True, "template": 60503,
+            "name": "Taste for Blood", "inherit_server": True,
+            "overrides": {"SpellLevel": 0},
+            # Copia de spell_proc 60503: consume la marca al usar Abrumar (máscara 0x4). El
+            # id nuevo no hereda la fila del core.
+            "proc": {
+                "SchoolMask": 1, "SpellFamilyName": 4,
+                "SpellFamilyMask0": 4, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Vigilancia: clon del de WotLK 50720, cuyo script del core (spell_warr_vigilance)
+           # aplica la reducción de daño, redirige el 10 % de la amenaza al guerrero y, al
+           # recibir el objetivo un ataque, reinicia Provocar. La duración de 30 min y el
+           # límite de un solo objetivo son nativos de la plantilla.
+            "id": 426972, "client": True, "template": 50720,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Vigilance", "script": "spell_warr_vigilance", "inherit_server": True,
+            "desc": "Focus your protective gaze on a party or raid member, reducing their "
+                    "damage taken by $s1% and transferring $m2% of the threat they cause to "
+                    "you. In addition, each time they are hit by an attack your Taunt "
+                    "cooldown is refreshed. Lasts $d. This effect can only be on one target "
+                    "at a time.",
+            "overrides": {
+                "SpellLevel": 0, "RecoveryTime": 0,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+            },
+        },
+        {  # Desenfreno: activa (30 s de duración, 90 s de enfriamiento); +15 % de poder de
+           # ataque (aura 166). El requisito «solo mientras estás enfurecido» lo impone el
+           # estado de aura 17 (CasterAuraState), que aplican Enfurecer, Ira rabiosa e Ira
+           # sangrienta, igual que en Regeneración iracunda.
+            "id": 426940, "client": True, "template": 774,
+            "skill_line": SKILL_FURY,
+            "name": "Rampage",
+            "desc": "Go on a rampage, increasing your attack power by $s1% for $d. This "
+                    "ability can only be used while Enraged.",
+            "overrides": {
+                "Attributes": 0,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][30000],
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 1, "ManaCost": 0, "ManaCostPct": 0,
+                "RecoveryTime": 90000, "CategoryRecoveryTime": 0, "CasterAuraState": 17,
+                "SpellClassSet": 4, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": idx["icon"]["ability_warrior_rampage"],
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_ATTACK_POWER_PCT,
+                "EffectBasePoints_1": 15, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Escudo y espada: pasiva; el aura 42 dispara la marca 426979 cuando Devastar
+           # (palabra B 0x40) o Revancha (palabra A 0x400) infligen daño, con el 30 % de
+           # probabilidad del hechizo. El script del core spell_warr_sword_and_board reinicia
+           # el enfriamiento de Embate con escudo; el filtro de proc se copia de -46951.
+            "id": 426978, "client": True, "template": 46951,
+            "skill_line": SKILL_PROTECTION,
+            "name": "Sword and Board", "script": "spell_warr_sword_and_board",
+            "inherit_server": True,
+            "desc": "When your Devastate and Revenge abilities deal damage they have a $h% "
+                    "chance of refreshing the cooldown of your Shield Slam ability and "
+                    "reducing its Rage cost by $426979s1% for $426979d.",
+            "overrides": {
+                "SpellLevel": 0, "ProcChance": 30,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 426979, "EffectMiscValue_1": 0,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 4,
+                "SpellFamilyMask0": 1024, "SpellFamilyMask1": 64, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Marca de Escudo y espada: clon del beneficio de WotLK 50227 (aura 108 + SpellModOp
+           # 14 sobre Embate con escudo, −100 % de coste de ira) durante 5 s.
+            "id": 426979, "client": True, "template": 50227,
+            "name": "Sword and Board", "inherit_server": True,
+            "overrides": {"SpellLevel": 0},
+        },
         # Auxiliares de servidor (client: False): filas sólo en spell_dbc. Celeridad de Asalto
         # frenético, aplicada por el script mientras el guerrero empuñe un arma a dos manos.
         {"id": 900052, "client": False, "template": None, "name": "Frenzied Assault",
@@ -644,6 +794,20 @@ def build(idx):
              "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_THREAT,
              "EffectBasePoints_2": -30, "EffectDieSides_2": 0, "EffectMiscValue_2": 127,
              "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+             "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+         }},
+        # Bono de Maestría con escudos mientras se empuña un escudo: +9 % al daño físico
+        # (aura 79 de escuela física), renovado por el sondeo de 2 s del marcador 426980.
+        {"id": 900055, "client": False, "template": None, "name": "Shield Mastery",
+         "overrides": {
+             "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+             "DurationIndex": idx["dur"][3000], "RangeIndex": range_self,
+             "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0, "SpellLevel": 0,
+             "SpellClassSet": 4, "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+             "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_DAMAGE_PERCENT_DONE,
+             "EffectBasePoints_1": 9, "EffectDieSides_1": 0, "EffectMiscValue_1": 1,
+             "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+             "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
              "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
          }},
     ]

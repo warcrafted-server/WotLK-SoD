@@ -764,5 +764,31 @@
   "429765": {
     "name": "Golpe rápido",
     "desc": "Un ataque cuerpo a cuerpo instantáneo e imprudente con tu arma a dos manos que inflige daño según tu poder de ataque. Esta facultad se beneficia de, y activa, todos los efectos asociados a Golpe heroico."
+  },
+  "426980": {
+    "name": "Maestría con escudos",
+    "desc": "Aumenta un 9% todo el daño físico que infliges mientras llevas un escudo y reduce un 51% la duración de todos los efectos de desarme que se usan contra ti. No se acumula con otros efectos de reducción de la duración de desarme."
+  },
+  "426953": {
+    "name": "Gusto por la sangre",
+    "desc": "Cada vez que tu facultad Desgarrar inflige daño, tu facultad Abrumar se activa durante $426969d o hasta el siguiente ataque. Este efecto no podrá ocurrir más de una vez cada $s1 s."
+  },
+  "426969": {
+    "name": "Gusto por la sangre"
+  },
+  "426972": {
+    "name": "Vigilancia",
+    "desc": "Enfoca tu mirada protectora sobre un objetivo de grupo o banda, reduce un $s1% el daño que recibe y te transfiere un $m2% de la amenaza que genera. Además, cada vez que recibe un impacto de un ataque, tu tiempo de reutilización de Provocar se reinicia. Dura $d. Este efecto solo puede estar activo sobre un objetivo cada vez."
+  },
+  "426940": {
+    "name": "Desenfreno",
+    "desc": "Te vuelves loco, lo que aumenta un $s1% tu poder de ataque durante $d. Esta facultad solo se puede usar mientras estás enfurecido."
+  },
+  "426978": {
+    "name": "Escudo y espada",
+    "desc": "Cuando tus facultades Devastar o Revancha infligen daño, tienen un $h% de probabilidad de reiniciar el tiempo de reutilización de Embate con escudo y reducir un $426979s1% durante $426979d su coste de ira."
+  },
+  "426979": {
+    "name": "Escudo y espada"
   }
 }

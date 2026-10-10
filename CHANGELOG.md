@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Guerrero: runas Shield Mastery `7001022`, Taste for Blood `7001023`, Vigilance `7001024`, Rampage `7001025`, Sword and Board `7001026` (tanda 5 de `.agents/plans/guerrero/`). Duración de Taste for Blood (9 s) contrastada con Wowhead; el +9 % de Shield Mastery sin verificar. Sin compilar ni probar.
 - Guerrero: runas Enraged Regeneration `7001017`, Gladiator Stance `7001018`, Intervene `7001019`, Rallying Cry `7001020`, Endless Rage `7001021` (tanda 4 de `.agents/plans/guerrero/`). Gladiator Stance usa la forma 24, inexistente en 3.3.5a (solo error en el log, sin caída; ver TODO). Sin compilar ni probar.
 - Guerrero: runas Single-Minded Fury `7001012`, Victory Rush `7001013`, Blood Surge `7001014`, Focused Rage `7001015`, Precise Timing `7001016` (tanda 3 de `.agents/plans/guerrero/`). Blood Surge sin el golpe con ambas armas de Embate; Victory Rush depende de que el core conceda el estado Victorioso. Sin compilar ni probar.
 - Guerrero: runas Consumed By Rage `7001007`, Frenzied Assault `7001008`, Furious Thunder `7001009`, Meathook `7001010`, Quick Strike `7001011` (tanda 2 de `.agents/plans/guerrero/`). Furious Thunder sin el +75 % de amenaza y Meathook sin enraizar (límites de 3.3.5a). Sin compilar ni probar.

@@ -31,6 +31,14 @@ enum SodWarriorSpells
     SPELL_SOD_WARRIOR_INTERVENE = 403338,
     SPELL_SOD_WARRIOR_RALLYING_CRY = 426490,
     SPELL_SOD_WARRIOR_ENDLESS_RAGE = 403218,
+    SPELL_SOD_WARRIOR_SHIELD_MASTERY = 426980,
+    SPELL_SOD_WARRIOR_SHIELD_MASTERY_BUFF = 900055,
+    SPELL_SOD_WARRIOR_TASTE_FOR_BLOOD = 426953,
+    SPELL_SOD_WARRIOR_TASTE_FOR_BLOOD_TRIGGER = 426969,
+    SPELL_SOD_WARRIOR_VIGILANCE = 426972,
+    SPELL_SOD_WARRIOR_RAMPAGE = 426940,
+    SPELL_SOD_WARRIOR_SWORD_AND_BOARD = 426978,
+    SPELL_SOD_WARRIOR_SWORD_AND_BOARD_TRIGGER = 426979,
     // Hechizos nativos de WotLK que enganchan los scripts de esta tanda.
     SPELL_WARRIOR_REND = 772,
     SPELL_WARRIOR_CHARGE = 100,
@@ -51,6 +59,7 @@ void AddSC_sod_warrior_meathook();
 void AddSC_sod_warrior_quick_strike();
 void AddSC_sod_warrior_single_minded_fury();
 void AddSC_sod_warrior_gladiator_stance();
+void AddSC_sod_warrior_shield_mastery();
 
 inline bool SodWarriorEnabled()
 {
