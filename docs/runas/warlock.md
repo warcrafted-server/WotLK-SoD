@@ -59,3 +59,20 @@ Datos generados y comprobaciones:
 - Pendiente: compilar, aplicar el SQL, copiar los MPQ, reiniciar el reino 2 y probar (pasos en
   `docs/PRUEBAS.md`).
 
+## Quinta tanda (fase 5, 2026-10-10)
+
+Se añaden Armadura infernal (`7008024`), Marca de caos (`7008025`), Pandemia (`7008026`) y Grimorio
+de sinergia (`7008027`). **Sin compilar ni probar.** Desviaciones conocidas (detalle en `TODO.md` y
+casillas en `docs/PRUEBAS.md`):
+
+- **Infernal Armor:** `440882` reduce el daño mágico recibido (aura 87) un 60 % de la reducción de
+  daño físico por armadura, calculada con la fórmula del core en
+  `spell_sod_warlock_infernal_armor`; el −21 del catálogo era un valor de ejemplo.
+- **Mark of Chaos:** `440892` dispara la marca `461615` (aura 22 −27 a las resistencias y aura 87
+  +4 % de daño con hechizos, escuelas mágicas) al lanzar maldiciones. Sin escalado por nivel.
+- **Pandemic:** `427712` usa el aura nativa 286 de crítico periódico del core; se omite el segundo
+  efecto del catálogo (SpellModOp 15 en 3.3.5a es el bono de daño crítico).
+- **Grimoire of Synergy:** `1226981` (brujo) y la copia de servidor `900051` (mascota, por
+  `spell_pet_auras`) comparten `spell_sod_warlock_grimoire_of_synergy`; proc del 6 % que aplica
+  `426303` (+10 % a todo el daño, 15 s) al "otro". Hay que invocar la mascota tras grabar la runa.
+

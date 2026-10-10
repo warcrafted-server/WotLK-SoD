@@ -91,6 +91,8 @@ void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
 void AddSC_sod_warlock_invocation();
 void AddSC_sod_warlock_dance_of_the_wicked();
+void AddSC_sod_warlock_infernal_armor();
+void AddSC_sod_warlock_grimoire_of_synergy();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -171,6 +173,8 @@ void Addmod_sod_contentScripts()
     AddSC_sod_warlock_master_channeler();
     AddSC_sod_warlock_invocation();
     AddSC_sod_warlock_dance_of_the_wicked();
+    AddSC_sod_warlock_infernal_armor();
+    AddSC_sod_warlock_grimoire_of_synergy();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

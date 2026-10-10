@@ -645,5 +645,31 @@
   },
   "427725": {
     "name": "Aura de Inmolación"
+  },
+  "440882": {
+    "name": "Armadura infernal",
+    "desc": "Tu espíritu se imbuye de energía demoníaca, lo que reduce todo el daño mágico que recibes un porcentaje equivalente a un $s2% de tu reducción de daño físico por la armadura. Dura $d.",
+    "aura_desc": "El daño mágico recibido se reduce un $w1%."
+  },
+  "440892": {
+    "name": "Marca de caos",
+    "desc": "Ahora, todas tus maldiciones, excepto Maldición de las Sombras y Maldición de los Elementos, aplican Marca de caos, lo que reduce las resistencias del objetivo a magia Arcana, Fuego, Escarcha, Naturaleza y Sombras y aumenta el daño con hechizos recibido de esas escuelas mientras dura la maldición."
+  },
+  "461615": {
+    "name": "Marca de caos",
+    "aura_desc": "Reduce $w1 p. las resistencias a lo Arcano, al Fuego, a la Escarcha, a la Naturaleza y a las Sombras. Aumenta un $w2% el daño Arcano, de Fuego, de Escarcha, de Naturaleza y de las Sombras recibido."
+  },
+  "427712": {
+    "name": "Pandemia",
+    "desc": "Ahora, el daño periódico de tus facultades Corrupción, Aflicción inestable, Maldición de Agonía, Inmolar, Maldición del Apocalipsis y Succionar vida puede convertirse en golpes críticos."
+  },
+  "1226981": {
+    "name": "Grimorio de sinergia",
+    "desc": "El daño que infligen el brujo o su demonio invocado tiene un 6% de probabilidades de aumentar un $426303s1% el infligido por el otro durante $426303d."
+  },
+  "426303": {
+    "name": "Grimorio de sinergia",
+    "desc": "Aumenta todo el daño infligido un $s1%.",
+    "aura_desc": "Aumenta todo el daño infligido un $s1%."
   }
 }

@@ -16,8 +16,10 @@ def build(idx):
     duration_10000 = idx["dur"][10000]
     duration_15000 = idx["dur"][15000]
     duration_20000 = idx["dur"][20000]
+    duration_120000 = idx["dur"][120000]
     duration_perm = idx["dur"][-1]
     range_self = idx["range"][0.0]
+    range_30 = idx["range"][30.0]
     icon_demonic_tactics = idx["icon"]["spell_shadow_demonictactics"]
     icon_life_drain = idx["icon"]["spell_shadow_lifedrain02"]
     icon_shadow_and_flame = idx["icon"]["spell_shadow_shadowandflame"]
@@ -28,6 +30,10 @@ def build(idx):
     icon_dance_of_the_wicked = idx["icon"]["spell_shadow_siphonmana"]
     icon_vengeance = idx["icon"]["spell_shadow_metamorphosis"]
     icon_immolation_aura = idx["icon"]["spell_fire_immolation"]
+    icon_infernal_armor = idx["icon"]["spell_shadow_demonicfortitude"]
+    icon_mark_of_chaos = idx["icon"]["spell_shadow_curseofsargeras"]
+    icon_pandemic = idx["icon"]["spell_shadow_painfulafflictions"]
+    icon_grimoire = idx["icon"]["ability_warlock_demonicempowerment"]
 
     return [
         {  # Chaos Bolt: retain WotLK rank effects; apply the confirmed SoD cooldown.
@@ -659,6 +665,209 @@ def build(idx):
                 "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        # --- Quinta tanda (fase 5): Armadura infernal, Marca de caos, Pandemia y
+        # Grimorio de sinergia. ---
+        {  # Armadura infernal: activa (3 % de maná, 10 s de duración, 60 s de reutilización).
+           # El efecto 0 (aura 87, daño mágico recibido) lo calcula el script como el 60 %
+           # de la reducción de daño físico por armadura del brujo; el efecto 1 (dummy 60)
+           # sólo alimenta el $s2 del texto. El catálogo trae −21 como importe de ejemplo.
+            "id": 440882, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Infernal Armor", "script": "spell_sod_warlock_infernal_armor",
+            "desc": "Tu espíritu se imbuye de energía demoníaca, lo que reduce todo el daño "
+                    "mágico que recibes un porcentaje equivalente a un $s2% de tu reducción "
+                    "de daño físico por la armadura. Dura $d.",
+            "aura_desc": "El daño mágico recibido se reduce un $w1%.",
+            "overrides": {
+                "Attributes": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_infernal_armor,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_10000,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 3,
+                "RecoveryTime": 60000, "CategoryRecoveryTime": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 87,
+                "EffectBasePoints_1": -21, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 126, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 4,
+                "EffectBasePoints_2": 60, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Marca de caos: pasiva que aplica la marca 461615 al lanzar maldiciones (aura 109
+           # con disparo al objetivo golpeado). Las máscaras A/B/C son las de SoD; los bits sin
+           # hechizo equivalente en 3.3.5a simplemente no disparan.
+            "id": 440892, "client": True, "template": 774,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Mark of Chaos",
+            "desc": "Ahora, todas tus maldiciones, excepto Maldición de las Sombras y Maldición "
+                    "de los Elementos, aplican Marca de caos, que reduce las resistencias del "
+                    "objetivo a lo Arcano, al Fuego, a la Escarcha, a la Naturaleza y a las "
+                    "Sombras y aumenta el daño con hechizos recibido de esas escuelas mientras "
+                    "dura la maldición.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_mark_of_chaos,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 109,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 461615,
+                "EffectSpellClassMaskA_1": 4228096, "EffectSpellClassMaskB_1": 2097154,
+                "EffectSpellClassMaskC_1": 512,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # Efectos 1 y 2 del catálogo: dummies de herramienta que sólo enlazan 440895
+                # (otro hechizo de SoD, sin relación con la mecánica). Se conservan como
+                # dummies sin disparo para no referenciar un hechizo que no se define.
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 4,
+                "EffectBasePoints_2": -27, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": 4,
+                "EffectBasePoints_3": 4, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Marca de caos (debuff sobre el enemigo): la lanza el disparo del aura 109 de 440892.
+           # SoD escala resistencias y daño con el nivel; aquí van fijos en el mínimo del
+           # catálogo (−27 y +4 %), anotado en el informe y en TODO.md.
+            "id": 461615, "client": True, "template": 774,
+            "name": "Mark of Chaos",
+            "desc": "Reduce las resistencias a lo Arcano, al Fuego, a la Escarcha, a la Naturaleza "
+                    "y a las Sombras. Aumenta el daño Arcano, de Fuego, de Escarcha, de Naturaleza "
+                    "y de las Sombras recibido.",
+            "aura_desc": "Reduce $w1 p. las resistencias a lo Arcano, al Fuego, a la Escarcha, a la "
+                         "Naturaleza y a las Sombras. Aumenta un $w2% el daño Arcano, de Fuego, de "
+                         "Escarcha, de Naturaleza y de las Sombras recibido.",
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_mark_of_chaos,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_120000,
+                "RangeIndex": range_30, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 22,
+                "EffectBasePoints_1": -27, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 126, "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": 87,
+                "EffectBasePoints_2": 4, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 126, "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Pandemia: pasiva. El core ya implementa el crítico de daño periódico con el aura
+           # 286 y filtra por las máscaras de familia del efecto, que bastan para Corrupción,
+           # Aflicción inestable, Maldición de agonía, Inmolar, Maldición del Apocalipsis y
+           # Succionar vida. El segundo efecto del catálogo (aura 108 + SpellModOp 15) se
+           # omite: en 3.3.5a el SpellModOp 15 es el bono de daño crítico, no el periódico.
+            "id": 427712, "client": True, "template": 774,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Pandemic",
+            "desc": "Ahora, el daño periódico de tus facultades Corrupción, Aflicción inestable, "
+                    "Maldición de Agonía, Inmolar, Maldición del Apocalipsis y Succionar vida "
+                    "puede convertirse en golpes críticos.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_pandemic,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 286,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 12,
+                "EffectSpellClassMaskA_1": 1030, "EffectSpellClassMaskB_1": 67843,
+                "EffectSpellClassMaskC_1": 8388610,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Grimorio de sinergia (lado del brujo): pasiva con proc por daño infligido; el
+           # script aplica el beneficio 426303 a la mascota. El lado de la mascota va en 900051
+           # (recibido vía spell_pet_auras) para que el daño del demonio también proque.
+            "id": 1226981, "client": True, "template": 774,
+            "skill_line": SKILL_DEMONOLOGY,
+            "name": "Grimoire of Synergy", "script": "spell_sod_warlock_grimoire_of_synergy",
+            "desc": "El daño que infligen el brujo o su demonio invocado tiene un 10% de "
+                    "probabilidades de aumentar un $426303s1% el infligido por el otro durante "
+                    "$426303d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_grimoire,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 4,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            # Proc por cualquier daño infligido (mascota incluida): DONE_HIT_PROC_FLAG_MASK.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00E55554, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 10, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Beneficio de Grimorio de sinergia: +10 % a todo el daño durante 15 s, se aplica al
+           # brujo o a la mascota (el "otro").
+            "id": 426303, "client": True, "template": 774,
+            "name": "Grimoire of Synergy",
+            "desc": "Aumenta todo el daño infligido un $s1%.",
+            "aura_desc": "Aumenta todo el daño infligido un $s1%.",
+            "overrides": {
+                "Attributes": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_grimoire,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_15000,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 79,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 127, "ImplicitTargetA_1": TARGET_UNIT_TARGET_ALLY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Grimorio de sinergia (lado de la mascota): copia dummy de 1226981 que el familiar
+           # recibe al invocarse vía spell_pet_auras; su proc buffa al dueño cuando el demonio
+           # inflige daño. Sólo servidor (el texto del dueño ya lo muestra 1226981).
+            "id": 900051, "client": False, "template": None,
+            "name": "Grimoire of Synergy", "script": "spell_sod_warlock_grimoire_of_synergy",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 32, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0, "EquippedItemClass": -1,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 4,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0x00E55554, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 10, "Cooldown": 0, "Charges": 0,
             },
         },
     ]

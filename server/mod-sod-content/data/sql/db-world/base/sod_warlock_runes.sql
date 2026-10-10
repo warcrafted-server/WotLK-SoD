@@ -80,6 +80,18 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warlock'', 1),
     (7008023, 427726, 256, 32, ''Immolation Aura'', ''spell_fire_immolation'',
      ''Burns nearby enemies when an enemy makes a melee attack against you, reduces all magic damage taken by 10%, and increases Fire damage done by 10%.'',
+     ''mod-sod-warlock'', 1),
+    (7008024, 440882, 256, 8, ''Infernal Armor'', ''spell_shadow_demonicfortitude'',
+     ''Your spirit is infused with demonic energy, reducing all Magic damage you take by a percentage equal to 60% of your Physical damage reduction from armor.'',
+     ''mod-sod-warlock'', 1),
+    (7008025, 440892, 256, 8, ''Mark of Chaos'', ''spell_shadow_curseofsargeras'',
+     ''All your Curses except Curse of Shadow and Curse of the Elements now apply Mark of Chaos, reducing the target resistances to Arcane, Fire, Frost, Nature and Shadow and increasing spell damage taken from those schools while cursed.'',
+     ''mod-sod-warlock'', 1),
+    (7008026, 427712, 256, 1, ''Pandemic'', ''spell_shadow_painfulafflictions'',
+     ''Periodic damage from your Corruption, Unstable Affliction, Curse of Agony, Immolate, Curse of Doom and Siphon Life abilities can now be critical strikes.'',
+     ''mod-sod-warlock'', 1),
+    (7008027, 1226981, 256, 128, ''Grimoire of Synergy'', ''ability_warlock_demonicempowerment'',
+     ''Damage done by you or your summoned demon has a 6% chance to increase the damage done by the other by 10% for 15 sec.'',
      ''mod-sod-warlock'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -114,13 +126,23 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (-689, 'spell_sod_warlock_master_channeler');
 
 -- Auras que el familiar hereda al invocarse (spell_pet_auras es tabla base del core, no la
--- genera el emisor): 54909 es el aura nativa que dispara Pacto demoníaco desde el familiar, y
+-- genera el emisor): 54909 es el aura nativa que dispara Pacto demoníaco desde el familiar,
 -- 900048 es la copia de servidor del aura de Conocimiento demoníaco (WotLK usa 35696 con 12 %,
--- SoD pide 3 %). No se toca ninguna fila de Blizzard: sólo se insertan las dos nuestras.
-DELETE FROM `spell_pet_auras` WHERE `spell` IN (425464, 412732);
+-- SoD pide 3 %) y 900051 es la copia dummy del lado de la mascota de Grimorio de sinergia
+-- (para que el daño del demonio también proque). No se toca ninguna fila de Blizzard: sólo se
+-- insertan las nuestras.
+DELETE FROM `spell_pet_auras` WHERE `spell` IN (425464, 412732, 1226981);
 INSERT INTO `spell_pet_auras` (`spell`, `effectId`, `pet`, `aura`) VALUES
     (425464, 0, 0, 54909),
-    (412732, 0, 0, 900048);
+    (412732, 0, 0, 900048),
+    (1226981, 0, 0, 900051);
+
+-- Scripts propios de la quinta tanda (fase 5). El emisor (sod-client) también escribe estas
+-- filas; aquí quedan para que el módulo sea autosuficiente, como en 427717/426320.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (440882, 'spell_sod_warlock_infernal_armor'),
+    (1226981, 'spell_sod_warlock_grimoire_of_synergy'),
+    (900051, 'spell_sod_warlock_grimoire_of_synergy');
 
 -- Invocación engancha las auras de daño periódico de los seis hechizos que enumera SoD
 -- (ids negativos = todas las filas de rango; el primer rango debe ser el menor). El script

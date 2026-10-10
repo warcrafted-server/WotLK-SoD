@@ -17,7 +17,7 @@ duplicados), regeneración del SQL de hechizos, sintaxis con los flags reales y 
 | 2 | 7008009–7008013 | Backdraft, Decimation, Demonic Pact, Everlasting Affliction, Demonic Knowledge (talentos de WotLK) | medium | hecho (DeepSeek, `748aad8`) |
 | 3 | 7008014–7008018 | Soul Siphon, Shadow and Flame, Lake of Fire, Master Channeler, Shadow Bolt Volley | high | hecho |
 | 4 | 7008019–7008023 | Demonic Grace, Invocation, Dance of the Wicked, Vengeance, Immolation Aura | high | hecho |
-| 5 | 7008024–7008027 | Infernal Armor, Mark of Chaos, Pandemic, Grimoire of Synergy | high | pendiente |
+| 5 | 7008024–7008027 | Infernal Armor, Mark of Chaos, Pandemic, Grimoire of Synergy | high | hecho |
 | 6 | — | Adquisición de los objetos-runa del brujo (como `sod_shaman_acquisition.sql`) | medium | pendiente |
 
 ## Cómo seguir

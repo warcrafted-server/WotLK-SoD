@@ -45,6 +45,16 @@ enum SodWarlockSpells
     SPELL_SOD_WARLOCK_DANCE_OF_THE_WICKED_BUFF = 900050,
     SPELL_SOD_WARLOCK_IMMOLATION_AURA = 427726,
     SPELL_SOD_WARLOCK_IMMOLATION_AURA_DAMAGE = 427725,
+    // Quinta tanda (fase 5): Armadura infernal, Marca de caos, Pandemia y Grimorio de sinergia.
+    // Pandemia y Marca de caos son datos (aura 286 de crítico periódico y aura 109 de disparo);
+    // Armadura infernal y Grimorio de sinergia añaden C++ propio.
+    SPELL_SOD_WARLOCK_INFERNAL_ARMOR = 440882,
+    SPELL_SOD_WARLOCK_MARK_OF_CHAOS = 440892,
+    SPELL_SOD_WARLOCK_MARK_OF_CHAOS_DEBUFF = 461615,
+    SPELL_SOD_WARLOCK_PANDEMIC = 427712,
+    SPELL_SOD_WARLOCK_GRIMOIRE_OF_SYNERGY = 1226981,
+    SPELL_SOD_WARLOCK_GRIMOIRE_OF_SYNERGY_PET_AURA = 900051,
+    SPELL_SOD_WARLOCK_GRIMOIRE_OF_SYNERGY_BUFF = 426303,
     // Hechizos nativos de WotLK que usan los scripts de esta tanda.
     SPELL_WARLOCK_DRAIN_SOUL = 1120,
     SPELL_WARLOCK_DRAIN_LIFE = 689,
@@ -56,6 +66,8 @@ void AddSC_sod_warlock_soul_siphon();
 void AddSC_sod_warlock_master_channeler();
 void AddSC_sod_warlock_invocation();
 void AddSC_sod_warlock_dance_of_the_wicked();
+void AddSC_sod_warlock_infernal_armor();
+void AddSC_sod_warlock_grimoire_of_synergy();
 
 inline bool SodWarlockEnabled()
 {
