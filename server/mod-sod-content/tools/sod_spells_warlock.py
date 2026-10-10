@@ -16,6 +16,10 @@ def build(idx):
     duration_perm = idx["dur"][-1]
     range_self = idx["range"][0.0]
     icon_demonic_tactics = idx["icon"]["spell_shadow_demonictactics"]
+    icon_life_drain = idx["icon"]["spell_shadow_lifedrain02"]
+    icon_shadow_and_flame = idx["icon"]["spell_shadow_shadowandflame"]
+    icon_rain_of_fire = idx["icon"]["spell_shadow_rainoffire"]
+    icon_shadow_bolt = idx["icon"]["spell_shadow_shadowbolt"]
 
     return [
         {  # Chaos Bolt: retain WotLK rank effects; apply the confirmed SoD cooldown.
@@ -296,6 +300,165 @@ def build(idx):
             "overrides": {
                 # 3 % (SoD) en vez del 12 % de WotLK; el script lee el importe como base + die.
                 "EffectBasePoints_1": 3, "EffectDieSides_1": 0,
+            },
+        },
+        # --- Tercera tanda (fase 3): Soul Siphon, Shadow and Flame, Lake of Fire, Master
+        # Channeler y Shadow Bolt Volley. ---
+        {  # Soul Siphon: clona el talento de WotLK 17805 r2, que ya aplica el +6 % por efecto
+           # de Sombras del objetivo sobre Drenar vida y Drenar alma hasta el 18 % (el core lo
+           # resuelve por aura 112 con MiscValue 4993). Añade en el tercer efecto el −2000 ms de
+           # tiempo de activación (aura 107 + SpellModOp 19) sobre Drenar alma: su canal pasa de
+           # 3 s a 1 s por tick. El ramal de SoD «por debajo del 20 % de salud» no existe en
+           # WotLK y no se reproduce; ver TODO.md.
+            "id": 403511, "client": True, "template": 17805,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Soul Siphon", "inherit_server": True,
+            "desc": "Causes your Drain Soul to deal damage 3 times faster and increases the amount drained by your Drain Life and Drain Soul spells by an additional 6% for each of your Warlock Shadow effects afflicting the target, up to a maximum of 18% additional effect. In addition, your Drain Soul can now trigger your Nightfall talent.",
+            "overrides": {
+                "SpellLevel": 0,
+                # EFFECT_2: aura 107 (modificador plano) + SpellModOp 19 (tiempo de activación),
+                # −2000 ms sobre Drenar alma (máscara de familia 0x4000).
+                "Effect_3": 6, "EffectAura_3": 107,
+                "EffectBasePoints_3": -2000, "EffectDieSides_3": 0,
+                "EffectMiscValue_3": 19, "EffectSpellClassMaskA_3": 16384,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Shadow and Flame: pasiva con aura 42 (proc) que aplica el beneficio 426311. El filtro
+           # «solo críticos de Fuego y Sombras» vive en la fila spell_proc de este id.
+            "id": 426316, "client": True, "template": 774,
+            "skill_line": SKILL_DESTRUCTION,
+            "name": "Shadow and Flame", "inherit_server": True,
+            "desc": "Your critical strikes with Fire and Shadow spells increase your Fire and Shadow damage done by $426311s1% for $426311d.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_shadow_and_flame,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": 6, "EffectAura_1": 42,
+                "EffectBasePoints_1": 6, "EffectDieSides_1": 0,
+                "EffectTriggerSpell_1": 426311, "EffectMiscValue_1": 0,
+                "EffectSpellClassMaskA_1": 0, "EffectSpellClassMaskB_1": 0,
+                "EffectSpellClassMaskC_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            # Copia del patrón de Burnout: daño con hechizos hecho con golpe crítico. Las máscaras
+            # de familia van completas (cualquier hechizo de brujo), no solo Fuego/Sombras: WotLK
+            # no ofrece un conjunto exacto de esas dos escuelas y no se inventa.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 5,
+                "SpellFamilyMask0": 0xFFFFFFFF, "SpellFamilyMask1": 0xFFFFFFFF,
+                "SpellFamilyMask2": 0xFFFFFFFF, "ProcFlags": PROC_DONE_MAGIC_NEG,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Beneficio de Shadow and Flame: +10 % al daño de Fuego y Sombras durante 10 s.
+            "id": 426311, "client": True, "template": 774,
+            "name": "Shadow and Flame", "inherit_server": True,
+            "desc": "Increases all Fire and Shadow damage done by $s1%.",
+            "aura_desc": "Increases all Fire and Shadow damage done by $s1%.",
+            "overrides": {
+                "Attributes": 0, "AttributesEx": 0,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_shadow_and_flame,
+                "CastingTimeIndex": cast_instant, "DurationIndex": idx["dur"][10000],
+                "RangeIndex": range_self, "SchoolMask": 4, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": 6, "EffectAura_1": 79,
+                "EffectBasePoints_1": 10, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 36, "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Lake of Fire: la pasiva añade 8 s de enfriamiento (SpellModOp 11) a Lluvia de Fuego.
+           # SoD también la deja sin canalizar con el aura moderna 332, que no existe en 3.3.5a;
+           # quitar el canal exige cambiar el DBC del hechizo base y no se puede desde un módulo.
+            "id": 403666, "client": True, "template": 774,
+            "skill_line": SKILL_DESTRUCTION,
+            "name": "Lake of Fire", "inherit_server": True,
+            "desc": "Your Rain of Fire is no longer channeled, but gains a 8 sec cooldown.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_rain_of_fire,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 4, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # Aura 107 (plano) + SpellModOp 11 (enfriamiento), +8000 ms sobre Lluvia de Fuego
+                # (máscara 0x20). Sumar enfriamiento es un valor plano, no porcentual.
+                "Effect_1": 6, "EffectAura_1": 107,
+                "EffectBasePoints_1": 8000, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 11, "EffectSpellClassMaskA_1": 32,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # Aura 4 dummy: mantiene el 8 en el tooltip ($s5).
+                "Effect_2": 6, "EffectAura_2": 4,
+                "EffectBasePoints_2": 8, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Master Channeler: la pasiva encarece Drenar vida un 100 % (SpellModOp 14) y el script
+           # C++ propio añade el 50 % de sanación por tick. La conversión de canal a duración no
+           # se implementa (ver TODO.md).
+            "id": 403668, "client": True, "template": 774,
+            "skill_line": SKILL_AFFLICTION,
+            "name": "Master Channeler", "inherit_server": True,
+            "desc": "Your Drain Life is no longer channeled, lasts with a cooldown, costs 100% more mana, and heals you for 50% more each time it deals damage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_life_drain,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # Aura 108 + SpellModOp 14 (coste en %), +100 % a Drenar vida (0x8).
+                "Effect_1": 6, "EffectAura_1": 108,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 14, "EffectSpellClassMaskA_1": 8,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # Aura 4 dummy: mantiene el 50 % de sanación en el tooltip ($s1).
+                "Effect_2": 6, "EffectAura_2": 4,
+                "EffectBasePoints_2": 50, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Shadow Bolt Volley: dos SpellMods sobre Descarga de las Sombras: +5 objetivos en
+           # cadena (aura 107 + SpellModOp 17) y −30 % de daño (aura 108 + SpellModOp 0).
+            "id": 403628, "client": True, "template": 774,
+            "skill_line": SKILL_DESTRUCTION,
+            "name": "Shadow Bolt Volley", "inherit_server": True,
+            "desc": "Your Shadow Bolt now strikes up to $s1 targets within a chain distance of 10 yards, but for $s3% reduced damage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 5, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_shadow_bolt,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 32, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                # Aura 107 (plano) + SpellModOp 17 (objetivos de cadena), +5 sobre Descarga (0x1).
+                "Effect_1": 6, "EffectAura_1": 107,
+                "EffectBasePoints_1": 5, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 17, "EffectSpellClassMaskA_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                # Aura 108 (porcentaje) + SpellModOp 0 (daño), −30 % sobre Descarga (0x1).
+                "Effect_2": 6, "EffectAura_2": 108,
+                "EffectBasePoints_2": -30, "EffectDieSides_2": 0,
+                "EffectMiscValue_2": 0, "EffectSpellClassMaskA_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
     ]

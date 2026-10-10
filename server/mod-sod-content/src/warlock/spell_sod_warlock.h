@@ -4,6 +4,9 @@
 #define MODULE_SOD_WARLOCK_H
 
 #include "Config.h"
+#include "ScriptMgr.h"
+#include "SpellAuraEffects.h"
+#include "SpellScript.h"
 
 enum SodWarlockSpells
 {
@@ -23,7 +26,24 @@ enum SodWarlockSpells
     SPELL_SOD_WARLOCK_EVERLASTING_AFFLICTION_TRIGGER = 412698,
     SPELL_SOD_WARLOCK_DEMONIC_KNOWLEDGE = 412732,
     SPELL_SOD_WARLOCK_DEMONIC_KNOWLEDGE_PET_AURA = 900048,
+    // Tercera tanda (fase 3): Soul Siphon, Shadow and Flame, Lake of Fire, Master Channeler y
+    // Shadow Bolt Volley. Sólo Soul Siphon y Master Channeler necesitan C++ propio; las otras
+    // tres son datos (procs y SpellMods sobre hechizos de WotLK).
+    SPELL_SOD_WARLOCK_SOUL_SIPHON = 403511,
+    SPELL_SOD_WARLOCK_SHADOW_AND_FLAME = 426316,
+    SPELL_SOD_WARLOCK_SHADOW_AND_FLAME_BUFF = 426311,
+    SPELL_SOD_WARLOCK_LAKE_OF_FIRE = 403666,
+    SPELL_SOD_WARLOCK_MASTER_CHANNELER = 403668,
+    SPELL_SOD_WARLOCK_SHADOW_BOLT_VOLLEY = 403628,
+    // Hechizos nativos de WotLK que usan los scripts de esta tanda.
+    SPELL_WARLOCK_DRAIN_SOUL = 1120,
+    SPELL_WARLOCK_DRAIN_LIFE = 689,
+    SPELL_WARLOCK_NIGHTFALL = 18094,
+    SPELL_WARLOCK_SHADOW_TRANCE = 17941,
 };
+
+void AddSC_sod_warlock_soul_siphon();
+void AddSC_sod_warlock_master_channeler();
 
 inline bool SodWarlockEnabled()
 {

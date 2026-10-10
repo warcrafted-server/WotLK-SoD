@@ -50,6 +50,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-warlock'', 1),
     (7008013, 412732, 256, 512, ''Demonic Knowledge'', ''spell_shadow_improvedvampiricembrace'',
      ''Increases your spell damage and healing by 3% of your demon pet total Stamina plus Intellect.'',
+     ''mod-sod-warlock'', 1),
+    (7008014, 403511, 256, 8, ''Soul Siphon'', ''spell_shadow_lifedrain02'',
+     ''Drain Soul deals damage 3 times faster and drains 6% more per Warlock Shadow effect on the target, up to 18%. Drain Soul can now trigger Nightfall.'',
+     ''mod-sod-warlock'', 1),
+    (7008015, 426316, 256, 128, ''Shadow and Flame'', ''spell_shadow_shadowandflame'',
+     ''Your critical strikes with Fire and Shadow spells increase your Fire and Shadow damage done by 10% for 10 sec.'',
+     ''mod-sod-warlock'', 1),
+    (7008016, 403666, 256, 16, ''Lake of Fire'', ''spell_shadow_rainoffire'',
+     ''Your Rain of Fire is no longer channeled, but gains a 8 sec cooldown.'',
+     ''mod-sod-warlock'', 1),
+    (7008017, 403668, 256, 16, ''Master Channeler'', ''spell_shadow_lifedrain02'',
+     ''Your Drain Life is no longer channeled, costs 100% more mana, and heals you for 50% more each time it deals damage.'',
+     ''mod-sod-warlock'', 1),
+    (7008018, 403628, 256, 64, ''Shadow Bolt Volley'', ''spell_shadow_shadowbolt'',
+     ''Your Shadow Bolt now strikes up to 5 targets within a chain distance of 10 yards, but for 30% reduced damage.'',
      ''mod-sod-warlock'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -75,6 +90,13 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (440870, 'spell_warl_decimation'),
     (412698, 'spell_warl_everlasting_affliction'),
     (900048, 'spell_warl_demonic_knowledge');
+
+-- Scripts propios de la fase 3 sobre hechizos de WotLK (ids negativos = todos los rangos).
+-- Soul Siphon engancha Drenar alma para que pueda activar Ocaso; Master Channeler engancha
+-- Drenar vida para añadir el 50 % de sanación por tick.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-1120, 'spell_sod_warlock_soul_siphon'),
+    (-689, 'spell_sod_warlock_master_channeler');
 
 -- Auras que el familiar hereda al invocarse (spell_pet_auras es tabla base del core, no la
 -- genera el emisor): 54909 es el aura nativa que dispara Pacto demoníaco desde el familiar, y

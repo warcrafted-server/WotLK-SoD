@@ -87,6 +87,8 @@ void AddSC_sod_shaman_overcharged();
 void AddSC_sod_shaman_rolling_thunder();
 void AddSC_sod_shaman_static_shock();
 void AddSC_sod_shaman_storm_earth_fire();
+void AddSC_sod_warlock_soul_siphon();
+void AddSC_sod_warlock_master_channeler();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -162,6 +164,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_shaman_rolling_thunder();
     AddSC_sod_shaman_static_shock();
     AddSC_sod_shaman_storm_earth_fire();
+
+    AddSC_sod_warlock_soul_siphon();
+    AddSC_sod_warlock_master_channeler();
 
     AddSC_sod_paladin_art_of_war();
     AddSC_sod_paladin_righteous_vengeance();

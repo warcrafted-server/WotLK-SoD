@@ -55,6 +55,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Everlasting Affliction `7008012`, Piernas (8): comprobar que Drenar vida, Drenar alma, Descarga de las Sombras, Incinerar y Poseer devuelven Corrupción a su duración máxima. Diferencia: SoD incluye además Cuchilla de las Sombras y Dolor abrasador, que no existen en 3.3.5a.
 - [ ] Demonic Knowledge `7008013`, Pies (9): comprobar que el daño y la sanación con hechizos suben un 3 % del aguante más intelecto totales de la mascota demoníaca. Diferencia: usa el aura de mascota 900048 al 3 % en vez de la nativa 35696 (12 %).
 - [ ] Comprobar nombres e iconos en español de estas cinco runas y que el Grabador las venda por 1 oro. La fuente de adquisición de SoD no está verificada.
+- [ ] Soul Siphon `7008014`, Espalda (3): comprobar que Drenar alma inflige daño 3 veces más rápido (tick de 1 s) y que drena un 6 % más por cada efecto de las Sombras tuyo en el objetivo, hasta un máximo del 18 %. Diferencia conocida: el ramal de SoD «por debajo del 20 % de salud» (50 % por efecto hasta 150 %) no se implementa (ver `TODO.md`). Con el talento Ocaso aprendido, comprobar que Drenar alma puede aplicarte Trance de las Sombras.
+- [ ] Shadow and Flame `7008015`, Cintura (7): provocar críticos con hechizos de Fuego y de las Sombras y comprobar que el daño de ambas escuelas sube un 10 % durante 10 s. Diferencia conocida: la fila `spell_proc` proca con cualquier hechizo de brujo, no solo de Fuego/Sombras, porque 3.3.5a no ofrece ese par de escuelas exacto (ver `TODO.md`).
+- [ ] Lake of Fire `7008016`, Pecho (4): comprobar que Lluvia de fuego gana 8 s de tiempo de reutilización. Diferencia conocida: sigue canalizándose; quitar el canal exige cambiar el DBC del hechizo base y no se puede desde un módulo (ver `TODO.md`).
+- [ ] Master Channeler `7008017`, Pecho (4): comprobar que Drenar vida cuesta un 100 % más de maná y que te sana un 50 % más por tick. Diferencia conocida: sigue canalizándose y no cambia su duración ni su reutilización (ver `TODO.md`).
+- [ ] Shadow Bolt Volley `7008018`, Manos (6): comprobar que Descarga de las Sombras golpea hasta 5 objetivos en cadena dentro de 10 m con un 30 % menos de daño. Verificar que el SpellMod de objetivos en cadena surte efecto sobre un hechizo que en WotLK no es encadenado.
+- [ ] Estas cinco runas nuevas sí necesitan recompilar el módulo: Soul Siphon y Master Channeler añaden scripts C++ propios (`spell_sod_warlock_soul_siphon`, `spell_sod_warlock_master_channeler`).
 
 ### Chamán (runas nuevas; sin compilar ni probar)
 

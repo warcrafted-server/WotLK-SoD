@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-10
 
+- Brujo: runas Soul Siphon `7008014`, Shadow and Flame `7008015`, Lake of Fire `7008016`, Master Channeler `7008017` y Shadow Bolt Volley `7008018` (paso 3, hecho por DeepSeek en ~15 min). Lake of Fire y Master Channeler son parciales (el aura 332 que quita el canal no existe en 3.3.5a); Soul Siphon sin el ramal bajo el 20 % de vida. Sin compilar ni probar.
 - Herramientas nuevas: `tools/sod-data/revisar_runas.py` (revisión automática de las runas de una clase) y `tools/sod-data/regenerar_sql_hechizos.sh` (regenera el SQL de hechizos sin tocar `acore-test`).
 - Corregido con el revisor: **Living Seed del druida no hacía nada** (le faltaban el script `spell_dru_living_seed` y su `spell_proc`, ligados al id de WotLK); **Earth Shield del chamán** curaba sin el enfriamiento de 3,5 s del core; el beneficio de **Backdraft** del brujo no copiaba su regla de consumo de cargas; iconos inexistentes en la tabla de runas del druida (Sunfire, Fury of Stormrage, Starfall); familia de dos auxiliares del paladín.
 

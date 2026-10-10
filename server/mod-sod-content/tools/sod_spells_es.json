@@ -594,5 +594,30 @@
     "name": "Protección maleable",
     "desc": "Ahora puedes actuar durante Protección divina y su duración aumenta un 50%, pero solo reduce un 50% el daño que recibes en lugar de volverte inmune. Además, activar Escudo sagrado también te otorga 4 p. de poder de ataque por cada punto de habilidad de defensa que supere 5 veces tu nivel durante 15 s.",
     "aura_desc": "Protección divina dura un 50% más. Escudo sagrado otorga poder de ataque según tu habilidad de defensa."
+  },
+  "403511": {
+    "name": "Succión de alma",
+    "desc": "Hace que Drenar alma inflija daño 3 veces más rápido y aumenta lo drenado por Drenar vida y Drenar alma un 6% adicional por cada efecto de las Sombras tuyo que sufra el objetivo, hasta un máximo del 18% adicional. Además, Drenar alma ahora puede activar tu talento Ocaso."
+  },
+  "426316": {
+    "name": "Sombras y llamas",
+    "desc": "Tus golpes críticos con hechizos de Fuego y de las Sombras aumentan el daño de Fuego y de las Sombras que infliges un $426311s1% durante $426311d."
+  },
+  "426311": {
+    "name": "Sombras y llamas",
+    "desc": "Aumenta todo el daño de Fuego y de las Sombras infligido un $s1%.",
+    "aura_desc": "Aumenta todo el daño de Fuego y de las Sombras infligido un $s1%."
+  },
+  "403666": {
+    "name": "Lago de fuego",
+    "desc": "Lluvia de fuego ya no se canaliza, pero gana 8 s de tiempo de reutilización."
+  },
+  "403668": {
+    "name": "Maestro canalizador",
+    "desc": "Drenar vida ya no se canaliza, cuesta un 100% más de maná y te sana un 50% más cada vez que inflige daño."
+  },
+  "403628": {
+    "name": "Salva de descarga de las Sombras",
+    "desc": "Tu Descarga de las Sombras ahora golpea hasta $s1 objetivos dentro de una distancia de cadena de 10 metros, pero inflige un $s3% menos de daño."
   }
 }
