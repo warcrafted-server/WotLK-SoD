@@ -27,6 +27,8 @@ def build(idx):
     icon_survival = idx["icon"]["spell_nature_spiritwolf"]
     icon_mangle = idx["icon"]["ability_druid_mangle2"]
     icon_question = idx["icon"]["inv_misc_questionmark"]
+    icon_ravage = idx["icon"]["ability_druid_ravage"]
+    icon_dreamstate = idx["icon"]["ability_druid_dreamstate"]
     icon_windfury = idx["icon"]["spell_nature_windfury"]
     icon_tigers_fury = idx["icon"]["ability_mount_jungletiger"]
     icon_skull_bash = idx["icon"]["spell_druid_feralchargecat"]
@@ -194,7 +196,7 @@ def build(idx):
                 "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
                 "RangeIndex": idx["range"][0.0], "PowerType": 0,
                 "ManaCost": 0, "ManaCostPct": 0, "SchoolMask": 1,
-                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellIconID": icon_ravage, "EquippedItemClass": -1,
                 "SpellLevel": 0, "SpellClassSet": 7,
                 "SpellClassMask_1": 0x8800, "SpellClassMask_2": 0x00100540,
                 "SpellClassMask_3": 0x00000800,
@@ -683,7 +685,7 @@ def build(idx):
                 "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": 64,
-                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellIconID": icon_dreamstate, "EquippedItemClass": -1,
                 "SpellLevel": 0, "SpellClassSet": 7,
                 "ProcTypeMask": 0x00010000, "ProcChance": 100,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PROC_TRIGGER_SPELL,
@@ -710,7 +712,7 @@ def build(idx):
                 "Attributes": 0, "CastingTimeIndex": cast_instant,
                 "DurationIndex": idx["dur"][8000], "RangeIndex": range_self,
                 "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
-                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellIconID": icon_dreamstate, "EquippedItemClass": -1,
                 "SpellLevel": 0,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 134,
                 "EffectBasePoints_1": 49, "EffectMiscValue_1": 0,
@@ -727,7 +729,7 @@ def build(idx):
                 "Attributes": 0, "CastingTimeIndex": cast_instant,
                 "DurationIndex": idx["dur"][12000], "RangeIndex": range_100,
                 "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
-                "SpellIconID": icon_question, "EquippedItemClass": -1,
+                "SpellIconID": icon_dreamstate, "EquippedItemClass": -1,
                 "SpellLevel": 0,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 87,
                 "EffectBasePoints_1": 19, "EffectMiscValue_1": 64,
