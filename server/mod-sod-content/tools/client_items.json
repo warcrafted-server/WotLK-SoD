@@ -1208,5 +1208,295 @@
     "display": 1102,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 204441,
+    "name": "Rune of Blood Frenzy",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 204703,
+    "name": "Rune of Devastate",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 204716,
+    "name": "Rune of Frenzied Assault",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 204806,
+    "name": "Rune of Victory Rush",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 204809,
+    "name": "Rune of Furious Thunder",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208741,
+    "name": "Rune of Endless Rage",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208778,
+    "name": "Rune of Quick Strike",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210015,
+    "name": "Rune of Raging Blow",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210569,
+    "name": "Rune of Flagellation",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210573,
+    "name": "Rune of Consuming Rage",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210825,
+    "name": "Rune of the Warbringer",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211393,
+    "name": "Rune of Single-Minded Fury",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 212562,
+    "name": "Rune of Healing Rage",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213103,
+    "name": "Rune of Blood Surge",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213104,
+    "name": "Rune of Ruthless Precision",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213110,
+    "name": "Rune of the Commander",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213111,
+    "name": "Rune of Intervention",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 216746,
+    "name": "Handbook of Commanding Shout",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220164,
+    "name": "Rune of the Gladiator",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220682,
+    "name": "Rune of the Unbridled",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 220913,
+    "name": "Rune of Demolition",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221267,
+    "name": "Rune of the Bloodthirsty",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221473,
+    "name": "Rune of the Watchman",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221510,
+    "name": "Rune of the Knight",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221511,
+    "name": "Rune of the Protector",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 226403,
+    "name": "Handbook of Meathook",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 226678,
+    "name": "Premonition and Combat Foresight",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 226679,
+    "name": "Timeless Wanderer's Insights",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 226680,
+    "name": "Rune of the First Warrior",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
   }
 ]

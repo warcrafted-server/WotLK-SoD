@@ -171,6 +171,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Shockwave `7001029`, Espalda (8): activa (15 de ira, 20 s de enfriamiento); cono frontal que aturde 4 s y hace daño igual al 50 % del poder de ataque. Diferencia conocida: clon del talento de WotLK 46968; el daño del 50 % del poder de ataque lo añade el script `spell_sod_warrior_shockwave` porque el core solo aplica ese coeficiente al id 46968 exacto. Conserva el requisito de actitud defensiva del talento.
 - [ ] Sudden Death `7001030`, Espalda (8): pasiva; los golpes cuerpo a cuerpo tienen un 10 % de probabilidad de conceder Muerte súbita, que permite usar Ejecutar con independencia de la salud del objetivo y conserva 10 de ira tras usarla durante 10 s. Sin C++ propio: el aura 42 dispara el beneficio 440114 (clon de WotLK 52437) y el script de Ejecutar del core lee la pasiva genérica para retener la ira.
 - [ ] La sexta tanda de runas de guerrero necesita recompilar el módulo: Wrecking Crew, Fresh Meat y Shockwave añaden los scripts C++ `spell_sod_warrior_wrecking_crew`, `spell_sod_warrior_fresh_meat` y `spell_sod_warrior_shockwave`; Sudden Death no añade C++ propio.
+- [ ] Adquisición del guerrero: las 29 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para esta clase en 31 criaturas (ver `docs/runas/obtencion.md`).
 
 ### Druida feral
 
