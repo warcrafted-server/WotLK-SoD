@@ -636,7 +636,7 @@ def build(idx):
         },
         {  # The proc buff makes Healing Touch instant, form-independent, and one-use.
             "id": 900017, "client": True, "template": 774,
-            "name": "Fury of Stormrage",
+            "name": "Fury of Stormrage", "script": "spell_sod_druid_fury_of_stormrage_buff",
             "desc": "Your next Healing Touch is instant and can be cast in any shapeshift form.",
             "aura_desc": "Your next Healing Touch is instant and can be cast in any shapeshift form.",
             "overrides": {

@@ -400,6 +400,7 @@ REPLACE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 (414677,'spell_dru_living_seed'),
 (417135,'spell_sod_druid_gale_winds'),
 (414799,'spell_sod_druid_fury_of_stormrage'),
+(900017,'spell_sod_druid_fury_of_stormrage_buff'),
 (408258,'spell_sod_druid_dreamstate'),
 (439733,'spell_sod_druid_tree_of_life'),
 (900020,'spell_sod_druid_tree_of_life_benefits'),
