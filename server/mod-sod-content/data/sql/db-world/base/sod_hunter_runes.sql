@@ -65,6 +65,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-hunter'', 1),
     (7003018, 409541, 4, 512, ''Trap Launcher'', ''spell_frost_stun'',
      ''Your Freezing, Immolation, and Explosive Traps can now be placed at any location within the range of Trap Launcher. Additionally, your Fire-based and Frost-based traps now have separate shared cooldowns.'',
+     ''mod-sod-hunter'', 1),
+    (7003019, 458479, 4, 512, ''Wyvern Strike'', ''ability_hunter_swiftstrike'',
+     ''Replaces Wyvern Sting with Wyvern Strike, a vicious strike that deals weapon damage and causes the target to bleed over time. Requires the Wyvern Sting talent.'',
+     ''mod-sod-hunter'', 1),
+    (7003020, 415428, 4, 1, ''Catlike Reflexes'', ''ability_hunter_beastmastery'',
+     ''Increases your chance to dodge by 20% and your pet's chance to dodge by 9%. In addition, reduces the cooldown of Flanking Strike by 50%.'',
+     ''mod-sod-hunter'', 1),
+    (7003021, 415413, 4, 1, ''Lock and Load'', ''ability_hunter_mastermarksman'',
+     ''Each time you place a trap, your next Shot ability except Scatter Shot costs no mana and does not incur a cooldown.'',
+     ''mod-sod-hunter'', 1),
+    (7003022, 415405, 4, 1, ''Rapid Killing'', ''ability_hunter_assassinate2'',
+     ''Reduces the cooldown on Rapid Fire by 80%. Rapid Fire grants 20% increased melee attack speed, and your next Shot after killing a target worth experience or honor deals 40% increased damage.'',
+     ''mod-sod-hunter'', 1),
+    (7003023, 428726, 4, 32, ''Focus Fire'', ''ability_hunter_beastmastery'',
+     ''Consumes all applications of Frenzy from your pet, increasing your ranged attack speed by 3% and granting your pet 4 Focus per application. Lasts 20 sec. Your pet gains Frenzy each time it uses a Basic Attack.'',
      ''mod-sod-hunter'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -117,3 +132,17 @@ INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 DELETE FROM `spell_pet_auras` WHERE `spell` IN (409368);
 INSERT INTO `spell_pet_auras` (`spell`, `effectId`, `pet`, `aura`) VALUES
     (409368, 0, 0, 900056);
+
+-- Reflejos felinos mejora la esquiva del familiar; Enfocar fuego le da el proc de sus ataques básicos.
+DELETE FROM `spell_pet_auras` WHERE `spell` IN (415428, 428726);
+INSERT INTO `spell_pet_auras` (`spell`, `effectId`, `pet`, `aura`) VALUES
+    (415428, 0, 0, 900061),
+    (428726, 0, 0, 900063);
+
+-- Ganchos propios y nativo copiado para la cuarta tanda del cazador.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (458479, 'spell_sod_hunter_wyvern_strike'),
+    (415320, 'spell_sod_hunter_catlike_reflexes'),
+    (415413, 'spell_hun_lock_and_load'),
+    (900062, 'spell_sod_hunter_rapid_killing_rapid_fire_buff'),
+    (428726, 'spell_sod_hunter_focus_fire');

@@ -7,6 +7,7 @@ SKILL_BEAST_MASTERY = 50
 SKILL_SURVIVAL = 51
 SKILL_MARKSMANSHIP = 163
 EFFECT_WEAPON_PERCENT_DAMAGE = 31
+TARGET_UNIT_PET = 5
 
 
 def build(idx):
@@ -17,6 +18,7 @@ def build(idx):
     duration_10000 = idx["dur"][10000]
     range_self = idx["range"][0.0]
     range_35 = idx["range"][35.0]
+    range_100 = idx["range"][100.0]
     icon_master_marksman = idx["icon"]["ability_hunter_mastermarksman"]
     icon_beast_mastery = idx["icon"]["ability_hunter_beastmastery"]
     icon_cobra_strikes = idx["icon"]["ability_hunter_cobrastrikes"]
@@ -32,6 +34,7 @@ def build(idx):
     icon_melee_specialist = idx["icon"]["ability_hunter_swiftstrike"]
     icon_steady_shot = idx["icon"]["ability_hunter_steadyshot"]
     icon_dual_wield_specialization = idx["icon"]["ability_dualwield"]
+    duration_20000 = idx["dur"][20000]
 
     return [
         {  # Keep the WotLK script effect; apply Chimera Shot's SoD costs.
@@ -565,5 +568,226 @@ def build(idx):
             "name": "Trap Launcher", "inherit_server": True,
             "desc": "Your Freezing, Immolation, and Explosive Traps can now be placed at any location within the range of Trap Launcher. Additionally, your Fire-based and Frost-based traps now have separate shared cooldowns.",
             "overrides": {"SpellLevel": 0},
+        },
+        # --- Cuarta tanda (fase 1): Wyvern Strike, Catlike Reflexes, Lock and Load,
+        # Rapid Killing y Focus Fire. ---
+        {  # Golpe de dracoleón conserva el guion nativo de Picadura de dracoleón y exige el talento.
+            "id": 458479, "client": True, "template": 19386,
+            "skill_line": SKILL_SURVIVAL,
+            "name": "Wyvern Strike", "script": "spell_hun_wyvern_sting",
+            "inherit_server": True,
+            "desc": "Replaces Wyvern Sting with Wyvern Strike, a vicious strike that deals weapon damage and causes the target to bleed over time. Requires the Wyvern Sting talent.",
+            "overrides": {"SpellLevel": 0},
+        },
+        {  # Reflejos felinos conserva el 20 % de esquiva; el aura 107 moderno del familiar
+           # se sustituye por el aura de esquiva 49 de WotLK aplicada mediante spell_pet_auras.
+            "id": 415428, "client": True, "template": 774,
+            "skill_line": SKILL_BEAST_MASTERY,
+            "name": "Catlike Reflexes",
+            "desc": "Increases your chance to dodge by $s1% and your pet's chance to dodge by $s2%. In addition, reduces the cooldown of Flanking Strike by $s3%.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_beast_mastery,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 49,
+                "EffectBasePoints_1": 19, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 8, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": 108,
+                "EffectBasePoints_3": -50, "EffectDieSides_3": 0,
+                "EffectMiscValue_3": 11,
+                "EffectSpellClassMaskA_3": 0,
+                "EffectSpellClassMaskB_3": 2048,
+                "EffectSpellClassMaskC_3": 2097152,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Auxiliar de Reflejos felinos para que la mascota use el aura de esquiva de WotLK.
+            "id": 900061, "client": False, "template": 774,
+            "name": "Catlike Reflexes Pet Dodge",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 49,
+                "EffectBasePoints_1": 8, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Bloquear y cargar reutiliza la proc, el script y el beneficio nativos de WotLK.
+            "id": 415413, "client": True, "template": 56342,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Lock and Load", "script": "spell_hun_lock_and_load",
+            "inherit_server": True,
+            "desc": "Each time you place a trap, your next Shot ability except Scatter Shot costs no mana and does not incur a cooldown.",
+            "overrides": {"SpellLevel": 0, "SpellIconID": icon_steady_shot},
+            # Copia de spell_proc -56342; la plantilla clonada no hereda esta fila.
+            "proc": {
+                "SchoolMask": 0,
+                "SpellFamilyName": 9,
+                "SpellFamilyMask0": 24, "SpellFamilyMask1": 134217728,
+                "SpellFamilyMask2": 147456,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 6,
+                "HitMask": 0, "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 22000, "Charges": 0,
+            },
+        },
+        {  # Matanza rápida reutiliza el aura de enfriamiento de hechizo 108 sobre Fuego rápido.
+            "id": 415405, "client": True, "template": 774,
+            "skill_line": SKILL_MARKSMANSHIP,
+            "name": "Rapid Killing",
+            "desc": "Reduces the cooldown on Rapid Fire by $s1%, Rapid Fire grants $s3% increased melee attack speed, and your next Shot ability after killing a target worth experience or honor deals $415407s1% increased damage.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_kill_shot,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 108,
+                "EffectBasePoints_1": -80, "EffectDieSides_1": 0,
+                "EffectMiscValue_1": 11,
+                "EffectSpellClassMaskA_1": 32,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 19, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_DUMMY,
+                "EffectBasePoints_3": 19, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # Beneficio tras una muerte: parte del beneficio de Matanza rápida de WotLK y afecta
+           # a las mismas familias de disparos que Instrucción de francotirador, salvo Disparo de dispersión.
+            "id": 415407, "client": True, "template": 35099,
+            "name": "Rapid Killing",
+            "inherit_server": True,
+            "aura_desc": "Your next Shot ability deals $s1% increased damage.",
+            "overrides": {
+                "SpellClassSet": 9,
+                "SpellClassMask_1": 0x21A00,
+                "SpellClassMask_2": 0x80820001,
+                "SpellClassMask_3": 0x8341,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_DAMAGE_PERCENT_DONE,
+                "EffectBasePoints_1": 39, "EffectDieSides_1": 1,
+                "EffectMiscValue_1": 127,
+                "EffectSpellClassMaskA_1": 0x21A00,
+                "EffectSpellClassMaskB_1": 0x80820001,
+                "EffectSpellClassMaskC_1": 0x8341,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Beneficio temporal de velocidad cuerpo a cuerpo mientras Fuego rápido siga activo.
+            "id": 900062, "client": True, "template": 774,
+            "name": "Rapid Killing Rapid Fire Haste",
+            "script": "spell_sod_hunter_rapid_killing_rapid_fire_buff",
+            "aura_desc": "Melee attack speed increased by $s1% while Rapid Fire is active.",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 138,
+                "EffectBasePoints_1": 19, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_PERIODIC_DUMMY,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectAuraPeriod_2": 1000, "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Enfocar fuego consume las acumulaciones de Frenesí de la mascota mediante C++.
+            "id": 428726, "client": True, "template": 774,
+            "skill_line": SKILL_BEAST_MASTERY,
+            "name": "Focus Fire", "script": "spell_sod_hunter_focus_fire",
+            "desc": "Consumes all applications of Frenzy from your pet, increasing your ranged attack speed by $s1% and granting $s2 Focus to your pet for each application consumed. Lasts $d. Your pet gains Frenzy each time it uses a Basic Attack.",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_beast_mastery,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_20000,
+                "RangeIndex": range_100, "SchoolMask": 1, "SpellLevel": 0,
+                "EquippedItemClass": -1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_DUMMY, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 2, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_DUMMY, "EffectAura_2": 0,
+                "EffectBasePoints_2": 3, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_PET,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Pasiva de la mascota: cada ataque automático añade una acumulación de Frenesí.
+            "id": 900063, "client": False, "template": 774,
+            "name": "Focus Fire Pet Frenzy Proc",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_perm, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 42,
+                "EffectTriggerSpell_1": 900064,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0,
+                "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 4, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 100, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Acumulaciones del familiar. El máximo se fija a tres; el valor de 428728 no está
+           # disponible en los datos locales y la celeridad del familiar queda documentada en TODO.md.
+            "id": 900064, "client": False, "template": 774,
+            "name": "Focus Fire Pet Frenzy",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_20000, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0, "CumulativeAura": 3,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Mejora de velocidad a distancia escalada por el número de acumulaciones consumidas.
+            "id": 900065, "client": True, "template": 774,
+            "name": "Focus Fire",
+            "aura_desc": "Ranged attack speed increased by $s1%.",
+            "overrides": {
+                "SpellClassSet": 9, "SpellClassMask_1": 0,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "DurationIndex": duration_20000, "RangeIndex": range_self,
+                "SchoolMask": 1, "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellLevel": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": 140,
+                "EffectBasePoints_1": 2, "EffectDieSides_1": 1,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
         },
     ]

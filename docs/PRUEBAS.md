@@ -196,6 +196,13 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Dual Wield Specialization `7003017`, Pies (9): con un arma en la mano izquierda, comprobar el +60 % de daño de esa mano y que Golpe de raptor también realiza un ataque con ella. Comprobar que no ocurre sin arma secundaria.
 - [ ] Trap Launcher `7003018`, Pies (9): comprobar el uso de Trampa congelante, Trampa de inmolación y Trampa explosiva a distancia. El alcance del clon no está verificado; la separación de enfriamientos compartidos de trampas de Fuego y Escarcha queda pendiente.
 - [ ] Confirmar los textos esES y los iconos de `7003014–7003018` y que la compra provisional al Grabador las desbloquea.
+- [ ] Cuarta tanda `7003019–7003023` (fase 1): regenerar el SQL de hechizos y el parche de cliente, recompilar el módulo y comprar provisionalmente las runas al Grabador por 1 oro. Este código aún no está compilado ni probado.
+- [ ] Wyvern Strike `7003019`, Pies (10): comprobar que exige el talento Picadura de dracoleón. Limitación conocida: por ahora es un clon de Picadura de dracoleón de WotLK; conserva el sueño y el daño periódico nativos, y no implementa el golpe con arma, el sangrado ni el reemplazo de la facultad en el libro de hechizos.
+- [ ] Catlike Reflexes `7003020`, Cabeza (1): comprobar +20 % de esquiva para el cazador, +9 % para la mascota y que Golpe de flanco se reutiliza con la mitad del tiempo restante. Los iconos del cliente aún no se han comprobado visualmente.
+- [ ] Lock and Load `7003021`, Cabeza (1): colocar una trampa y comprobar que el beneficio nativo permite lanzar el siguiente disparo sin maná y sin reutilización. Limitación conocida: el proc de WotLK se activa al detonarse la trampa y su script solo reconoce su conjunto nativo de disparos.
+- [ ] Rapid Killing `7003022`, Cabeza (1): comprobar la reducción del 80 % de Fuego rápido, el +20 % de velocidad de ataque cuerpo a cuerpo mientras dura y el +40 % de daño del siguiente disparo tras una muerte que otorgue experiencia u honor. La máscara de disparos reutiliza la de Instrucción de francotirador, excluyendo Disparo de dispersión; el hook JcJ no verifica si esa muerte otorgó honor.
+- [ ] Focus Fire `7003023`, Muñecas (5): hacer que la mascota acumule Frenesí con ataques básicos y comprobar que la facultad lo consume, otorga 3 % de velocidad de ataque a distancia durante 20 s y 4 p. de enfoque por acumulación. La mascota aún no recibe la celeridad cuerpo a cuerpo de Frenesí; el límite de tres acumulaciones y su duración de 20 s son provisionales porque el hechizo auxiliar 428728 no está en los datos locales.
+- [ ] Confirmar los textos esES, los iconos de `7003019–7003023` y que la compra provisional al Grabador las desbloquea.
 
 ### Druida feral
 

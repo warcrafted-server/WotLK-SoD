@@ -898,5 +898,37 @@
   "409541": {
     "name": "Lanzador de trampas",
     "desc": "Ahora puedes colocar tus trampas congelantes, de inmolación y explosivas en cualquier ubicación dentro del alcance del Lanzador de trampas. Además, tus trampas de Fuego y de Escarcha comparten tiempos de reutilización distintos."
+  },
+  "458479": {
+    "name": "Golpe de dracoleón",
+    "desc": "Reemplaza Picadura de dracoleón con Golpe de dracoleón, un golpe feroz que inflige daño con arma y hace que el objetivo sangre y reciba daño en el tiempo. Requiere el talento Picadura de dracoleón."
+  },
+  "415428": {
+    "name": "Reflejos felinos",
+    "desc": "Aumenta un $s1% tu probabilidad de esquivar y un $s2% la de tu mascota. Además, reduce un $s3% el tiempo de reutilización de Golpe de flanco."
+  },
+  "415413": {
+    "name": "Bloquear y cargar",
+    "desc": "Cada vez que colocas una trampa, tu siguiente facultad de Disparo, excepto Disparo de dispersión, no cuesta maná ni tiene tiempo de reutilización."
+  },
+  "415405": {
+    "name": "Matanza rápida",
+    "desc": "Reduce un $s1% el tiempo de reutilización de Fuego rápido. Fuego rápido otorga un $s3% más de velocidad de ataque cuerpo a cuerpo, y tu siguiente facultad de Disparo después de matar a un objetivo que otorgue experiencia u honor inflige un $415407s1% más de daño."
+  },
+  "415407": {
+    "name": "Matanza rápida",
+    "aura_desc": "Tu siguiente facultad de Disparo inflige un $s1% más de daño."
+  },
+  "428726": {
+    "name": "Enfocar fuego",
+    "desc": "Consume todas las acumulaciones de Frenesí de tu mascota, lo que aumenta un $s1% tu velocidad de ataque a distancia y le otorga a tu mascota $s2 p. de enfoque por acumulación. Dura $d. Tu mascota obtiene Frenesí cada vez que realiza un ataque básico."
+  },
+  "900062": {
+    "name": "Matanza rápida",
+    "aura_desc": "La velocidad de ataque cuerpo a cuerpo aumenta un $s1% mientras Fuego rápido está activo."
+  },
+  "900065": {
+    "name": "Enfocar fuego",
+    "aura_desc": "La velocidad de ataque a distancia aumenta un $s1%."
   }
 }

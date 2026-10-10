@@ -36,6 +36,21 @@ enum SodHunterSpells
     SPELL_SOD_HUNTER_STEADY_SHOT = 437123,
     SPELL_SOD_HUNTER_DUAL_WIELD_SPECIALIZATION = 409687,
     SPELL_SOD_HUNTER_TRAP_LAUNCHER = 409541,
+    SPELL_SOD_HUNTER_WYVERN_STRIKE = 458479,
+    SPELL_SOD_HUNTER_CATLIKE_REFLEXES = 415428,
+    SPELL_SOD_HUNTER_CATLIKE_REFLEXES_PET_DODGE = 900061,
+    SPELL_SOD_HUNTER_LOCK_AND_LOAD = 415413,
+    SPELL_SOD_HUNTER_RAPID_KILLING = 415405,
+    SPELL_SOD_HUNTER_RAPID_KILLING_BUFF = 415407,
+    SPELL_SOD_HUNTER_RAPID_KILLING_RAPID_FIRE_HASTE = 900062,
+    SPELL_SOD_HUNTER_FOCUS_FIRE = 428726,
+    SPELL_SOD_HUNTER_FOCUS_FIRE_PET_AURA = 900063,
+    SPELL_SOD_HUNTER_FOCUS_FIRE_PET_FRENZY = 900064,
+    SPELL_SOD_HUNTER_FOCUS_FIRE_RANGED_HASTE = 900065,
+    SPELL_SOD_HUNTER_WYVERN_STING_R1 = 19386,
+    SPELL_SOD_HUNTER_RAPID_FIRE_R1 = 3045,
+    SPELL_SOD_HUNTER_LOCK_AND_LOAD_TRIGGER = 56453,
+    SPELL_SOD_HUNTER_LOCK_AND_LOAD_MARKER = 67544,
     // Hechizos nativos de WotLK que usan los scripts de estas runas.
     SPELL_SOD_HUNTER_GROWL = 2649,
     SPELL_SOD_HUNTER_TAUNT = 355,
@@ -55,6 +70,11 @@ void AddSC_sod_hunter_carve();
 void AddSC_sod_hunter_cobra_slayer();
 void AddSC_sod_hunter_melee_specialist();
 void AddSC_sod_hunter_dual_wield_specialization();
+void AddSC_sod_hunter_wyvern_strike();
+void AddSC_sod_hunter_catlike_reflexes();
+void AddSC_sod_hunter_lock_and_load();
+void AddSC_sod_hunter_rapid_killing();
+void AddSC_sod_hunter_focus_fire();
 
 inline bool SodHunterEnabled()
 {
