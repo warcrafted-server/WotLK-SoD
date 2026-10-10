@@ -1,0 +1,49 @@
+{
+ "objective": "Añadir 5 runas de pícaro de SoD: Shadowstrike (7004012), Poisoned Knife (7004013), Shadowstep (7004014), Shuriken Toss (7004015), Master of Subtlety (7004016).",
+ "effort": "high",
+ "context": "Proyecto: SoD sobre AzerothCore 3.3.5a (core propio en core/, NO el oficial: comprueba firmas allí). Del pícaro ya hay 1 runas en server/mod-sod-content/tools/sod_spells_rogue.py y data/sql/db-world/base/sod_rogue_runes.sql. Sigue EXACTAMENTE el patrón del chamán y del brujo, ya revisados: server/mod-sod-content/tools/sod_spells_shaman.py, sod_shaman_runes.sql, src/shaman/ (cabecera spell_sod_shaman.h con enum de ids y funciones SodShaman*, un .cpp por runa, registro en src/sod_content_loader.cpp, scripts sobre hechizos de WotLK vía spell_script_names con ids negativos para todos los rangos). Para el pícaro usa src/rogue/spell_sod_rogue.h (créala si no existe) y los .cpp en src/rogue/, con las funciones SodRogue*() y SodRogueEnabled() que leen 'SodRogue.Enable' (sección '# ROGUE' en conf/mod_sod_content.conf.dist, si no existe). Plan: .agents/plans/picaro/picaro.PLAN.md. Reglas aprendidas al revisar otras clases (cúmplelas): (a) slot_mask = 1<<ranura; class_mask del pícaro = 8. (b) Un clon hereda la familia (SpellClassSet) y las máscaras de su plantilla: si clonas un hechizo de otra clase o genérico (p. ej. Rejuvenecimiento 774), pon 'SpellClassSet': 8 y máscaras a 0 salvo que necesites otras. (c) El campo icon de la fila de rune_template debe ser un icono que EXISTA en el cliente 3.3.5a (minúsculas, como los de las plantillas WotLK); si dudas, usa el icono de la plantilla de WotLK. (d) Los tipos de aura válidos van de 0 a 316 (TOTAL_AURAS 317): el catálogo de SoD usa auras modernas (p. ej. 332, 561) que NO existen; sustitúyelas por script o por auras de 3.3.5a. (e) Comprueba que el hechizo de WotLK que enlaces o clones existe y hace lo que crees; si el comportamiento ya existe igual en WotLK, no lo dupliques. (f) Todo hechizo que un script lance (CastSpell/CastCustomSpell) debe estar definido en el spec o existir en WotLK. (g) Cada 'script' del spec debe tener su RegisterSpellScript; si enganchas un script a un hechizo de WotLK existente, añade la fila a spell_script_names con INSERT IGNORE en sod_rogue_runes.sql. (h) Hechizos auxiliares nuevos sin id de SoD: usa ids libres a partir de 900049 (el mayor 9000xx usado hoy es 900048; comprueba con grep antes de usar uno). (j) Los scripts del core y las filas de spell_proc van ligados al id de WotLK (a menudo negativo: todos los rangos): un clon con id nuevo NO los hereda; se te dan abajo los de las plantillas, cópialos con las claves 'script' y 'proc' del spec (ejemplos en sod_spells_shaman.py: Tidal Waves, Ancestral Awakening, Static Shock, Earth Shield). (k) Las claves de 'overrides' deben ser columnas reales de spell_dbc (lista en /home/stark/Repos/acore-test/data/sql/base/db_world/spell_dbc.sql): el generador descarta en silencio las que no lo son. Para acumulaciones usa 'CumulativeAura' (no 'StackAmount'), para objetivos 'MaxTargets', y los coeficientes de poder con hechizos van en la clave 'bonus' del spec ({'direct','dot','ap','ap_dot'}). (l) Si un clon de una plantilla con EffectDieSides 0 usa puntos base, el valor es la base exacta; con DieSides 1 es base+1. (m) No tienes acceso a MySQL ni a Wowhead desde tu entorno: no lo intentes; el orquestador ya verificó los ids que se te dan. (n) Nada de topes de nivel como constantes. Datos de SoD (build 1.15.9, docs/runas/catalogo-sod.json). Los nombres de WotLK vienen del Spell.dbc 3.3.5a del servidor.\nRunas de esta tarea:\n- Shadowstrike (rune_id 7004012, hechizo SoD 399985, Manos, slot_mask 64): 'Teleport behind your target and strike, causing $s3% weapon damage to the target.  Must be stealthed.  Awards $s4 combo $lpoint:points;.' Efectos del catálogo (efecto, aura, puntos base, disparo, misc): [(252, 0, 0, 0, 0), (121, 0, 0, 0, 0), (31, 0, 150, 0, 0), (328, 0, 0, 0, 0)]; enfriamiento 0 ms, coste 0 %, duración None ms, probabilidad de proc None.\n- Poisoned Knife (rune_id 7004013, hechizo SoD 425012, Cintura, slot_mask 128): 'Instantly throw your off-hand weapon to deal normal off-hand weapon damage with a 100% chance to apply the poison from your off-hand weapon to the target. Awards $s2 combo $lpoint:points;. Refunds $s3 Energy per application of Deadly Poison on the target.  Poisoned Knife benefits from all talents and effects that trigger from or modify Sinister Strike. ' Efectos del catálogo (efecto, aura, puntos base, disparo, misc): [(3, 0, 0, 0, 0), (3, 0, 0, 0, 0), (3, 0, 5, 0, 0)]; enfriamiento 6000 ms, coste 0 %, duración None ms, probabilidad de proc None.\n- Shadowstep (rune_id 7004014, hechizo SoD 400029, Cintura, slot_mask 128): 'Attempts to step through the shadows and reappear behind your enemy and increases movement speed by $406722s1% for $406722d.' Efectos del catálogo (efecto, aura, puntos base, disparo, misc): [(64, 0, 0, 406754, 0), (64, 0, 0, 406722, 0)]; enfriamiento 30000 ms, coste None %, duración None ms, probabilidad de proc None. Equivalente en WotLK por nombre: Shadowstep 36554..44373 (talento).\n- Shuriken Toss (rune_id 7004015, hechizo SoD 399986, Cintura, slot_mask 128): 'Throw a shuriken at your enemy dealing damage equal to $s1% of your Attack Power, and also strike up to ${$x1-1} additional nearby targets. Awards $s2 combo $lpoint:points; per target hit. ' Efectos del catálogo (efecto, aura, puntos base, disparo, misc): [(2, 0, 50, 0, 0), (328, 0, 0, 0, 0)]; enfriamiento 20000 ms, coste 0 %, duración None ms, probabilidad de proc None.\n- Master of Subtlety (rune_id 7004016, hechizo SoD 425096, Pies, slot_mask 512): 'Attacks made while stealthed and for 6 seconds after breaking stealth cause an additional $s1% damage.' Efectos del catálogo (efecto, aura, puntos base, disparo, misc): [(6, 4, 10, 0, 0)]; enfriamiento None ms, coste None %, duración None ms, probabilidad de proc None. Equivalente en WotLK por nombre: Master of Subtlety 31223 (talento).\n\nHechizos de WotLK que nombran las descripciones (familia 8; cadena de rangos primero..último y máscara de familia): Sinister Strike 1752..48638 (instructor nivel 6) [máscara A0x800002]; Deadly Poison 2818..2823 [máscara A0x10000]; Poison 38615..38616; Throw 2764 [máscara A0x1]; Stealth 1785..1787 [máscara A0x400000].\nSCRIPTS Y SPELL_PROC DEL CORE consultados por el orquestador (los ligados a un id negativo valen para toda la cadena de rangos; cópialos en el spec con las claves script y proc cuando clones esa plantilla): spell_script_names: -2818 spell_rog_deadly_poison. spell_proc (SpellId, familia, máscaras 0/1/2, ProcFlags, SpellTypeMask, SpellPhaseMask, HitMask, AttributesMask, Chance, Cooldown, Charges): ninguno.\nTextos esES en tools/sod_spells_es.json (nombres oficiales en docs/runas/rogue.md). Filas nuevas en docs/runas/obtencion.md (adquisición provisional: compra en el Grabador). Casillas de prueba en docs/PRUEBAS.md, sección '### Pícaro' (créala antes de '### Druida feral' si no existe), con lo que debe comprobar el usuario y las diferencias conocidas. Simplificaciones: TODO.md, sección '## Pícaro' (créala antes de '## Otras clases'). Si una runa no se puede hacer sin parchear el core o sin un dato que no tienes, impleméntala hasta donde se pueda y documenta la parte que falta en TODO.md; no dejes la tarea a medias sin informar.",
+ "files": [
+  "server/mod-sod-content/tools/sod_spells_rogue.py",
+  "server/mod-sod-content/tools/sod_spells_es.json",
+  "server/mod-sod-content/data/sql/db-world/base/sod_rogue_runes.sql",
+  "server/mod-sod-content/src/rogue/spell_sod_rogue.h",
+  "server/mod-sod-content/src/rogue/",
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "server/mod-sod-content/conf/mod_sod_content.conf.dist",
+  "docs/runas/obtencion.md",
+  "docs/PRUEBAS.md",
+  "TODO.md"
+ ],
+ "constraints": [
+  "Informe, comentarios y documentación en castellano; identificadores en inglés.",
+  "No toques runas ya existentes ni otras clases.",
+  "Solo clang -fsyntax-only mediante tools/sod-data/check_syntax.py; nada de cmake ni make.",
+  "No parchees core/: si algo exige cambiar el core, documéntalo en TODO.md y en el informe.",
+  "No inventes valores: si no puedes verificar uno, usa el del catálogo y dilo en el informe.",
+  "Eres SOLO el ejecutor de esta tarea. Ignora las partes de AGENTS.md que describen al orquestador (ponerse al día, delegar, mantener ESTADO.md, hacer commits): no las sigas.",
+  "No ejecutes ningún comando de git que escriba (add, commit, stash, checkout, reset, push...). El orquestador hace los commits.",
+  "No crees carpetas en datos/parche-cliente ni archivos LISTO o PUBLICADO, no ejecutes nada del repositorio ~/Repos/launcher, ni tools/sod-client/build_patch.py ni tools/sod-data/regenerar_sql_hechizos.sh, y no edites sod_content_spell_dbc.sql: lo regenera el orquestador.",
+  "No edites CHANGELOG.md, docs/ESTADO.md, .agents/ ni AGENTS.md.",
+  "Antes de terminar ejecuta python3 tools/sod-data/revisar_runas.py rogue 8 --sin-mysql y corrige lo que señale en TUS runas (los avisos de runas anteriores no son tuyos); deja el resultado en el informe."
+ ],
+ "acceptanceCriteria": [
+  "Las runas 7004012-7004016 existen en sod_spells_rogue.py y sod_rogue_runes.sql con el slot_mask y el icono indicados.",
+  "Cada script C++ nuevo está declarado en spell_sod_rogue.h y registrado en sod_content_loader.cpp; ningún aura fuera de 0-316.",
+  "python3 tools/sod-data/check_syntax.py termina sin errores.",
+  "docs/runas/obtencion.md, docs/PRUEBAS.md y TODO.md actualizados."
+ ],
+ "validation": [
+  "python3 -c \"import ast; ast.parse(open('server/mod-sod-content/tools/sod_spells_rogue.py').read()); print('ok')\""
+ ],
+ "doNotModify": [
+  "core",
+  "upstream",
+  "datos",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "docs/ESTADO.md",
+  ".agents",
+  "tools/sod-client",
+  "server/mod-sod-content/data/sql/db-world/base/sod_content_spell_dbc.sql"
+ ]
+}
