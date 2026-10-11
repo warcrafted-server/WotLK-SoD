@@ -23,9 +23,9 @@ Las 27 runas de las 11 ranuras tienen código (comparado con `docs/runas/catalog
   una habilidad base y no una runa de grabado; no se implementa hasta confirmar cómo se obtiene en SoD (2026-10-11).
 - **Tiger's Fury** (417045, SoD: +15 % de daño 6 s y 60 de energía al instante, 30 s de reutilización): el efecto ya
   lo da el ayudante de King of the Jungle; no se modifica el hechizo base de WotLK.
-- **Las 19 runas del druida sin fuente real** (Wild Growth, Berserk, Survival Instincts, Gore, Living Seed, Gale Winds,
-  Sunfire, Dreamstate, Tree of Life, Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall, Skull Bash,
-  Improved Frenzied Regeneration, Mangle…, Lifebloom, Nourish): su fuente real son Rune Brokers, misiones, eventos o
+- **Las 19 runas del druida sin fuente real** (Wild Growth, Berserk, Survival Instincts, Gore, King of the Jungle,
+  Skull Bash, Improved Frenzied Regeneration, Living Seed, Gale Winds, Sunfire, Dreamstate, Tree of Life,
+  Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall, Lifebloom y Nourish): su fuente real son Rune Brokers, misiones, eventos o
   PNJ de SoD que no existen en este core. Se siguen comprando en el Grabador (1 oro).
 - Compilar y probar en juego las 27 runas (`docs/PRUEBAS.md`).
 - Fidelidad: las entradas de abajo (Tree of Life, cadenas de misión, Starfall, Eclipse).
