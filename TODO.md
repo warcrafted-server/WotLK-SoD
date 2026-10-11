@@ -18,10 +18,15 @@ Cuando se implemente una de estas entradas, bórrala de aquí y anota el cambio 
 Las 27 runas de las 11 ranuras tienen código (comparado con `docs/runas/catalogo-sod.json` el
 2026-10-09). Falta:
 
-- **Thrash (Cat)** (hechizo SoD 417448, ranura-fase 417437): no implementada. Comprobar en qué fase
-  y ranura entra antes de hacerla.
-- **Tiger's Fury** (417045): modificación de SoD asociada a King of the Jungle; la runa existe pero no
-  cambia Tiger's Fury.
+- **Thrash (Cat)** (hechizo SoD 417448, aprendido con 417453): el catálogo no le da ranura de grabado (`slot_417437`,
+  sin nombre) y Wowhead lo muestra como habilidad de clase (nivel 1, 40 de energía, sangrado en área de 8 m). Parece
+  una habilidad base y no una runa de grabado; no se implementa hasta confirmar cómo se obtiene en SoD (2026-10-11).
+- **Tiger's Fury** (417045, SoD: +15 % de daño 6 s y 60 de energía al instante, 30 s de reutilización): el efecto ya
+  lo da el ayudante de King of the Jungle; no se modifica el hechizo base de WotLK.
+- **Las 19 runas del druida sin fuente real** (Wild Growth, Berserk, Survival Instincts, Gore, Living Seed, Gale Winds,
+  Sunfire, Dreamstate, Tree of Life, Starsurge, Efflorescence, Elune's Fires, Eclipse, Starfall, Skull Bash,
+  Improved Frenzied Regeneration, Mangle…, Lifebloom, Nourish): su fuente real son Rune Brokers, misiones, eventos o
+  PNJ de SoD que no existen en este core. Se siguen comprando en el Grabador (1 oro).
 - Compilar y probar en juego las 27 runas (`docs/PRUEBAS.md`).
 - Fidelidad: las entradas de abajo (Tree of Life, cadenas de misión, Starfall, Eclipse).
 
