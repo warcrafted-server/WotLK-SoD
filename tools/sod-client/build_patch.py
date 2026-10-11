@@ -217,7 +217,7 @@ def main():
         os.makedirs(out_dir, exist_ok=True)
         out_path = os.path.join(out_dir, "sod_%s_spell_dbc.sql" % cls)
         with open(out_path, "w", encoding="utf-8", newline="\n") as fh:
-            fh.write(dbc.emit_spell_sql(spells, cols, module_name, retired))
+            fh.write(dbc.emit_spell_sql(spells, cols, module_name, retired, column_types))
         print("[*] wrote SQL -> %s" % out_path)
 
     if args.dry_run:

@@ -883,7 +883,7 @@ def build_spell_visual(workdir, visuals):
 # ---------------------------------------------------------------------------
 # Server spell_dbc SQL emission (one file per content module).
 # ---------------------------------------------------------------------------
-def emit_spell_sql(spells, cols, module, retired_ids=None):
+def emit_spell_sql(spells, cols, module, retired_ids=None, column_types=None):
     """Emit the server-side SQL for one module's spells: spell_dbc +
     spell_script_names + spell_bonus_data + spell_proc, each as an idempotent
     upsert (REPLACE, keyed on the natural PK). `module` is the folder name (e.g.
@@ -918,6 +918,10 @@ def emit_spell_sql(spells, cols, module, retired_ids=None):
                 elif isinstance(v, float):
                     values.append(repr(v))
                 else:
+                    # Los specs escriben las máscaras de 32 bits como int con signo (p. ej. -2147483648);
+                    # MySQL rechaza el negativo en una columna unsigned (ERROR 1264).
+                    if column_types and column_types.get(col, ("", False))[1] and v < 0:
+                        v &= 0xFFFFFFFF
                     values.append(str(v))
         out.append("REPLACE INTO `spell_dbc` (%s) VALUES (%s);"
                    % (", ".join(colnames), ", ".join(values)))

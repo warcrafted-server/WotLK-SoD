@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-11
 
+- Corregido: el worldserver no arrancaba (`ERROR 1264 … EffectSpellClassMaskB_1`): el generador escribía en `sod_content_spell_dbc.sql` máscaras de 32 bits con signo (`-2147483648`, hechizo 428717 del cazador) en columnas `unsigned`. `emit_spell_sql` convierte ahora los negativos de columnas sin signo; comprobado en todas las filas del SQL (0 negativos en columnas unsigned). No aplicado a ninguna base de datos.
 - Cambiado: el Grabador del druida solo vende las runas sin fuente real implementada. Se retiran de su stock (con `DELETE` para las filas ya aplicadas) las 8 que ya tienen botín o vendedor real: Lacerate, Savage Roar, Mangle, Wild Strikes, Improved Swipe, Improved Barkskin, Fury of Stormrage y Survival of the Fittest (vendedor 211653). El resto sigue a 1 oro hasta que tengan fuente real.
 - Corregido: Living Seed, Tree of Life, Efflorescence y Fury of Stormrage compartían icono con Sunfire y entre sí; ahora cada una tiene el suyo (`ability_druid_naturalperfection`, `ability_druid_treeoflife`, `spell_nature_naturetouchgrow`, `spell_nature_lightning`), tanto en la runa como en el hechizo (necesita parche de cliente nuevo). Sin compilar ni probar.
 
