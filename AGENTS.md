@@ -197,4 +197,5 @@ Esta es la norma que más importa en fase de investigación.
   cerrado y pocos archivos; **los datos externos los aporta el orquestador ya masticados** (IDs,
   valores, URLs exactas) en lugar de pedir al ejecutor que los busque; y las validaciones deben
   funcionar en el shell del ejecutor, que en Windows es `cmd` (**sin `grep`**): usa `python -c`.
+- **Todo cambio de SQL se valida antes del commit** con `tools/sod-data/validar_sql.sh` (MySQL privada, no toca ninguna base real). Revisar el SQL a ojo no basta: ya fallaron el arranque por una máscara negativa, apóstrofos mal escapados y descripciones de más de 255 caracteres.
 - Commits en castellano, en imperativo y concretos («Añade extractor de DBC», no «cambios»).
