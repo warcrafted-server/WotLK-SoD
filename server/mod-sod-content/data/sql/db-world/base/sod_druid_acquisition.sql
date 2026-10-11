@@ -24,6 +24,9 @@ REPLACE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `Ver
     (7009026, 'esES', 'Runa de Flor de vida', 'Te enseña una nueva facultad de grabado.', 0),
     (7009027, 'esES', 'Runa de Nutrir', 'Te enseña una nueva facultad de grabado.', 0);
 
+-- Fuente real implementada (botín o vendedor): el Grabador ya no las vende.
+DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206954, 208687, 208689, 210534, 210817, 227444);
+
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 7009026, 0, 0, 0),
     (700000, 0, 7009027, 0, 0, 0);
@@ -186,19 +189,13 @@ REPLACE INTO `conditions`
     (4, 3318, 208689, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Savage Roar item for class only');
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
-    (700000, 0, 206954, 0, 0, 0),
     (700000, 0, 206992, 0, 0, 0),
-    (700000, 0, 208687, 0, 0, 0),
-    (700000, 0, 208689, 0, 0, 0),
     (700000, 0, 210137, 0, 0, 0),
-    (700000, 0, 210534, 0, 0, 0),
-    (700000, 0, 210817, 0, 0, 0),
     (700000, 0, 213117, 0, 0, 0),
     (700000, 0, 213118, 0, 0, 0),
     (700000, 0, 213119, 0, 0, 0),
     (700000, 0, 221516, 0, 0, 0),
-    (700000, 0, 221517, 0, 0, 0),
-    (700000, 0, 227444, 0, 0, 0);
+    (700000, 0, 221517, 0, 0, 0);
 
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (211653, 0, 210817, 0, 0, 0)

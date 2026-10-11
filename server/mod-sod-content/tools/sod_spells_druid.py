@@ -36,9 +36,12 @@ def build(idx):
     icon_swipe = idx["icon"]["inv_misc_monsterclaw_03"]
     icon_barkskin = idx["icon"]["spell_nature_stoneclawtotem"]
     icon_sunfire = idx["icon"]["spell_nature_natureswrath"]
-    icon_tree_of_life = idx["icon"]["spell_nature_rejuvenation"]
+    icon_tree_of_life = idx["icon"]["ability_druid_treeoflife"]
     icon_lifebloom = idx["icon"]["inv_misc_herb_felblossom"]
     icon_nourish = idx["icon"]["ability_druid_nourish"]
+    icon_living_seed = idx["icon"]["ability_druid_naturalperfection"]
+    icon_fury_of_stormrage = idx["icon"]["spell_nature_lightning"]
+    icon_efflorescence = idx["icon"]["spell_nature_naturetouchgrow"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -573,7 +576,7 @@ def build(idx):
                 "HitMask": 2, "AttributesMask": 0, "DisableEffectsMask": 0,
                 "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
             },
-            "overrides": {"SpellLevel": 0},
+            "overrides": {"SpellLevel": 0, "SpellIconID": icon_living_seed},
         },
         {  # Gale Winds applies its Hurricane-only SpellMods in the rune script.
             "id": 417135, "client": True, "template": 774,
@@ -614,7 +617,7 @@ def build(idx):
                 "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": 8,
-                "SpellIconID": icon_sunfire, "EquippedItemClass": -1,
+                "SpellIconID": icon_fury_of_stormrage, "EquippedItemClass": -1,
                 "SpellLevel": 0, "SpellClassSet": 7,
                 "ProcTypeMask": 0x00010000, "ProcChance": 12,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
@@ -834,7 +837,7 @@ def build(idx):
                 "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
                 "RangeIndex": range_self, "PowerType": 0, "ManaCost": 0,
                 "ManaCostPct": 0, "SchoolMask": 8,
-                "SpellIconID": 134222, "EquippedItemClass": -1,
+                "SpellIconID": icon_efflorescence, "EquippedItemClass": -1,
                 "SpellLevel": 0, "SpellClassSet": 7,
                 "ProcTypeMask": 0x00014000, "ProcChance": 100,
                 "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,

@@ -2,6 +2,11 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-11
+
+- Cambiado: el Grabador del druida solo vende las runas sin fuente real implementada. Se retiran de su stock (con `DELETE` para las filas ya aplicadas) las 8 que ya tienen botín o vendedor real: Lacerate, Savage Roar, Mangle, Wild Strikes, Improved Swipe, Improved Barkskin, Fury of Stormrage y Survival of the Fittest (vendedor 211653). El resto sigue a 1 oro hasta que tengan fuente real.
+- Corregido: Living Seed, Tree of Life, Efflorescence y Fury of Stormrage compartían icono con Sunfire y entre sí; ahora cada una tiene el suyo (`ability_druid_naturalperfection`, `ability_druid_treeoflife`, `spell_nature_naturetouchgrow`, `spell_nature_lightning`), tanto en la runa como en el hechizo (necesita parche de cliente nuevo). Sin compilar ni probar.
+
 ## 2026-10-10
 
 - Corregido: las 12 runas de Balance y Restauración del druida (`7009014`–`7009025`) se aprendían de inicio porque no tenían objeto. Ahora cada una tiene su objeto real de SoD (venta en el Grabador y, en Improved Barkskin y Fury of Stormrage, botín real) y queda bloqueada hasta usarlo. `gen_rune_acquisition.py` admite `--runes` y `--output`. Sin compilar ni probar; hace falta parche de cliente nuevo para los objetos.
