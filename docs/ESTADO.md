@@ -27,6 +27,8 @@ los flags reales y el SQL de hechizos está regenerado; **sin compilar ni probar
 (`docs/runas/redundantes.md`); Nature's Fury sin implementar (clase dudosa). Pasan `clang++ -fsyntax-only` con los flags reales y el SQL de hechizos está regenerado; **sin
 compilar ni probar**. Limitaciones en `TODO.md` (Lobo fantasmal en interiores, Decoy Totem, Burn, Molten Blast).
 
+**Druida (2026-10-11):** las 12 runas «ya aprendidas» eran las `7009014`–`7009025`, que en el reino 2 (desplegado en `acdf59e`) aún no tenían objeto; con `6e8a1a9` las 27 quedan bloqueadas. Push hecho hasta `6e8a1a9`. El Grabador solo vende ya las runas sin fuente real (se retiran 8 con botín o vendedor) y los iconos repetidos están separados (`fdf51f4`, pendiente de subir). Parche de cliente en `datos/parche-cliente/20261011-druida2/` (sin `LISTO`, sin publicar). Sin compilar ni probar.
+
 **Estado del feral (2026-10-07):** las 14 runas (13 + Improved Barkskin) tienen código, sin compilar
 (sintaxis OK, `check_syntax.py`: 41 OK, 0 errores), con adquisición: objetos reales de SoD, botín de WotLK con
 tasas reales para Mangle/Savage Roar/Wild Strikes/Improved Swipe, Grizzby, oficiales de suministros y compra
