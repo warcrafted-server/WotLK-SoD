@@ -25,8 +25,11 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Burnout — `rune_id 7000010`, Pecho (4). Tiene script propio sin probar.
 - [ ] Icy Veins — `rune_id 7000011`, Piernas (8). Con la Icy Veins real (talento) el mago tendrá dos copias del hechizo.
 - [ ] Ice Lance — `rune_id 7000012`, Manos (6). Tiene script propio sin probar; hace x3 contra congelados (core) y no x5 como SoD. Debe hacer unos 221-255 de daño a nivel 80 y bastante menos a nivel bajo (a nivel 6, de 12 a 50 de media).
+- [ ] Frostfire Bolt — `rune_id 7000016`, Cintura (7): comprar provisionalmente al Grabador; comprobar lanzamiento de 3 s, coste de 14%, daño híbrido de Fuego/Escarcha, ralentización y daño periódico durante 9 s. Reutiliza el script nativo `spell_mage_frostfire_bolt`.
+- [ ] Missile Barrage — `rune_id 7000017`, Cintura (7): comprar provisionalmente al Grabador; comprobar el proc con Explosión Arcana, Bola de Fuego y Descarga de Escarcha, y que los siguientes Misiles Arcanos cuestan 0 de maná, canalizan al instante y disparan misiles cada 0,5 s. El catálogo y el core indican 50% para Explosión Arcana y 25% para Bola de Fuego/Descarga de Escarcha; el texto muestra 40%/20%, así que confirmar la diferencia en juego.
 - [ ] Probar si el chill de Blizzard activa Fingers of Frost y si las dos copias reales/de runa de Icy Veins e Ice Lance se comportan correctamente.
 - [ ] Comprobar las diferencias conocidas: sin Winter's Chill; Fingers of Frost no se activa con el chill de Blizzard; Ice Lance multiplica x3 contra congelados y no x5.
+- [ ] Regenerar el SQL de hechizos y el parche de cliente antes de probar las runas `7000016–7000017`. Esta tanda no añade código C++ propio y todavía no se ha compilado ni probado.
 
 ### Otras clases de fase 1
 

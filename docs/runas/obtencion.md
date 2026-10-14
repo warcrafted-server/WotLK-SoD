@@ -18,6 +18,8 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7000010 | Mago | Burnout | Pecho | 412286 | Libre: se puede grabar sin descubrirla (provisional) | [spell=412286](https://www.wowhead.com/classic/spell=412286) |
 | 7000011 | Mago | Icy Veins | Piernas | 425121 | Libre: se puede grabar sin descubrirla (provisional) | [spell=425121](https://www.wowhead.com/classic/spell=425121) |
 | 7000012 | Mago | Ice Lance | Manos | 400640 | Libre: se puede grabar sin descubrirla (provisional) | [spell=400640](https://www.wowhead.com/classic/spell=400640) |
+| 7000016 | Mago | Frostfire Bolt | Cintura | 401502 | Compra provisional en el Grabador (1 oro). | [spell=401502](https://www.wowhead.com/classic/spell=401502) |
+| 7000017 | Mago | Missile Barrage | Cintura | 400588 | Compra provisional en el Grabador (1 oro). | [spell=400588](https://www.wowhead.com/classic/spell=400588) |
 | 7001001 | Guerrero | Devastate | Manos | 403195 | Objeto «Rune of Devastate» (204703): compra al Grabador (1 oro). | [spell=403195](https://www.wowhead.com/classic/spell=403195) |
 | 7001002 | Guerrero | Blood Frenzy | Pecho | 412507 | Objeto «Rune of Blood Frenzy» (204441): compra al Grabador (1 oro). | [spell=412507](https://www.wowhead.com/classic/spell=412507) |
 | 7001003 | Guerrero | Flagellation | Pecho | 402877 | Objeto «Rune of Flagellation» (210569): compra al Grabador (1 oro). | [spell=402877](https://www.wowhead.com/classic/spell=402877) |

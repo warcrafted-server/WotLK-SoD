@@ -182,6 +182,19 @@
   "400640": {
     "name": "Lanza de hielo"
   },
+  "401502": {
+    "name": "Descarga de Pirofrío",
+    "desc": "Lanza una Descarga de Pirofrío contra el enemigo, inflige de ${$<power>*$m2/100*$<frostdamage>} a ${$<power>*$M2/100*$<frostdamage>} p. de daño de Pirofrío, reduce la velocidad de movimiento un $s1% e inflige ${$<power>*$m3/100*3*$<frostdamage>} p. de daño de Pirofrío extra durante $d. Este hechizo se probará contra la más baja de las resistencias de Fuego o Escarcha del objetivo y cuenta como daño de Escarcha y Fuego al mismo tiempo.",
+    "aura_desc": "Movimiento ralentizado un $w1%. $w3 p. de daño de Pirofrío cada $t3 s."
+  },
+  "400588": {
+    "name": "Tromba de misiles",
+    "desc": "Da a tu Explosión Arcana un $m1% de probabilidad, y a tus hechizos Bola de Fuego y Descarga de Escarcha un {$m1/2}% de probabilidad de reducir la duración canalizada de tus siguientes Misiles Arcanos un $400589s1%, reduce el coste de maná un $400589s3% y dispara misiles cada 0,5 s."
+  },
+  "400589": {
+    "name": "Tromba de misiles",
+    "aura_desc": "Reduce un $s1% la duración canalizada y un $s3% el coste de maná de tus siguientes Misiles Arcanos. Los misiles se disparan cada 0,5 s."
+  },
   "401946": {
     "name": "Círculo de sanación"
   },

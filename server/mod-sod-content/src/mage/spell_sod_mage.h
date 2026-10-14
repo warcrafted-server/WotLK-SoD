@@ -83,6 +83,9 @@ enum SodMageSpells
     SPELL_SOD_MAGE_LIVING_BOMB_RUNE      = 900006, // hidden driver: grants Living Spark
     SPELL_SOD_MAGE_LIVING_SPARK          = 900007, // stand-in: no-DoT bomb, no aggro until boom
     SPELL_SOD_MAGE_LIVING_SPARK_BOOM     = 900008, // Living Spark explosion (plain Fire)
+    SPELL_SOD_MAGE_FROSTFIRE_BOLT        = 401502, // Frostfire Bolt (Waist rune)
+    SPELL_SOD_MAGE_MISSILE_BARRAGE       = 400588, // Missile Barrage (Waist rune)
+    SPELL_SOD_MAGE_MISSILE_BARRAGE_PROC  = 400589, // triggered Missile Barrage aura
 };
 
 // The Scorch-tagged Living Bomb copy, mirrored across the real spell's three ranks so the

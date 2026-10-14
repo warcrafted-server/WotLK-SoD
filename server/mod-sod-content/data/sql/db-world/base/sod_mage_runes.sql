@@ -82,6 +82,18 @@
 --   class_mask 128 = Mage
 --   slot_mask   64 = Hands          (1 << RUNE_SLOT_HANDS  = 1 << 6)
 --   400640 clones the core's Ice Lance rank 3 (42914), scaled through level 80.
+--
+-- Correspondencia de la runa 7000016 (Frostfire Bolt -> hechizo 401502):
+--   class_mask 128 = Mago
+--   slot_mask  128 = Cintura        (1 << RUNE_SLOT_WAIST = 1 << 7)
+--   401502 clona el rango máximo de Frostfire Bolt (47610); el icono usa la
+--   textura de Frostfire Bolt de WotLK.
+--
+-- Correspondencia de la runa 7000017 (Missile Barrage -> hechizo 400588):
+--   class_mask 128 = Mago
+--   slot_mask  128 = Cintura        (1 << RUNE_SLOT_WAIST = 1 << 7)
+--   400588 clona el rango máximo del talento Missile Barrage (54490); el icono
+--   usa la textura de Missile Barrage de WotLK.
 
 SET @rune_tbl := (SELECT COUNT(*) FROM information_schema.tables
                   WHERE table_schema = DATABASE() AND table_name = 'rune_template');
@@ -125,6 +137,12 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-mage'', 1),
     (7000012, 400640, 128, 64, ''Ice Lance'', ''spell_frost_frostblast'',
      ''Deals Frost damage to an enemy target. Deals triple damage against Frozen targets.'',
+     ''mod-sod-mage'', 1),
+    (7000016, 401502, 128, 128, ''Frostfire Bolt'', ''spell_fire_blueflamebolt'',
+     ''Deals Frostfire damage, slows the target by 40%, and applies additional Frostfire damage over 9 sec.'',
+     ''mod-sod-mage'', 1),
+    (7000017, 400588, 128, 128, ''Missile Barrage'', ''ability_mage_missilebarrage'',
+     ''Arcane Blast has a 40% chance to trigger Missile Barrage; Fireball and Frostbolt have a 20% chance.'',
      ''mod-sod-mage'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

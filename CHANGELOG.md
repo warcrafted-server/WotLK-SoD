@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Mago: runas Frostfire Bolt `7000016`, Missile Barrage `7000017` (tanda 1 de `.agents/plans/mago/`). Frostfire Bolt y Missile Barrage. SQL validado. Sin compilar ni probar.
 - Sacerdote: adquisición de 27 runas generada con `gen_rune_acquisition.py --class priest` (34 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para esta clase en 45 criaturas). Sin aplicar ni probar.
 - Sacerdote: runas Surge of Light `7005023`, Void Zone `7005024`, Binding Heal `7005025`, Soul Warding `7005026`, Vampiric Touch `7005027` (tanda 5 de `.agents/plans/sacerdote/`). Soul Warding simplificada y Vampiric Touch/Void Zone aproximados (ver TODO.md). SQL validado. Sin compilar ni probar.
 - Sacerdote: runas Divine Aegis `7005018`, Eye of the Void `7005019`, Pain and Suffering `7005020`, Despair `7005021`, Power Word: Barrier `7005022` (tanda 4 de `.agents/plans/sacerdote/`). Despair sin críticos periódicos, Power Word: Barrier y Eye of the Void parciales (ver TODO.md). SQL validado. Sin compilar ni probar.

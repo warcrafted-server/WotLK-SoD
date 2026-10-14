@@ -395,6 +395,12 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Vampiric Touch `7005027`:** clona el rango máximo WotLK y mantiene su script/proc de devolución de maná, con 0,65 de poder con hechizos por pulso, cinco pulsos, 15 s y coste del 16%. No está verificado que el manejador nativo devuelva exactamente el 2% de daño de SoD ni que aplique el efecto de Abrazo vampírico a su objetivo.
 - Estas veintisiete runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
 
+## Mago
+
+- **Frostfire Bolt `7000016`:** clona el rango máximo WotLK `47610` y conserva el script nativo de Frostfire Bolt. Usa 3 s de lanzamiento, 14% de maná, 9 s de duración y coeficientes directos/periódicos del catálogo. El daño base y el ancho de la tirada siguen los valores de la plantilla WotLK porque el catálogo local no incluye `EffectDieSides`; revisar el daño en juego.
+- **Missile Barrage `7000017`:** clona el talento WotLK `54490` y el aura auxiliar `44401`, con sus scripts y filas de `spell_proc` nativos. El catálogo marca `ProcChance=50` y un valor de aura de 40 (el texto muestra 40%/20%); con el script del core se espera un 50% para Explosión Arcana y un 25% para los otros hechizos compatibles. Confirmar la diferencia entre probabilidad y texto en juego. Sin cambios en el core.
+- La adquisición de ambas runas es provisional en el Grabador. Hay que regenerar el SQL de hechizos y el parche de cliente; esta tanda no añade código C++ propio y todavía no se ha compilado ni probado.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

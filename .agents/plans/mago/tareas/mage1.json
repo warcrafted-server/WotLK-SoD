@@ -27,7 +27,7 @@
   "Antes de terminar ejecuta python3 tools/sod-data/revisar_runas.py mage 3 --sin-mysql y corrige lo que señale en TUS runas (los avisos de runas anteriores no son tuyos); deja el resultado en el informe."
  ],
  "acceptanceCriteria": [
-  "Las runas 7000013-7000017 existen en sod_spells_mage.py y sod_mage_runes.sql con el slot_mask y el icono indicados.",
+  "Las runas 7000016-7000017 existen en sod_spells_mage.py y sod_mage_runes.sql con el slot_mask y el icono indicados.",
   "Cada script C++ nuevo está declarado en spell_sod_mage.h y registrado en sod_content_loader.cpp; ningún aura fuera de 0-316.",
   "python3 tools/sod-data/check_syntax.py termina sin errores.",
   "docs/runas/obtencion.md, docs/PRUEBAS.md y TODO.md actualizados."
