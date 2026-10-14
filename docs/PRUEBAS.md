@@ -273,6 +273,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Soul Warding `7005026`, Espalda (3): lanzar Palabra de poder: escudo repetidamente y comprobar la eliminación de la reutilización, el coste reducido y un 10% más de absorción. El aumento de valor y coeficiente se representa con un modificador global del 10% al efecto.
 - [ ] Vampiric Touch `7005027`, Espalda (3): comprobar el perjuicio de daño de las Sombras durante 15 s, el coste del 16% y la devolución de maná al grupo cuando el sacerdote inflige daño de las Sombras al objetivo. Falta confirmar que la cantidad de maná coincida con el 2% de SoD.
 - Las veintisiete runas del sacerdote aún no se han compilado ni probado. Renewed Hope, Spirit of the Redeemer, Pain and Suffering y Binding Heal requieren recompilar por sus scripts C++; la adquisición provisional de estas cinco runas es el Grabador.
+- [ ] Adquisición del sacerdote: las 27 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para esta clase en 45 criaturas (ver `docs/runas/obtencion.md`).
 
 ### Druida feral
 

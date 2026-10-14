@@ -19,4 +19,4 @@ CHANGELOG y commit. Lanzar con `agentrelay run .agents/plans/sacerdote/tareas/pr
 | 3 | Renewed Hope (7005013), Dispersion (7005014), Pain Suppression (7005015), Spirit of the Redeemer (7005016), Void Plague (7005017) | high | hecho |
 | 4 | Divine Aegis (7005018), Eye of the Void (7005019), Pain and Suffering (7005020), Despair (7005021), Power Word: Barrier (7005022) | high | hecho |
 | 5 | Surge of Light (7005023), Void Zone (7005024), Binding Heal (7005025), Soul Warding (7005026), Vampiric Touch (7005027) | high | hecho |
-| 6 | Adquisición de los objetos-runa (como `sod_shaman_acquisition.sql`) | medium | pendiente |
+| 6 | Adquisición de los objetos-runa (como `sod_shaman_acquisition.sql`) | medium | hecho (generada) |

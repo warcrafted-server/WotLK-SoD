@@ -2168,5 +2168,345 @@
     "display": 1102,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 205905,
+    "name": "Memory of a Devout Champion",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205932,
+    "name": "Prophecy of a King's Demise",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205940,
+    "name": "Memory of a Dark Purpose",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205942,
+    "name": "Chimaeric Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205943,
+    "name": "Prophecy of a Desecrated Citadel",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205944,
+    "name": "Reciprocal Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205945,
+    "name": "Memory of an Imprisoned Savior",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205946,
+    "name": "Memory of a Leader's Betrayal",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205947,
+    "name": "Prophecy of a Desecrated Citadel",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205948,
+    "name": "Anodyne Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205949,
+    "name": "Manifold Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205950,
+    "name": "Tenebrous Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205951,
+    "name": "Memory of a Troubled Acolyte",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 205953,
+    "name": "Prophecy of a Broken Vow",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 208764,
+    "name": "Rune of the Mind",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 210822,
+    "name": "Harmonious Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211490,
+    "name": "Prophecy of a Thousand Lights",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211530,
+    "name": "Prophecy of a City Enthralled",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 211531,
+    "name": "Prophecy of Seven Visitors",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213140,
+    "name": "Prophecy of the Quickened Path",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213141,
+    "name": "Rune of Hope",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213142,
+    "name": "Prophecy of Imprisoned Malice",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213143,
+    "name": "Apocryphal Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213144,
+    "name": "Luminous Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213599,
+    "name": "Unsettling Vision",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221481,
+    "name": "Nihilist Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221488,
+    "name": "Resolute Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221979,
+    "name": "Prophecy of Verdant Winter",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221980,
+    "name": "Prophecy of Awakened Chaos",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 221981,
+    "name": "Prophecy of the Lost Tribe",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 228123,
+    "name": "Jubilant Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 228124,
+    "name": "Oneiric Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 228126,
+    "name": "Aperitive Epiphany",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 232461,
+    "name": "Rune of Despair",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1102,
+    "invtype": 0,
+    "sheath": 0
   }
 ]
