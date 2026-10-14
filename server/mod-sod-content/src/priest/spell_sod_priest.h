@@ -26,6 +26,11 @@ enum SodPriestSpells
     SPELL_SOD_PRIEST_PAIN_SUPPRESSION = 402004,
     SPELL_SOD_PRIEST_SPIRIT_OF_THE_REDEEMER = 425284,
     SPELL_SOD_PRIEST_VOID_PLAGUE = 425204,
+    SPELL_SOD_PRIEST_DIVINE_AEGIS = 431622,
+    SPELL_SOD_PRIEST_EYE_OF_THE_VOID = 402789,
+    SPELL_SOD_PRIEST_PAIN_AND_SUFFERING = 413251,
+    SPELL_SOD_PRIEST_DESPAIR = 431670,
+    SPELL_SOD_PRIEST_POWER_WORD_BARRIER = 425207,
     SPELL_SOD_PRIEST_WEAKENED_SOUL = 6788,
     SPELL_SOD_PRIEST_SPIRIT_OF_REDEMPTION_TALENT = 20711,
 };
@@ -35,6 +40,7 @@ void AddSC_sod_priest_empowered_renew();
 void AddSC_sod_priest_mind_spike();
 void AddSC_sod_priest_renewed_hope();
 void AddSC_sod_priest_spirit_of_the_redeemer();
+void AddSC_sod_priest_pain_and_suffering();
 
 inline bool SodPriestEnabled()
 {

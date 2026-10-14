@@ -262,7 +262,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Pain Suppression `7005015`, Pies (9): aplicar a un aliado y comprobar la reducción del 40% de daño, el 65% de resistencia a disipación durante 8 s, el coste del 8% y la reutilización de 180 s.
 - [ ] Spirit of the Redeemer `7005016`, Pies (9): sin el talento Espíritu de redención no debe poder activarse; con el talento, comprobar la forma durante 10 s, el coste cero de los hechizos de sanación, y las restricciones de movimiento, ataque y selección como objetivo. Limitación conocida: el talento aún activa la transformación automática al morir fuera de esta forma.
 - [ ] Void Plague `7005017`, Pies (9): comprobar el perjuicio de enfermedad, los pulsos de daño de las Sombras durante 18 s, el coste del 13% y la reutilización de 6 s.
-- Las diecisiete runas del sacerdote aún no se han compilado ni probado. Renewed Hope y Spirit of the Redeemer requieren recompilar por sus scripts C++; la adquisición provisional de estas cinco runas es el Grabador.
+- [ ] Divine Aegis `7005018`, Cabeza (0): comprobar que las sanaciones críticas crean un escudo que absorbe el 30% de la sanación. Diferencia conocida: conserva el límite de absorción por nivel del talento WotLK.
+- [ ] Eye of the Void `7005019`, Cabeza (0): comprobar el esbirro durante 30 s y la reutilización de 180 s. Diferencia: invoca un Shadowfiend de WotLK, que no lanza las maldiciones del ojo.
+- [ ] Pain and Suffering `7005020`, Cabeza (0): con la runa equipada, lanzar Explosión mental, Púa mental y Tortura mental sobre un objetivo con dos o más de estos efectos propios: Palabra de las Sombras: dolor, Plaga del Vacío y Toque vampírico. Debe renovarse el que tenga menos duración restante; Tortura mental debe comprobarse durante cada pulso.
+- [ ] Despair `7005021`, Muñecas (5): comprobar que los golpes críticos con hechizos dañinos infligen el 200% de daño. Limitación: el daño periódico no puede asestar críticos con los efectos disponibles en el core.
+- [ ] Power Word: Barrier `7005022`, Muñecas (5): comprobar 10 s de protección del taumaturgo frente al retroceso de lanzamiento y la reutilización de 180 s. Limitación: la aproximación actual no reduce el daño ni protege a miembros del grupo cercanos.
+- Las veintidós runas del sacerdote aún no se han compilado ni probado. Renewed Hope, Spirit of the Redeemer y Pain and Suffering requieren recompilar por sus scripts C++; la adquisición provisional de estas cinco runas es el Grabador.
 
 ### Druida feral
 

@@ -383,7 +383,12 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Pain Suppression `7005015`:** usa el efecto de daño reducido y la resistencia a disipación nativos de WotLK; el aura 588 del catálogo moderno se sustituye por el aura válida 235 (`SPELL_AURA_MOD_DISPEL_RESIST`). No se ha compilado ni probado.
 - **Spirit of the Redeemer `7005016`:** clona la forma de WotLK y exige el talento Espíritu de redención. **Al morir, el core aún activa automáticamente la transformación del talento**: `Unit::DealDamage` lanza el hechizo 27827 cuando detecta el aura 20711. Desactivar ese comportamiento sin cambiar el core no está implementado.
 - **Void Plague `7005017`:** clona Palabra de las Sombras: dolor como daño periódico de enfermedad, con los valores de duración, coste, reutilización, puntos base y coeficiente del catálogo. No se ha compilado ni probado el daño.
-- Estas diecisiete runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
+- **Divine Aegis `7005018`:** clona el talento WotLK y conserva su script y su proc de crítico de sanación, con una absorción del 30%. Hereda también el límite de absorción por nivel de WotLK. No se ha compilado ni probado.
+- **Eye of the Void `7005019`:** aproximación con el Shadowfiend de WotLK, con 30 s de duración y 180 s de reutilización. El ojo y sus maldiciones no existen en 3.3.5a; la invocación y los hechizos que lanza requerirían datos de criatura y hechizos no incluidos en el catálogo local.
+- **Pain and Suffering `7005020`:** un script renueva, entre Palabra de las Sombras: dolor, Plaga del Vacío y Toque vampírico propios, el efecto con menor duración restante al impactar Explosión mental o Púa mental y en cada pulso de Tortura mental. No se ha compilado ni probado.
+- **Despair `7005021`:** el aura de WotLK `163` aumenta al 200% el daño de los críticos mágicos. Se omite el aura SoD `608`, que no existe en el core; sin un cambio del core, el daño periódico no puede convertirse en crítico.
+- **Power Word: Barrier `7005022`:** aproximación que protege al taumaturgo contra el retroceso de lanzamiento durante 10 s, con reutilización de 180 s y coste del 4%. No reduce daño ni protege al grupo: el efecto de área SoD `179`/área `30829` no está disponible en WotLK y falta el valor de reducción de `425205s1`.
+- Estas veintidós runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
 
 ## Otras clases
 

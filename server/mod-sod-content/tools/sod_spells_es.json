@@ -1135,5 +1135,25 @@
     "name": "Plaga del Vacío",
     "desc": "Provoca al objetivo una enfermedad que le inflige ${$<damagepower>*$m1/100*6} p. de daño de las Sombras durante $d.",
     "aura_desc": "Inflige $w1 p. de daño cada $t1 s."
+  },
+  "431622": {
+    "name": "Égida divina",
+    "desc": "Las sanaciones críticas crean un escudo protector sobre el objetivo que absorbe el $s1% de la cantidad sanada. Dura $431624d."
+  },
+  "402789": {
+    "name": "Ojo del Vacío",
+    "desc": "Invoca un ojo del Vacío para que luche por ti durante $d. El ojo puede lanzar una serie de maldiciones sobre tu objetivo."
+  },
+  "413251": {
+    "name": "Dolor y sufrimiento",
+    "desc": "Explosión mental, Púa mental y Tortura mental reinician la duración total de Palabra de las Sombras: dolor, Plaga del Vacío o Toque vampírico que afecten al objetivo. Siempre se reiniciará la facultad con la duración restante más reducida."
+  },
+  "431670": {
+    "name": "Desesperación",
+    "desc": "El daño periódico de tus hechizos ahora puede convertirse en golpes críticos, y todos tus golpes críticos con hechizos dañinos infligen un ${$m2+100}% de daño."
+  },
+  "425207": {
+    "name": "Palabra de poder: barrera",
+    "desc": "Invoca una barrera sagrada para proteger a todos los miembros del grupo en la ubicación seleccionada durante $d. La barrera reduce un $425205s1% todo el daño recibido y evita que el daño retrase el lanzamiento de los hechizos. "
   }
 }

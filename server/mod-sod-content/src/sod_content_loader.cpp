@@ -146,6 +146,7 @@ void AddSC_sod_priest_empowered_renew();
 void AddSC_sod_priest_mind_spike();
 void AddSC_sod_priest_renewed_hope();
 void AddSC_sod_priest_spirit_of_the_redeemer();
+void AddSC_sod_priest_pain_and_suffering();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -304,5 +305,6 @@ void Addmod_sod_contentScripts()
     AddSC_sod_priest_mind_spike();
     AddSC_sod_priest_renewed_hope();
     AddSC_sod_priest_spirit_of_the_redeemer();
+    AddSC_sod_priest_pain_and_suffering();
 
 }
