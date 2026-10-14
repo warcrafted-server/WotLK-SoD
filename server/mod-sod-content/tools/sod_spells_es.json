@@ -106,6 +106,26 @@
     "name": "Tajo de sable",
     "desc": "Tajas al enemigo con tu arma y le provocas un sangrado que causa daño cada 2 s durante 12 s. Otorga 1 punto de combo y se beneficia de los efectos de Golpe siniestro."
   },
+  "399985": {
+    "name": "Tenebrosa",
+    "desc": "Te teletransportas detrás de tu objetivo y lo golpeas para infligir un 150% de daño con arma. Requiere sigilo y otorga 1 p. de combo."
+  },
+  "425012": {
+    "name": "Cuchillo envenenado",
+    "desc": "Lanzas el arma de la mano izquierda para infligir su daño normal, aplicas su veneno y obtienes 1 p. de combo. Cada aplicación de Veneno mortal devuelve 5 p. de energía. Se beneficia de los efectos de Golpe siniestro."
+  },
+  "400029": {
+    "name": "Paso de las Sombras",
+    "desc": "Te teletransportas detrás del enemigo y aumentas un 70% tu velocidad de movimiento durante 3 s."
+  },
+  "399986": {
+    "name": "Lanzamiento de shuriken",
+    "desc": "Lanzas un shuriken que inflige daño equivalente al 50% de tu poder de ataque y puede golpear hasta 4 objetivos adicionales cercanos. Otorga 1 p. de combo por objetivo golpeado."
+  },
+  "425096": {
+    "name": "Maestro de la sutileza",
+    "desc": "Tus ataques infligen un 10% más de daño mientras estás en sigilo y durante 6 s después de salir de él."
+  },
   "403195": {
     "name": "Devastar"
   },

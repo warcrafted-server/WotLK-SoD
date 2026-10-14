@@ -7,6 +7,7 @@ SKILL_ASSASSINATION = 253
 
 # Efectos y auras de WotLK 3.3.5a que no están expuestos por sod_dbc.
 EFFECT_NORMALIZED_WEAPON_DAMAGE = 121
+EFFECT_TRIGGER_SPELL = 64
 EFFECT_WEAPON_PERCENT_DAMAGE = 31
 EFFECT_ADD_COMBO_POINTS = 80
 AURA_MOD_THREAT = 10
@@ -32,6 +33,7 @@ def build(idx):
     range_self = idx["range"][0.0]
     range_5 = idx["range"][5.0]
     range_20 = idx["range"][20.0]
+    range_25 = idx["range"][25.0]
     duration_1s = idx["dur"][1000]
     duration_5s = idx["dur"][5000]
     duration_12s = idx["dur"][12000]
@@ -325,5 +327,107 @@ def build(idx):
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
+        },
+        {  # Golpe desde sigilo: conserva el teleport nativo de Shadowstep y añade daño/combos.
+            "id": 399985, "client": True, "template": 36554,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Shadowstrike", "script": "spell_sod_rogue_shadowstrike",
+            "desc": "Teleport behind your target and strike for 150% weapon damage. Must be stealthed and awards 1 combo point.",
+            "overrides": {
+                "Attributes": 65538, "CastingTimeIndex": cast_instant,
+                "RangeIndex": range_25, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 20, "ManaCostPct": 0,
+                "RecoveryTime": 0, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellIconID": idx["icon"]["ability_rogue_shadowstep"],
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                # 36554/36563 mantienen el teleport detrás del objetivo.
+                "Effect_1": EFFECT_TRIGGER_SPELL, "EffectTriggerSpell_1": 36563,
+                "Effect_2": EFFECT_NORMALIZED_WEAPON_DAMAGE, "EffectAura_2": 0,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectTriggerSpell_2": 0, "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": EFFECT_WEAPON_PERCENT_DAMAGE, "EffectAura_3": 0,
+                "EffectBasePoints_3": 150, "EffectDieSides_3": 0,
+                "EffectTriggerSpell_3": 0, "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+            "inherit_server": True,
+        },
+        {  # Daga arrojadiza de mano izquierda, con veneno y modificadores de Golpe siniestro.
+            "id": 425012, "client": True, "template": 48638,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Poisoned Knife", "script": "spell_sod_rogue_poisoned_knife",
+            "desc": "Throw your off-hand weapon for normal off-hand weapon damage, apply its poison, and gain 1 combo point. Each Deadly Poison application refunds 5 Energy. Benefits from Sinister Strike effects.",
+            "overrides": {
+                "Attributes": 65538, "AttributesEx3": SPELL_ATTR3_REQUIRES_OFF_HAND_WEAPON,
+                "CastingTimeIndex": cast_instant, "DurationIndex": 0,
+                "RangeIndex": range_25, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 25, "ManaCostPct": 0,
+                "RecoveryTime": 6000, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellIconID": idx["icon"]["ability_throw"],
+                "SpellClassSet": 8,
+                "SpellClassMask_1": MASK_SINISTER_STRIKE,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_NORMALIZED_WEAPON_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_ADD_COMBO_POINTS, "EffectAura_2": 0,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 1,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Mantiene el teleport del talento de WotLK y elimina su bono al siguiente ataque.
+            "id": 400029, "client": True, "template": 36554,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Shadowstep", "script": "spell_sod_rogue_shadowstep",
+            "desc": "Step through the shadows and reappear behind your enemy, increasing movement speed by 70% for 3 sec.",
+            "overrides": {
+                "Attributes": 65538, "CastingTimeIndex": cast_instant,
+                "RangeIndex": range_25, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 10, "ManaCostPct": 0,
+                "RecoveryTime": 30000, "Category": 0,
+                "CategoryRecoveryTime": 0,
+                "SpellIconID": idx["icon"]["ability_rogue_shadowstep"],
+                # El hechizo 44373 de WotLK añade daño al siguiente ataque; SoD no lo describe.
+                "Effect_2": 0, "EffectAura_2": 0, "EffectBasePoints_2": 0,
+                "EffectDieSides_2": 0, "EffectTriggerSpell_2": 0,
+                "ImplicitTargetA_2": 0,
+            },
+            "inherit_server": True,
+        },
+        {  # Daño físico de AP y encadenamiento a cinco objetivos en total.
+            "id": 399986, "client": True, "template": 2764,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Shuriken Toss", "script": "spell_sod_rogue_shuriken_toss",
+            "bonus": {"direct": 0, "dot": 0, "ap": 0.5, "ap_dot": 0},
+            "desc": "Throw a shuriken at your enemy, dealing damage equal to 50% of your Attack Power and hitting up to 4 additional nearby targets. Awards 1 combo point per target hit.",
+            "overrides": {
+                "Attributes": 65538, "CastingTimeIndex": cast_instant,
+                "DurationIndex": 0, "RangeIndex": range_25,
+                "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 0, "ManaCostPct": 0,
+                "RecoveryTime": 20000, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellIconID": idx["icon"]["ability_throw"],
+                "MaxTargets": 5, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_SCHOOL_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "EffectChainTargets_1": 5,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # El hook del módulo activa el aura nativa de daño al entrar/salir de sigilo.
+            "id": 425096, "client": True, "template": 31223,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Master of Subtlety",
+            "desc": "Attacks deal 10% more damage while stealthed and for 6 sec after leaving Stealth.",
+            "overrides": {
+                "SpellLevel": 0,
+                "SpellIconID": idx["icon"]["ability_rogue_masterofsubtlety"],
+                "SpellClassSet": 8,
+            },
+            "inherit_server": True,
         },
     ]

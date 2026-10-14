@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Pícaro: runas Shadowstrike `7004012`, Poisoned Knife `7004013`, Shadowstep `7004014`, Shuriken Toss `7004015`, Master of Subtlety `7004016` (tanda 3 de `.agents/plans/picaro/`). Shadowstep y Shuriken Toss aproximados (ver TODO.md). SQL validado. Sin compilar ni probar.
 - Pícaro: runas Blade Dance `7004007`, Envenom `7004008`, Cutthroat `7004009`, Main Gauche `7004010`, Saber Slash `7004011` (tanda 2 de `.agents/plans/picaro/`). Cutthroat sin ataque frontal ni Emboscada sin sigilo; Main Gauche y Saber Slash parciales (ver TODO.md). SQL validado con validar_sql.sh. Sin compilar ni probar.
 - Pícaro: runas Deadly Brew `7004002`, Just a Flesh Wound `7004003`, Quick Draw `7004004`, Slaughter from the Shadows `7004005`, Between the Eyes `7004006` (tanda 1 de `.agents/plans/picaro/`). Deadly Brew sin el proc de Veneno instantáneo; Just a Flesh Wound aproxima la esquiva (requiere Danza de hojas); fórmula de daño de Between the Eyes sin verificar. SQL validado con `validar_sql.sh`; sin compilar ni probar.
 

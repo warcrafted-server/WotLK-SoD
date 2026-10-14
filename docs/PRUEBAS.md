@@ -212,7 +212,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Confirmar los textos esES, los iconos del cliente 3.3.5a y que la compra provisional al Grabador desbloquea las cinco runas `7003024–7003028`.
 - [ ] La quinta tanda añade un script C++ propio para Improved Volley; requiere recompilar el módulo. Raptor Fury, T.N.T. y Hit and Run conservan en sus textos los efectos pendientes explicados arriba. Ningún código de esta tanda se ha compilado ni probado en juego.
 
-### Pícaro (tandas 1 y 2; sin compilar ni probar)
+### Pícaro (tandas 1–3; sin compilar ni probar)
 
 - [ ] Deadly Brew `7004002`, Pecho (4): al activarse otro veneno, comprobar que aplica Veneno mortal del rango disponible según el nivel del pícaro (y no Veneno entorpecedor). Quedan pendientes el proc de Veneno instantáneo cuando el arma no tiene veneno, el escalado adicional por poder de ataque y la coexistencia de Veneno mortal de varios pícaros.
 - [ ] Just a Flesh Wound `7004003`, Pecho (4): comprobar −6% de probabilidad de recibir críticos cuerpo a cuerpo, −20% de daño infligido, +165% de amenaza y +65 puntos porcentuales de esquiva. La reducción física del 20% y su incremento por Defensa requieren tener activa Danza de hojas `400012`, añadida en la segunda tanda y pendiente de compilar/probar. Amago conserva su botón y nombre, pero debe provocar al objetivo seleccionado con el hechizo Taunt de WotLK.
@@ -224,8 +224,13 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Cutthroat `7004009`, Manos (6): comprobar el uso frontal de Emboscada, Puñalada y Garrote, y el proc de Puñalada que permite Emboscada sin sigilo. **Pendiente de implementación:** la validación frontal del core ocurre antes de los ganchos SpellScript; el aura 332 de SoD no existe en 3.3.5a.
 - [ ] Main Gauche `7004010`, Manos (6): con arma equipada en la mano izquierda, comprobar el daño normal de esa arma, +100% de parada durante 5 s, 1 punto de combo, 15 de energía y 15 s de reutilización. Confirmar que la parada termina al parar con éxito.
 - [ ] Saber Slash `7004011`, Manos (6): comprobar el daño de arma, 1 punto de combo y el sangrado de 12 s con pulsos cada 2 s y coeficiente del 50% de poder de ataque. El límite de acumulaciones y el aumento de daño por acumulación siguen pendientes de verificar.
-- [ ] Confirmar los nombres, descripciones e iconos en esES y que el Grabador vende las cinco runas por 1 oro.
-- [ ] Diferencias conocidas: el bono de esquiva se aproxima como +65 puntos porcentuales; Entre ceja y ceja usa los 52 puntos base y el coeficiente de poder de ataque del catálogo, pero no se verificó la fórmula SoD completa por punto de combo; la interfaz no cambia Amago por Chinchar. Cutthroat, los efectos de seguimiento de Main Gauche y las acumulaciones/bono de Saber Slash están incompletos, según `TODO.md`.
+- [ ] Shadowstrike `7004012`, Manos (6): sin sigilo debe rechazarse; con sigilo debe teletransportar detrás del objetivo, infligir el daño del catálogo y otorgar 1 punto de combo. Confirmar coste de 20 de energía y ausencia de reutilización.
+- [ ] Poisoned Knife `7004013`, Cintura (7): con un arma de mano izquierda envenenada debe infligir su daño normal, aplicar el veneno de esa arma y dar 1 punto de combo. Probar Veneno mortal (5 de energía por aplicación), otros venenos, coste de 25, reutilización de 6 s y modificadores de Golpe siniestro.
+- [ ] Shadowstep `7004014`, Cintura (7): comprobar que aparece detrás del objetivo, elimina cualquier bono de daño al siguiente ataque y aumenta la velocidad durante 3 s. El código usa los valores WotLK de +70% y 10 de energía como aproximación porque los valores de los auxiliares SoD no están en el catálogo local; confirmar también la reutilización de 30 s.
+- [ ] Shuriken Toss `7004015`, Cintura (7): comprobar daño equivalente al 50% del poder de ataque, hasta 5 objetivos en total, 1 punto de combo por impacto, coste 0 y reutilización de 20 s. Los puntos se asignan al objetivo principal por la limitación del core 3.3.5a.
+- [ ] Master of Subtlety `7004016`, Pies (9): comprobar +10% de daño durante el sigilo y durante 6 s tras salir; probar Sigilo, Esfumarse y el cambio de rango al subir de nivel.
+- [ ] Confirmar los nombres, descripciones e iconos en esES y que el Grabador vende las quince runas `7004002–7004016` por 1 oro.
+- [ ] Diferencias conocidas: el bono de esquiva se aproxima como +65 puntos porcentuales; Entre ceja y ceja usa los 52 puntos base y el coeficiente de poder de ataque del catálogo, pero no se verificó la fórmula SoD completa por punto de combo; Shadowstep conserva los valores WotLK de +70%/3 s pendientes de verificar en SoD; Shuriken Toss aplica los puntos de combo al objetivo principal. La interfaz no cambia Amago por Chinchar. Cutthroat, los efectos de seguimiento de Main Gauche y las acumulaciones/bono de Saber Slash están incompletos, según `TODO.md`.
 
 ### Druida feral
 

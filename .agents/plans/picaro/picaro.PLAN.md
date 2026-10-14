@@ -16,7 +16,7 @@ CHANGELOG y commit. Lanzar con `agentrelay run .agents/plans/picaro/tareas/rogue
 |---|---|---|---|
 | 1 | Deadly Brew (7004002), Just a Flesh Wound (7004003), Quick Draw (7004004), Slaughter from the Shadows (7004005), Between the Eyes (7004006) | high | hecho |
 | 2 | Blade Dance (7004007), Envenom (7004008), Cutthroat (7004009), Main Gauche (7004010), Saber Slash (7004011) | high | hecho |
-| 3 | Shadowstrike (7004012), Poisoned Knife (7004013), Shadowstep (7004014), Shuriken Toss (7004015), Master of Subtlety (7004016) | high | pendiente |
+| 3 | Shadowstrike (7004012), Poisoned Knife (7004013), Shadowstep (7004014), Shuriken Toss (7004015), Master of Subtlety (7004016) | high | hecho |
 | 4 | Rolling with the Punches (7004017), Waylay (7004018), Combat Potency (7004019), Focused Attacks (7004020), Honor Among Thieves (7004021) | high | pendiente |
 | 5 | Carnage (7004022), Cut to the Chase (7004023), Unfair Advantage (7004024), Blunderbuss (7004025), Crimson Tempest (7004026) | high | pendiente |
 | 6 | Fan of Knives (7004027) | high | pendiente |
