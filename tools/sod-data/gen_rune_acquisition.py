@@ -190,6 +190,9 @@ def make_sql(class_name: str, runes: list[dict[str, Any]], source: dict[str, Any
         for item in rune_source.get("objetos", []):
             item_id = int(item["id"])
             if item_id not in en_items or item_id not in es_items:
+                if not item.get("titulo") and not item.get("vendors") and not item.get("objects"):
+                    print(f"AVISO: objeto {item_id} de {rune['name'] if 'name' in rune else spell_id} sin datos ni fuentes; se omite")
+                    continue
                 raise ValueError(f"Falta ItemSparse enUS/esES para el objeto {item_id}.")
             item_records[item_id] = (rune, item, en_items[item_id], es_items[item_id])
 
