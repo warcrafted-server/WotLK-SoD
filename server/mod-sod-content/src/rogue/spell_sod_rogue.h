@@ -28,6 +28,13 @@ enum SodRogueSpells
     SPELL_SOD_ROGUE_SHADOWSTEP = 400029,
     SPELL_SOD_ROGUE_SHURIKEN_TOSS = 399986,
     SPELL_SOD_ROGUE_MASTER_OF_SUBTLETY = 425096,
+    SPELL_SOD_ROGUE_ROLLING_WITH_THE_PUNCHES = 400016,
+    SPELL_SOD_ROGUE_ROLLING_WITH_THE_PUNCHES_HEALTH = 900069,
+    SPELL_SOD_ROGUE_WAYLAY = 408700,
+    SPELL_SOD_ROGUE_COMBAT_POTENCY = 432259,
+    SPELL_SOD_ROGUE_FOCUSED_ATTACKS = 432256,
+    SPELL_SOD_ROGUE_HONOR_AMONG_THIEVES = 432264,
+    SPELL_SOD_ROGUE_HONOR_AMONG_THIEVES_TRIGGER = 432266,
     SPELL_ROGUE_DEADLY_POISON = 2818,
     SPELL_ROGUE_TAUNT = 355,
     SPELL_ROGUE_BACKSTAB = 53,
@@ -49,6 +56,7 @@ void AddSC_sod_rogue_poisoned_knife();
 void AddSC_sod_rogue_shadowstep();
 void AddSC_sod_rogue_shuriken_toss();
 void AddSC_sod_rogue_master_of_subtlety();
+void AddSC_sod_rogue_rolling_with_the_punches();
 
 inline bool SodRogueEnabled()
 {

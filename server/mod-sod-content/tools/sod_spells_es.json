@@ -126,6 +126,26 @@
     "name": "Maestro de la sutileza",
     "desc": "Tus ataques infligen un 10% más de daño mientras estás en sigilo y durante 6 s después de salir de él."
   },
+  "400016": {
+    "name": "Improvisación defensiva",
+    "desc": "Cada vez que esquivas o paras, acumulas una bonificación de salud hasta 5 veces."
+  },
+  "408700": {
+    "name": "Artimaña",
+    "desc": "Emboscada y Puñalada desequilibran a tu objetivo: aumentan un 20% el tiempo entre sus ataques cuerpo a cuerpo y reducen un 50% su velocidad de movimiento durante 8 s."
+  },
+  "432259": {
+    "name": "Potencia de combate",
+    "desc": "Tienes un 20% de probabilidad de obtener $432260s1 p. de energía cada vez que infliges daño cuerpo a cuerpo con el arma de tu mano izquierda."
+  },
+  "432256": {
+    "name": "Ataques centrados",
+    "desc": "Obtienes $432255s1 p. de energía cada vez que asestas un golpe crítico a distancia o cuerpo a cuerpo."
+  },
+  "432264": {
+    "name": "Honor entre ladrones",
+    "desc": "Cuando cualquier jugador de tu grupo asesta un golpe crítico con un hechizo o facultad, obtienes un punto de combo en tu objetivo actual. Este efecto no se puede producir más de una vez cada segundo."
+  },
   "403195": {
     "name": "Devastar"
   },

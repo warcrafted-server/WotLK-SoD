@@ -121,6 +121,11 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7004014 | Pícaro | Shadowstep | Cintura | 400029 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400029](https://www.wowhead.com/classic/spell=400029) |
 | 7004015 | Pícaro | Shuriken Toss | Cintura | 399986 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=399986](https://www.wowhead.com/classic/spell=399986) |
 | 7004016 | Pícaro | Master of Subtlety | Pies | 425096 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=425096](https://www.wowhead.com/classic/spell=425096) |
+| 7004017 | Pícaro | Rolling with the Punches | Pies | 400016 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400016](https://www.wowhead.com/classic/spell=400016) |
+| 7004018 | Pícaro | Waylay | Pies | 408700 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=408700](https://www.wowhead.com/classic/spell=408700) |
+| 7004019 | Pícaro | Combat Potency | Cabeza | 432259 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432259](https://www.wowhead.com/classic/spell=432259) |
+| 7004020 | Pícaro | Focused Attacks | Cabeza | 432256 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432256](https://www.wowhead.com/classic/spell=432256) |
+| 7004021 | Pícaro | Honor Among Thieves | Cabeza | 432264 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432264](https://www.wowhead.com/classic/spell=432264) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
 | 7007001 | Chamán | Earth Shield | Piernas | 408514 | Objeto «Rune of Earth Shield» (210746): El Grabador la vende por 1 oro, igual que los Rune Brokers de SoD; las fuentes NPC exclusivas de SoD no están implementadas. | [spell=408514](https://www.wowhead.com/classic/spell=408514) |

@@ -122,6 +122,7 @@ void AddSC_sod_rogue_poisoned_knife();
 void AddSC_sod_rogue_shadowstep();
 void AddSC_sod_rogue_shuriken_toss();
 void AddSC_sod_rogue_master_of_subtlety();
+void AddSC_sod_rogue_rolling_with_the_punches();
 void AddSC_sod_warrior_blood_frenzy();
 void AddSC_sod_warrior_flagellation();
 void AddSC_sod_warrior_raging_blow();
@@ -249,6 +250,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_rogue_shadowstep();
     AddSC_sod_rogue_shuriken_toss();
     AddSC_sod_rogue_master_of_subtlety();
+    AddSC_sod_rogue_rolling_with_the_punches();
 
     AddSC_sod_warrior_blood_frenzy();
     AddSC_sod_warrior_flagellation();

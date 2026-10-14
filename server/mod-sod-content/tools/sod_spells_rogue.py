@@ -18,6 +18,7 @@ AURA_MOD_ATTACKER_MELEE_CRIT_CHANCE = 187
 AURA_MOD_PARRY_PERCENT = 47
 AURA_MOD_ATTACK_POWER = 99
 AURA_PERIODIC_DAMAGE = 3
+AURA_MOD_INCREASE_HEALTH_PERCENT = 133
 
 # Golpe siniestro: máscara de familia A del cliente 3.3.5a.
 MASK_SINISTER_STRIKE = 0x800002
@@ -429,5 +430,159 @@ def build(idx):
                 "SpellClassSet": 8,
             },
             "inherit_server": True,
+        },
+        {  # Cada esquiva o parada aumenta la salud hasta cinco acumulaciones.
+            "id": 400016, "client": True, "template": 774,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Rolling with the Punches",
+            "script": "spell_sod_rogue_rolling_with_the_punches",
+            "desc": "Each time you Dodge or Parry, you gain increased Health, stacking up to 5 times.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": idx["icon"]["ability_rogue_cheatdeath"],
+                "ProcChance": 100, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 40, "SpellTypeMask": 0, "SpellPhaseMask": 0,
+                "HitMask": 48, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Alias para que el cliente resuelva los valores del auxiliar de Waylay.
+            "id": 408699, "client": True, "template": 51693,
+            "name": "Waylay", "inherit_server": True,
+            "overrides": {
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+            },
+        },
+        {  # El talento nativo de WotLK ya aplica los dos perjuicios de Waylay.
+            "id": 408700, "client": True, "template": 51696,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Waylay", "inherit_server": True,
+            "desc": "Your Ambush and Backstab hits unbalance your target, increasing the time between their melee attacks by 20% and reducing movement speed by 50% for 8 sec.",
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 8,
+                "EffectTriggerSpell_1": 408699,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 8,
+                "SpellFamilyMask0": 516, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 0, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Alias SoD del auxiliar WotLK que restaura 15 p. de energía.
+            "id": 432260, "client": True, "template": 35548,
+            "name": "Combat Potency Energy", "inherit_server": True,
+            "overrides": {
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+            },
+        },
+        {  # Conserva el proc del rango 1 y usa el auxiliar de 15 p. de energía de WotLK.
+            "id": 432259, "client": True, "template": 35541,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Combat Potency", "script": "spell_rog_combat_potency",
+            "inherit_server": True,
+            "desc": "You have a 20% chance to gain $432260s1 Energy every time you deal melee damage with your off-hand weapon.",
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 8,
+                "EffectTriggerSpell_1": 432260,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 8388608, "SpellTypeMask": 0, "SpellPhaseMask": 0,
+                "HitMask": 0, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # Alias SoD del auxiliar de energía del rango máximo de WotLK.
+            "id": 432255, "client": True, "template": 51637,
+            "name": "Focused Attacks Energy", "inherit_server": True,
+            "overrides": {
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+            },
+        },
+        {  # Reutiliza el script y el proc nativos; el rango máximo restaura 2 p. de energía.
+            "id": 432256, "client": True, "template": 51636,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Focused Attacks", "script": "spell_rog_focused_attacks",
+            "desc": "You gain $432255s1 Energy every time you deal a melee or ranged critical strike.",
+            "inherit_server": True,
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 8,
+                "EffectTriggerSpell_1": 432255,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 2,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # El aura de talento activa el ayudante de WotLK al recibir críticos del grupo.
+            "id": 432264, "client": True, "template": 51698,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Honor Among Thieves",
+            "script": "spell_rog_honor_among_thieves",
+            "inherit_server": True,
+            "overrides": {
+                "SpellLevel": 0, "ProcChance": 100, "SpellClassSet": 8,
+                "EffectTriggerSpell_1": 432266,
+            },
+            "proc": {
+                # Copia el proc de 51698: la runa usa probabilidad total y 1 s de espera.
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 3, "SpellPhaseMask": 4,
+                "HitMask": 2, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 100, "Cooldown": 1000, "Charges": 0,
+            },
+        },
+        {  # El ayudante nativo fija el objetivo y activa el punto de combo y su límite temporal.
+            "id": 432266, "client": True, "template": 52916,
+            "name": "Honor Among Thieves Trigger",
+            "script": "spell_rog_honor_among_thieves_proc",
+            "inherit_server": True,
+            "overrides": {},
+        },
+        {  # +5 % de salud máxima por carga, 30 s, hasta 5 cargas (Wowhead, hechizo 400015, consultado 2026-10-14).
+            "id": 900069, "client": False, "template": 774,
+            "name": "Rolling with the Punches Health",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_30s,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "CumulativeAura": 5, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA,
+                "EffectAura_1": AURA_MOD_INCREASE_HEALTH_PERCENT,
+                "EffectBasePoints_1": 5, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
         },
     ]
