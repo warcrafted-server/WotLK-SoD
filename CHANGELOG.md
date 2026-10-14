@@ -2,6 +2,10 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-14
+
+- Pícaro: runas Deadly Brew `7004002`, Just a Flesh Wound `7004003`, Quick Draw `7004004`, Slaughter from the Shadows `7004005`, Between the Eyes `7004006` (tanda 1 de `.agents/plans/picaro/`). Deadly Brew sin el proc de Veneno instantáneo; Just a Flesh Wound aproxima la esquiva (requiere Danza de hojas); fórmula de daño de Between the Eyes sin verificar. SQL validado con `validar_sql.sh`; sin compilar ni probar.
+
 ## 2026-10-11
 
 - Corregido: el worldserver se paraba al reaplicar `sod_hunter_runes.sql` (`Data too long for column 'description'`: `rune_template.description` es `varchar(255)`). Acortadas las descripciones largas de 7 runas (cazador 7003026, chamán 7007016, guerrero 7001004, 7001012, 7001018, 7001024 y 7001028); el texto completo sigue en el tooltip del hechizo.

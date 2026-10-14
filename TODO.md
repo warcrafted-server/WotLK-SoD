@@ -334,6 +334,17 @@ Simplificaciones y datos por revisar:
 - [ ] Resourcefulness `7003028`: clon de la plantilla de talento 34493 con SpellMods de −100 % al coste de maná y −40 % al tiempo de reutilización para la familia de trampas A `0x80`.
 - [ ] Los iconos de `7003024–7003028` reutilizan iconos existentes del cazador. No se han comprobado visualmente ni en juego.
 
+## Pícaro
+
+Las cinco runas `7004002–7004006` tienen datos y scripts del módulo. Hace falta regenerar el SQL de hechizos y el parche de cliente, recompilar y probar en el reino de desarrollo. La adquisición es provisional: compra al Grabador por 1 oro; las fuentes reales de SoD no se han verificado.
+
+- **Deadly Brew `7004002`:** conserva el filtro de proc de WotLK, pero aplica el rango de Veneno mortal disponible para el nivel del pícaro; el hechizo 3409 del guion nativo de WotLK es Veneno entorpecedor y no cumple la descripción de SoD. Pendiente: proc de Veneno instantáneo cuando el arma carece de veneno, escalado adicional por poder de ataque de los venenos y coexistencia de Veneno mortal de varios pícaros.
+- **Just a Flesh Wound `7004003`:** el código comprueba Danza de hojas `400012` antes de reducir el daño físico; esa runa todavía no está implementada en el módulo, así que esta parte no se activa hasta añadirla. La reducción aumenta un 1% por cada 12 puntos de Defensa por encima de `nivel × 5`. También aplica −6% a críticos cuerpo a cuerpo recibidos, −20% de daño infligido, +165% de amenaza y +65 puntos porcentuales de esquiva. La esquiva es aditiva en este core, no un multiplicador del 165%. Amago ejecuta Taunt `355` sobre el objetivo seleccionado; el icono, nombre y acción de reemplazo de la facultad no cambian en el libro.
+- **Quick Draw `7004004`:** usa un efecto de disparo físico con arma a distancia, −50% de velocidad durante 6 s, 1 punto de combo, 25 de energía y 10 s de reutilización. Lleva la máscara de familia A de Golpe siniestro `0x800002` para recibir sus modificadores.
+- **Slaughter from the Shadows `7004005`:** reduce 30 de energía mediante un SpellMod de WotLK y suma un 70% al daño de Puñalada y Emboscada contra objetivos no controlados por jugadores. No afecta a Mutilar ni a facultades de otras runas.
+- **Between the Eyes `7004006`:** reutiliza la categoría de Golpe en los riñones para compartir su enfriamiento, consume puntos de combo, aturde 1 s por punto e inflige una aproximación de `(52 + poder de ataque) × puntos de combo`. El catálogo local da 52 puntos base y coeficiente de poder de ataque 1, pero no los valores de `$<base>` y `$<percombo>` de la fórmula completa.
+- No se ha compilado ni probado este código. Confirmar también el coste, alcance, daño, tiempos y traducciones en juego.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

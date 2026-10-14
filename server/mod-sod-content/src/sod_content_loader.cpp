@@ -108,6 +108,11 @@ void AddSC_sod_warlock_invocation();
 void AddSC_sod_warlock_dance_of_the_wicked();
 void AddSC_sod_warlock_infernal_armor();
 void AddSC_sod_warlock_grimoire_of_synergy();
+void AddSC_sod_rogue_deadly_brew();
+void AddSC_sod_rogue_just_a_flesh_wound();
+void AddSC_sod_rogue_quick_draw();
+void AddSC_sod_rogue_slaughter_from_the_shadows();
+void AddSC_sod_rogue_between_the_eyes();
 void AddSC_sod_warrior_blood_frenzy();
 void AddSC_sod_warrior_flagellation();
 void AddSC_sod_warrior_raging_blow();
@@ -220,6 +225,12 @@ void Addmod_sod_contentScripts()
     AddSC_sod_warlock_dance_of_the_wicked();
     AddSC_sod_warlock_infernal_armor();
     AddSC_sod_warlock_grimoire_of_synergy();
+
+    AddSC_sod_rogue_deadly_brew();
+    AddSC_sod_rogue_just_a_flesh_wound();
+    AddSC_sod_rogue_quick_draw();
+    AddSC_sod_rogue_slaughter_from_the_shadows();
+    AddSC_sod_rogue_between_the_eyes();
 
     AddSC_sod_warrior_blood_frenzy();
     AddSC_sod_warrior_flagellation();

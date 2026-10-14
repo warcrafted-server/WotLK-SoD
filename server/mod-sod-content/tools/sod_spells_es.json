@@ -66,6 +66,26 @@
   "399956": {
     "name": "Mutilar"
   },
+  "399965": {
+    "name": "Brebaje letal",
+    "desc": "Cuando aplicas otro veneno, también aplicas Veneno mortal. Si tu arma no tiene veneno, puede activar Veneno instantáneo. Veneno mortal y Veneno instantáneo infligen daño adicional según tu poder de ataque."
+  },
+  "400014": {
+    "name": "Una simple herida superficial",
+    "desc": "Mientras Danza de hojas está activa, recibes un 20% menos de daño físico, reducido un 1% adicional por cada 12 p. de Defensa por encima del valor base según tu nivel. Tu probabilidad de esquivar aumenta un 65%, recibes un 6% menos de críticos cuerpo a cuerpo, infliges un 20% menos de daño y generas mucha más amenaza. Amago provoca al objetivo seleccionado."
+  },
+  "398196": {
+    "name": "Desenvainado rápido",
+    "desc": "Disparas con tu arma a distancia e infliges su daño normal, reduces la velocidad del objetivo un 50% durante 6 s y obtienes 1 p. de combo. Se beneficia de los talentos y efectos de Golpe siniestro."
+  },
+  "424925": {
+    "name": "Matanza desde las sombras",
+    "desc": "Reduce 30 p. el coste de energía de Puñalada y Emboscada y aumenta un 70% el daño que infligen a objetivos no controlados por jugadores. No afecta a Mutilar ni a facultades de otras runas."
+  },
+  "400009": {
+    "name": "Entre ceja y ceja",
+    "desc": "Remate a distancia que inflige daño según tus puntos de combo y poder de ataque, y aturde al objetivo 1 s por cada punto de combo. Comparte la reutilización con Golpe en los riñones."
+  },
   "403195": {
     "name": "Devastar"
   },

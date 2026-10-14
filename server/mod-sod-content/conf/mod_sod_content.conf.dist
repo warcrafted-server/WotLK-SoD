@@ -158,6 +158,17 @@ SodMage.Drops.LivingFlameNotesChance = 20
 SodMage.Drops.RegenNotesChance = 20
 SodMage.Drops.LivingBombNotesChance = 20
 
+########################################
+# ROGUE
+########################################
+#
+# SodRogue.Enable
+#     Descripción: activa los comportamientos personalizados de las runas de pícaro.
+#     Predeterminado: 1 (activado), 0 (desactivado).
+#
+
+SodRogue.Enable = 1
+
 ###############################################################################
 # WORLD (formerly mod-sod-world)
 ###############################################################################
