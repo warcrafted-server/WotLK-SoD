@@ -10,7 +10,7 @@ con la familia de WotLK 3. Encargos generados con `gen_tareas_clase.py mage` y p
 | Paso | Runas | Esfuerzo | Estado |
 |---|---|---|---|
 | 1 | Frostfire Bolt (7000016), Missile Barrage (7000017) | high | hecho |
-| 2 | Spellfrost Bolt (7000018), Brain Freeze (7000019), Chronostatic Preservation (7000020), Spell Power (7000021), Advanced Warding (7000022) | high | pendiente |
+| 2 | Spellfrost Bolt (7000018), Brain Freeze (7000019), Chronostatic Preservation (7000020), Spell Power (7000021), Advanced Warding (7000022) | high | hecho |
 | 3 | Deep Freeze (7000023), Hot Streak (7000024), Temporal Anomaly (7000025), Balefire Bolt (7000026), Displacement (7000027) | high | pendiente |
 | 4 | Molten Armor (7000028), Arcane Barrage (7000029), Frozen Orb (7000030), Overheat (7000031) | high | pendiente |
 | 5 | Adquisición de los objetos-runa | medium | pendiente |

@@ -143,6 +143,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-mage'', 1),
     (7000017, 400588, 128, 128, ''Missile Barrage'', ''ability_mage_missilebarrage'',
      ''Arcane Blast has a 40% chance to trigger Missile Barrage; Fireball and Frostbolt have a 20% chance.'',
+     ''mod-sod-mage'', 1),
+    (7000018, 412532, 128, 128, ''Spellfrost Bolt'', ''spell_fire_blueflamebolt'',
+     ''Deals Spellfrost damage and slows the target by 40% for 9 sec. Counts as both Frost and Arcane damage.'',
+     ''mod-sod-mage'', 1),
+    (7000019, 400731, 128, 512, ''Brain Freeze'', ''ability_mage_brainfreeze'',
+     ''Frost damage spells with chilling effects have a 20% chance to make your next Fireball, Spellfrost Bolt, Balefire Bolt, or Frostfire Bolt instant and free.'',
+     ''mod-sod-mage'', 1),
+    (7000020, 436516, 128, 512, ''Chronostatic Preservation'', ''spell_holy_flashheal'',
+     ''Store a charge of Arcane, Fire, and Frost magic for up to 20 sec, then release it to heal a friendly target.'',
+     ''mod-sod-mage'', 1),
+    (7000021, 412322, 128, 512, ''Spell Power'', ''spell_arcane_arcanepotency'',
+     ''Increases the critical strike damage bonus of all spells by 15%.'',
+     ''mod-sod-mage'', 1),
+    (7000022, 412115, 128, 1, ''Advanced Warding'', ''spell_frost_frostward'',
+     ''Mana Shield, Frost Ward, and Fire Ward absorb 100% more damage. Mana Shield uses 50% less mana per damage absorbed.'',
      ''mod-sod-mage'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -158,3 +173,9 @@ SET @sql := IF(@rune_tbl > 0,
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
+
+-- Los manejadores locales amplían los escudos WotLK cuando el mago tiene la runa.
+INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
+    (-1463, 'spell_sod_mage_advanced_warding'),
+    (-6143, 'spell_sod_mage_advanced_warding'),
+    (-543, 'spell_sod_mage_advanced_warding');

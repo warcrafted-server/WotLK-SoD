@@ -31,6 +31,8 @@ void AddSC_sod_mage_living_bomb_copy();
 void AddSC_sod_mage_enlightenment();
 void AddSC_sod_mage_burnout();
 void AddSC_sod_mage_azora_event();
+void AddSC_sod_mage_chronostatic_preservation();
+void AddSC_sod_mage_advanced_warding();
 void AddSC_item_sod_mage_decode_notes();
 void AddSC_world_sod_mage_drops();
 void AddSC_sod_druid_mangle();
@@ -174,6 +176,8 @@ void Addmod_sod_contentScripts()
     AddSC_sod_mage_enlightenment();
     AddSC_sod_mage_burnout();
     AddSC_sod_mage_azora_event();
+    AddSC_sod_mage_chronostatic_preservation();
+    AddSC_sod_mage_advanced_warding();
     AddSC_item_sod_mage_decode_notes();
     AddSC_world_sod_mage_drops();
 

@@ -86,7 +86,16 @@ enum SodMageSpells
     SPELL_SOD_MAGE_FROSTFIRE_BOLT        = 401502, // Frostfire Bolt (Waist rune)
     SPELL_SOD_MAGE_MISSILE_BARRAGE       = 400588, // Missile Barrage (Waist rune)
     SPELL_SOD_MAGE_MISSILE_BARRAGE_PROC  = 400589, // triggered Missile Barrage aura
+    SPELL_SOD_MAGE_SPELLFROST_BOLT       = 412532, // Arcane/Frost bolt (Waist rune)
+    SPELL_SOD_MAGE_BRAIN_FREEZE          = 400731, // Brain Freeze proc aura (Feet rune)
+    SPELL_SOD_MAGE_BRAIN_FREEZE_PROC     = 400730, // next-spell instant/cost aura
+    SPELL_SOD_MAGE_CHRONOSTATIC_PRESERVATION = 436516, // stored friendly heal (Feet rune)
+    SPELL_SOD_MAGE_SPELL_POWER           = 412322, // critical damage passive (Feet rune)
+    SPELL_SOD_MAGE_ADVANCED_WARDING      = 412115, // shield improvement passive (Head rune)
+    SPELL_SOD_MAGE_CHRONOSTATIC_STORAGE  = 900070, // hidden 20-second stored-charge aura
 };
+
+constexpr uint32 SPELL_MAGE_CHRONOSTATIC_FLASH_HEAL = 48071; // WotLK highest-rank Flash Heal.
 
 // The Scorch-tagged Living Bomb copy, mirrored across the real spell's three ranks so the
 // core's Master of Elements (Mage + icon 3000 + no mana -> GetSpellWithRank(44457, rank))
@@ -198,5 +207,8 @@ inline uint32 SodMageRewindTimeWindowMs()
 // Called when a unit's last Temporal Beacon falls off, so the log stays bounded to
 // currently-beaconed units.
 void SodMageForgetRewindLog(ObjectGuid const& guid);
+
+void AddSC_sod_mage_chronostatic_preservation();
+void AddSC_sod_mage_advanced_warding();
 
 #endif // MODULE_SOD_MAGE_H

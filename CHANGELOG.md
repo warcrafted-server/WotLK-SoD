@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Mago: runas Spellfrost Bolt `7000018`, Brain Freeze `7000019`, Chronostatic Preservation `7000020`, Spell Power `7000021`, Advanced Warding `7000022` (tanda 2 de `.agents/plans/mago/`). Spellfrost Bolt, Chronostatic Preservation, Advanced Warding y Brain Freeze con límites documentados (ver TODO.md); proc de Brain Freeze copiado del core. SQL validado. Sin compilar ni probar.
 - Mago: runas Frostfire Bolt `7000016`, Missile Barrage `7000017` (tanda 1 de `.agents/plans/mago/`). Frostfire Bolt y Missile Barrage. SQL validado. Sin compilar ni probar.
 - Sacerdote: adquisición de 27 runas generada con `gen_rune_acquisition.py --class priest` (34 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para esta clase en 45 criaturas). Sin aplicar ni probar.
 - Sacerdote: runas Surge of Light `7005023`, Void Zone `7005024`, Binding Heal `7005025`, Soul Warding `7005026`, Vampiric Touch `7005027` (tanda 5 de `.agents/plans/sacerdote/`). Soul Warding simplificada y Vampiric Touch/Void Zone aproximados (ver TODO.md). SQL validado. Sin compilar ni probar.

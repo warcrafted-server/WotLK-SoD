@@ -1191,5 +1191,30 @@
   },
   "900059": {
     "name": "Oleada de Luz"
+  },
+  "412532": {
+    "name": "Descarga de Fríoarcano",
+    "desc": "Lanza un proyectil de fríoarcano contra el enemigo que inflige daño Arcano y de Escarcha y reduce un 40% su velocidad de movimiento durante 9 s. Se compara con la menor de las resistencias a la Escarcha y a lo Arcano.",
+    "aura_desc": "Velocidad de movimiento reducida un 40%."
+  },
+  "400731": {
+    "name": "Congelación cerebral",
+    "desc": "Tus hechizos de daño de Escarcha con efectos de enfriamiento tienen un 20% de probabilidad de hacer que tu siguiente Bola de Fuego, Descarga de Fríoarcano, Descarga de Fuegotorvo o Descarga de Pirofrío sea instantánea y no cueste maná."
+  },
+  "400730": {
+    "name": "Congelación cerebral",
+    "desc": "Tu siguiente hechizo compatible de Fuego o Escarcha será instantáneo y no costará maná."
+  },
+  "436516": {
+    "name": "Preservación cronostática",
+    "desc": "Fusiona magia Arcana, de Fuego y de Escarcha en una carga que se conserva durante 20 s. Vuelve a lanzar el hechizo sobre un objetivo amistoso para liberarla como sanación. Este hechizo cuenta como Arcano, de Fuego y de Escarcha."
+  },
+  "412322": {
+    "name": "Poder con hechizos",
+    "desc": "Aumenta un 15% el daño adicional de los golpes críticos de todos tus hechizos."
+  },
+  "412115": {
+    "name": "Protección avanzada",
+    "desc": "Ahora puedes lanzar Escudo de maná, Resguardo contra la Escarcha y Resguardo contra el Fuego sobre cualquier objetivo amistoso y absorben un 100% más de daño. Escudo de maná consume un 50% menos de maná por cada punto de daño absorbido. Además, Eliminar maldición inferior se sustituye por Eliminar maldición superior."
   }
 }
