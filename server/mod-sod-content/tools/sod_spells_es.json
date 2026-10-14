@@ -1089,5 +1089,27 @@
   "409240": {
     "name": "Abanico de cuchillos",
     "desc": "Lanzas instantáneamente ambas armas contra todos los objetivos en un radio de $a1 m; inflige un ${$m1*1.5}% de daño con dagas y un $s1% con las demás armas."
+  },
+  "401969": {
+    "name": "Dolor compartido",
+    "desc": "Ahora, tu Palabra de las Sombras: dolor afecta a un máximo de ${$m1-1} objetivos cercanos más en un radio de $s2 m."
+  },
+  "413259": {
+    "name": "Abrasamiento mental",
+    "desc": "Provoca una deflagración de magia de las Sombras que inflige daño al objetivo enemigo y a otros enemigos cercanos. Todos los enemigos en un radio de $413260a1 m del objetivo reciben de ${$413260m1/100*$<damagepower>} p. a ${$413260M1/100*$<damagepower>} p. de daño de las Sombras cada $T1 s durante $d.",
+    "aura_desc": "Infligiendo daño de las Sombras a todos los objetivos en un radio de $413260a1 m."
+  },
+  "401955": {
+    "name": "Palabra de las Sombras: muerte",
+    "desc": "Una palabra de vínculo oscuro que inflige de ${$<damagepower>*$m1/100} a ${$<damagepower>*$M1/100} p. de daño de las Sombras al objetivo. Si el objetivo no muere por Palabra de las Sombras: muerte, el taumaturgo recibe una cantidad de daño igual a un $m2% daño que se le haya intentado infligir al objetivo."
+  },
+  "425266": {
+    "name": "Renovar potenciado",
+    "desc": "Ahora, tu hechizo Renovar sana una vez más justo después de aplicarlo y obtiene un $s1% de beneficio extra de tus efectos de sanación adicionales cada vez que sana.\n\nAdemás, tu hechizo Renovar puede estar activo en objetivos afectados por el Renovar de otro sacerdote.\n"
+  },
+  "431655": {
+    "name": "Púa mental",
+    "desc": "Golpea al objetivo, inflige de ${$m1*$<damagepower>/100} p. a ${$M1*$<damagepower>/100} p. de daño de Fríosombra y aumenta un $s2% la probabilidad de golpe crítico de la siguiente Explosión mental que lances al objetivo. Se acumula hasta $u veces.",
+    "aura_desc": "Probabilidad de que el efecto de Explosión mental por parte de un sacerdote sea crítico aumentada un $s2%."
   }
 }

@@ -373,7 +373,12 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Twisted Faith `7005005`:** conserva el modificador nativo que comprueba Palabra de las Sombras: dolor y fuerza el 50 % de SoD. Hay que comprobar que el core reconoce el aura clonada por su máscara de familia.
 - **Homunculi `7005006`:** aproximación con el hechizo de invocación del esbirro de las Sombras de WotLK. Solo invoca uno; faltan los tres homúnculos con sus perjuicios de velocidad de ataque, poder de ataque y armadura. Crear criaturas y sus AI requiere datos que no están disponibles en el catálogo.
 - **Prayer of Mending `7005007`:** reutiliza el escudo con cargas, la sanación y los saltos nativos de WotLK. Queda comprobar si el proc nativo salta también al recibir sanación y si su radio y duración coinciden con SoD.
-- Estas cinco runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
+- **Shared Pain `7005008`:** Palabra de las Sombras: dolor se aplica a hasta dos enemigos adicionales en 15 m del objetivo. Los candidatos salen del recorrido de celdas del mapa; comprobar el orden, el alcance y la renovación de auras propias.
+- **Mind Sear `7005009`:** reutiliza el canal y el filtrado nativos de WotLK. El ayudante SoD `413260` se clona del hechizo WotLK `53022` para resolver el texto; el script excluye el objetivo de canalización y conserva el daño y el radio de la plantilla, que pueden diferir de SoD.
+- **Shadow Word: Death `7005010`:** reutiliza el script nativo de WotLK; este devuelve el 100 % del daño intentado al taumaturgo si el objetivo sobrevive, frente al 50 % descrito para SoD.
+- **Empowered Renew `7005011`:** la plantilla de talento WotLK activa la sanación inmediata nativa. El guion local aproxima el efecto por pulsos como un aumento acumulado del 15 % de la sanación total por pulso; no se ha verificado que el cálculo coincida con el beneficio incremental de poder de sanación de SoD. La coexistencia entre taumaturgos se deja al comportamiento de auras por lanzador del core.
+- **Mind Spike `7005012`:** el aura de objetivo añade 30 puntos porcentuales por acumulación a la probabilidad de crítico de los hechizos de Sombras contra ese objetivo; la Explosión mental del taumaturgo consume una acumulación. El aura WotLK no limita el bono por lanzador, así que los hechizos de Sombras de cualquier atacante también se benefician mientras haya acumulaciones.
+- Estas diez runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
 
 ## Otras clases
 

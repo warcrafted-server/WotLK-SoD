@@ -252,7 +252,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Twisted Faith `7005005`, Pecho (4): comparar el daño de Tortura mental y Explosión mental al objetivo con Palabra de las Sombras: dolor y sin ella. El aumento se ajusta al 50 % de SoD y se desactivan los efectos de conversión de espíritu del talento WotLK.
 - [ ] Homunculi `7005006`, Piernas (8): comprobar invocación, duración y ataques del esbirro. La implementación actual invoca un único esbirro de las Sombras de WotLK; no son tres homúnculos y no aplica los tres perjuicios de SoD.
 - [ ] Prayer of Mending `7005007`, Piernas (8): comprobar coste, reutilización, sanación al recibir daño y saltos entre miembros del grupo o banda. Usa el motor nativo WotLK y no se ha probado si también salta al recibir sanación como SoD.
-- El código de estas runas no se ha compilado ni probado. Su adquisición en el Grabador es provisional.
+- [ ] Shared Pain `7005008`, Piernas (8): lanzar Palabra de las Sombras: dolor sobre un enemigo y comprobar que afecta a un máximo de dos enemigos hostiles adicionales en 15 m alrededor del objetivo, con el mismo rango y taumaturgo.
+- [ ] Mind Sear `7005009`, Manos (6): comprobar coste del 28 %, canalización de 6 s, daño periódico y radio. El script nativo de WotLK excluye al objetivo de canalización de los impactos de área; el texto usa el hechizo auxiliar clonado `413260`.
+- [ ] Shadow Word: Death `7005010`, Manos (6): comprobar daño, coste del 12 %, reutilización de 12 s y represalia si el objetivo sobrevive. Diferencia conocida: el script nativo de WotLK devuelve el 100 % del daño intentado, mientras que SoD indica el 50 %.
+- [ ] Empowered Renew `7005011`, Cintura (7): comprobar la sanación inmediata adicional al aplicar Renovar, sus pulsos y la coexistencia con Renovar de otro sacerdote. El guion aproxima el aumento acumulado como +15 % de la sanación total por pulso; verificarlo frente a SoD.
+- [ ] Mind Spike `7005012`, Cintura (7): comprobar daño Fríosombra, coste del 6 %, duración de 10 s y acumulación hasta 3; cada Explosión mental del taumaturgo al objetivo debe consumir una acumulación. Limitación: el aura WotLK aumenta el crítico de hechizos de Sombras de cualquier atacante contra ese objetivo mientras quedan acumulaciones.
+- Las diez runas del sacerdote aún no se han compilado ni probado. Su adquisición en el Grabador es provisional.
 
 ### Druida feral
 

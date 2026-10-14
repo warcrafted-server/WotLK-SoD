@@ -141,6 +141,9 @@ void AddSC_sod_warrior_shield_mastery();
 void AddSC_sod_warrior_wrecking_crew();
 void AddSC_sod_warrior_fresh_meat();
 void AddSC_sod_warrior_shockwave();
+void AddSC_sod_priest_shared_pain();
+void AddSC_sod_priest_empowered_renew();
+void AddSC_sod_priest_mind_spike();
 
 // --- world (formerly mod-sod-world) ---
 void AddSC_item_sod_world_phylactery();
@@ -293,5 +296,9 @@ void Addmod_sod_contentScripts()
     AddSC_sod_paladin_inspiration_exemplar();
     AddSC_sod_paladin_hand_of_reckoning();
     AddSC_sod_paladin_malleable_protection();
+
+    AddSC_sod_priest_shared_pain();
+    AddSC_sod_priest_empowered_renew();
+    AddSC_sod_priest_mind_spike();
 
 }

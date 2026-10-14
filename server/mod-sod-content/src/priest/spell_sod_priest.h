@@ -16,7 +16,16 @@ enum SodPriestSpells
     SPELL_SOD_PRIEST_TWISTED_FAITH = 425198,
     SPELL_SOD_PRIEST_HOMUNCULI = 402799,
     SPELL_SOD_PRIEST_PRAYER_OF_MENDING = 401859,
+    SPELL_SOD_PRIEST_SHARED_PAIN = 401969,
+    SPELL_SOD_PRIEST_MIND_SEAR = 413259,
+    SPELL_SOD_PRIEST_SHADOW_WORD_DEATH = 401955,
+    SPELL_SOD_PRIEST_EMPOWERED_RENEW = 425266,
+    SPELL_SOD_PRIEST_MIND_SPIKE = 431655,
 };
+
+void AddSC_sod_priest_shared_pain();
+void AddSC_sod_priest_empowered_renew();
+void AddSC_sod_priest_mind_spike();
 
 inline bool SodPriestEnabled()
 {

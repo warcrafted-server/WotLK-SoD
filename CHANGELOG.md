@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Sacerdote: runas Shared Pain `7005008`, Mind Sear `7005009`, Shadow Word: Death `7005010`, Empowered Renew `7005011`, Mind Spike `7005012` (tanda 2 de `.agents/plans/sacerdote/`). Mind Sear, Shadow Word: Death, Empowered Renew y Mind Spike aproximados (ver TODO.md); script de Mind Sear añadido. SQL validado. Sin compilar ni probar.
 - Sacerdote: runas Serendipity `7005003`, Strength of Soul `7005004`, Twisted Faith `7005005`, Homunculi `7005006`, Prayer of Mending `7005007` (tanda 1 de `.agents/plans/sacerdote/`). Strength of Soul sin efecto (valor de 409317 no consta en wago ni Wowhead); Homunculi con un solo esbirro; script de Penance añadido. SQL validado. Sin compilar ni probar.
 - Pícaro: adquisición de 27 runas generada con `gen_rune_acquisition.py --class rogue` (28 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para esta clase en 1 criaturas). Sin aplicar ni probar.
 - Pícaro: runas Fan of Knives `7004027` (tanda 6 de `.agents/plans/picaro/`). Clon de Abanico de cuchillos de WotLK (52874) con daño y reutilización de SoD. SQL validado. Sin compilar ni probar.
