@@ -413,6 +413,19 @@ SodDruid.TreeOfLife.WildGrowthHealingPct = 60
 SodShaman.Enable = 1
 
 ###############################################################################
+# PRIEST
+###############################################################################
+#
+#    SodPriest.Enable
+#        Descripción: interruptor para los scripts propios de runas del sacerdote.
+#                     Los clones que usan el comportamiento nativo del core no lo consultan.
+#        Valor predeterminado: 1 - (Activado)
+#                              0 - (Desactivado)
+#
+
+SodPriest.Enable = 1
+
+###############################################################################
 # HUNTER
 ###############################################################################
 #

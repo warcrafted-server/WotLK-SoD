@@ -245,6 +245,15 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Para la cuarta tanda: falta el porcentaje por acumulación de Improvisación defensiva; Ataques centrados usa 2 p. de energía del rango máximo de WotLK. Verificar ambos valores frente a SoD.
 - [ ] Adquisición del pícaro: las 27 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para esta clase en 1 criaturas (ver `docs/runas/obtencion.md`).
 
+### Sacerdote
+
+- [ ] Serendipity `7005003`, Pecho (4): lanzar Sanación relámpago y comprobar el proc, las acumulaciones y la reducción de lanzamiento de Sanación superior y Rezo de sanación. La plantilla de WotLK puede no incluir Sanación inferior ni Sanar como hechizos afectados.
+- [ ] Strength of Soul `7005004`, Pecho (4): el hechizo aparece en el libro, pero su mecánica está pendiente por falta del dato local de 409317. No se han implementado la reducción de Alma debilitada ni los efectos de daño absorbido de Palabra de poder: escudo.
+- [ ] Twisted Faith `7005005`, Pecho (4): comparar el daño de Tortura mental y Explosión mental al objetivo con Palabra de las Sombras: dolor y sin ella. El aumento se ajusta al 50 % de SoD y se desactivan los efectos de conversión de espíritu del talento WotLK.
+- [ ] Homunculi `7005006`, Piernas (8): comprobar invocación, duración y ataques del esbirro. La implementación actual invoca un único esbirro de las Sombras de WotLK; no son tres homúnculos y no aplica los tres perjuicios de SoD.
+- [ ] Prayer of Mending `7005007`, Piernas (8): comprobar coste, reutilización, sanación al recibir daño y saltos entre miembros del grupo o banda. Usa el motor nativo WotLK y no se ha probado si también salta al recibir sanación como SoD.
+- El código de estas runas no se ha compilado ni probado. Su adquisición en el Grabador es provisional.
+
 ### Druida feral
 
 - [ ] Wild Growth `7009001`, Manos (6); Survival of the Fittest `7009002`, Pecho (4). Wild Growth también está en las pruebas de crecimiento con nivel (a 80 coincide con WotLK).

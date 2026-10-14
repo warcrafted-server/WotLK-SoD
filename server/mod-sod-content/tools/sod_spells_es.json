@@ -188,6 +188,30 @@
   "402174": {
     "name": "Penitencia"
   },
+  "413248": {
+    "name": "Serendipia",
+    "desc": "Sanar con Sanación relámpago reduce el tiempo de lanzamiento de tu siguiente Sanación inferior, Sanar, Sanación superior o Rezo de sanación un $413247s1% durante $413247d. Se acumula hasta $413247u veces."
+  },
+  "413247": {
+    "name": "Serendipia",
+    "aura_desc": "El tiempo de lanzamiento de los hechizos de sanación compatibles se reduce un $s1%."
+  },
+  "415739": {
+    "name": "Fuerza del alma",
+    "desc": "Sanación inferior, Sanar, Sanación superior y Sanación relámpago reducen la duración restante de Alma debilitada en sus objetivos. Además, el daño absorbido por Palabra de poder: escudo genera ira y activa Furia recta como si fuese sanación."
+  },
+  "425198": {
+    "name": "Fe retorcida",
+    "desc": "Tortura mental y Explosión mental infligen un $s2% más de daño a los objetivos afectados por tu Palabra de las Sombras: dolor."
+  },
+  "402799": {
+    "name": "Homúnculos",
+    "desc": "Invoca a un esbirro de las Sombras para que ataque a tu objetivo. Esta aproximación de WotLK invoca un esbirro en lugar de tres homúnculos."
+  },
+  "401859": {
+    "name": "Rezo de alivio",
+    "desc": "Coloca un hechizo sobre el objetivo que lo sana la próxima vez que reciba daño. Cuando se activa, Rezo de alivio salta a otro miembro de tu grupo o banda."
+  },
   "401417": {
     "name": "Regeneración",
     "desc": "Sana $o1 p. de salud durante $d al objetivo y le aplica Baliza temporal durante 30 s."

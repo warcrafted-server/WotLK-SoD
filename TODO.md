@@ -366,6 +366,15 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Fan of Knives `7004027`:** clona el rango máximo WotLK `52874` y conserva la máscara de familia B `0x40000`; se fija el daño base en 50 y la reutilización en 0 ms según el catálogo SoD. Verificar en juego el daño de 75% con dagas y 50% con otras armas, el coste, el radio y que no haya un segundo proc de mano izquierda en Focused Attacks.
 - No se ha compilado ni probado este código. Confirmar también el coste, alcance, daño, tiempos y traducciones en juego.
 
+## Sacerdote
+
+- **Strength of Soul `7005004`:** la fila de runa está creada, pero su mecánica no se implementa: falta el valor de `409317s1` en los datos disponibles para reducir la duración de Alma debilitada. La generación de ira y la activación de Furia recta a partir del daño absorbido por Palabra de poder: escudo requieren cambios del core, prohibidos para esta tarea.
+- **Serendipity `7005003`:** usa el proc y el aura de lanzamiento de WotLK, ajustado a una probabilidad del 100 %. Confirmar si los hechizos Sanación inferior y Sanar quedan incluidos; las máscaras de familia de WotLK pueden cubrir solo los hechizos que ya afectaba el talento.
+- **Twisted Faith `7005005`:** conserva el modificador nativo que comprueba Palabra de las Sombras: dolor y fuerza el 50 % de SoD. Hay que comprobar que el core reconoce el aura clonada por su máscara de familia.
+- **Homunculi `7005006`:** aproximación con el hechizo de invocación del esbirro de las Sombras de WotLK. Solo invoca uno; faltan los tres homúnculos con sus perjuicios de velocidad de ataque, poder de ataque y armadura. Crear criaturas y sus AI requiere datos que no están disponibles en el catálogo.
+- **Prayer of Mending `7005007`:** reutiliza el escudo con cargas, la sanación y los saltos nativos de WotLK. Queda comprobar si el proc nativo salta también al recibir sanación y si su radio y duración coinciden con SoD.
+- Estas cinco runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
+
 ## Otras clases
 
 (Vacío por ahora; se añadirá cuando se investiguen fuentes de otras clases con el mismo problema.)

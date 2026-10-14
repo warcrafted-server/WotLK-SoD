@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Sacerdote: runas Serendipity `7005003`, Strength of Soul `7005004`, Twisted Faith `7005005`, Homunculi `7005006`, Prayer of Mending `7005007` (tanda 1 de `.agents/plans/sacerdote/`). Strength of Soul sin efecto (valor de 409317 no consta en wago ni Wowhead); Homunculi con un solo esbirro; script de Penance añadido. SQL validado. Sin compilar ni probar.
 - Pícaro: adquisición de 27 runas generada con `gen_rune_acquisition.py --class rogue` (28 objetos con su id real de SoD, venta en el Grabador y botín real de WotLK solo para esta clase en 1 criaturas). Sin aplicar ni probar.
 - Pícaro: runas Fan of Knives `7004027` (tanda 6 de `.agents/plans/picaro/`). Clon de Abanico de cuchillos de WotLK (52874) con daño y reutilización de SoD. SQL validado. Sin compilar ni probar.
 - Pícaro: runas Carnage `7004022`, Cut to the Chase `7004023`, Unfair Advantage `7004024`, Blunderbuss `7004025`, Crimson Tempest `7004026` (tanda 5 de `.agents/plans/picaro/`). Valores de Carnage (15 %) y Unfair Advantage (100 % del arma, 1 punto de combo) de Wowhead; Blunderbuss y Crimson Tempest por verificar en juego. SQL validado. Sin compilar ni probar.
