@@ -47,6 +47,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-priest'', 1),
     (7005012, 431655, 16, 128, ''Mind Spike'', ''spell_shadow_unholyfrenzy'',
      ''Deals Shadowfrost damage and increases the next Mind Blast critical strike chance against the target, stacking up to three times.'',
+     ''mod-sod-priest'', 1),
+    (7005013, 425280, 16, 128, ''Renewed Hope'', ''spell_holy_hopeandgrace'',
+     ''Healing from Flash Heal, Lesser Heal, Heal, Greater Heal, and Penance is 20% stronger on targets with Weakened Soul.'',
+     ''mod-sod-priest'', 1),
+    (7005014, 425294, 16, 512, ''Dispersion'', ''spell_shadow_dispersion'',
+     ''Reduce damage taken by 90%, restore 6% mana each second, and gain protection from movement impairing effects for 6 sec.'',
+     ''mod-sod-priest'', 1),
+    (7005015, 402004, 16, 512, ''Pain Suppression'', ''spell_holy_painsupression'',
+     ''Reduce a friendly target''''s damage taken by 40% and increase resistance to dispels by 65% for 8 sec.'',
+     ''mod-sod-priest'', 1),
+    (7005016, 425284, 16, 512, ''Spirit of the Redeemer'', ''spell_holy_spiritualguidence'',
+     ''Enter the Spirit of Redemption form for 10 sec. Requires the Spirit of Redemption talent.'',
+     ''mod-sod-priest'', 1),
+    (7005017, 425204, 16, 512, ''Void Plague'', ''spell_shadow_shadowwordpain'',
+     ''Afflicts the target with a disease that deals Shadow damage over 18 sec.'',
      ''mod-sod-priest'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -66,4 +81,10 @@ DEALLOCATE PREPARE stmt;
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (-589, 'spell_sod_priest_shared_pain'),
     (-139, 'spell_sod_priest_empowered_renew'),
-    (-8092, 'spell_sod_priest_mind_spike_mind_blast');
+    (-8092, 'spell_sod_priest_mind_spike_mind_blast'),
+    (-2061, 'spell_sod_priest_renewed_hope'),
+    (-2050, 'spell_sod_priest_renewed_hope'),
+    (-2054, 'spell_sod_priest_renewed_hope'),
+    (-2060, 'spell_sod_priest_renewed_hope'),
+    (-47540, 'spell_sod_priest_renewed_hope'),
+    (402174, 'spell_sod_priest_renewed_hope');

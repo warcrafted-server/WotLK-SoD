@@ -257,7 +257,12 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Shadow Word: Death `7005010`, Manos (6): comprobar daño, coste del 12 %, reutilización de 12 s y represalia si el objetivo sobrevive. Diferencia conocida: el script nativo de WotLK devuelve el 100 % del daño intentado, mientras que SoD indica el 50 %.
 - [ ] Empowered Renew `7005011`, Cintura (7): comprobar la sanación inmediata adicional al aplicar Renovar, sus pulsos y la coexistencia con Renovar de otro sacerdote. El guion aproxima el aumento acumulado como +15 % de la sanación total por pulso; verificarlo frente a SoD.
 - [ ] Mind Spike `7005012`, Cintura (7): comprobar daño Fríosombra, coste del 6 %, duración de 10 s y acumulación hasta 3; cada Explosión mental del taumaturgo al objetivo debe consumir una acumulación. Limitación: el aura WotLK aumenta el crítico de hechizos de Sombras de cualquier atacante contra ese objetivo mientras quedan acumulaciones.
-- Las diez runas del sacerdote aún no se han compilado ni probado. Su adquisición en el Grabador es provisional.
+- [ ] Renewed Hope `7005013`, Cintura (7): con la runa equipada, sanar con Sanación relámpago, Sanación inferior, Sanar, Sanación superior y Penitencia a un objetivo con Alma debilitada; comparar el efecto con la misma sanación sin Alma debilitada. Cada hechizo debe sanar un 20% más solo mientras el perjuicio está activo.
+- [ ] Dispersion `7005014`, Pies (9): comprobar los 6 s de duración, el 90% de reducción de daño, la regeneración del 6% de maná cada segundo, la imposibilidad de atacar/lanzar hechizos y la inmunidad y eliminación de efectos de movimiento. Probar su lanzamiento bajo aturdimiento, miedo y silencio.
+- [ ] Pain Suppression `7005015`, Pies (9): aplicar a un aliado y comprobar la reducción del 40% de daño, el 65% de resistencia a disipación durante 8 s, el coste del 8% y la reutilización de 180 s.
+- [ ] Spirit of the Redeemer `7005016`, Pies (9): sin el talento Espíritu de redención no debe poder activarse; con el talento, comprobar la forma durante 10 s, el coste cero de los hechizos de sanación, y las restricciones de movimiento, ataque y selección como objetivo. Limitación conocida: el talento aún activa la transformación automática al morir fuera de esta forma.
+- [ ] Void Plague `7005017`, Pies (9): comprobar el perjuicio de enfermedad, los pulsos de daño de las Sombras durante 18 s, el coste del 13% y la reutilización de 6 s.
+- Las diecisiete runas del sacerdote aún no se han compilado ni probado. Renewed Hope y Spirit of the Redeemer requieren recompilar por sus scripts C++; la adquisición provisional de estas cinco runas es el Grabador.
 
 ### Druida feral
 

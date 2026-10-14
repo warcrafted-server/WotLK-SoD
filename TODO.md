@@ -378,7 +378,12 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Shadow Word: Death `7005010`:** reutiliza el script nativo de WotLK; este devuelve el 100 % del daño intentado al taumaturgo si el objetivo sobrevive, frente al 50 % descrito para SoD.
 - **Empowered Renew `7005011`:** la plantilla de talento WotLK activa la sanación inmediata nativa. El guion local aproxima el efecto por pulsos como un aumento acumulado del 15 % de la sanación total por pulso; no se ha verificado que el cálculo coincida con el beneficio incremental de poder de sanación de SoD. La coexistencia entre taumaturgos se deja al comportamiento de auras por lanzador del core.
 - **Mind Spike `7005012`:** el aura de objetivo añade 30 puntos porcentuales por acumulación a la probabilidad de crítico de los hechizos de Sombras contra ese objetivo; la Explosión mental del taumaturgo consume una acumulación. El aura WotLK no limita el bono por lanzador, así que los hechizos de Sombras de cualquier atacante también se benefician mientras haya acumulaciones.
-- Estas diez runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
+- **Renewed Hope `7005013`:** un script aumenta un 20% la sanación de Sanación relámpago, Sanación inferior, Sanar, Sanación superior y Penitencia si el objetivo tiene Alma debilitada. No se ha compilado ni probado.
+- **Dispersion `7005014`:** clona la plantilla WotLK de Dispersión y ajusta la duración a 6 s. Se configuran atributos para poder lanzarla aturdido, asustado o silenciado. No se ha compilado ni probado que la plantilla suprima ataques/lanzamientos y aplique todas las inmunidades de movimiento.
+- **Pain Suppression `7005015`:** usa el efecto de daño reducido y la resistencia a disipación nativos de WotLK; el aura 588 del catálogo moderno se sustituye por el aura válida 235 (`SPELL_AURA_MOD_DISPEL_RESIST`). No se ha compilado ni probado.
+- **Spirit of the Redeemer `7005016`:** clona la forma de WotLK y exige el talento Espíritu de redención. **Al morir, el core aún activa automáticamente la transformación del talento**: `Unit::DealDamage` lanza el hechizo 27827 cuando detecta el aura 20711. Desactivar ese comportamiento sin cambiar el core no está implementado.
+- **Void Plague `7005017`:** clona Palabra de las Sombras: dolor como daño periódico de enfermedad, con los valores de duración, coste, reutilización, puntos base y coeficiente del catálogo. No se ha compilado ni probado el daño.
+- Estas diecisiete runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
 
 ## Otras clases
 

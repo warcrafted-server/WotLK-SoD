@@ -1111,5 +1111,29 @@
     "name": "Púa mental",
     "desc": "Golpea al objetivo, inflige de ${$m1*$<damagepower>/100} p. a ${$M1*$<damagepower>/100} p. de daño de Fríosombra y aumenta un $s2% la probabilidad de golpe crítico de la siguiente Explosión mental que lances al objetivo. Se acumula hasta $u veces.",
     "aura_desc": "Probabilidad de que el efecto de Explosión mental por parte de un sacerdote sea crítico aumentada un $s2%."
+  },
+  "425280": {
+    "name": "Esperanza renovada",
+    "desc": "Tus efectos de Sanación relámpago, Sanación inferior, Sanar, Sanación superior y Penitencia tienen un $s1% más de efecto al lanzarlos a objetivos con Alma debilitada."
+  },
+  "425294": {
+    "name": "Dispersión",
+    "desc": "Te conviertes en energía de las Sombras pura y reduces todo el daño recibido un $s1%. No puedes atacar ni lanzar hechizos, pero regeneras un $s2% de maná cada $t2 s durante $d. Dispersión se puede lanzar mientras estás aturdido, asustado o silenciado, quita todos los efectos de frenado y de reducción de movimiento al lanzarlo y te hace inmune a ellos mientras dura.",
+    "aura_desc": "Reduce todo el daño un $s1% y tú regeneras un $s2% de maná cada $t2 s durante $d. No puedes atacar ni lanzar hechizos. Inmune a los efectos de frenado y de reducción de movimiento."
+  },
+  "402004": {
+    "name": "Supresión de dolor",
+    "desc": "Reduce instantáneamente todo el daño recibido por un objetivo amistoso un $s1% y aumenta la resistencia a la disipación un $s2% durante $d.",
+    "aura_desc": "Todo el daño recibido se reduce un $s1% y la resistencia a la disipación aumenta un $s2%."
+  },
+  "425284": {
+    "name": "Espíritu del redentor",
+    "desc": "Actívalo para convertirte en el espíritu de redención durante $d. En esta forma puedes lanzar cualquier hechizo de sanación sin coste, pero no puedes moverte, atacar, sufrir ataques ni ser objetivo de hechizos o efectos. Requiere el talento Espíritu de redención para activarlo; además, al morir, ya no te convertirás en el espíritu de la redención.",
+    "aura_desc": "Has adquirido más poder del que quepa imaginar."
+  },
+  "425204": {
+    "name": "Plaga del Vacío",
+    "desc": "Provoca al objetivo una enfermedad que le inflige ${$<damagepower>*$m1/100*6} p. de daño de las Sombras durante $d.",
+    "aura_desc": "Inflige $w1 p. de daño cada $t1 s."
   }
 }
