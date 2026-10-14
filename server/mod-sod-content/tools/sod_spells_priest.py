@@ -393,4 +393,98 @@ def build(idx):
                 "Effect_3": 0, "EffectAura_3": 0,
             },
         },
+        {  # Conserva el proc nativo de críticos y amplía a 30 s la ventana de lanzamiento instantáneo.
+            "id": 431664, "client": True, "template": 33154,
+            "skill_line": SKILL_HOLY,
+            "name": "Surge of Light", "inherit_server": True,
+            "desc": "Critical spellcasts cause your next Smite or Flash Heal cast to be instant for up to 30 sec.",
+            "overrides": {
+                "SpellLevel": 0,
+                "EffectTriggerSpell_1": 900059,
+            },
+            # El proc nativo de Surge of Light: cualquier crítico de daño o sanación, con 6 s de reutilización.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 3, "SpellPhaseMask": 2,
+                "HitMask": 2, "AttributesMask": 2, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 6000, "Charges": 0,
+            },
+        },
+        {  # El efecto de WotLK ya cubre Punición y Sanación relámpago; se prolonga a 30 s.
+            "id": 900059, "client": True, "template": 33151,
+            "name": "Surge of Light Instant Cast", "inherit_server": True,
+            "overrides": {
+                "SpellLevel": 0,
+                "DurationIndex": idx["dur"][30000],
+            },
+        },
+        {  # Zona persistente de WotLK con daño periódico de las Sombras y coeficiente de SoD.
+            "id": 431681, "client": True, "template": 43265,
+            "skill_line": SKILL_SHADOW,
+            "name": "Void Zone",
+            "desc": "Summons a void zone in the target area that deals 40% of your spell damage as Shadow damage to enemies that stand within it every second for $d.",
+            "bonus": {"direct": 0.0, "dot": 0.4, "ap": 0.0, "ap_dot": 0.0},
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 6,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 21,
+                "Category": 0, "CategoryRecoveryTime": 0, "RecoveryTime": 30000,
+                "DurationIndex": idx["dur"][10000],
+                "EffectAura_1": AURA_PERIODIC_DAMAGE,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "EffectAuraPeriod_1": 1000,
+            },
+        },
+        {  # Mantiene las dos sanaciones nativas y hereda la interacción de Sanación relámpago con Esperanza renovada.
+            "id": 401937, "client": True, "template": 48120,
+            "skill_line": SKILL_HOLY,
+            "name": "Binding Heal", "script": "spell_sod_priest_renewed_hope",
+            "inherit_server": True,
+            "desc": "Heals a friendly target and the caster. Low threat. This spell benefits from and triggers all effects associated with Flash Heal.",
+            "bonus": {"direct": 0.8057, "dot": 0.0, "ap": 0.0, "ap_dot": 0.0},
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 6,
+                # Conserva B 0x4 y añade A 0x800 para las mecánicas ligadas a Sanación relámpago.
+                "SpellClassMask_1": 0x800, "SpellClassMask_2": 0x4, "SpellClassMask_3": 0,
+                "ManaCostPct": 27,
+            },
+        },
+        {  # Añade el modificador global del 10 % al hechizo de escudo a la plantilla de talento WotLK.
+            "id": 402000, "client": True, "template": 63574,
+            "skill_line": SKILL_DISCIPLINE,
+            "name": "Soul Warding", "inherit_server": True,
+            "desc": "Your Power Word: Shield no longer has a cooldown, costs 15% less mana, and absorbs 10% more damage.",
+            "overrides": {
+                "SpellLevel": 0,
+                "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": 108,
+                "EffectBasePoints_3": 10, "EffectDieSides_3": 0,
+                "EffectMiscValue_3": 8,
+                "EffectSpellClassMaskA_3": 0x1,
+                "EffectSpellClassMaskB_3": 0,
+                "EffectSpellClassMaskC_3": 0x400,
+                "ImplicitTargetA_3": TARGET_UNIT_CASTER,
+            },
+        },
+        {  # El daño y la devolución de maná reutilizan el aura y el manejador nativos de Toque vampírico.
+            "id": 402668, "client": True, "template": 48160,
+            "skill_line": SKILL_SHADOW,
+            "name": "Vampiric Touch", "script": "spell_pri_vampiric_touch",
+            "inherit_server": True,
+            "desc": "Applies your Vampiric Embrace talent to your target, causes ${$<damagepower>*$m2/100*5} Shadow damage over $d to your target, and causes all party members to gain mana equal to $s1% of any Shadow spell damage you deal to the target.",
+            "bonus": {"direct": 0.0, "dot": 0.65, "ap": 0.0, "ap_dot": 0.0},
+            "overrides": {
+                "SpellLevel": 0, "ManaCostPct": 16,
+                "DurationIndex": idx["dur"][15000],
+                "EffectBasePoints_2": 65, "EffectDieSides_2": 0,
+            },
+            # Copia de spell_proc -34914; el script del core obtiene maná con daño de las Sombras al objetivo.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 6,
+                "SpellFamilyMask0": 0x2000, "SpellFamilyMask1": 0, "SpellFamilyMask2": 0,
+                "ProcFlags": 0, "SpellTypeMask": 1, "SpellPhaseMask": 0,
+                "HitMask": 0, "AttributesMask": 0, "DisableEffectsMask": 0,
+                "ProcsPerMinute": 0, "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
     ]

@@ -1155,5 +1155,28 @@
   "425207": {
     "name": "Palabra de poder: barrera",
     "desc": "Invoca una barrera sagrada para proteger a todos los miembros del grupo en la ubicación seleccionada durante $d. La barrera reduce un $425205s1% todo el daño recibido y evita que el daño retrase el lanzamiento de los hechizos. "
+  },
+  "431664": {
+    "name": "Oleada de Luz",
+    "desc": "Los lanzamientos críticos hacen que tu siguiente Punición o Sanación relámpago sea instantánea durante un máximo de 30 s."
+  },
+  "431681": {
+    "name": "Zona de vacío",
+    "desc": "Invoca una zona de vacío en la zona objetivo que inflige un 40% de tu poder con hechizos como daño de las Sombras a los enemigos en su interior cada segundo durante $d."
+  },
+  "401937": {
+    "name": "Sanación conjunta",
+    "desc": "Sana a un objetivo amistoso y al taumaturgo. Poca amenaza. Este hechizo se beneficia de todos los efectos asociados a Sanación relámpago y también los activa."
+  },
+  "402000": {
+    "name": "Amparo de alma",
+    "desc": "Tu Palabra de poder: escudo ya no tiene tiempo de reutilización, cuesta un 15% menos de maná y absorbe un 10% más de daño."
+  },
+  "402668": {
+    "name": "Toque vampírico",
+    "desc": "Aplica tu talento Abrazo vampírico a tu objetivo, que recibe ${$<damagepower>*$m2/100*5} p. de daño de las Sombras durante $d. Además, todos los miembros del grupo ganan una cantidad de maná equivalente a un $s1% de cualquier daño con hechizos de las Sombras que le inflijas al objetivo."
+  },
+  "900059": {
+    "name": "Oleada de Luz"
   }
 }

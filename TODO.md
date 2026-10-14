@@ -388,7 +388,12 @@ Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; var
 - **Pain and Suffering `7005020`:** un script renueva, entre Palabra de las Sombras: dolor, Plaga del Vacío y Toque vampírico propios, el efecto con menor duración restante al impactar Explosión mental o Púa mental y en cada pulso de Tortura mental. No se ha compilado ni probado.
 - **Despair `7005021`:** el aura de WotLK `163` aumenta al 200% el daño de los críticos mágicos. Se omite el aura SoD `608`, que no existe en el core; sin un cambio del core, el daño periódico no puede convertirse en crítico.
 - **Power Word: Barrier `7005022`:** aproximación que protege al taumaturgo contra el retroceso de lanzamiento durante 10 s, con reutilización de 180 s y coste del 4%. No reduce daño ni protege al grupo: el efecto de área SoD `179`/área `30829` no está disponible en WotLK y falta el valor de reducción de `425205s1`.
-- Estas veintidós runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
+- **Surge of Light `7005023`:** clona el proc WotLK de críticos de hechizos y extiende a 30 s la duración de su modificador de lanzamiento instantáneo para Punición y Sanación relámpago. Conserva la reutilización del proc nativo de 6 s.
+- **Void Zone `7005024`:** convierte el área persistente de Death and Decay de WotLK en daño periódico de las Sombras, con 0,4 de poder con hechizos por segundo, 10 s de duración, 30 s de reutilización y coste del 21%. Se conserva el radio de la plantilla porque el catálogo local no da uno.
+- **Binding Heal `7005025`:** clona Sanación conjunta de WotLK, añade la máscara de familia de Sanación relámpago y enlaza el script local de Esperanza renovada. El coeficiente directo es el del hechizo WotLK; falta probar que activa todas las interacciones esperadas por SoD.
+- **Soul Warding `7005026`:** clona el talento WotLK para quitar la reutilización y reducir el coste de Palabra de poder: escudo. El 10% adicional de valor base y poder de sanación se aproxima con un modificador global del 10% al efecto; no se ha separado en dos componentes.
+- **Vampiric Touch `7005027`:** clona el rango máximo WotLK y mantiene su script/proc de devolución de maná, con 0,65 de poder con hechizos por pulso, cinco pulsos, 15 s y coste del 16%. No está verificado que el manejador nativo devuelva exactamente el 2% de daño de SoD ni que aplique el efecto de Abrazo vampírico a su objetivo.
+- Estas veintisiete runas no se han compilado ni probado. La adquisición en el Grabador es provisional.
 
 ## Otras clases
 

@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Sacerdote: runas Surge of Light `7005023`, Void Zone `7005024`, Binding Heal `7005025`, Soul Warding `7005026`, Vampiric Touch `7005027` (tanda 5 de `.agents/plans/sacerdote/`). Soul Warding simplificada y Vampiric Touch/Void Zone aproximados (ver TODO.md). SQL validado. Sin compilar ni probar.
 - Sacerdote: runas Divine Aegis `7005018`, Eye of the Void `7005019`, Pain and Suffering `7005020`, Despair `7005021`, Power Word: Barrier `7005022` (tanda 4 de `.agents/plans/sacerdote/`). Despair sin críticos periódicos, Power Word: Barrier y Eye of the Void parciales (ver TODO.md). SQL validado. Sin compilar ni probar.
 - Sacerdote: runas Renewed Hope `7005013`, Dispersion `7005014`, Pain Suppression `7005015`, Spirit of the Redeemer `7005016`, Void Plague `7005017` (tanda 3 de `.agents/plans/sacerdote/`). Renewed Hope con guion propio; Spirit of the Redeemer sin evitar la transformación automática del talento (ver TODO.md). Ejecución terminada en el árbol tras un bloqueo del ejecutor; SQL validado. Sin compilar ni probar.
 - Sacerdote: runas Shared Pain `7005008`, Mind Sear `7005009`, Shadow Word: Death `7005010`, Empowered Renew `7005011`, Mind Spike `7005012` (tanda 2 de `.agents/plans/sacerdote/`). Mind Sear, Shadow Word: Death, Empowered Renew y Mind Spike aproximados (ver TODO.md); script de Mind Sear añadido. SQL validado. Sin compilar ni probar.
