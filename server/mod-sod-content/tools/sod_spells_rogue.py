@@ -33,14 +33,17 @@ def build(idx):
     duration_perm = idx["dur"][-1]
     range_self = idx["range"][0.0]
     range_5 = idx["range"][5.0]
+    range_8 = idx["range"][8.0]
     range_20 = idx["range"][20.0]
     range_25 = idx["range"][25.0]
     duration_1s = idx["dur"][1000]
+    duration_2s = idx["dur"][2000]
     duration_5s = idx["dur"][5000]
     duration_12s = idx["dur"][12000]
     duration_30s = idx["dur"][30000]
     icon_ambush = idx["icon"]["ability_rogue_ambush"]
     icon_eviscerate = idx["icon"]["ability_rogue_eviscerate"]
+    icon_rupture = idx["icon"]["ability_rogue_rupture"]
     return [
         {  # Mutilar conserva los hechizos disparados y las máscaras de WotLK.
             "id": 399956, "client": True, "template": 48666,
@@ -582,6 +585,156 @@ def build(idx):
                 "EffectBasePoints_1": 5, "EffectDieSides_1": 0,
                 "ImplicitTargetA_1": TARGET_UNIT_CASTER,
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # +15 % de daño a objetivos con un sangrado propio (Wowhead, hechizo 432275, consultado 2026-10-14).
+            "id": 432275, "client": True, "template": 774,
+            "name": "Carnage Damage",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "SpellIconID": icon_eviscerate,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 15, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Pasiva: el guion aplica el daño adicional si el objetivo tiene un sangrado propio.
+            "id": 432276, "client": True, "template": 774,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Carnage",
+            "desc": "Your abilities deal $432275s1% increased damage to targets afflicted by one of your Bleed effects. Your Rupture also heals you for $s2% of the damage it deals.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_rupture, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_DUMMY,
+                "EffectBasePoints_2": 40, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # El guion elige y actualiza el beneficio de menor duración.
+            "id": 432271, "client": True, "template": 51669,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Cut to the Chase",
+            "script": "spell_rog_cut_to_the_chase",
+            "inherit_server": True,
+            "desc": "Your Eviscerate and Envenom abilities refresh either your Slice and Dice or your Blade Dance duration to its 5 combo point maximum. If both are active, only the one with shortest remaining duration will be refreshed.",
+            "overrides": {
+                "SpellLevel": 0, "ProcChance": 100, "SpellClassSet": 8,
+                "SpellClassMask_1": 0x820000,
+                "SpellClassMask_2": 0x8, "SpellClassMask_3": 0,
+            },
+            # Máscaras y fase copiadas de spell_proc -51664.
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 8,
+                "SpellFamilyMask0": 131072, "SpellFamilyMask1": 8,
+                "SpellFamilyMask2": 0, "ProcFlags": 0,
+                "SpellTypeMask": 1, "SpellPhaseMask": 2,
+                "HitMask": 0, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 0, "Charges": 0,
+            },
+        },
+        {  # La probabilidad y el límite de un segundo vienen de la descripción de SoD.
+            "id": 432273, "client": True, "template": 51674,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Unfair Advantage",
+            "script": "spell_sod_rogue_unfair_advantage",
+            "desc": "Whenever you dodge or parry an attack you gain an Unfair Advantage, striking back for $432274s2% of your main hand weapon's damage and gaining $432274s3 combo $lpoint:points;. This cannot occur more than once per second.",
+            "overrides": {
+                "SpellLevel": 0, "ProcChance": 100, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "EffectAura_1": AURA_DUMMY, "EffectBasePoints_1": 0,
+                "EffectTriggerSpell_1": 432274,
+            },
+            "proc": {
+                "SchoolMask": 0, "SpellFamilyName": 0,
+                "SpellFamilyMask0": 0, "SpellFamilyMask1": 0,
+                "SpellFamilyMask2": 0, "ProcFlags": 40,
+                "SpellTypeMask": 0, "SpellPhaseMask": 0,
+                "HitMask": 48, "AttributesMask": 0,
+                "DisableEffectsMask": 0, "ProcsPerMinute": 0,
+                "Chance": 0, "Cooldown": 1000, "Charges": 0,
+            },
+        },
+        {  # 100 % del daño del arma de la mano principal y 1 punto de combo (Wowhead, tooltip de 432273, consultado 2026-10-14).
+            "id": 432274, "client": True, "template": 48638,
+            "name": "Unfair Advantage Strike",
+            "overrides": {
+                "SpellLevel": 0, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_WEAPON_PERCENT_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 100, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_ADD_COMBO_POINTS, "EffectAura_2": 0,
+                "EffectBasePoints_2": 1, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Trabuco usa el coste del catálogo y conserva sus cifras de daño.
+            "id": 436564, "client": True, "template": 51723,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Blunderbuss",
+            "desc": "Fire a musket blast at up to $i enemies in a cone in front of you for ${$<base>*$m1/100+$m2/100*$AP} to ${$<base>*$M1/100+$m2/100*$AP} Physical damage.",
+            "bonus": {"direct": 0, "dot": 0, "ap": 0.1, "ap_dot": 0},
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": 0,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 20, "ManaCostPct": 0,
+                "RecoveryTime": 15000, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "MaxTargets": 10,
+                "Effect_1": EFFECT_SCHOOL_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 191, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": 24, "ImplicitTargetB_1": 0,
+                "Effect_2": EFFECT_DUMMY, "EffectAura_2": 0,
+                "EffectBasePoints_2": 48, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": 0, "ImplicitTargetB_2": 0,
+                "Effect_3": EFFECT_DUMMY, "EffectAura_3": 0,
+                "EffectBasePoints_3": 10, "EffectDieSides_3": 0,
+                "ImplicitTargetA_3": 0, "ImplicitTargetB_3": 0,
+            },
+        },
+        {  # El guion escala la duración del sangrado según los puntos de combo consumidos.
+            "id": 412096, "client": True, "template": 48672,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Crimson Tempest",
+            "script": "spell_rog_rupture",
+            "desc": "Finishing move that slashes all enemies within $a2 yards, causing victims to Bleed over time. Lasts longer and deals more damage per combo point.\n\n   1 point  : ${$AP*0.30} damage over 4 sec.\n   2 points: ${$AP*0.45} damage over 6 sec.\n   3 points: ${$AP*0.60} damage over 8 sec.\n   4 points: ${$AP*0.75} damage over 10 sec.\n   5 points: ${$AP*0.90} damage over 12 sec.\n\nCrimson Tempest benefits from all talents and effects that trigger from or modify Rupture.\n\n",
+            "aura_desc": "Bleeding for $w2 damage every $t2 sec.",
+            "bonus": {"direct": 0, "dot": 0, "ap": 0, "ap_dot": 0.15},
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_2s,
+                "RangeIndex": range_8, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 35, "ManaCostPct": 0,
+                "RecoveryTime": 0, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellClassSet": 8, "SpellClassMask_1": 0x100000,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_DUMMY, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_PERIODIC_DAMAGE,
+                "EffectBasePoints_2": 0, "EffectDieSides_2": 0,
+                "EffectAuraPeriod_2": 2000, "EffectRadiusIndex_2": 14,
+                "ImplicitTargetA_2": 18, "ImplicitTargetB_2": 16,
+                "EffectSpellClassMaskA_2": 0x100000,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },

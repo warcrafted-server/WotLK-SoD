@@ -74,6 +74,21 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-rogue'', 1),
     (7004021, 432264, 8, 1, ''Honor Among Thieves'', ''ability_rogue_honoramongstthieves'',
      ''Cuando un jugador de tu grupo asesta un golpe crítico con una facultad o hechizo, obtienes un punto de combo en tu objetivo actual. No puede ocurrir más de una vez por segundo.'',
+     ''mod-sod-rogue'', 1),
+    (7004022, 432276, 8, 32, ''Carnage'', ''ability_rogue_rupture'',
+     ''Tus facultades infligen más daño a objetivos con un sangrado tuyo. Ruptura te sana un 40% del daño que inflige.'',
+     ''mod-sod-rogue'', 1),
+    (7004023, 432271, 8, 32, ''Cut to the Chase'', ''ability_rogue_cuttothechase'',
+     ''Eviscerar y Envenenar restauran Hacer picadillo o Danza de hojas hasta la duración máxima de 5 puntos de combo. Si ambos están activos, se restaura el que tiene menos tiempo restante.'',
+     ''mod-sod-rogue'', 1),
+    (7004024, 432273, 8, 32, ''Unfair Advantage'', ''ability_rogue_unfairadvantage'',
+     ''Esquivar o parar un ataque te permite contraatacar con el arma de mano principal y obtener puntos de combo. Solo puede ocurrir una vez por segundo.'',
+     ''mod-sod-rogue'', 1),
+    (7004025, 436564, 8, 8, ''Blunderbuss'', ''ability_rogue_fanofknives'',
+     ''Disparas un trabuco a un máximo de 10 enemigos en un cono frente a ti e infliges daño físico.'',
+     ''mod-sod-rogue'', 1),
+    (7004026, 412096, 8, 8, ''Crimson Tempest'', ''ability_rogue_rupture'',
+     ''Remate que aplica un sangrado a todos los enemigos en 8 m. El daño y la duración aumentan con los puntos de combo y se beneficia de los efectos de Ruptura.'',
      ''mod-sod-rogue'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),
@@ -94,4 +109,7 @@ DEALLOCATE PREPARE stmt;
 INSERT IGNORE INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
     (-53, 'spell_sod_rogue_slaughter_targets'),
     (-8676, 'spell_sod_rogue_slaughter_targets'),
-    (-1966, 'spell_sod_rogue_just_a_flesh_wound_feint');
+    (-1966, 'spell_sod_rogue_just_a_flesh_wound_feint'),
+    (-32645, 'spell_sod_rogue_cut_to_the_chase_envenom'),
+    (432271, 'spell_sod_rogue_cut_to_the_chase'),
+    (412096, 'spell_sod_rogue_crimson_tempest');

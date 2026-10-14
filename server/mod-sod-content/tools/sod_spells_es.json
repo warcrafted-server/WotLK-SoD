@@ -1034,5 +1034,32 @@
     "name": "Ingenio",
     "desc": "Reduce un 100% el coste de maná de tus trampas y un 40% sus tiempos de reutilización.",
     "aura_desc": "El coste de maná de las trampas se reduce un 100% y su tiempo de reutilización un 40%."
+  },
+  "432275": {
+    "name": "Carnicería"
+  },
+  "432276": {
+    "name": "Carnicería",
+    "desc": "Tus facultades infligen un $432275s1% más de daño a objetivos afectados por uno de tus efectos de sangrado. Tu Ruptura también te sana un $s2% de todo el daño que inflige."
+  },
+  "432271": {
+    "name": "Acortar",
+    "desc": "Tus facultades Eviscerar y Envenenar restablecen la duración de Hacer picadillo o Danza de hojas hasta su máximo de 5 p. de combo. Si ambas están activas, solo se restablecerá la facultad a la que le quede menos tiempo de duración."
+  },
+  "432273": {
+    "name": "Ventaja desleal",
+    "desc": "Cuando esquivas o paras un ataque, obtienes Ventaja desleal, lo que devuelve el golpe, inflige un $432274s2% del daño del arma de la mano principal y te otorga $432274s3 p. de combo. No puede activarse más de una vez por segundo."
+  },
+  "432274": {
+    "name": "Ventaja desleal"
+  },
+  "436564": {
+    "name": "Trabuco",
+    "desc": "Disparas un mosquete que inflige de ${$<base>*$m1/100+$m2/100*$AP} p. a ${$<base>*$M1/100+$m2/100*$AP} p. de daño físico a un máximo de $i enemigos situados en un cono frente a ti."
+  },
+  "412096": {
+    "name": "Tempestad carmesí",
+    "desc": "Un remate que corta a todos los enemigos en un radio de $a2 m y provoca una hemorragia a sus víctimas. Dura más tiempo e inflige más daño por cada punto de combo.\n\n   1 p.: ${$AP*0.30} p. de daño durante 4 s.\n   2 p.: ${$AP*0.45} p. de daño durante 6 s.\n   3 p.: ${$AP*0.60} p. de daño durante 8 s.\n   4 p.: ${$AP*0.75} p. de daño durante 10 s.\n   5 p.: ${$AP*0.90} p. de daño durante 12 s.\n\nTempestad carmesí se beneficia de todos los talentos y efectos que activa o modifica Ruptura.\n\n",
+    "aura_desc": "Infligiendo $w2 p. de daño por herida sangrante cada $t2 s."
   }
 }

@@ -35,6 +35,13 @@ enum SodRogueSpells
     SPELL_SOD_ROGUE_FOCUSED_ATTACKS = 432256,
     SPELL_SOD_ROGUE_HONOR_AMONG_THIEVES = 432264,
     SPELL_SOD_ROGUE_HONOR_AMONG_THIEVES_TRIGGER = 432266,
+    SPELL_SOD_ROGUE_CARNAGE_VALUE = 432275,
+    SPELL_SOD_ROGUE_CARNAGE = 432276,
+    SPELL_SOD_ROGUE_CUT_TO_THE_CHASE = 432271,
+    SPELL_SOD_ROGUE_UNFAIR_ADVANTAGE = 432273,
+    SPELL_SOD_ROGUE_UNFAIR_ADVANTAGE_STRIKE = 432274,
+    SPELL_SOD_ROGUE_BLUNDERBUSS = 436564,
+    SPELL_SOD_ROGUE_CRIMSON_TEMPEST = 412096,
     SPELL_ROGUE_DEADLY_POISON = 2818,
     SPELL_ROGUE_TAUNT = 355,
     SPELL_ROGUE_BACKSTAB = 53,
@@ -57,6 +64,10 @@ void AddSC_sod_rogue_shadowstep();
 void AddSC_sod_rogue_shuriken_toss();
 void AddSC_sod_rogue_master_of_subtlety();
 void AddSC_sod_rogue_rolling_with_the_punches();
+void AddSC_sod_rogue_carnage();
+void AddSC_sod_rogue_cut_to_the_chase();
+void AddSC_sod_rogue_unfair_advantage();
+void AddSC_sod_rogue_crimson_tempest();
 
 inline bool SodRogueEnabled()
 {
