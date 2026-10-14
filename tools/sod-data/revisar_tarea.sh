@@ -38,4 +38,6 @@ for f in "$ROOT"/server/mod-sod-content/src/"$CLS"/*.cpp "$ROOT"/server/mod-sod-
     [ -n "$out" ] && { echo "$(basename "$f"): $out"; malos=1; }
 done
 [ $malos = 0 ] && echo "sintaxis OK"
+sql=$("$ROOT"/tools/sod-data/validar_sql.sh 2>&1 | tail -6); echo "== Validación real del SQL (MySQL privada)"; echo "$sql"
+echo "$sql" | grep -q FALLO && fallo=1
 exit $((fallo + malos))

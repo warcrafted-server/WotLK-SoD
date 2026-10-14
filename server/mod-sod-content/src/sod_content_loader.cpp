@@ -113,6 +113,10 @@ void AddSC_sod_rogue_just_a_flesh_wound();
 void AddSC_sod_rogue_quick_draw();
 void AddSC_sod_rogue_slaughter_from_the_shadows();
 void AddSC_sod_rogue_between_the_eyes();
+void AddSC_sod_rogue_blade_dance();
+void AddSC_sod_rogue_envenom();
+void AddSC_sod_rogue_main_gauche();
+void AddSC_sod_rogue_saber_slash();
 void AddSC_sod_warrior_blood_frenzy();
 void AddSC_sod_warrior_flagellation();
 void AddSC_sod_warrior_raging_blow();
@@ -231,6 +235,10 @@ void Addmod_sod_contentScripts()
     AddSC_sod_rogue_quick_draw();
     AddSC_sod_rogue_slaughter_from_the_shadows();
     AddSC_sod_rogue_between_the_eyes();
+    AddSC_sod_rogue_blade_dance();
+    AddSC_sod_rogue_envenom();
+    AddSC_sod_rogue_main_gauche();
+    AddSC_sod_rogue_saber_slash();
 
     AddSC_sod_warrior_blood_frenzy();
     AddSC_sod_warrior_flagellation();

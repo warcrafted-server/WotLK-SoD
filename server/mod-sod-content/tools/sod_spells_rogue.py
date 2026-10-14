@@ -7,15 +7,22 @@ SKILL_ASSASSINATION = 253
 
 # Efectos y auras de WotLK 3.3.5a que no están expuestos por sod_dbc.
 EFFECT_NORMALIZED_WEAPON_DAMAGE = 121
+EFFECT_WEAPON_PERCENT_DAMAGE = 31
 EFFECT_ADD_COMBO_POINTS = 80
 AURA_MOD_THREAT = 10
 AURA_MOD_STUN = 12
 AURA_MOD_DECREASE_SPEED = 33
 AURA_MOD_DODGE_PERCENT = 49
 AURA_MOD_ATTACKER_MELEE_CRIT_CHANCE = 187
+AURA_MOD_PARRY_PERCENT = 47
+AURA_MOD_ATTACK_POWER = 99
+AURA_PERIODIC_DAMAGE = 3
 
 # Golpe siniestro: máscara de familia A del cliente 3.3.5a.
 MASK_SINISTER_STRIKE = 0x800002
+
+# SpellAttr3 del core: Main Gauche necesita el arma de mano izquierda.
+SPELL_ATTR3_REQUIRES_OFF_HAND_WEAPON = 0x01000000
 
 
 def build(idx):
@@ -23,7 +30,14 @@ def build(idx):
     cast_instant = idx["cast"][0]
     duration_perm = idx["dur"][-1]
     range_self = idx["range"][0.0]
+    range_5 = idx["range"][5.0]
     range_20 = idx["range"][20.0]
+    duration_1s = idx["dur"][1000]
+    duration_5s = idx["dur"][5000]
+    duration_12s = idx["dur"][12000]
+    duration_30s = idx["dur"][30000]
+    icon_ambush = idx["icon"]["ability_rogue_ambush"]
+    icon_eviscerate = idx["icon"]["ability_rogue_eviscerate"]
     return [
         {  # Mutilar conserva los hechizos disparados y las máscaras de WotLK.
             "id": 399956, "client": True, "template": 48666,
@@ -170,6 +184,146 @@ def build(idx):
                 "Effect_3": EFFECT_APPLY_AURA, "EffectAura_3": AURA_MOD_STUN,
                 "EffectBasePoints_3": 0, "EffectDieSides_3": 0,
                 "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+        },
+        {  # Danza de hojas: el guion escala la duración con los puntos de combo y el AP con Defensa.
+            "id": 400012, "client": True, "template": 48668,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Blade Dance", "script": "spell_sod_rogue_blade_dance",
+            "desc": "A finishing move that increases your parry chance by 10% and grants 4 Attack Power for each point of Defense skill beyond your level-based baseline. Lasts 14 sec per combo point, increasing by 4 sec for each additional point.",
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_30s,
+                "RangeIndex": range_5, "PowerType": 3, "ManaCost": 25,
+                "ManaCostPct": 0, "RecoveryTime": 0, "Category": 0,
+                "CategoryRecoveryTime": 0, "SpellLevel": 0,
+                "SpellIconID": icon_eviscerate,
+                "Effect_1": EFFECT_DUMMY, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_PARRY_PERCENT,
+                "EffectBasePoints_2": 10, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+                "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+            },
+        },
+        {  # Envenenar conserva los cálculos y el consumo de dosis del rango máximo de WotLK.
+            "id": 399963, "client": True, "template": 57993,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Envenom", "script": "spell_sod_rogue_envenom",
+            "inherit_server": True,
+            "desc": "A finishing move that deals instant poison damage based on Deadly Poison doses on the target. One dose is consumed per combo point. For 1 sec plus 1 sec per combo point, your chance to apply Instant Poison is increased by 75%.",
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_1s,
+                "RangeIndex": range_5, "PowerType": 3, "ManaCost": 35,
+                "ManaCostPct": 0, "RecoveryTime": 0, "SpellLevel": 0,
+                "SpellIconID": icon_eviscerate,
+                "SpellClassSet": 8,
+            },
+        },
+        {  # El aura 332 del catálogo no existe en 3.3.5a; se conserva el texto y se documenta el límite.
+            "id": 462708, "client": True, "template": 774,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Cutthroat",
+            "desc": "Your Ambush, Backstab, and Garrote abilities no longer require you to be behind your target. Backstab has a chance to make your next Ambush usable without Stealth.",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_perm,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellIconID": icon_ambush, "SpellClassSet": 8,
+                "SpellClassMask_1": 0, "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_DUMMY,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Daga de guardamano ataca con la mano izquierda y concede parada y un punto de combo.
+            "id": 424919, "client": True, "template": 48638,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Main Gauche", "script": "spell_sod_rogue_main_gauche",
+            "desc": "Instantly strike with your off-hand weapon for normal off-hand weapon damage, increase your parry chance by 100% for 5 sec, and award 1 combo point.",
+            "overrides": {
+                "AttributesEx3": SPELL_ATTR3_REQUIRES_OFF_HAND_WEAPON,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_5s,
+                "RangeIndex": range_5, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 15, "ManaCostPct": 0,
+                "RecoveryTime": 15000, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellIconID": icon_eviscerate, "SpellClassSet": 8,
+                "SpellClassMask_1": MASK_SINISTER_STRIKE,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_NORMALIZED_WEAPON_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_APPLY_AURA, "EffectAura_2": AURA_MOD_PARRY_PERCENT,
+                "EffectBasePoints_2": 100, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_CASTER,
+                "Effect_3": EFFECT_ADD_COMBO_POINTS, "EffectAura_3": 0,
+                "EffectBasePoints_3": 0, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+        },
+        {  # Tajo de sable: el sangrado se aplica como aura auxiliar desde el guion.
+            "id": 424785, "client": True, "template": 48638,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Saber Slash", "script": "spell_sod_rogue_saber_slash",
+            "bonus": {"direct": 0, "dot": 0, "ap": 0, "ap_dot": 0},
+            "desc": "Viciously slash an enemy for 100% weapon damage and cause a bleed that deals damage every 2 sec for 12 sec. Awards 1 combo point and benefits from effects that modify Sinister Strike.",
+            "overrides": {
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_12s,
+                "RangeIndex": range_5, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 3, "ManaCost": 45, "ManaCostPct": 0,
+                "RecoveryTime": 0, "Category": 0, "CategoryRecoveryTime": 0,
+                "SpellIconID": icon_eviscerate, "SpellClassSet": 8,
+                "SpellClassMask_1": MASK_SINISTER_STRIKE,
+                "SpellClassMask_2": 0, "SpellClassMask_3": 0,
+                "Effect_1": EFFECT_NORMALIZED_WEAPON_DAMAGE, "EffectAura_1": 0,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": EFFECT_WEAPON_PERCENT_DAMAGE, "EffectAura_2": 0,
+                "EffectBasePoints_2": 100, "EffectDieSides_2": 0,
+                "ImplicitTargetA_2": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_3": EFFECT_ADD_COMBO_POINTS, "EffectAura_3": 0,
+                "EffectBasePoints_3": 0, "EffectDieSides_3": 1,
+                "ImplicitTargetA_3": TARGET_UNIT_TARGET_ENEMY,
+            },
+        },
+        {  # Ayudante oculto: el sangrado conocido de Tajo de sable, con coeficiente de 0,5 AP.
+            "id": 900068, "client": False, "template": 774,
+            "name": "Saber Slash Bleed",
+            "bonus": {"direct": 0, "dot": 0, "ap": 0, "ap_dot": 0.5},
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_12s,
+                "RangeIndex": range_20, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "CumulativeAura": 1,
+                "SpellClassSet": 8,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_PERIODIC_DAMAGE,
+                "EffectBasePoints_1": 5, "EffectDieSides_1": 0,
+                "EffectAuraPeriod_1": 2000,
+                "ImplicitTargetA_1": TARGET_UNIT_TARGET_ENEMY,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Aura auxiliar del poder de ataque variable de Danza de hojas.
+            "id": 900067, "client": False, "template": 774,
+            "name": "Blade Dance Attack Power",
+            "overrides": {
+                "Attributes": SPELL_ATTR0_PASSIVE | SPELL_ATTR0_DO_NOT_DISPLAY,
+                "CastingTimeIndex": cast_instant, "DurationIndex": duration_30s,
+                "RangeIndex": range_self, "SchoolMask": 1, "SpellLevel": 0,
+                "PowerType": 0, "ManaCost": 0, "ManaCostPct": 0,
+                "SpellClassSet": 8,
+                "Effect_1": EFFECT_APPLY_AURA, "EffectAura_1": AURA_MOD_ATTACK_POWER,
+                "EffectBasePoints_1": 0, "EffectDieSides_1": 0,
+                "ImplicitTargetA_1": TARGET_UNIT_CASTER,
+                "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
+                "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
     ]

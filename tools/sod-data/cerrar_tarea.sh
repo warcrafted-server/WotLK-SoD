@@ -16,7 +16,12 @@ runas = obj.split(': ', 1)[1].rstrip('.')
 nombres = re.sub(r' \(\d+\)', '', runas)
 ids = re.findall(r'\((\d{7})\)', runas)
 cl = open('CHANGELOG.md').read()
-marca = '## 2026-10-10\n\n'
+import datetime
+hoy = datetime.date.today().isoformat()
+cl = open('CHANGELOG.md').read()
+marca = f'## {hoy}\n\n'
+if marca not in cl:
+    cl = cl.replace('\n## ', f'\n## {hoy}\n\n\n## ', 1)
 linea = f"- {es.capitalize()}: runas {', '.join(re.findall(r'(.+?) \((\d{7})\)(?:, |$)', runas) and [f'{a} `{b}`' for a, b in re.findall(r'(?:^|, )(.+?) \((\d{7})\)', runas)])} (tanda {n} de `.agents/plans/{plan}/`). {nota + ' ' if nota else ''}Sin compilar ni probar.\n"
 assert marca in cl
 open('CHANGELOG.md', 'w').write(cl.replace(marca, marca + linea, 1))
@@ -33,7 +38,7 @@ git commit -qm "$(cat /tmp/cerrar_msg)"
 git log --oneline -1
 git status --short
 if [ -n "$SIG" ]; then
-    LOG=/tmp/claude-1000/-home-stark-Repos-acore-sod/adc2de10-e3ee-409a-9ed7-87ea61b25db7/scratchpad/$(basename "$SIG" .json).log
+    LOG=${SCRATCH:-/tmp}/$(basename "$SIG" .json).log
     echo "lanzando $SIG"
     agentrelay run "$SIG" > "$LOG" 2>&1
 fi

@@ -16,7 +16,13 @@ enum SodRogueSpells
     SPELL_SOD_ROGUE_SLAUGHTER_FROM_THE_SHADOWS = 424925,
     SPELL_SOD_ROGUE_BETWEEN_THE_EYES = 400009,
     SPELL_SOD_ROGUE_BLADE_DANCE = 400012,
+    SPELL_SOD_ROGUE_ENVENOM = 399963,
+    SPELL_SOD_ROGUE_CUTTHROAT = 462708,
+    SPELL_SOD_ROGUE_MAIN_GAUCHE = 424919,
+    SPELL_SOD_ROGUE_SABER_SLASH = 424785,
     SPELL_SOD_ROGUE_JUST_A_FLESH_WOUND_DODGE = 900066,
+    SPELL_SOD_ROGUE_BLADE_DANCE_ATTACK_POWER = 900067,
+    SPELL_SOD_ROGUE_SABER_SLASH_BLEED = 900068,
     SPELL_ROGUE_DEADLY_POISON = 2818,
     SPELL_ROGUE_TAUNT = 355,
     SPELL_ROGUE_BACKSTAB = 53,
@@ -29,6 +35,10 @@ void AddSC_sod_rogue_just_a_flesh_wound();
 void AddSC_sod_rogue_quick_draw();
 void AddSC_sod_rogue_slaughter_from_the_shadows();
 void AddSC_sod_rogue_between_the_eyes();
+void AddSC_sod_rogue_blade_dance();
+void AddSC_sod_rogue_envenom();
+void AddSC_sod_rogue_main_gauche();
+void AddSC_sod_rogue_saber_slash();
 
 inline bool SodRogueEnabled()
 {

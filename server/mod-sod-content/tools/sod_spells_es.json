@@ -86,6 +86,26 @@
     "name": "Entre ceja y ceja",
     "desc": "Remate a distancia que inflige daño según tus puntos de combo y poder de ataque, y aturde al objetivo 1 s por cada punto de combo. Comparte la reutilización con Golpe en los riñones."
   },
+  "400012": {
+    "name": "Danza de hojas",
+    "desc": "Remate que aumenta tu probabilidad de parada un 10% y otorga 4 p. de poder de ataque por cada punto de Defensa por encima del valor base según tu nivel. Dura más con puntos de combo."
+  },
+  "399963": {
+    "name": "Envenenar",
+    "desc": "Remate que inflige daño de veneno según las dosis de Veneno mortal del objetivo. Consume una dosis por punto de combo y aumenta la probabilidad de aplicar Veneno instantáneo durante 1 s más 1 s por punto de combo."
+  },
+  "462708": {
+    "name": "Degollador",
+    "desc": "Emboscada, Puñalada y Garrote ya no requieren que estés detrás del objetivo. Puñalada puede permitir que tu siguiente Emboscada no requiera sigilo."
+  },
+  "424919": {
+    "name": "Daga de guardamano",
+    "desc": "Golpeas con el arma de la mano izquierda, aumentas la parada un 100% durante 5 s y obtienes 1 punto de combo."
+  },
+  "424785": {
+    "name": "Tajo de sable",
+    "desc": "Tajas al enemigo con tu arma y le provocas un sangrado que causa daño cada 2 s durante 12 s. Otorga 1 punto de combo y se beneficia de los efectos de Golpe siniestro."
+  },
   "403195": {
     "name": "Devastar"
   },
