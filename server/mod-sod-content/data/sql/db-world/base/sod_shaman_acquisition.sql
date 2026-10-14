@@ -17,7 +17,7 @@ VALUES
     (213086, 15, 0, 'Rune of the Storm', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
     (220612, 15, 0, 'Rune of Tidal Waves', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
     (212560, 15, 0, 'Rune of Ancestral Awakening', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
-    (210823, 15, 0, 'Rune of Dual Wield Specialization', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
+    (210823, 15, 0, 'Rune of Dual Wield Specialization', 1102, 2, 0, 1, 10000, 0, 0, 68, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
     (206381, 15, 0, 'Dyadic Icon', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
     (206386, 15, 0, 'Galvanic Icon', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),
     (216606, 15, 0, 'Rune of Two-Handed Mastery', 1102, 2, 0, 1, 10000, 0, 0, 64, -1, 60, 1, 1, 1, 1, 1, 0, 55884, 0, 'item_rune_unlock', 'Teaches you a new Engraving ability.'),

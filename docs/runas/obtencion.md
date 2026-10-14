@@ -105,33 +105,33 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7003026 | Cazador | Hit and Run | Espalda | 440533 | Objeto «Rune of the Guerrilla» (226252): compra al Grabador (1 oro). | [spell=440533](https://www.wowhead.com/classic/spell=440533) |
 | 7003027 | Cazador | Improved Volley | Espalda | 440520 | Objeto «Rune of Shelling» (226587): compra al Grabador (1 oro). | [spell=440520](https://www.wowhead.com/classic/spell=440520) |
 | 7003028 | Cazador | Resourcefulness | Espalda | 440529 | Objeto «Rune of the Resourceful» (225955): compra al Grabador (1 oro). | [spell=440529](https://www.wowhead.com/classic/spell=440529) |
-| 7004001 | Pícaro | Mutilate | Manos | 399956 | Libre: se puede grabar sin descubrirla (provisional) | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
-| 7004002 | Pícaro | Deadly Brew | Pecho | 399965 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=399965](https://www.wowhead.com/classic/spell=399965) |
-| 7004003 | Pícaro | Just a Flesh Wound | Pecho | 400014 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400014](https://www.wowhead.com/classic/spell=400014) |
-| 7004004 | Pícaro | Quick Draw | Pecho | 398196 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=398196](https://www.wowhead.com/classic/spell=398196) |
-| 7004005 | Pícaro | Slaughter from the Shadows | Pecho | 424925 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=424925](https://www.wowhead.com/classic/spell=424925) |
-| 7004006 | Pícaro | Between the Eyes | Piernas | 400009 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400009](https://www.wowhead.com/classic/spell=400009) |
-| 7004007 | Pícaro | Blade Dance | Piernas | 400012 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400012](https://www.wowhead.com/classic/spell=400012) |
-| 7004008 | Pícaro | Envenom | Piernas | 399963 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=399963](https://www.wowhead.com/classic/spell=399963) |
-| 7004009 | Pícaro | Cutthroat | Manos | 462708 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=462708](https://www.wowhead.com/classic/spell=462708) |
-| 7004010 | Pícaro | Main Gauche | Manos | 424919 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=424919](https://www.wowhead.com/classic/spell=424919) |
-| 7004011 | Pícaro | Saber Slash | Manos | 424785 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=424785](https://www.wowhead.com/classic/spell=424785) |
-| 7004012 | Pícaro | Shadowstrike | Manos | 399985 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=399985](https://www.wowhead.com/classic/spell=399985) |
-| 7004013 | Pícaro | Poisoned Knife | Cintura | 425012 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=425012](https://www.wowhead.com/classic/spell=425012) |
-| 7004014 | Pícaro | Shadowstep | Cintura | 400029 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400029](https://www.wowhead.com/classic/spell=400029) |
-| 7004015 | Pícaro | Shuriken Toss | Cintura | 399986 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=399986](https://www.wowhead.com/classic/spell=399986) |
-| 7004016 | Pícaro | Master of Subtlety | Pies | 425096 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=425096](https://www.wowhead.com/classic/spell=425096) |
-| 7004017 | Pícaro | Rolling with the Punches | Pies | 400016 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=400016](https://www.wowhead.com/classic/spell=400016) |
-| 7004018 | Pícaro | Waylay | Pies | 408700 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=408700](https://www.wowhead.com/classic/spell=408700) |
-| 7004019 | Pícaro | Combat Potency | Cabeza | 432259 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432259](https://www.wowhead.com/classic/spell=432259) |
-| 7004020 | Pícaro | Focused Attacks | Cabeza | 432256 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432256](https://www.wowhead.com/classic/spell=432256) |
-| 7004021 | Pícaro | Honor Among Thieves | Cabeza | 432264 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432264](https://www.wowhead.com/classic/spell=432264) |
-| 7004022 | Pícaro | Carnage | Muñecas | 432276 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432276](https://www.wowhead.com/classic/spell=432276) |
-| 7004023 | Pícaro | Cut to the Chase | Muñecas | 432271 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432271](https://www.wowhead.com/classic/spell=432271) |
-| 7004024 | Pícaro | Unfair Advantage | Muñecas | 432273 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432273](https://www.wowhead.com/classic/spell=432273) |
-| 7004025 | Pícaro | Blunderbuss | Espalda | 436564 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=436564](https://www.wowhead.com/classic/spell=436564) |
-| 7004026 | Pícaro | Crimson Tempest | Espalda | 412096 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=412096](https://www.wowhead.com/classic/spell=412096) |
-| 7004027 | Pícaro | Fan of Knives | Espalda | 409240 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=409240](https://www.wowhead.com/classic/spell=409240) |
+| 7004001 | Pícaro | Mutilate | Manos | 399956 | Objeto «Rune of Mutilation» (203990): compra al Grabador (1 oro); botín de Lord Melenas (2038) 4.5455 %. Objeto «Rune of Mutilation» (210229): compra al Grabador (1 oro). | [spell=399956](https://www.wowhead.com/classic/spell=399956) |
+| 7004002 | Pícaro | Deadly Brew | Pecho | 399965 | Objeto «Rune of Deadly Brew» (203994): compra al Grabador (1 oro). | [spell=399965](https://www.wowhead.com/classic/spell=399965) |
+| 7004003 | Pícaro | Just a Flesh Wound | Pecho | 400014 | Objeto «Rune of Teasing» (211390): compra al Grabador (1 oro). | [spell=400014](https://www.wowhead.com/classic/spell=400014) |
+| 7004004 | Pícaro | Quick Draw | Pecho | 398196 | Objeto «Rune of Quick Draw» (203991): compra al Grabador (1 oro). | [spell=398196](https://www.wowhead.com/classic/spell=398196) |
+| 7004005 | Pícaro | Slaughter from the Shadows | Pecho | 424925 | Objeto «Rune of Slaughter» (203993): compra al Grabador (1 oro). | [spell=424925](https://www.wowhead.com/classic/spell=424925) |
+| 7004006 | Pícaro | Between the Eyes | Piernas | 400009 | Objeto «Rune of Precision» (204174): compra al Grabador (1 oro). | [spell=400009](https://www.wowhead.com/classic/spell=400009) |
+| 7004007 | Pícaro | Blade Dance | Piernas | 400012 | Objeto «Rune of Blade Dance» (208771): compra al Grabador (1 oro). | [spell=400012](https://www.wowhead.com/classic/spell=400012) |
+| 7004008 | Pícaro | Envenom | Piernas | 399963 | Objeto «Rune of Venom» (210322): compra al Grabador (1 oro). | [spell=399963](https://www.wowhead.com/classic/spell=399963) |
+| 7004009 | Pícaro | Cutthroat | Manos | 462708 | Objeto «Rune of Shiving» (210252): compra al Grabador (1 oro). | [spell=462708](https://www.wowhead.com/classic/spell=462708) |
+| 7004010 | Pícaro | Main Gauche | Manos | 424919 | Objeto «Rune of Main Gauche» (210653): compra al Grabador (1 oro). | [spell=424919](https://www.wowhead.com/classic/spell=424919) |
+| 7004011 | Pícaro | Saber Slash | Manos | 424785 | Objeto «Rune of Saber Slash» (208772): compra al Grabador (1 oro). | [spell=424785](https://www.wowhead.com/classic/spell=424785) |
+| 7004012 | Pícaro | Shadowstrike | Manos | 399985 | Objeto «Rune of Shadowstrike» (204795): compra al Grabador (1 oro). | [spell=399985](https://www.wowhead.com/classic/spell=399985) |
+| 7004013 | Pícaro | Poisoned Knife | Cintura | 425012 | Objeto «Rune of the Poisoned Blade» (212559): compra al Grabador (1 oro). | [spell=425012](https://www.wowhead.com/classic/spell=425012) |
+| 7004014 | Pícaro | Shadowstep | Cintura | 400029 | Objeto «Rune of Shadowstep» (210979): compra al Grabador (1 oro). | [spell=400029](https://www.wowhead.com/classic/spell=400029) |
+| 7004015 | Pícaro | Shuriken Toss | Cintura | 399986 | Objeto «Rune of the Assassin» (213139): compra al Grabador (1 oro). | [spell=399986](https://www.wowhead.com/classic/spell=399986) |
+| 7004016 | Pícaro | Master of Subtlety | Pies | 425096 | Objeto «Rune of Subtlety» (213136): compra al Grabador (1 oro). | [spell=425096](https://www.wowhead.com/classic/spell=425096) |
+| 7004017 | Pícaro | Rolling with the Punches | Pies | 400016 | Objeto «Rune of the Southpaw» (213138): compra al Grabador (1 oro). | [spell=400016](https://www.wowhead.com/classic/spell=400016) |
+| 7004018 | Pícaro | Waylay | Pies | 408700 | Objeto «Rune of the Assailant» (213137): compra al Grabador (1 oro). | [spell=408700](https://www.wowhead.com/classic/spell=408700) |
+| 7004019 | Pícaro | Combat Potency | Cabeza | 432259 | Objeto «Rune of Potency» (221513): compra al Grabador (1 oro). | [spell=432259](https://www.wowhead.com/classic/spell=432259) |
+| 7004020 | Pícaro | Focused Attacks | Cabeza | 432256 | Objeto «Rune of Focus» (221433): compra al Grabador (1 oro). | [spell=432256](https://www.wowhead.com/classic/spell=432256) |
+| 7004021 | Pícaro | Honor Among Thieves | Cabeza | 432264 | Objeto «Rune of the Coterie» (217736): compra al Grabador (1 oro). | [spell=432264](https://www.wowhead.com/classic/spell=432264) |
+| 7004022 | Pícaro | Carnage | Muñecas | 432276 | Objeto «Rune of Carnage» (221461): compra al Grabador (1 oro). | [spell=432276](https://www.wowhead.com/classic/spell=432276) |
+| 7004023 | Pícaro | Cut to the Chase | Muñecas | 432271 | Objeto «Rune of Alacrity» (221512): compra al Grabador (1 oro). | [spell=432271](https://www.wowhead.com/classic/spell=432271) |
+| 7004024 | Pícaro | Unfair Advantage | Muñecas | 432273 | Objeto «Rune of Foul Play» (221428): compra al Grabador (1 oro). | [spell=432273](https://www.wowhead.com/classic/spell=432273) |
+| 7004025 | Pícaro | Blunderbuss | Espalda | 436564 | Objeto «Rune of the Swashbuckler» (227922): compra al Grabador (1 oro). | [spell=436564](https://www.wowhead.com/classic/spell=436564) |
+| 7004026 | Pícaro | Crimson Tempest | Espalda | 412096 | Objeto «Rune of the Crimson Tempest» (227456): compra al Grabador (1 oro). | [spell=412096](https://www.wowhead.com/classic/spell=412096) |
+| 7004027 | Pícaro | Fan of Knives | Espalda | 409240 | Objeto «Rune of Knives» (227921): compra al Grabador (1 oro). | [spell=409240](https://www.wowhead.com/classic/spell=409240) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
 | 7007001 | Chamán | Earth Shield | Piernas | 408514 | Objeto «Rune of Earth Shield» (210746): El Grabador la vende por 1 oro, igual que los Rune Brokers de SoD; las fuentes NPC exclusivas de SoD no están implementadas. | [spell=408514](https://www.wowhead.com/classic/spell=408514) |

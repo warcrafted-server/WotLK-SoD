@@ -61,7 +61,7 @@ VALUES
      55884, 0, 'item_rune_unlock',
      'Teaches you a new Engraving ability.'),
     (210823, 15, 0, 'Rune of Dual Wield Specialization', 1102, 2, 0, 1, 31578, 0, 0,
-     64, -1, 25, 1,
+     68, -1, 25, 1,
      1, 1, 1, 1, 0,
      55884, 0, 'item_rune_unlock',
      'Teaches you a new Engraving ability.'),

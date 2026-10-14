@@ -243,6 +243,7 @@ Todas estas comprobaciones siguen pendientes salvo las confirmaciones fechadas e
 - [ ] Confirmar los nombres, descripciones e iconos en esES y que el Grabador vende las veintiséis runas `7004002–7004027` por 1 oro.
 - [ ] Diferencias conocidas: el bono de esquiva se aproxima como +65 puntos porcentuales; Entre ceja y ceja usa los 52 puntos base y el coeficiente de poder de ataque del catálogo, pero no se verificó la fórmula SoD completa por punto de combo; Shadowstep conserva los valores WotLK de +70%/3 s pendientes de verificar en SoD; Shuriken Toss aplica los puntos de combo al objetivo principal. La interfaz no cambia Amago por Chinchar. Cutthroat, los efectos de seguimiento de Main Gauche y las acumulaciones/bono de Saber Slash están incompletos, según `TODO.md`.
 - [ ] Para la cuarta tanda: falta el porcentaje por acumulación de Improvisación defensiva; Ataques centrados usa 2 p. de energía del rango máximo de WotLK. Verificar ambos valores frente a SoD.
+- [ ] Adquisición del pícaro: las 27 runas se compran como objeto en `.rune summon` › «Comprar runas» (1 oro) y se aprenden al usarlo. Botín real solo para esta clase en 1 criaturas (ver `docs/runas/obtencion.md`).
 
 ### Druida feral
 
