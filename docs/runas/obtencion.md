@@ -131,6 +131,7 @@ La columna de Wowhead enlaza por el id del hechizo de SoD, que es el mismo que u
 | 7004024 | Pícaro | Unfair Advantage | Muñecas | 432273 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=432273](https://www.wowhead.com/classic/spell=432273) |
 | 7004025 | Pícaro | Blunderbuss | Espalda | 436564 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=436564](https://www.wowhead.com/classic/spell=436564) |
 | 7004026 | Pícaro | Crimson Tempest | Espalda | 412096 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=412096](https://www.wowhead.com/classic/spell=412096) |
+| 7004027 | Pícaro | Fan of Knives | Espalda | 409240 | Compra provisional al Grabador por 1 oro; la fuente real de SoD no se ha verificado. | [spell=409240](https://www.wowhead.com/classic/spell=409240) |
 | 7005001 | Sacerdote | Circle of Healing | Manos | 401946 | Libre: se puede grabar sin descubrirla (provisional) | [spell=401946](https://www.wowhead.com/classic/spell=401946) |
 | 7005002 | Sacerdote | Penance | Manos | 402174 | Libre: se puede grabar sin descubrirla (provisional) | [spell=402174](https://www.wowhead.com/classic/spell=402174) |
 | 7007001 | Chamán | Earth Shield | Piernas | 408514 | Objeto «Rune of Earth Shield» (210746): El Grabador la vende por 1 oro, igual que los Rune Brokers de SoD; las fuentes NPC exclusivas de SoD no están implementadas. | [spell=408514](https://www.wowhead.com/classic/spell=408514) |

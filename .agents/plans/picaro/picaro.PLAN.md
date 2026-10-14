@@ -19,5 +19,5 @@ CHANGELOG y commit. Lanzar con `agentrelay run .agents/plans/picaro/tareas/rogue
 | 3 | Shadowstrike (7004012), Poisoned Knife (7004013), Shadowstep (7004014), Shuriken Toss (7004015), Master of Subtlety (7004016) | high | hecho |
 | 4 | Rolling with the Punches (7004017), Waylay (7004018), Combat Potency (7004019), Focused Attacks (7004020), Honor Among Thieves (7004021) | high | hecho |
 | 5 | Carnage (7004022), Cut to the Chase (7004023), Unfair Advantage (7004024), Blunderbuss (7004025), Crimson Tempest (7004026) | high | hecho |
-| 6 | Fan of Knives (7004027) | high | pendiente |
+| 6 | Fan of Knives (7004027) | high | hecho |
 | 7 | Adquisición de los objetos-runa (como `sod_shaman_acquisition.sql`) | medium | pendiente |

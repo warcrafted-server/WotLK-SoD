@@ -336,7 +336,7 @@ Simplificaciones y datos por revisar:
 
 ## Pícaro
 
-Las veinticinco runas `7004002–7004026` tienen definiciones en el módulo; varias conservan limitaciones descritas abajo. Hace falta regenerar el SQL de hechizos y el parche de cliente, recompilar y probar en el reino de desarrollo. La adquisición es provisional: compra al Grabador por 1 oro; las fuentes reales de SoD no se han verificado.
+Las veintiséis runas `7004002–7004027` tienen definiciones en el módulo; varias conservan limitaciones descritas abajo. Hace falta regenerar el SQL de hechizos y el parche de cliente, recompilar y probar en el reino de desarrollo. La adquisición es provisional: compra al Grabador por 1 oro; las fuentes reales de SoD no se han verificado.
 
 - **Deadly Brew `7004002`:** conserva el filtro de proc de WotLK, pero aplica el rango de Veneno mortal disponible para el nivel del pícaro; el hechizo 3409 del guion nativo de WotLK es Veneno entorpecedor y no cumple la descripción de SoD. Pendiente: proc de Veneno instantáneo cuando el arma carece de veneno, escalado adicional por poder de ataque de los venenos y coexistencia de Veneno mortal de varios pícaros.
 - **Just a Flesh Wound `7004003`:** el código comprueba que Danza de hojas `400012` esté activa antes de reducir el daño físico. La reducción aumenta un 1% por cada 12 puntos de Defensa por encima de `nivel × 5`. También aplica −6% a críticos cuerpo a cuerpo recibidos, −20% de daño infligido, +165% de amenaza y +65 puntos porcentuales de esquiva. La esquiva es aditiva en este core, no un multiplicador del 165%. Amago ejecuta Taunt `355` sobre el objetivo seleccionado; el icono, nombre y acción de reemplazo de la facultad no cambian en el libro.
@@ -363,6 +363,7 @@ Las veinticinco runas `7004002–7004026` tienen definiciones en el módulo; var
 - **Unfair Advantage `7004024`:** al esquivar o parar, golpe con el 100 % del daño del arma y 1 punto de combo, con 1 s de enfriamiento (valores de Wowhead, 2026-10-14). Sin probar en juego.
 - **Blunderbuss `7004025`:** usa el objetivo cónico, hasta 10 objetivos, 191 puntos base, los modificadores 48 y 10 del catálogo, coeficiente de 0,10 de poder de ataque y coste de 20 de energía. La parte basada en arma de la fórmula del catálogo aún debe contrastarse en juego.
 - **Crimson Tempest `7004026`:** tiene alcance y radio de 8, cuesta 35 de energía, aplica un sangrado de 2 s por pulso y 0,15 de poder de ataque por pulso; el guion escala la duración a 4/6/8/10/12 s según puntos de combo. Conserva la máscara de Ruptura y registra el script WotLK `spell_rog_rupture`; el guion nativo solo actúa sobre el índice de efecto 0, mientras que la runa coloca el sangrado en el efecto 1. Verificar los talentos y efectos de Ruptura que se aplican.
+- **Fan of Knives `7004027`:** clona el rango máximo WotLK `52874` y conserva la máscara de familia B `0x40000`; se fija el daño base en 50 y la reutilización en 0 ms según el catálogo SoD. Verificar en juego el daño de 75% con dagas y 50% con otras armas, el coste, el radio y que no haya un segundo proc de mano izquierda en Focused Attacks.
 - No se ha compilado ni probado este código. Confirmar también el coste, alcance, daño, tiempos y traducciones en juego.
 
 ## Otras clases

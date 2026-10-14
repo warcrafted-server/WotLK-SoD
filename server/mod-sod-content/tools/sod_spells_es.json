@@ -1061,5 +1061,9 @@
     "name": "Tempestad carmesí",
     "desc": "Un remate que corta a todos los enemigos en un radio de $a2 m y provoca una hemorragia a sus víctimas. Dura más tiempo e inflige más daño por cada punto de combo.\n\n   1 p.: ${$AP*0.30} p. de daño durante 4 s.\n   2 p.: ${$AP*0.45} p. de daño durante 6 s.\n   3 p.: ${$AP*0.60} p. de daño durante 8 s.\n   4 p.: ${$AP*0.75} p. de daño durante 10 s.\n   5 p.: ${$AP*0.90} p. de daño durante 12 s.\n\nTempestad carmesí se beneficia de todos los talentos y efectos que activa o modifica Ruptura.\n\n",
     "aura_desc": "Infligiendo $w2 p. de daño por herida sangrante cada $t2 s."
+  },
+  "409240": {
+    "name": "Abanico de cuchillos",
+    "desc": "Lanzas instantáneamente ambas armas contra todos los objetivos en un radio de $a1 m; inflige un ${$m1*1.5}% de daño con dagas y un $s1% con las demás armas."
   }
 }

@@ -738,4 +738,18 @@ def build(idx):
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
             },
         },
+        {  # Abanico de cuchillos conserva la mecánica de daño y la máscara de familia de WotLK.
+            "id": 409240, "client": True, "template": 52874,
+            "skill_line": SKILL_ASSASSINATION,
+            "name": "Fan of Knives",
+            "inherit_server": True,
+            "desc": "Instantly throw both weapons at all targets within $a1 yards, causing ${$m1*1.5}% weapon damage with daggers, and $s1% weapon damage with all other weapons.",
+            "overrides": {
+                "SpellLevel": 0,
+                "RecoveryTime": 0,
+                "CategoryRecoveryTime": 0,
+                "EffectBasePoints_1": 50,
+                "EffectDieSides_1": 0,
+            },
+        },
     ]

@@ -89,6 +89,9 @@ SET @sql := IF(@rune_tbl > 0,
      ''mod-sod-rogue'', 1),
     (7004026, 412096, 8, 8, ''Crimson Tempest'', ''ability_rogue_rupture'',
      ''Remate que aplica un sangrado a todos los enemigos en 8 m. El daño y la duración aumentan con los puntos de combo y se beneficia de los efectos de Ruptura.'',
+     ''mod-sod-rogue'', 1),
+    (7004027, 409240, 8, 8, ''Fan of Knives'', ''ability_rogue_fanofknives'',
+     ''Lanzas instantáneamente ambas armas contra todos los objetivos en un radio de $a1 m; inflige un ${$m1*1.5}% de daño con dagas y un $s1% con las demás armas.'',
      ''mod-sod-rogue'', 1)
  ON DUPLICATE KEY UPDATE
     `spell_id`    = VALUES(`spell_id`),

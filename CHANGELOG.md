@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-14
 
+- Pícaro: runas Fan of Knives `7004027` (tanda 6 de `.agents/plans/picaro/`). Clon de Abanico de cuchillos de WotLK (52874) con daño y reutilización de SoD. SQL validado. Sin compilar ni probar.
 - Pícaro: runas Carnage `7004022`, Cut to the Chase `7004023`, Unfair Advantage `7004024`, Blunderbuss `7004025`, Crimson Tempest `7004026` (tanda 5 de `.agents/plans/picaro/`). Valores de Carnage (15 %) y Unfair Advantage (100 % del arma, 1 punto de combo) de Wowhead; Blunderbuss y Crimson Tempest por verificar en juego. SQL validado. Sin compilar ni probar.
 - Pícaro: runas Rolling with the Punches `7004017`, Waylay `7004018`, Combat Potency `7004019`, Focused Attacks `7004020`, Honor Among Thieves `7004021` (tanda 4 de `.agents/plans/picaro/`). Rolling with the Punches completada por el orquestador (+5 % de salud por carga, 30 s, de Wowhead). SQL validado. Sin compilar ni probar.
 - Pícaro: runas Shadowstrike `7004012`, Poisoned Knife `7004013`, Shadowstep `7004014`, Shuriken Toss `7004015`, Master of Subtlety `7004016` (tanda 3 de `.agents/plans/picaro/`). Shadowstep y Shuriken Toss aproximados (ver TODO.md). SQL validado. Sin compilar ni probar.
