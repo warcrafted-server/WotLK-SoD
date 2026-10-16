@@ -2,6 +2,10 @@
 
 Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
+## 2026-10-17
+
+- Documentación: nuevo `docs/progreso/druida.md` con el estado de las 27 runas de druida (ítems, botín con sus probabilidades, requisitos de los ídolos, vendedores y fuentes de SoD pendientes), con nombres en español tomados de la base de datos de desarrollo. Sin cambios de código.
+
 ## 2026-10-14
 
 - Mago: runas Spellfrost Bolt `7000018`, Brain Freeze `7000019`, Chronostatic Preservation `7000020`, Spell Power `7000021`, Advanced Warding `7000022` (tanda 2 de `.agents/plans/mago/`). Spellfrost Bolt, Chronostatic Preservation, Advanced Warding y Brain Freeze con límites documentados (ver TODO.md); proc de Brain Freeze copiado del core. SQL validado. Sin compilar ni probar.
