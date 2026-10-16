@@ -204,3 +204,120 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
+
+---
+
+## 8. Guía rápida: cómo conseguir cada runa
+
+**Criterios**
+- **Muertes esperadas** = 100 / probabilidad. Es el número medio de muertes para conseguir una runa con ese mob. Un mob con pocos spawns tarda más en repetir, aunque tenga muertes esperadas bajas.
+- **Nivel recomendado** = rango de nivel del mob, para pelearlo sin dificultad. El ítem o la runa no tienen nivel mínimo en la base de datos (`RequiredLevel` = 1 en todos).
+- **Coordenadas** = posición media de los spawns en la base de desarrollo (mapa 0 = Reinos del Este, mapa 1 = Kalimdor). La base no guarda el área, así que la zona es deducida de esas coordenadas.
+- **Grabador** (npc 700000): no tiene spawn fijo, lo invoca `.rune summon`. Cualquier nivel.
+
+### 8.1. Qué es lo más fácil por runa
+
+| Runa (id) | Forma más fácil | Zona exacta | Nivel recomendado | Muertes esperadas | Requisito de uso |
+|---|---|---|---|---|---|
+| Crecimiento salvaje (7009001) | Grabador, 1 oro | Cualquier ciudad con `.rune summon` | Cualquiera | — | — |
+| Supervivencia del más fuerte (7009002) | Grizzby, 31578 cobre | Los Baldíos, Ratchet (npc 211653) | Cualquiera | — | — |
+| Lacerar (7009003) | Worgen Furia Lunar | Bosque de Argénteos, mapa 0, x 300–1150, y 900–1900 | 10–16 | ~94 (4 mobs, ~119 spawns) | — |
+| Rugido salvaje (7009004) | Madre del cubil | Costa Oscura, mapa 1, (6663, -430), spawn único | 18–19 | ~5 (1 spawn) | 20 golpes de sangrado a humanoides |
+| Rabia (7009005) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Instintos de supervivencia (7009006) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Destrozar (7009007) | Rageclaw | Teldrassil, mapa 1, (9843, 1496), spawn único | 10 | ~3,5 (1 spawn) | Rabia ≥ 50 en oso durante 60 s |
+| Cornada (7009008) | Grabador, 1 oro 60 plata | — | Cualquiera | — | — |
+| Golpes descontrolados (7009009) | Tótem Siniestro Mercenario | Montañas Crestagua, mapa 1, (55, -769) | 14–15 | ~39 (33 spawns) | Curar a 10 bestias distintas |
+| Rey de la selva (7009010) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Testarazo (7009011) | Grabador, 2 oro | — | Cualquiera | — | — |
+| Regeneración frenética mejorada (7009012) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Flagelo mejorado (7009013) | Venomhide Ravasaur | Cráter de Un'Goro, mapa 1, (-7254, -1995) | 50–51 | ~28 (22 spawns) | 5 objetivos dormidos muertos en forma felina |
+| Piel de corteza mejorada (7009014) | Enraizador Cardizal | Tanaris, mapa 1, (-8888, -2246) | 49–50 | ~19 (11 spawns) | 5 muertes con Naturaleza bajo Piel de corteza |
+| Semilla viviente (7009015) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Vientos galernos (7009016) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Fuego solar (7009017) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Furia de Tempestira (7009018) | Grellín | Teldrassil, mapa 1, (10465, 967) | 3–4 | ~25 (31 spawns) | Ninguno aplicado (solo texto) |
+| Estado onírico (7009019) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Árbol de la vida (7009020) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Oleada de estrellas (7009021) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Floración (7009022) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Fuegos de Elune (7009023) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Eclipse (7009024) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Lluvia de estrellas (7009025) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
+
+**Recomendación general:** para las 18 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+
+### 8.2. Botín: todas las fuentes con su zona y nivel
+
+**Lacerar (7009003)**: Canoso, Correoscuro, Almanegra y Aullasangre Furia Lunar. Mapa 0, Bosque de Argénteos, nivel 10–16. Probabilidad de 1,0661 % cada una. Muertes esperadas de la runa: ~94.
+
+**Rugido salvaje (7009004)**, ítem Ídolo de ferocidad (208689):
+
+| Criatura (id) | Zona exacta | Nivel | Probabilidad | Muertes esperadas | Spawns |
+|---|---|---|---|---|---|
+| Madre del cubil (6788) | Costa Oscura, mapa 1, (6663, -430) | 18–19 | 19,7595 % | ~5 | 1 |
+| Chamán Zarparrío (1065) | Páramo de Poniente, mapa 0, (-9885, 1559) | 12–13 | 6,6667 % | ~15 | 1 |
+| Grimson el Pálido (1972) | Bosque de Argénteos, mapa 0, (411, 990) | 15 | 1,5936 % | ~63 | 1 |
+| Tosco Zarparrío (124) | Páramo de Poniente | 15–16 | 0,4360 % | ~229 | 26 |
+| Gnoll Zarparrío (117) | Páramo de Poniente | 11–12 | 0,3503 % | ~285 | 24 |
+| Bandido Zarparrío (452) | Páramo de Poniente | 16–17 | 0,3433 % | ~291 | 40 |
+| Explorador Zarparrío (500) | Páramo de Poniente | 12–13 | 0,2552 % | ~392 | 23 |
+| Bastardo Zarparrío (123) | Páramo de Poniente | 14 | 0,2155 % | ~464 | 45 |
+| Cofres Botín de Kolkar (3642, 152608, 152618) | Los Baldíos, mapa 1 | — | 33,33 % cada cofre (ver nota de la sección 2) | — | 3 cofres |
+
+**Mangle (7009007)**, ítem Ídolo de ira osuna (206954):
+
+| Criatura (id) | Zona exacta | Nivel | Probabilidad | Muertes esperadas | Spawns |
+|---|---|---|---|---|---|
+| Garrafuria (7318) | Teldrassil, mapa 1, (9843, 1496) | 10 | 28,7535 % | ~3,5 | 1 |
+| Intruso Erizapúas (3232) | Mulgore, mapa 1, (-999, -1099) | 9–10 | 1,4916 % | ~67 | 28 |
+| Controlador de Ventura y Cía. (2979) | Mulgore, mapa 1, (-1607, -1077) | 9–10 | 1,2687 % | ~79 | 67 |
+| Aguilón garrudo (2971) | Mulgore, mapa 1, (-1123, -651) | 8–10 | 0,6246 % | ~160 | 19 |
+| Lobo alfa de pradera (2960) | Mulgore, mapa 1, (-1524, -771) | 9–10 | 0,5054 % | ~198 | 103 |
+| Merodeador de las estepas (3566) | Mulgore, mapa 1, (-929, -502) | 9 | 0,3878 % | ~258 | 106 |
+| Hechicera Viento Furioso (2964) | Mulgore, mapa 1, (-839, 64) | 9–10 | 0,1638 % | ~611 | 47 |
+| Matriarca Viento Furioso (2965) | Mulgore, mapa 1, (-827, 78) | 10–11 | 0,1474 % | ~678 | 47 |
+
+**Golpes descontrolados (7009009)**, ítem Ídolo de las fieras (210534). Todas en Montañas Crestagua, mapa 1:
+
+| Criatura (id) | Coordenadas (media) | Nivel | Probabilidad | Muertes esperadas | Spawns |
+|---|---|---|---|---|---|
+| Mercenario Tótem Siniestro (11911) | (55, -769) | 14–15 | 2,5397 % | ~39 | 33 |
+| Rufián Tótem Siniestro (11910) | (77, -756) | 14–15 | 2,2115 % | ~45 | 17 |
+| Hechicero Tótem Siniestro (11913) | (123, -517) | 15–16 | 1,7765 % | ~56 | 17 |
+| Tosco Tótem Siniestro (11912) | (114, -498) | 15–16 | 1,8458 % | ~54 | 24 |
+
+**Destrozar (7009007)**: ver la tabla de Mangle arriba.
+
+**Flagelo mejorado (7009013)**, ítem Ídolo de la cazadora (227444). Todas en Cráter de Un'Goro, mapa 1:
+
+| Criatura (id) | Coordenadas (media) | Nivel | Probabilidad | Muertes esperadas | Spawns |
+|---|---|---|---|---|---|
+| Ravasaurio pellejo venenoso (6508) | (-7254, -1995) | 50–51 | 3,6055 % | ~28 | 22 |
+| Cazador ravasaurio (6507) | (-7268, -1934) | 49–50 | 2,2936 % | ~44 | 19 |
+| Corredor ravasaurio (6506) | (-7764, -1815) | 49–50 | 1,7032 % | ~59 | 21 |
+| Ravasaurio (6505) | (-7753, -1801) | 48–49 | 1,5504 % | ~64 | 38 |
+
+**Piel de corteza mejorada (7009014)**, ítem Ídolo de arrastrapiés furibundo (220915). Todas en Tanaris, mapa 1:
+
+| Criatura (id) | Coordenadas (media) | Nivel | Probabilidad | Muertes esperadas | Spawns |
+|---|---|---|---|---|---|
+| Enraizador Cardizal (5485) | (-8888, -2246) | 49–50 | 5,2720 % | ~19 | 11 |
+| Cardizal nudoso (5490) | (-8889, -2230) | 48–49 | 4,3365 % | ~23 | 8 |
+| Colector de rocío Cardizal (5481) | (-8909, -2240) | 47–48 | 2,4778 % | ~40 | 14 |
+| Furibundo de la tierra (5465) | (-8361, -3538) | 45–47 | 2,5000 % | ~40 | 5 |
+| Aporreador de tierra (9396) | (-7095, -3622) | 41–43 | 1,4354 % | ~70 | 2 |
+
+**Furia de Tempestira (7009018)**, ítem Ídolo lunar (208414): Grellín (1989), Teldrassil, mapa 1, (10465, 967), nivel 3–4, 4 %, ~25 muertes, 31 spawns. Requisito no aplicado.
+
+### 8.3. Vendedores
+
+- **Supervivencia del más fuerte (7009002):** Grizzby (npc 211653), Los Baldíos (Ratchet), 3 oro 15 plata 78 cobre. Sin requisito de nivel en la base.
+- **Testarazo (7009011):** 2 oro en el Grabador. También lo venden los seis oficiales de suministro si tienes el rango 4 con su ciudad (Elaine Compton, Jornah, Dokimi, Gishah, Tamelyn Aldridge y Marcy Baker).
+
+### 8.4. Notas sobre el nivel
+
+- Los `spell_dbc` de las runas tienen `BaseLevel` de WotLK (0, 1, 20, 60, 75, 80…) que no sirve como nivel de uso. No he encontrado en el repo un nivel mínimo para usar las runas. Hasta que se confirme en juego, las runas del Grabador son usables a cualquier nivel.
+- Los `RequiredLevel` de todos los ítems son 1, salvo el ítem de Supervivencia del más fuerte, que no tiene nivel mínimo en la base (`RequiredLevel` = 1 con precio 31578).
