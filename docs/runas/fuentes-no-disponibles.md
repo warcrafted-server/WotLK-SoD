@@ -4,7 +4,7 @@ Estado a 2026-10-09 (runas ya implementadas: 107). Decisión del usuario (2026-1
 
 ## 1. Sin objeto-runa: hoy no se pueden comprar en el Grabador
 
-Solo se obtienen con `.rune unlock <rune_id>` (o, las de escarcha del mago, se graban sin descubrirlas). **Hay que crearles su objeto y su venta** (pendiente, en el plan de cada clase).
+Solo se obtienen con `.rune unlock <rune_id>` (o, las de escarcha del mago, se graban sin descubrirlas). **Hay que crearles su objeto y su venta**: son 20 runas (pendiente, en el plan de cada clase).
 
 | rune_id | Clase | Runa | Objeto real de SoD |
 |---|---|---|---|
@@ -28,19 +28,6 @@ Solo se obtienen con `.rune unlock <rune_id>` (o, las de escarcha del mago, se g
 | 7008006 | Brujo | Metamorphosis | 210980 |
 | 7008007 | Brujo | Incinerate | 211477 |
 | 7008008 | Brujo | Shadowflame | 213101 |
-| 7009015 | Druida | Living Seed | 206963 |
-| 7009016 | Druida | Gale Winds | 220754 |
-| 7009017 | Druida | Sunfire | 206989 |
-| 7009018 | Druida | Fury of Stormrage | 208414 |
-| 7009019 | Druida | Dreamstate | 213120 |
-| 7009020 | Druida | Tree of Life | 227746 |
-| 7009021 | Druida | Starsurge | 210500 |
-| 7009022 | Druida | Efflorescence | 220360 |
-| 7009023 | Druida | Elune's Fires | 221020 |
-| 7009024 | Druida | Eclipse | 212548 |
-| 7009025 | Druida | Starfall | 227749 |
-| 7009026 | Druida | Lifebloom | 206970 |
-| 7009027 | Druida | Nourish | 213074 |
 
 ## 2. La fuente real existe en WotLK pero aún no está implementada
 
