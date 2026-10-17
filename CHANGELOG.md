@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-17
 
+- Corregido: `docs/runas/obtencion.md` ya no dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira ni Supervivencia del más fuerte se compran en el Grabador, y añade las filas 7009009 a 7009014 que faltaban.
 - Documentación: nuevo `docs/progreso/druida.md` con el estado de las 27 runas de druida (ítems, botín con sus probabilidades, requisitos de los ídolos, vendedores y fuentes de SoD pendientes), con nombres en español tomados de la base de datos de desarrollo. Sin cambios de código.
 
 ## 2026-10-14
