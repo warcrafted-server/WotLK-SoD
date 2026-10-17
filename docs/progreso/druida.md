@@ -127,7 +127,9 @@ En SoD estos worgen sueltan un Unbalanced Idol. Aquí sueltan la runa directamen
 
 | Criatura (id) | Zona | Probabilidad | Nota |
 |---|---|---|---|
-| Grellín (1989) | Teldrassil | 4 % | Solo druidas |
+| Grellín (1989) | Teldrassil | 4 % | Solo druidas. Requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar) |
+
+**Nota:** requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar).
 
 ---
 
@@ -142,7 +144,7 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 | Ídolo de ferocidad (208689) | Rugido salvaje | 20 golpes de sangrado a humanoides | Sí |
 | Ídolo de la cazadora (227444) | Flagelo mejorado | Matar 5 objetivos dormidos en forma felina | Sí |
 | Ídolo de arrastrapiés furibundo (220915) | Piel de corteza mejorada | Matar 5 enemigos con daño de Naturaleza bajo Piel de corteza | Sí |
-| Ídolo lunar (208414) | Furia de Tempestira | Derrotar 6 criaturas afectadas por tu Fuego lunar | **No.** Solo es texto |
+| Ídolo lunar (208414) | Furia de Tempestira | Derrotar 6 criaturas afectadas por tu Fuego lunar | Sí |
 
 ---
 
@@ -199,7 +201,6 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Sin compilar ni probar.** El druida necesita compilar, desplegar el parche de cliente y probarse en juego.
 - **Misiones:** ninguna programada. Las runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** no existe en el servidor. El Grabador hace de sustituto.
-- **Fury of Stormrage:** el requisito del Ídolo lunar no se aplica.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
@@ -235,7 +236,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Semilla viviente (7009015) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Vientos galernos (7009016) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Fuego solar (7009017) | Grabador, 1 oro | — | Cualquiera | — | — |
-| Furia de Tempestira (7009018) | Grellín | Teldrassil, mapa 1, (10465, 967) | 3–4 | ~25 (31 spawns) | Ninguno aplicado (solo texto) |
+| Furia de Tempestira (7009018) | Grellín | Teldrassil, mapa 1, (10465, 967) | 3–4 | ~25 (31 spawns) | Derrotar 6 criaturas con Fuego lunar |
 | Estado onírico (7009019) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Árbol de la vida (7009020) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Oleada de estrellas (7009021) | Grabador, 1 oro | — | Cualquiera | — | — |
@@ -309,7 +310,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Furibundo de la tierra (5465) | (-8361, -3538) | 45–47 | 2,5000 % | ~40 | 5 |
 | Aporreador de tierra (9396) | (-7095, -3622) | 41–43 | 1,4354 % | ~70 | 2 |
 
-**Furia de Tempestira (7009018)**, ítem Ídolo lunar (208414): Grellín (1989), Teldrassil, mapa 1, (10465, 967), nivel 3–4, 4 %, ~25 muertes, 31 spawns. Requisito no aplicado.
+**Furia de Tempestira (7009018)**, ítem Ídolo lunar (208414): Grellín (1989), Teldrassil, mapa 1, (10465, 967), nivel 3–4, 4 %, ~25 muertes, 31 spawns. Requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar).
 
 ### 8.3. Vendedores
 

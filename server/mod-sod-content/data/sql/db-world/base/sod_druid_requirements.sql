@@ -14,7 +14,8 @@ SET @sql := IF(@requirement_tbl > 0,
     (208689, ''druid_bleed_humanoids'', 0, 0, 20, 5001),
     (206954, ''druid_bear_rage_streak'', 0, 0, 60, 5002),
     (220915, ''druid_barkskin_nature_kill'', 0, 0, 5, 5003),
-    (227444, ''druid_cat_sleeping_kill'', 0, 0, 5, 5004)',
+    (227444, ''druid_cat_sleeping_kill'', 0, 0, 5, 5004),
+    (208414, ''druid_moonfire_kill'', 0, 0, 6, 5005)',
 'DO 0');
 
 PREPARE stmt FROM @sql;

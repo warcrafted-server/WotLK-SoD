@@ -23,6 +23,7 @@ namespace
 {
 constexpr uint32 ITEM_MANGLE = 206954;
 constexpr uint32 SPELL_BARKSKIN = 22812;
+constexpr uint32 SPELL_MOONFIRE = 8921;
 
 struct PendingHit
 {
@@ -31,6 +32,7 @@ struct PendingHit
     bool BleedHumanoid = false;
     bool BarkskinNature = false;
     bool CatSleeping = false;
+    bool Moonfire = false;
 };
 
 struct PendingKill
@@ -38,6 +40,7 @@ struct PendingKill
     ObjectGuid Player;
     bool BarkskinNature = false;
     bool CatSleeping = false;
+    bool Moonfire = false;
 };
 
 struct RageStreak
@@ -49,6 +52,8 @@ struct RageStreak
 thread_local PendingHit sPendingHit;
 std::mutex sHealedBeastsMutex;
 std::unordered_map<ObjectGuid, std::unordered_set<ObjectGuid>> sHealedBeasts;
+std::mutex sMoonfireKillsMutex;
+std::unordered_map<ObjectGuid, std::unordered_set<ObjectGuid>> sMoonfireKills;
 std::mutex sPendingKillsMutex;
 std::unordered_map<ObjectGuid, PendingKill> sPendingKills;
 
@@ -95,6 +100,14 @@ bool HasPeriodicDamageEffect(SpellInfo const* spellInfo)
         });
 }
 
+bool HasMoonfireAura(Unit const* unit, ObjectGuid casterGuid)
+{
+    if (!unit)
+        return false;
+
+    return unit->GetAuraOfRankedSpell(SPELL_MOONFIRE, casterGuid) != nullptr;
+}
+
 void SetPendingHit(Unit* victim, Unit* attacker, bool bleedHumanoid,
     SpellSchoolMask schoolMask, bool canKill)
 {
@@ -117,6 +130,7 @@ void SetPendingHit(Unit* victim, Unit* attacker, bool bleedHumanoid,
         && player->HasAura(SPELL_BARKSKIN);
     sPendingHit.CatSleeping = attacker == player
         && player->GetShapeshiftForm() == FORM_CAT && IsSleeping(victim);
+    sPendingHit.Moonfire = HasMoonfireAura(victim, player->GetGUID());
 }
 }
 
@@ -226,12 +240,12 @@ public:
         if (!potentialKill || !player->IsHostileTo(victim))
             return;
 
-        if (!hit.BarkskinNature && !hit.CatSleeping)
+        if (!hit.BarkskinNature && !hit.CatSleeping && !hit.Moonfire)
             return;
 
         std::lock_guard<std::mutex> guard(sPendingKillsMutex);
         sPendingKills[victim->GetGUID()] = { player->GetGUID(),
-            hit.BarkskinNature, hit.CatSleeping };
+            hit.BarkskinNature, hit.CatSleeping, hit.Moonfire };
     }
 
     void OnUnitDeath(Unit* unit, Unit* /*killer*/) override
@@ -283,6 +297,16 @@ public:
             sRuneRequirements->OnEvent(player, "druid_barkskin_nature_kill");
         if (hit.CatSleeping)
             sRuneRequirements->OnEvent(player, "druid_cat_sleeping_kill");
+        if (hit.Moonfire)
+        {
+            bool inserted;
+            {
+                std::lock_guard<std::mutex> guard(sMoonfireKillsMutex);
+                inserted = sMoonfireKills[player->GetGUID()].insert(killed->GetGUID()).second;
+            }
+            if (inserted)
+                sRuneRequirements->OnEvent(player, "druid_moonfire_kill");
+        }
     }
 
     void OnPlayerUpdate(Player* player, uint32 diff) override
@@ -341,8 +365,14 @@ public:
             std::lock_guard<std::mutex> guard(_rageStreaksMutex);
             _rageStreaks.erase(guid);
         }
-        std::lock_guard<std::mutex> guard(sHealedBeastsMutex);
-        sHealedBeasts.erase(guid);
+        {
+            std::lock_guard<std::mutex> guard(sHealedBeastsMutex);
+            sHealedBeasts.erase(guid);
+        }
+        {
+            std::lock_guard<std::mutex> guard(sMoonfireKillsMutex);
+            sMoonfireKills.erase(guid);
+        }
     }
 
 private:

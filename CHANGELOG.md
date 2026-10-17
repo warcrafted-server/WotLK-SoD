@@ -4,6 +4,7 @@ Formato: más reciente arriba. Una entrada por cambio relevante, con su fecha.
 
 ## 2026-10-17
 
+- Druida: aplicado el requisito de uso del Ídolo lunar (208414, runa Furia de Tempestira 7009018): requiere derrotar 6 criaturas afectadas por tu Fuego lunar antes de aprender la facultad. Registrada la clave `druid_moonfire_kill` en `sod_druid_requirements.sql`, cadenas 5005 en inglés y español en `sod_druid_requirement_strings.sql`, y lógica de seguimiento en `spell_sod_druid_requirements.cpp`. Sin compilar ni probar en juego.
 - Corregido: el Cofre de Kolkar da la runa Ídolo de ferocidad al 1/3 (objeto 152608), 1/4 (3642) y 1/4 (152618) según el objeto (antes 33,3 % en los tres), separando sus tablas de botín (3318, 3319 y 3320).
 - Corregido: `docs/runas/obtencion.md` ya no dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira ni Supervivencia del más fuerte se compran en el Grabador, y añade las filas 7009009 a 7009014 que faltaban.
 - Documentación: nuevo `docs/progreso/druida.md` con el estado de las 27 runas de druida (ítems, botín con sus probabilidades, requisitos de los ídolos, vendedores y fuentes de SoD pendientes), con nombres en español tomados de la base de datos de desarrollo. Sin cambios de código.
