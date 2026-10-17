@@ -78,9 +78,9 @@ En SoD estos worgen sueltan un Unbalanced Idol. Aquí sueltan la runa directamen
 | Chamán Zarparrío (1065) | Páramo de Poniente | 6,6667 % | Muestra de 1/15 |
 | Grimson el Pálido (1972) | Bosque de Argénteos | 1,5936 % | Solo druidas |
 | Madre del cubil (6788) | Costa Oscura | 19,7595 % | Solo druidas |
-| Botín de Kolkar (objetos 3642, 152608, 152618) | Los Baldíos | 33,33 % | Ver nota |
+| Botín de Kolkar (objetos 3642, 152608, 152618) | Los Baldíos | 1/3 y 1/4 (25–33,33 %) | Ver nota |
 
-**Nota:** en SoD el Botín de Kolkar da 1/3, 1/4 y 1/4 según el objeto. Aquí los tres comparten una sola tabla de botín, así que todos dan 33,33 %.
+**Nota:** el Botín de Kolkar da 1/3 (33,3333 %) para el objeto 152608, y 1/4 (25 %) para los objetos 3642 y 152618, según las probabilidades reales de SoD.
 
 ### Mangle (7009007), ítem Ídolo de ira osuna (206954)
 
@@ -200,7 +200,6 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Misiones:** ninguna programada. Las runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** no existe en el servidor. El Grabador hace de sustituto.
 - **Fury of Stormrage:** el requisito del Ídolo lunar no se aplica.
-- **Kolkar's Booty:** da 33,33 % en los tres objetos. En SoD es 1/3, 1/4 y 1/4.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
@@ -265,7 +264,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Bandido Zarparrío (452) | Páramo de Poniente | 16–17 | 0,3433 % | ~291 | 40 |
 | Explorador Zarparrío (500) | Páramo de Poniente | 12–13 | 0,2552 % | ~392 | 23 |
 | Bastardo Zarparrío (123) | Páramo de Poniente | 14 | 0,2155 % | ~464 | 45 |
-| Cofres Botín de Kolkar (3642, 152608, 152618) | Los Baldíos, mapa 1 | — | 33,33 % cada cofre (ver nota de la sección 2) | — | 3 cofres |
+| Cofres Botín de Kolkar (3642, 152608, 152618) | Los Baldíos, mapa 1 | — | 1/3 (33,33 %) para 152608; 1/4 (25 %) para 3642 y 152618 | ~3–4 | 3 cofres |
 
 **Mangle (7009007)**, ítem Ídolo de ira osuna (206954):
 

@@ -4,7 +4,7 @@
 -- because this core has no per-vendor price hook. Grizzby's recorded coin cost overrides ItemSparse.
 -- Lacerate: SoD drops Unbalanced Idol (210195) from Silverpine Moonrage worgen; this core lacks that item, so they drop rune item 208687.
 -- Wowhead samples per NPC are tiny (1/2, 1/8...), so all four use the pooled rate 5/469 = 1.0661 %.
--- Shared WotLK gameobject lootid 3318 for SoD objects 3642, 152608, 152618; one loot row uses the first source rate.
+-- Tablas de botín del Cofre de Kolkar: 3318 (3642, 25 %), 3319 (152608, 33,3333 %) y 3320 (152618, 25 %).
 
 REPLACE INTO `item_template`
     (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `Flags`,
@@ -150,9 +150,28 @@ REPLACE INTO `creature_loot_template`
     (1782, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune'),
     (1924, 208687, 0, 1.0661, 0, 1, 0, 1, 1, 'mod-sod-druid Lacerate rune');
 
+UPDATE `gameobject_template` SET `data1` = 3319 WHERE `entry` = 152608;
+UPDATE `gameobject_template` SET `data1` = 3320 WHERE `entry` = 152618;
+
+DELETE FROM `gameobject_loot_template` WHERE `Entry` IN (3319, 3320);
+
+INSERT INTO `gameobject_loot_template`
+    (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)
+SELECT 3319, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`
+FROM `gameobject_loot_template`
+WHERE `Entry` = 3318 AND `Comment` NOT LIKE 'mod-sod%';
+
+INSERT INTO `gameobject_loot_template`
+    (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`)
+SELECT 3320, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`
+FROM `gameobject_loot_template`
+WHERE `Entry` = 3318 AND `Comment` NOT LIKE 'mod-sod%';
+
 REPLACE INTO `gameobject_loot_template`
     (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-    (3318, 208689, 0, 33.3333, 0, 1, 0, 1, 1, 'mod-sod-druid Savage Roar rune');
+    (3318, 208689, 0, 25, 0, 1, 0, 1, 1, 'mod-sod-druid Savage Roar rune'),
+    (3319, 208689, 0, 33.3333, 0, 1, 0, 1, 1, 'mod-sod-druid Savage Roar rune'),
+    (3320, 208689, 0, 25, 0, 1, 0, 1, 1, 'mod-sod-druid Savage Roar rune');
 
 REPLACE INTO `conditions`
     (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`,
@@ -186,7 +205,9 @@ REPLACE INTO `conditions`
     (1, 6506, 227444, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Improved Swipe item for class only'),
     (1, 6507, 227444, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Improved Swipe item for class only'),
     (1, 6508, 227444, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Improved Swipe item for class only'),
-    (4, 3318, 208689, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Savage Roar item for class only');
+    (4, 3318, 208689, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Savage Roar item for class only'),
+    (4, 3319, 208689, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Savage Roar item for class only'),
+    (4, 3320, 208689, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Savage Roar item for class only');
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 206992, 0, 0, 0),
