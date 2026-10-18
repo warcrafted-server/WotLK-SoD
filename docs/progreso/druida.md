@@ -227,7 +227,7 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 ## 7. Pendiente y limitaciones
 
 - **Sin compilar ni probar.** El druida necesita compilar, desplegar el parche de cliente y probarse en juego.
-- **Misiones:** Nutrir (7009027) ya tiene su cadena programada (§9) y Floración (7009022) la primera parte (§10). Las demás runas de misión se consiguen por el Grabador hasta que se programen.
+- **Misiones:** Nutrir (7009027) ya tiene su cadena programada (§9) y Floración (7009022) las partes A a C (§10). Las demás runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** existe desde este cambio como «Corredor de runas» (npc 700201, `sod_world_rune_broker.sql`), con un spawn en cada capital. Hoy solo vende Rabia y Regeneración frenética mejorada, las dos runas de las que no tenemos otra fuente real; para las demás fuentes que Wowhead atribuye al Rune Broker, el Grabador sigue haciendo de sustituto.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
@@ -274,7 +274,7 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 | Estado onírico (7009019) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Árbol de la vida (7009020) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Oleada de estrellas (7009021) | Grabador, 1 oro | — | Cualquiera | — | — |
-| Floración (7009022) | Cadena de misión *Wisdom of the Guardians* | Tyrisius: Feralas, mapa 1, (-5564, 1466); los tres avatares los invocan los santuarios (sin programar) | 45–50 | — | — |
+| Floración (7009022) | Cadena de misión *Wisdom of the Guardians* | Tyrisius: Feralas, mapa 1, (-5564, 1466); los avatares los invocan los santuarios de Feralas y Tierras del Interior (Azshara, sin programar) | 45–50 | — | — |
 | Fuegos de Elune (7009023) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Eclipse (7009024) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Lluvia de estrellas (7009025) | Arcterris | Vallefresno, mapa 1, (7700, -4860) | 58 (élite) | ~1,5 (66,67 %) | — |
@@ -382,14 +382,15 @@ Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §3. Sin compilar ni 
 
 - **Parte A (Tyrisius y las plantillas):** `server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql`, la misión 81924, los tres avatares, los tres espíritus y los tres santuarios sin lógica todavía.
 - **Parte B (lógica de un santuario):** solo el Shrine of the Warden de Feralas, en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_warden.sql` y `src/druid/spell_sod_druid_shrine_warden.cpp` (registrado en `src/sod_content_loader.cpp`).
+- **Parte C (lógica de un santuario):** solo el Shrine of the Moon de Tierras del Interior, en `src/druid/spell_sod_druid_shrine_moon.cpp` (registrado en `src/sod_content_loader.cpp`) y, en el SQL, la frase del libro en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_moon.sql`.
 
-**La misión aún no es completable**: solo tiene lógica el santuario de Feralas; los santuarios de la Luna (Hinterlands) y de la Bestia (Azshara) siguen sin implementar y sus avatares (221933 y 221928) no tienen spawn ni forma de aparecer.
+**La misión aún no es completable**: tienen lógica los santuarios de Feralas y de la Luna; el de la Bestia (Azshara) sigue sin implementar y el Hippogryph Avatar (221928) no tiene spawn ni forma de aparecer.
 
 ### Parte A: Tyrisius y las plantillas
 
 1. **Tyrisius** (221985, nivel 40, Feralas, mapa 1, (-5564, 1466), respawn 300 s) da y entrega **Wisdom of the Guardians** (81924, nivel 50, mínimo 45, categoría Druida, sin misión previa). XP aproximada a 4700: se usa el índice 4 de QuestXP.dbc de nivel 50 (5100), una aproximación de +400. Dinero 0 (la unidad del dato de SoD, 75, no consta).
 2. Objetivos (crédito de muerte, 1 de cada): **Treant Avatar** (221935, Feralas), **Moonkin Avatar** (221933, Tierras del Interior) y **Hippogryph Avatar** (221928, Azshara). Nivel 50, no élite y hostiles. **No tienen spawn**: los invoca su santuario.
-3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`). Solo el del Celador tiene lógica (parte B); los otros dos siguen inertes. Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
+3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`). Solo el del Celador tiene lógica (parte B) y el de la Luna (parte C); el de la Bestia sigue inerte. Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
 4. **Child of Apa'ro** (222580, ciervo, Azshara, mapa 1, (4293, -5458), respawn 1800 s): hostil, desollable e inmune a la magia; suelta **Sacred Stag Heart** (221326) al 100 %, solo a druidas y solo con 81924 activa. El corazón se ofrece en el Santuario de la Bestia (lógica pendiente).
 5. Recompensa a elegir: **Rune of Efflorescence** (220360), que desbloquea la runa 7009022 (el Grabador la sigue vendiendo para las pruebas), o **Seed of Renewal** (219326, trinket raro **sin efecto implementado**: sus estadísticas están a 0).
 6. No verificado: probabilidad y condiciones reales del botín del corazón (se usa 100 % solo con la misión activa), botín de desuello (se copia el de «Hakkari Frostwing», 5291), estadísticas y efecto del trinket (a 0), frases de Blightbark (no constan), modelos (todos stock), la z de los cinco spawns y las coordenadas de los santuarios.
@@ -410,6 +411,23 @@ Solo el santuario de Feralas. Lógica en `server/mod-sod-content/src/druid/spell
    - **Duración de Duty y Mark, y si Mark hereda lo que le quedaba a Duty:** no consta en la fuente; Mark se aplica con su propia duración.
    - **Comportamiento exacto del aggro del avatar** (se le hace atacar al invocarlo), el radio de «acercarse» (15 m, elegido a ojo) y que la Marca no se gaste al invocar: no verificados.
    - **Cómo se cuenta el crédito de la misión** (al matar al avatar, no al hablar con el espíritu): no verificado, igual que en la parte A.
+
+### Parte C: santuario de la Luna (Tierras del Interior, 441946)
+
+Solo el santuario de Tierras del Interior. Toda la lógica va en `server/mod-sod-content/src/druid/spell_sod_druid_shrine_moon.cpp` (registrado como `AddSC_sod_druid_shrine_moon` en `src/sod_content_loader.cpp`). En el SQL solo hace falta la frase del libro, en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_moon.sql` (`module_string` 1010 y su fila en esES): los dos hechizos de la secuencia son stock del core y la fuente no transcribe ninguna frase de Sagefeather, así que no se añade `creature_text`. La parte A no se toca.
+
+1. Con la misión 81924 activa y el objetivo del Moonkin Avatar sin cumplir, **lanzar Tranquility y después Hurricane sobre el santuario** invoca al **Moonkin Avatar** (221933) como `TempSummon` hostil junto al santuario, que ataca al jugador. El disparo se engancha con un `PlayerScript` del lanzamiento de hechizo (`PLAYERHOOK_ON_SPELL_CAST`, en vez de un `SpellScript`), porque Tranquility y Hurricane tienen rangos y hay que leer el destino de Hurricane. El orden importa: Tranquility («la calma») deja una marca por jugador y Hurricane («la tormenta») la consume. Cada hechizo se identifica por el primero de su cadena, así que cualquier rango vale. La marca solo se pone si Tranquility se lanza con el jugador a ≤40 m del santuario (mapa 0) y caduca a los 30 s; Hurricane debe quedar centrado a ≤10 m del objeto, y para eso se usa el destino del hechizo (es un área en el suelo).
+2. No se invoca sin la misión activa ni si ya hay un avatar vivo a menos de 15 m del santuario (la comprobación es por cercanía, no por mapa: uno que haya perseguido a un jugador lejos del santuario no lo bloquea).
+3. El avatar lanza **Rend (13445)**, **Strike (13584)** y **Tendon Rip (3604)** y, al morir, deja a **Sagefeather** (222704) 60 s.
+4. El santuario (441946) es un libro: el ScriptName `sod_druid_shrine_moon` de la parte A se enlaza con un `GameObjectScript` que **no es el disparador de la invocación** (lo es la secuencia de hechizos). Interactuar con él **sin** la misión pendiente muestra el texto de la fuente («The calm comes before the storm.») como mensaje del sistema, desde `module_string` (el C++ del módulo no guarda textos para el jugador).
+5. **No verificado / pendiente:**
+   - **Sin compilar ni probar en juego.** `python3 tools/sod-data/check_syntax.py` pasa para este archivo, pero usa una plantilla del módulo (no está en `compile_commands.json`), así que no es una compilación completa.
+   - **Ventana calma→tormenta** (30 s, provisional para cubrir el canal de Tranquility): no consta en la fuente. Las distancias (≤40 m para Tranquility y ≤10 m para el centro de Hurricane) vienen del encargo, no de `misiones.md`, que solo dice «sobre el santuario».
+   - **Reutilización de las tres habilidades del avatar** (10 s Rend, 6 s Strike, 15 s Tendon Rip): no consta en la fuente; son provisionales.
+   - **Frases de Sagefeather:** no constan en `misiones.md` (solo se dice que Blightbark, el de Feralas, dice tres), así que no se le añade `creature_text` (no se inventan).
+   - **Traducción al español de la frase del libro** («La calma precede a la tormenta.»): es nuestra, no consta ninguna oficial.
+   - **Si el juego exige que Tranquility o Hurricane alcancen el objeto**, más allá de la distancia de lanzamiento: no verificado.
+   - **Cómo se cuenta el crédito de la misión** (al matar al avatar, no al hablar con el espíritu): no verificado, igual que en las partes A y B.
 
 ## Pendiente de encontrar información
 

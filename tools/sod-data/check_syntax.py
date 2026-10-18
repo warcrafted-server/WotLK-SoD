@@ -251,6 +251,18 @@ def load_tasks() -> tuple[list[tuple[Path, dict[str, Any] | None, str | None]], 
     return tasks, len(by_source)
 
 
+def worker_count() -> int:
+    # Cada archivo tarda varios segundos con la jerarquía de cabeceras del core y
+    # el módulo ya pasa de los 150 archivos: con dos procesos la comprobación supera
+    # los diez minutos que duran las validaciones. Se usan hasta cuatro (cada clang
+    # va con `nice -n 19`, así que el servidor en producción conserva la prioridad).
+    try:
+        cores = len(os.sched_getaffinity(0))
+    except AttributeError:
+        cores = os.cpu_count() or 1
+    return max(1, min(4, cores))
+
+
 def main() -> int:
     try:
         tasks, entry_count = load_tasks()
@@ -258,9 +270,10 @@ def main() -> int:
         print(f"No se pudo preparar la comprobación: {error}", file=sys.stderr)
         return 2
 
-    print(f"Entradas cargadas: {entry_count}; archivos fuente: {len(tasks)}; procesos simultáneos: 2.", flush=True)
+    workers = worker_count()
+    print(f"Entradas cargadas: {entry_count}; archivos fuente: {len(tasks)}; procesos simultáneos: {workers}.", flush=True)
     results: list[dict[str, Any]] = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
         futures = {
             executor.submit(run_source, source, entry, fallback): source
             for source, entry, fallback in tasks
