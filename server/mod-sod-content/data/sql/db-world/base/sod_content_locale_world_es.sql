@@ -12,6 +12,12 @@ VALUES
     (214098, 'esES', 'Gishah', 'Oficial de suministros', 0),
     (214099, 'esES', 'Tamelyn Aldridge', 'Oficial de suministros', 0),
     (214101, 'esES', 'Marcy Baker', 'Oficial de suministros', 0),
+    (216289, 'esES', 'Orokai', '', 0),
+    (216310, 'esES', 'Anciano podrido', '', 0),
+    (216437, 'esES', 'Retoño anciano', '', 0),
+    (216445, 'esES', 'Retoño anciano', '', 0),
+    (216448, 'esES', 'Retoño anciano', '', 0),
+    (216451, 'esES', 'Retoño anciano', '', 0),
     (222286, 'esES', 'Namida Tótem Siniestro', '', 0),
     (222684, 'esES', 'Falinar', 'Intendente', 0),
     (222685, 'esES', 'Kyleen', 'Intendente', 0),
@@ -35,7 +41,11 @@ VALUES
 REPLACE INTO `creature_text_locale`
     (`CreatureID`, `GroupID`, `ID`, `Locale`, `Text`)
 VALUES
-    (700210, 0, 0, 'esES', '¡He vuelto a ser quien era! ¡Gracias, héroe!');
+    (700210, 0, 0, 'esES', '¡He vuelto a ser quien era! ¡Gracias, héroe!'),
+    (216437, 0, 0, 'esES', 'Ah... mucho mejor. Gracias, druida.'),
+    (216445, 0, 0, 'esES', 'Ah... mucho mejor. Gracias, druida.'),
+    (216448, 0, 0, 'esES', 'Ah... mucho mejor. Gracias, druida.'),
+    (216451, 0, 0, 'esES', 'Ah... mucho mejor. Gracias, druida.');
 
 REPLACE INTO `quest_template_locale`
     (`ID`, `locale`, `Title`, `Details`, `Objectives`, `EndText`, `CompletedText`,
@@ -52,7 +62,15 @@ VALUES
      'Lleva un envío de suministros a un oficial de suministros.', '', '', '', '', '', '', 0),
     (82309, 'esES', 'Un envío completo',
      'Entrega un envío de suministros a un oficial de suministros a cambio de una generosa recompensa.',
-     'Lleva un envío de suministros a un oficial de suministros.', '', '', '', '', '', '', 0);
+     'Lleva un envío de suministros a un oficial de suministros.', '', '', '', '', '', '', 0),
+    (79348, 'esES', 'El anciano perdido',
+     'Una semilla pútrida es lo único que queda del anciano errante. Su corteza exterior es quebradiza y su interior desprende un hedor fétido. Por su tamaño, el anciano del que proviene esta semilla debía de ser bastante joven; al menos según los criterios de los ancianos. Cabe preguntarse por qué una criatura así andaría recorriendo El Cenagal. Para hallar tus respuestas, deberías llevar esta semilla a alguien que conozca la sabiduría de los ancianos.',
+     'Encuentra a alguien que pueda contarte más sobre la semilla del anciano podrido.', '', '', '', '', '', '', 0),
+    (79377, 'esES', 'Los retoños perdidos',
+     'En tiempos de inquietud, las semillas pueden echar raíces en tierra amarga. Los ancianos que nacen así son propensos a la corrupción. Vagabundean por tierras hostiles sin encontrar nunca la paz. He percibido a cuatro retoños que podrían librarse de ese destino. Están perdidos por los Reinos del Este, con hojas como las de cada estación. Por favor, llévales esta agua para que puedan sanar. Te advierto que la magia del agua es delicada. El teletransporte, o caer en combate, la destruirán. Su potencia también se desvanecerá con el tiempo.',
+     'Encuentra a los cuatro retoños perdidos en los Reinos del Este y comparte con ellos el Agua de Elune''ara. Después, vuelve con Orokai, en Claro de la Luna.',
+     '', '', 'Encuentra el retoño de verano', 'Encuentra el retoño de primavera',
+     'Encuentra el retoño de otoño', 'Encuentra el retoño de invierno', 0);
 
 REPLACE INTO `quest_request_items_locale`
     (`ID`, `locale`, `CompletionText`, `VerifiedBuild`)
@@ -60,7 +78,8 @@ VALUES
     (78612, 'esES', '¿Tienes algo para mí?', 0),
     (79103, 'esES', '¿Tienes algo para mí?', 0),
     (80309, 'esES', '¿Tienes algo para mí?', 0),
-    (82309, 'esES', '¿Tienes algo para mí?', 0);
+    (82309, 'esES', '¿Tienes algo para mí?', 0),
+    (79377, 'esES', 'Date prisa, <name>. Puede que mi estirpe aún pueda salvarse.', 0);
 
 REPLACE INTO `quest_offer_reward_locale`
     (`ID`, `locale`, `RewardText`, `VerifiedBuild`)
@@ -68,4 +87,6 @@ VALUES
     (78612, 'esES', '¡Todo está en orden! Gracias, $N. Estos suministros son esenciales para el frente.', 0),
     (79103, 'esES', '¡Todo está en orden! Gracias, $N. Estos suministros son esenciales para el frente.', 0),
     (80309, 'esES', '¡Todo está en orden! Gracias, $N. Estos suministros son esenciales para el frente.', 0),
-    (82309, 'esES', '¡Todo está en orden! Gracias, $N. Estos suministros son esenciales para el frente.', 0);
+    (82309, 'esES', '¡Todo está en orden! Gracias, $N. Estos suministros son esenciales para el frente.', 0),
+    (79348, 'esES', 'Ah, otro joven perdido...', 0),
+    (79377, 'esES', 'Tus actos han preservado siglos de vida, <name>. Te estoy enormemente agradecido. Que traigas aún más curación a esta tierra en los tiempos venideros.', 0);

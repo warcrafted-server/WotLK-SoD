@@ -45,9 +45,9 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009024 | Eclipse | Cintura | Runa de Eclipse (212548) | Grabador, 1 oro | Grabador |
 | 7009025 | Lluvia de estrellas | Espalda | Runa de la estrella fugaz (227749) | Botín de Arcterris (228814), 66,67 % | Botín |
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
-| 7009027 | Nutrir | Cintura | Runa de Nutrir (7009027, propia) | Grabador, 1 oro | Grabador |
+| 7009027 | Nutrir | Cintura | Runa de Nutrir (213074, real de SoD; el Grabador sigue vendiendo la 7009027 propia) | Cadena de misión *The Lost Ancient* (79348) y *The Lost Saplings* (79377) | Misión |
 
-**Totales:** 10 runas de botín, 5 de vendedor (Testarazo también se vende en el Grabador), 12 solo en el Grabador. Ninguna se consigue por misión.
+**Totales:** 10 runas de botín, 5 de vendedor (Testarazo también se vende en el Grabador), 11 solo en el Grabador y 1 por misión (Nutrir, §9).
 
 **Pruebas:** por decisión del usuario, el Grabador sigue vendiendo todas las runas de druida aunque ya tengan fuente real (las filas están al final de `sod_druid_acquisition.sql`). Cuando acaben las pruebas se vuelven a quitar las que tengan fuente real; la columna «Cómo se consigue hoy» describe la fuente real, no el Grabador.
 
@@ -195,12 +195,11 @@ El Corredor de runas (`sod_world_rune_broker.sql`) es un solo PNJ (700201) con s
 
 ## 5. Misiones y fuentes de SoD pendientes
 
-**Ninguna misión está programada.** Las misiones están en la base de datos del juego, pero sin nombre en español.
+**Una cadena de misión está programada** (Nutrir, §9). El resto sigue sin programar; sus misiones están en la base de datos del juego, pero sin nombre en español.
 
 | Runa | Fuente real de SoD | Estado | Cómo se consigue hoy |
 |---|---|---|---|
 | Crecimiento salvaje | Misión *Trial of the Owls* (78229, nivel 25) | Sin programar | Grabador |
-| Nutrir | Misión *The Lost Saplings* (79377, nivel 40) | Sin programar | Grabador |
 | Rey de la selva | Canje en Rune Broker con el ítem 232456. Supply Bag (217014) | Sin programar | Grabador |
 | Eclipse | Jewel-Encrusted Box (212553, ~9 % en la muestra) y canje en Rune Broker | Sin programar | Grabador |
 | Árbol de la vida | Gift of the Wisp (464128, Felwood) | Sin programar | Grabador |
@@ -210,7 +209,7 @@ El Corredor de runas (`sod_world_rune_broker.sql`) es un solo PNJ (700201) con s
 | Fuegos de Elune | Evento *Elune's Favor* (446288) | Sin programar | Grabador |
 | Instintos de supervivencia | Rune Broker y evento *Amaryllis* | Sin programar | Grabador |
 | Oleada de estrellas | Rune Broker | Sin programar | Grabador |
-| Lifebloom y Nutrir | Objetos propios (7009026 y 7009027). En SoD son 206970 y 213074 | Sin verificar | Grabador |
+| Flor de vida (Lifebloom) | Objeto propio (7009026). En SoD es 206970 | Sin verificar | Grabador |
 
 Los nombres de los objetos de mundo no están en la base de datos. Quedan en inglés.
 
@@ -229,12 +228,13 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 ## 7. Pendiente y limitaciones
 
 - **Sin compilar ni probar.** El druida necesita compilar, desplegar el parche de cliente y probarse en juego.
-- **Misiones:** ninguna programada. Las runas de misión se consiguen por el Grabador hasta que se programen.
+- **Misiones:** Nutrir (7009027) ya tiene su cadena programada (§9). Las demás runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** existe desde este cambio como «Corredor de runas» (npc 700201, `sod_world_rune_broker.sql`), con un spawn en cada capital. Hoy solo vende Rabia y Regeneración frenética mejorada, las dos runas de las que no tenemos otra fuente real; para las demás fuentes que Wowhead atribuye al Rune Broker, el Grabador sigue haciendo de sustituto.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
 - **Vientos galernos (7009016):** la criatura es nueva en el core y la crea `sod_druid_gale_winds_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los tres puntos de Wowhead solo se ha creado uno (el PNJ patrulla y la ruta no se conoce) y el modelo es un sustituto stock, no el de SoD.
 - **Lluvia de estrellas (7009025):** la criatura es nueva en el core y la crea `sod_druid_starfall_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los diez puntos de Wowhead solo se ha creado uno (el PNJ patrulla o cubre una zona y la ruta no se conoce), el modelo es un sustituto stock y el botín sale del 66,67 % de una muestra de 2/3, sin fiabilidad.
+- **Nutrir (7009027):** la cadena es nueva en el core y la crea `sod_druid_nourish_source.sql` (PNJ 216310, 216289, 216437, 216445, 216448 y 216451, misiones 79348 y 79377 y objetos 212693, 213036 y 213074, todos ids reales de SoD). Su z se calcula con el PNJ del mismo mapa más cercano, así que hay que revisarla en juego. Los modelos (5849, 1460 y 9590) son sustitutos stock, la probabilidad de botín del 100 % es una suposición, la XP y la unidad del dinero no están verificadas y el crédito de misión lo da un C++ propio. Detalle en §9.
 - **Cornada (7009008):** los cuatro intendentes son PNJ nuevos y los crea `sod_druid_gore_source.sql`. Su z se calcula con el PNJ del mismo mapa más cercano, así que hay que revisarla en juego. El subnombre «Quartermaster» y el modelo (una elfa de la noche stock, la de Jaeana) son suposiciones razonables: Wowhead no da el subnombre exacto y el modelo de SoD no está en 3.3.5a. Wowhead da precios distintos por intendente (16000 y 16842 cobre, sin confirmar la unidad) y el core solo admite el precio del ítem: la diferencia de 842 cobre no se aplica. El requisito de nivel de compra no está verificado y no se ha inventado.
 - **Rabia (7009005) y Regeneración frenética mejorada (7009012):** el Corredor de runas es un PNJ nuevo y lo crea `sod_world_rune_broker.sql`: un solo `creature_template` (700201, nivel 60, facción 35) y seis spawns a 4 yardas del oficial de suministros de cada capital, con la z y la orientación de ese oficial. Hay que revisar las seis posiciones en juego (`.npc move`). El modelo es un sustituto stock (7099, el mercader goblin de Grizzby), no el de SoD. Precio: 1 oro para las dos por decisión del usuario (el vendedor cobra el `BuyPrice` del ítem), pero Wowhead solo da ese «1» para Rabia: para Regeneración frenética mejorada pide 1 unidad del ítem 232454 (Emblem of the Wild Gods), que no existe en el core. La contradicción con la guía de 2024 (1 cobre desde la fase 6) queda sin resolver.
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
@@ -280,9 +280,9 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 | Eclipse (7009024) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Lluvia de estrellas (7009025) | Arcterris | Vallefresno, mapa 1, (7700, -4860) | 58 (élite) | ~1,5 (66,67 %) | — |
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
-| Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Nutrir (7009027) | Cadena de misión *The Lost Ancient* → *The Lost Saplings* | Rotting Ancient: Marisma de Dustwallow, mapa 1, (-3521, -3180); entrega en Orokai: Claro de la Luna, mapa 1, (7820, -2342) | 26–40 | — | — |
 
-**Recomendación general:** para las 12 runas del Grabador, y para Supervivencia del más fuerte, Cornada y las dos del Corredor de runas, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 11 runas del Grabador, y para Supervivencia del más fuerte, Cornada y las dos del Corredor de runas, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -366,6 +366,16 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 - Los `RequiredLevel` de todos los ítems son 1, salvo el ítem de Supervivencia del más fuerte, que no tiene nivel mínimo en la base (`RequiredLevel` = 1 con precio 31578).
 
 ---
+
+## 9. Cadena de misión de Nutrir (7009027)
+
+Implementada en `server/mod-sod-content/data/sql/db-world/base/sod_druid_nourish_source.sql` y `src/druid/spell_sod_druid_water_of_eluneara.cpp`. Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §2. Sin compilar ni probar en juego.
+
+1. **Rotting Ancient** (216310, nivel 40, Marisma de Dustwallow, mapa 1, (-3521, -3180), respawn 600 s) suelta la **Rotten Seed** (212693) solo a druidas, al 100 % (la probabilidad real no consta).
+2. La semilla inicia **The Lost Ancient** (79348, nivel 40, mínimo 26; 1550 XP), que se entrega a **Orokai** (216289, Claro de la Luna, mapa 1, (7820, -2342)).
+3. Orokai da **The Lost Saplings** (79377, tiempo 1 h): con el **Water of Elune'ara** (213036) hay que regar los cuatro Ancient Saplings en los Reinos del Este: Winter 216437 (Montañas de Alterac, (682, -857)), Fall 216451 (Tierras Altas de Arathi, (-1852, -2551)), Spring 216445 (Pantano de las Penas, (-10211, -2480)) y Summer 216448 (Vega de Tuercespina, (-13934, 141)). Recompensa: **Rune of Nourishing** (213074), que desbloquea la runa 7009027, y XP aproximada a 3150.
+4. La z de todos los spawns sale del PNJ más cercano del mismo mapa y debe revisarse en juego. Dinero de recompensa: 0 (la unidad del dato de SoD, 50, no consta).
+5. No verificado: probabilidad de la semilla, si el agua la da Orokai o se recoge en el lago (Wowhead y la wiki dicen lo primero; una guía, lo segundo), y el modelo de cada criatura (stock).
 
 ## Pendiente de encontrar información
 

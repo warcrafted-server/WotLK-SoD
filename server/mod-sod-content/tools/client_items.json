@@ -2508,5 +2508,35 @@
     "display": 1102,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 212693,
+    "name": "Rotten Seed",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 37414,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213036,
+    "name": "Water of Elune'ara",
+    "class": 12,
+    "subclass": 0,
+    "material": 1,
+    "display": 38622,
+    "invtype": 0,
+    "sheath": 0
+  },
+  {
+    "id": 213074,
+    "name": "Rune of Nourishing",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 20984,
+    "invtype": 0,
+    "sheath": 0
   }
 ]

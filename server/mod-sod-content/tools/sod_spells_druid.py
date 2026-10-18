@@ -14,6 +14,7 @@ AURA_PROC_TRIGGER_SPELL = 42  # Core SpellAuraDefines.h
 def build(idx):
     """Return Druid spells cloned from the level-80 WotLK ranks."""
     cast_instant = idx["cast"][0]
+    cast_1s = idx["cast"][1000]
     duration_perm = idx["dur"][-1]
     duration_60s = idx["dur"][60000]
     duration_6s = idx["dur"][6000]
@@ -21,6 +22,7 @@ def build(idx):
     duration_12s = idx["dur"][12000]
     duration_2s = idx["dur"][2000]
     range_self = idx["range"][0.0]
+    range_5 = idx["range"][5.0]
     range_13 = idx["range"][13.0]
     range_30 = idx["range"][30.0]
     range_100 = idx["range"][100.0]
@@ -42,6 +44,7 @@ def build(idx):
     icon_living_seed = idx["icon"]["ability_druid_naturalperfection"]
     icon_fury_of_stormrage = idx["icon"]["spell_nature_lightning"]
     icon_efflorescence = idx["icon"]["spell_nature_naturetouchgrow"]
+    icon_potion = idx["icon"]["inv_potion_20"]
 
     return [
         {  # Wild Growth: retain WotLK rank effects and its core scripts.
@@ -1006,6 +1009,25 @@ def build(idx):
                 "EffectRadiusIndex_1": 4,  # 30 yd area around the caster.
                 "Effect_2": 0, "EffectAura_2": 0, "ImplicitTargetA_2": 0,
                 "Effect_3": 0, "EffectAura_3": 0, "ImplicitTargetA_3": 0,
+            },
+        },
+        {  # Water of Elune'ara (quest 79377 item 213036). Cloned from "Feed Captured
+           # Animal" (29916), a Blizzard quest-item spell that is used on a friendly
+           # creature: same dummy effect and TARGET_UNIT_TARGET_ANY, so the client
+           # accepts the sapling as a target. Real SoD id (433551, "Give Water", 1 s
+           # cast, 5 yd, 1 min cooldown); the quest credit and the sapling's line come
+           # from spell_sod_druid_water_of_eluneara, not from the effect.
+            "id": 433551, "client": True, "template": 29916,
+            "name": "Give Water", "script": "spell_sod_druid_water_of_eluneara",
+            "desc": "Give water to an ancient sapling.",
+            "inherit_server": True,
+            "overrides": {
+                "CastingTimeIndex": cast_1s, "DurationIndex": 0,
+                "RecoveryTime": 60000, "CategoryRecoveryTime": 0,
+                "RangeIndex": range_5, "PowerType": 0, "ManaCost": 0,
+                "ManaCostPct": 0, "SpellIconID": icon_potion,
+                "EquippedItemClass": -1, "SpellLevel": 0,
+                "EffectRadiusIndex_1": 0,
             },
         },
     ]
