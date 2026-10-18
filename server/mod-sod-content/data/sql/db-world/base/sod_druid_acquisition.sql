@@ -25,7 +25,7 @@ REPLACE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `Ver
     (7009027, 'esES', 'Runa de Nutrir', 'Te enseña una nueva facultad de grabado.', 0);
 
 -- Fuente real implementada (botín o vendedor): el Grabador ya no las vende.
-DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206954, 208687, 208689, 210534, 210817, 227444);
+DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206954, 208687, 208689, 210534, 210817, 221517, 227444);
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 7009026, 0, 0, 0),
@@ -215,8 +215,7 @@ REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Ext
     (700000, 0, 213117, 0, 0, 0),
     (700000, 0, 213118, 0, 0, 0),
     (700000, 0, 213119, 0, 0, 0),
-    (700000, 0, 221516, 0, 0, 0),
-    (700000, 0, 221517, 0, 0, 0);
+    (700000, 0, 221516, 0, 0, 0);
 
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (211653, 0, 210817, 0, 0, 0)

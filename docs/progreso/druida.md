@@ -26,7 +26,7 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009005 | Rabia | Cintura | Runa de Rabia (213117) | Grabador, 1 oro | Grabador |
 | 7009006 | Instintos de supervivencia | Pies | Runa de instinto (213119) | Grabador, 1 oro | Grabador |
 | 7009007 | Destrozar | Manos | Ídolo de ira osuna (206954) | Botín de 8 criaturas de Mulgore, Thunder Bluff y Teldrassil | Botín |
-| 7009008 | Cornada | Cabeza | Runa de Escabechina (221517) | Grabador, 1 oro 60 plata | Grabador |
+| 7009008 | Cornada | Cabeza | Runa de Escabechina (221517) | Intendentes (Falinar, Kyleen, Alandra y Valdane), 1 oro 60 plata | Vendedor |
 | 7009009 | Golpes descontrolados | Pecho | Ídolo de las fieras (210534) | Botín de los Tótem Siniestro de Crestagua | Botín |
 | 7009010 | Rey de la selva | Pies | Runa del rey de la selva (213118) | Grabador, 1 oro | Grabador |
 | 7009011 | Testarazo | Manos | Runa de Testarazo (206992) | Oficiales de suministro (rango 4) y Grabador, 2 oro | Vendedor |
@@ -47,7 +47,7 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
 | 7009027 | Nutrir | Cintura | Runa de Nutrir (7009027, propia) | Grabador, 1 oro | Grabador |
 
-**Totales:** 10 runas de botín, 2 de vendedor (Testarazo también se vende en el Grabador), 15 solo en el Grabador. Ninguna se consigue por misión.
+**Totales:** 10 runas de botín, 3 de vendedor (Testarazo también se vende en el Grabador), 14 solo en el Grabador. Ninguna se consigue por misión.
 
 ---
 
@@ -178,6 +178,12 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 |---|---|---|---|
 | Supervivencia del más fuerte (7009002) | Grizzby (211653) | Los Baldíos (Ratchet) | 31578 cobre (3 oro 15 plata 78 cobre) |
 | Testarazo (7009011) | Elaine Compton (213077), Jornah (214070), Dokimi (214096), Gishah (214098), Tamelyn Aldridge (214099), Marcy Baker (214101) | Una ciudad cada uno | 2 oro en el Grabador. Los oficiales piden rango de suministro 4 |
+| Cornada (7009008) | Falinar (222684) | Bosque del Ocaso | 16000 cobre (1 oro 60 plata) |
+| Cornada (7009008) | Kyleen (222685) | Vallefresno | 16842 cobre en Wowhead, sin confirmar la unidad; en el core 16000 |
+| Cornada (7009008) | Alandra (222686) | Tierras del Interior | 16842 cobre en Wowhead, sin confirmar la unidad; en el core 16000 |
+| Cornada (7009008) | Valdane (222687) | Feralas | 16000 cobre (1 oro 60 plata) |
+
+Los cuatro intendentes de Cornada son de la facción Guardianes Esmeralda. El core no permite precios distintos por vendedor, así que los cuatro cobran el precio único del ítem (16000 cobre) y la diferencia de 842 cobre de Kyleen y Alandra queda sin efecto.
 
 ---
 
@@ -197,13 +203,12 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 | Estado onírico | Blooming Satyrweed (404402, Desolace) | Sin programar | Grabador |
 | Floración | Misión *Wisdom of the Guardians* (81924, nivel 50) | Sin programar | Grabador |
 | Fuegos de Elune | Evento *Elune's Favor* (446288) | Sin programar | Grabador |
-| Cornada | Cuatro intendentes que venden la runa: Falinar (nivel 25, 16000 cobre), Kyleen (nivel 40, 16842), Alandra (nivel 50, 16842), Valdane (nivel 50, 16000) | Sin programar | Grabador |
 | Rabia | Rune Broker | Sin programar | Grabador |
 | Instintos de supervivencia | Rune Broker y evento *Amaryllis* | Sin programar | Grabador |
 | Oleada de estrellas | Rune Broker | Sin programar | Grabador |
 | Lifebloom y Nutrir | Objetos propios (7009026 y 7009027). En SoD son 206970 y 213074 | Sin verificar | Grabador |
 
-Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no están en la base de datos. Quedan en inglés.
+Los nombres de Rune Broker y de los objetos de mundo no están en la base de datos. Quedan en inglés.
 
 ---
 
@@ -226,6 +231,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
 - **Vientos galernos (7009016):** la criatura es nueva en el core y la crea `sod_druid_gale_winds_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los tres puntos de Wowhead solo se ha creado uno (el PNJ patrulla y la ruta no se conoce) y el modelo es un sustituto stock, no el de SoD.
 - **Lluvia de estrellas (7009025):** la criatura es nueva en el core y la crea `sod_druid_starfall_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los diez puntos de Wowhead solo se ha creado uno (el PNJ patrulla o cubre una zona y la ruta no se conoce), el modelo es un sustituto stock y el botín sale del 66,67 % de una muestra de 2/3, sin fiabilidad.
+- **Cornada (7009008):** los cuatro intendentes son PNJ nuevos y los crea `sod_druid_gore_source.sql`. Su z se calcula con el PNJ del mismo mapa más cercano, así que hay que revisarla en juego. El subnombre «Quartermaster» y el modelo (una elfa de la noche stock, la de Jaeana) son suposiciones razonables: Wowhead no da el subnombre exacto y el modelo de SoD no está en 3.3.5a. Wowhead da precios distintos por intendente (16000 y 16842 cobre, sin confirmar la unidad) y el core solo admite el precio del ítem: la diferencia de 842 cobre no se aplica. El requisito de nivel de compra no está verificado y no se ha inventado.
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
 
@@ -250,7 +256,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Rabia (7009005) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Instintos de supervivencia (7009006) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Destrozar (7009007) | Rageclaw | Teldrassil, mapa 1, (9843, 1496), spawn único | 10 | ~3,5 (1 spawn) | Rabia ≥ 50 en oso durante 60 s |
-| Cornada (7009008) | Grabador, 1 oro 60 plata | — | Cualquiera | — | — |
+| Cornada (7009008) | Falinar (intendente) | Bosque del Ocaso, mapa 0, (-10638, -398); Kyleen: Vallefresno, mapa 1, (3112, -3455); Alandra: Tierras del Interior, mapa 0, (584, -3939); Valdane: Feralas, mapa 1, (-2941, 2078) | Cualquiera | — | — |
 | Golpes descontrolados (7009009) | Tótem Siniestro Mercenario | Montañas Crestagua, mapa 1, (55, -769) | 14–15 | ~39 (33 spawns) | Curar a 10 bestias distintas |
 | Rey de la selva (7009010) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Testarazo (7009011) | Grabador, 2 oro | — | Cualquiera | — | — |
@@ -271,7 +277,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
 
-**Recomendación general:** para las 15 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 14 runas del Grabador, y para Supervivencia del más fuerte y Cornada, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -346,6 +352,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 
 - **Supervivencia del más fuerte (7009002):** Grizzby (npc 211653), Los Baldíos (Ratchet), 3 oro 15 plata 78 cobre. Sin requisito de nivel en la base.
 - **Testarazo (7009011):** 2 oro en el Grabador. También lo venden los seis oficiales de suministro si tienes el rango 4 con su ciudad (Elaine Compton, Jornah, Dokimi, Gishah, Tamelyn Aldridge y Marcy Baker).
+- **Cornada (7009008):** 1 oro 60 plata (16000 cobre). La venden cuatro intendentes de los Guardianes Esmeralda: Falinar (npc 222684, Bosque del Ocaso), Kyleen (222685, Vallefresno), Alandra (222686, Tierras del Interior) y Valdane (222687, Feralas). Wowhead da 16842 cobre para Kyleen y Alandra, sin confirmar la unidad, pero el core no permite precios distintos por vendedor: los cuatro cobran el precio único del ítem (16000).
 
 ### 8.4. Notas sobre el nivel
 
