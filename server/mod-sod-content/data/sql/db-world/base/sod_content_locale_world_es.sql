@@ -3,6 +3,7 @@
 REPLACE INTO `creature_template_locale`
     (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`)
 VALUES
+    (206245, 'esES', 'Espíritu de la naturaleza desatado', '', 0),
     (211653, 'esES', 'Grizzby', '', 0),
     (212261, 'esES', 'Liche despertado', '', 0),
     (213077, 'esES', 'Elaine Compton', 'Oficial de suministros', 0),

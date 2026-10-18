@@ -1,6 +1,6 @@
 # Progreso: druida
 
-Estado a 2026-10-17. Druida completo en código (27 runas), **sin compilar ni probar en juego**.
+Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni probar en juego**.
 
 **Fuentes de este documento**
 - Nombres de criaturas, objetos y runas en español: base de desarrollo `acore_world_test` (reino 2) y `rune_template_locale`. La base de producción (`acore_world`) aún no tiene el contenido de SoD.
@@ -33,7 +33,7 @@ Estado a 2026-10-17. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009012 | Regeneración frenética mejorada | Muñecas | Runa de energía primigenia (221516) | Grabador, 1 oro | Grabador |
 | 7009013 | Flagelo mejorado | Espalda | Ídolo de la cazadora (227444) | Botín de los Ravasaurio de Un'Goro | Botín |
 | 7009014 | Piel de corteza mejorada | Cabeza | Ídolo de arrastrapiés furibundo (220915) | Botín de los Cardizal de Tanaris | Botín |
-| 7009015 | Semilla viviente | Pecho | Runa de Potencial natural (206963) | Grabador, 1 oro | Grabador |
+| 7009015 | Semilla viviente | Pecho | Runa de Potencial natural (206963) | Botín de Espíritu de la naturaleza desatado (206245), 100 % | Botín |
 | 7009016 | Vientos galernos | Cabeza | Runa de la tormenta de viento (220754) | Grabador, 1 oro | Grabador |
 | 7009017 | Fuego solar | Manos | Runa del Sol (206989) | Grabador, 1 oro | Grabador |
 | 7009018 | Furia de Tempestira | Pecho | Ídolo lunar (208414) | Botín de Grellín (4 %, solo druidas) | Botín |
@@ -47,7 +47,7 @@ Estado a 2026-10-17. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
 | 7009027 | Nutrir | Cintura | Runa de Nutrir (7009027, propia) | Grabador, 1 oro | Grabador |
 
-**Totales:** 7 runas de botín, 2 de vendedor (Testarazo también se vende en el Grabador), 18 solo en el Grabador. Ninguna se consigue por misión.
+**Totales:** 8 runas de botín, 2 de vendedor (Testarazo también se vende en el Grabador), 17 solo en el Grabador. Ninguna se consigue por misión.
 
 ---
 
@@ -123,6 +123,14 @@ En SoD estos worgen sueltan un Unbalanced Idol. Aquí sueltan la runa directamen
 | Cardizal nudoso (5490) | Tanaris | 4,3365 % |
 | Aporreador de tierra (9396) | Tanaris | 1,4354 % |
 
+### Semilla viviente (7009015), ítem Runa de Potencial natural (206963)
+
+| Criatura (id) | Zona | Probabilidad | Nota |
+|---|---|---|---|
+| Espíritu de la naturaleza desatado (206245) | Mulgore, Teldrassil | 100 % | Solo druidas. Muestra de Wowhead 2/2, sin fiabilidad |
+
+**Nota:** la criatura no existía en el core; la crea `sod_druid_living_seed_source.sql` con dos spawns en Mulgore (mapa 1, (-1972, 116) y (-1965, 106), respawn 300 s). La z no se conoce y el SQL la toma del PNJ de mapa 1 más cercano en distancia plana, así que conviene revisarla en juego. Los dos spawns de Teldrassil no se han añadido porque sus coordenadas no se conocen. El modelo (28980, el ent de «Angry Oak Spirit») es un sustituto stock, no el de SoD.
+
 ### Furia de Tempestira (7009018), ítem Ídolo lunar (208414)
 
 | Criatura (id) | Zona | Probabilidad | Nota |
@@ -173,7 +181,6 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 | Vientos galernos | *Namida Grimtotem* (222286, Feralas, nivel 43) | Sin programar | Grabador |
 | Fuego solar | Lunar Chest (404433, Mulgore y Teldrassil) | Sin programar | Grabador |
 | Estado onírico | Blooming Satyrweed (404402, Desolace) | Sin programar | Grabador |
-| Semilla viviente | *Unleashed Nature Spirit* (206245, 2/2 en la muestra) | Sin programar | Grabador |
 | Floración | Misión *Wisdom of the Guardians* (81924, nivel 50) | Sin programar | Grabador |
 | Fuegos de Elune | Evento *Elune's Favor* (446288) | Sin programar | Grabador |
 | Cornada | Cuatro intendentes que venden la runa: Falinar (nivel 25, 16000 cobre), Kyleen (nivel 40, 16842), Alandra (nivel 50, 16842), Valdane (nivel 50, 16000) | Sin programar | Grabador |
@@ -202,6 +209,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Misiones:** ninguna programada. Las runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** no existe en el servidor. El Grabador hace de sustituto.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
+- **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Faltan los dos spawns de Teldrassil (coordenadas desconocidas) y el modelo es un sustituto stock, no el de SoD.
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
 
@@ -233,7 +241,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Regeneración frenética mejorada (7009012) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Flagelo mejorado (7009013) | Venomhide Ravasaur | Cráter de Un'Goro, mapa 1, (-7254, -1995) | 50–51 | ~28 (22 spawns) | 5 objetivos dormidos muertos en forma felina |
 | Piel de corteza mejorada (7009014) | Enraizador Cardizal | Tanaris, mapa 1, (-8888, -2246) | 49–50 | ~19 (11 spawns) | 5 muertes con Naturaleza bajo Piel de corteza |
-| Semilla viviente (7009015) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Semilla viviente (7009015) | Espíritu de la naturaleza desatado | Mulgore, mapa 1, (-1972, 116) y (-1965, 106) | 7 | 1 (100 %) | — |
 | Vientos galernos (7009016) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Fuego solar (7009017) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Furia de Tempestira (7009018) | Grellín | Teldrassil, mapa 1, (10465, 967) | 3–4 | ~25 (31 spawns) | Derrotar 6 criaturas con Fuego lunar |
@@ -247,7 +255,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
 
-**Recomendación general:** para las 18 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 17 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -309,6 +317,8 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Colector de rocío Cardizal (5481) | (-8909, -2240) | 47–48 | 2,4778 % | ~40 | 14 |
 | Furibundo de la tierra (5465) | (-8361, -3538) | 45–47 | 2,5000 % | ~40 | 5 |
 | Aporreador de tierra (9396) | (-7095, -3622) | 41–43 | 1,4354 % | ~70 | 2 |
+
+**Semilla viviente (7009015)**, ítem Runa de Potencial natural (206963): Espíritu de la naturaleza desatado (206245), Mulgore, mapa 1, (-1972, 116) y (-1965, 106), nivel 7, 100 %, ~1 muerte, 2 spawns en Mulgore (300 s de respawn) y 2 más en Teldrassil sin coordenadas conocidas. Solo druidas.
 
 **Furia de Tempestira (7009018)**, ítem Ídolo lunar (208414): Grellín (1989), Teldrassil, mapa 1, (10465, 967), nivel 3–4, 4 %, ~25 muertes, 31 spawns. Requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar).
 
