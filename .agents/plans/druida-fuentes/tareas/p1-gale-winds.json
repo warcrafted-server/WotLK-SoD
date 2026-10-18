@@ -1,0 +1,30 @@
+{
+ "objective": "Implementar la fuente real de la runa Gale Winds (druida, objeto 220754 «Rune of the Windstorm», rune 7009016): botín de Namida Grimtotem (id SoD 222286, nivel 43, élite, Feralas), y quitar el objeto del vendedor del Grabador.",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md (normas). Módulo: server/mod-sod-content. Precedentes en SQL: data/sql/db-world/base/sod_druid_acquisition.sql (botín de Grellín 1989 para el Ídolo lunar 208414, Madre del cubil 6788, etc., y el DELETE FROM npc_vendor del Grabador 700000 de las runas ya con fuente real) y sod_world_*.sql (creaturas propias, spawns con INSERT IGNORE). Datos verificados: la criatura NO existe en el core, hay que crearla (modelo de referencia exacto: mira el commit aa091b9 y server/mod-sod-content/data/sql/db-world/base/sod_druid_living_seed_source.sql, que hizo lo mismo con Living Seed; copia su estructura y sus convenciones). creature_template entry 222286 «Namida Grimtotem», traducción esES «Namida Tótem Siniestro», nivel 43, rank 1 (0 normal, 1 élite), tipo/familia y display: busca en el core (~/Repos/acore-test/data/sql) una criatura similar del mismo nivel y reutiliza sus valores de vida/daño/armadura/modelo; deja la elección documentada en el SQL. Loot: item 220754 con probabilidad 100 % solo druidas (misma condición de clase 1024 en `conditions` que en los otros botines druida). La muestra de Wowhead es 1 de 1: deja 100 % y anótalo. Spawns (mapa 1, x,y; la z NO se conoce: calcúlala en el SQL con INSERT ... SELECT de la fila `creature` más cercana del mapa en distancia plana, como en Living Seed; guids en la banda 8820020+; respawn 300 s para normales y 3600 s para élites): (-4146, 827), (-4137, 813) y (-4155, 799) son tres puntos de una misma criatura: crea UN solo spawn en el primero (es un PNJ único con ruta; no inventes la ruta) y documéntalo. La muestra de Wowhead es pequeña: anótalo. Sin DELETE salvo el del npc_vendor del Grabador 700000 (añade el item al DELETE de sod_druid_acquisition_balance_resto.sql o sod_druid_acquisition.sql, el que lo defina, y quita su REPLACE INTO npc_vendor). Idempotente.",
+ "files": [
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition_balance_resto.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_content_locale_world_es.sql",
+  "docs/progreso/druida.md"
+ ],
+ "constraints": [
+  "Crea el fichero nuevo server/mod-sod-content/data/sql/db-world/base/sod_druid_gale_winds_source.sql para lo nuevo; en los demás solo lo mínimo.",
+  "No hagas commit ni push.",
+  "Actualiza docs/progreso/druida.md como en el commit aa091b9 (tabla 1, totales, sección 2 de botín, sección 5 quitando la fila, 7 y 8).",
+  "Todo en castellano salvo identificadores."
+ ],
+ "acceptanceCriteria": [
+  "El nuevo SQL crea creature_template 222286, su loot de 220754 y los spawns con z calculada por SELECT.",
+  "El Grabador ya no vende 220754.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ],
+ "validation": [
+  "tools/sod-data/validar_sql.sh"
+ ],
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream"
+ ],
+ "effort": "medium"
+}
