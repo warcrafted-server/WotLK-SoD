@@ -2538,5 +2538,25 @@
     "display": 20984,
     "invtype": 0,
     "sheath": 0
+  },
+  {
+    "id": 219326,
+    "name": "Seed of Renewal",
+    "class": 4,
+    "subclass": 0,
+    "material": 1,
+    "display": 19492,
+    "invtype": 12,
+    "sheath": 0
+  },
+  {
+    "id": 221326,
+    "name": "Sacred Stag Heart",
+    "class": 15,
+    "subclass": 0,
+    "material": 1,
+    "display": 1438,
+    "invtype": 0,
+    "sheath": 0
   }
 ]

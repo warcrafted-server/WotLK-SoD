@@ -40,14 +40,14 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009019 | Estado onírico | Pies | Runa del soñador (213120) | Grabador, 1 oro | Grabador |
 | 7009020 | Árbol de la vida | Capa | Runa del Árbol del Mundo (227746) | Grabador, 1 oro | Grabador |
 | 7009021 | Oleada de estrellas | Piernas | Runa de las estrellas (210500) | Grabador, 1 oro | Grabador |
-| 7009022 | Floración | Muñecas | Runa de Floración (220360) | Grabador, 1 oro | Grabador |
+| 7009022 | Floración | Muñecas | Runa de Floración (220360; el Grabador la sigue vendiendo) | Misión *Wisdom of the Guardians* (81924, §10) | Misión |
 | 7009023 | Fuegos de Elune | Muñecas | Runa de la diosa de la luna (221020) | Grabador, 1 oro | Grabador |
 | 7009024 | Eclipse | Cintura | Runa de Eclipse (212548) | Grabador, 1 oro | Grabador |
 | 7009025 | Lluvia de estrellas | Espalda | Runa de la estrella fugaz (227749) | Botín de Arcterris (228814), 66,67 % | Botín |
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
 | 7009027 | Nutrir | Cintura | Runa de Nutrir (213074, real de SoD; el Grabador sigue vendiendo la 7009027 propia) | Cadena de misión *The Lost Ancient* (79348) y *The Lost Saplings* (79377) | Misión |
 
-**Totales:** 10 runas de botín, 5 de vendedor (Testarazo también se vende en el Grabador), 11 solo en el Grabador y 1 por misión (Nutrir, §9).
+**Totales:** 10 runas de botín, 5 de vendedor (Testarazo también se vende en el Grabador), 10 solo en el Grabador y 2 por misión (Nutrir §9 y Floración §10).
 
 **Pruebas:** por decisión del usuario, el Grabador sigue vendiendo todas las runas de druida aunque ya tengan fuente real (las filas están al final de `sod_druid_acquisition.sql`). Cuando acaben las pruebas se vuelven a quitar las que tengan fuente real; la columna «Cómo se consigue hoy» describe la fuente real, no el Grabador.
 
@@ -195,7 +195,7 @@ El Corredor de runas (`sod_world_rune_broker.sql`) es un solo PNJ (700201) con s
 
 ## 5. Misiones y fuentes de SoD pendientes
 
-**Una cadena de misión está programada** (Nutrir, §9). El resto sigue sin programar; sus misiones están en la base de datos del juego, pero sin nombre en español.
+**Dos cadenas de misión están programadas**: Nutrir (§9) y Floración (§10, aún no completable). El resto sigue sin programar; sus misiones están en la base de datos del juego, pero sin nombre en español.
 
 | Runa | Fuente real de SoD | Estado | Cómo se consigue hoy |
 |---|---|---|---|
@@ -205,7 +205,6 @@ El Corredor de runas (`sod_world_rune_broker.sql`) es un solo PNJ (700201) con s
 | Árbol de la vida | Gift of the Wisp (464128, Felwood) | Sin programar | Grabador |
 | Fuego solar | Lunar Chest (404433, Mulgore y Teldrassil) | Sin programar | Grabador |
 | Estado onírico | Blooming Satyrweed (404402, Desolace) | Sin programar | Grabador |
-| Floración | Misión *Wisdom of the Guardians* (81924, nivel 50) | Sin programar | Grabador |
 | Fuegos de Elune | Evento *Elune's Favor* (446288) | Sin programar | Grabador |
 | Instintos de supervivencia | Rune Broker y evento *Amaryllis* | Sin programar | Grabador |
 | Oleada de estrellas | Rune Broker | Sin programar | Grabador |
@@ -228,7 +227,7 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 ## 7. Pendiente y limitaciones
 
 - **Sin compilar ni probar.** El druida necesita compilar, desplegar el parche de cliente y probarse en juego.
-- **Misiones:** Nutrir (7009027) ya tiene su cadena programada (§9). Las demás runas de misión se consiguen por el Grabador hasta que se programen.
+- **Misiones:** Nutrir (7009027) ya tiene su cadena programada (§9) y Floración (7009022) la primera parte (§10). Las demás runas de misión se consiguen por el Grabador hasta que se programen.
 - **Rune Broker:** existe desde este cambio como «Corredor de runas» (npc 700201, `sod_world_rune_broker.sql`), con un spawn en cada capital. Hoy solo vende Rabia y Regeneración frenética mejorada, las dos runas de las que no tenemos otra fuente real; para las demás fuentes que Wowhead atribuye al Rune Broker, el Grabador sigue haciendo de sustituto.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
@@ -275,14 +274,14 @@ Los nombres de los objetos de mundo no están en la base de datos. Quedan en ing
 | Estado onírico (7009019) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Árbol de la vida (7009020) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Oleada de estrellas (7009021) | Grabador, 1 oro | — | Cualquiera | — | — |
-| Floración (7009022) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Floración (7009022) | Cadena de misión *Wisdom of the Guardians* | Tyrisius: Feralas, mapa 1, (-5564, 1466); los tres avatares los invocan los santuarios (sin programar) | 45–50 | — | — |
 | Fuegos de Elune (7009023) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Eclipse (7009024) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Lluvia de estrellas (7009025) | Arcterris | Vallefresno, mapa 1, (7700, -4860) | 58 (élite) | ~1,5 (66,67 %) | — |
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Nutrir (7009027) | Cadena de misión *The Lost Ancient* → *The Lost Saplings* | Rotting Ancient: Marisma de Dustwallow, mapa 1, (-3521, -3180); entrega en Orokai: Claro de la Luna, mapa 1, (7820, -2342) | 26–40 | — | — |
 
-**Recomendación general:** para las 11 runas del Grabador, y para Supervivencia del más fuerte, Cornada y las dos del Corredor de runas, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 10 runas del Grabador, y para Supervivencia del más fuerte, Cornada y las dos del Corredor de runas, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -376,6 +375,18 @@ Implementada en `server/mod-sod-content/data/sql/db-world/base/sod_druid_nourish
 3. Orokai da **The Lost Saplings** (79377, tiempo 1 h): con el **Water of Elune'ara** (213036) hay que regar los cuatro Ancient Saplings en los Reinos del Este: Winter 216437 (Montañas de Alterac, (682, -857)), Fall 216451 (Tierras Altas de Arathi, (-1852, -2551)), Spring 216445 (Pantano de las Penas, (-10211, -2480)) y Summer 216448 (Vega de Tuercespina, (-13934, 141)). Recompensa: **Rune of Nourishing** (213074), que desbloquea la runa 7009027, y XP aproximada a 3150.
 4. La z de todos los spawns sale del PNJ más cercano del mismo mapa y debe revisarse en juego. Dinero de recompensa: 0 (la unidad del dato de SoD, 50, no consta).
 5. No verificado: probabilidad de la semilla, si el agua la da Orokai o se recoge en el lago (Wowhead y la wiki dicen lo primero; una guía, lo segundo), y el modelo de cada criatura (stock).
+
+## 10. Misión de Floración (7009022), parte A
+
+Primera parte implementada en `server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql`. Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §3. Sin compilar ni probar en juego. **Los santuarios se implementan en pasos posteriores: la misión aún no es completable** (los tres avatares no tienen spawn ni forma de aparecer, y los santuarios todavía no tienen lógica).
+
+1. **Tyrisius** (221985, nivel 40, Feralas, mapa 1, (-5564, 1466), respawn 300 s) da y entrega **Wisdom of the Guardians** (81924, nivel 50, mínimo 45, categoría Druida, sin misión previa). XP aproximada a 4700: se usa el índice 4 de QuestXP.dbc de nivel 50 (5100), una aproximación de +400. Dinero 0 (la unidad del dato de SoD, 75, no consta).
+2. Objetivos (crédito de muerte, 1 de cada): **Treant Avatar** (221935, Feralas), **Moonkin Avatar** (221933, Tierras del Interior) y **Hippogryph Avatar** (221928, Azshara). Nivel 50, no élite y hostiles. **No tienen spawn**: los invoca su santuario.
+3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos sin lógica, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`, todavía sin implementar en C++). Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
+4. **Child of Apa'ro** (222580, ciervo, Azshara, mapa 1, (4293, -5458), respawn 1800 s): hostil, desollable e inmune a la magia; suelta **Sacred Stag Heart** (221326) al 100 %, solo a druidas y solo con 81924 activa. El corazón se ofrece en el Santuario de la Bestia (lógica pendiente).
+5. Recompensa a elegir: **Rune of Efflorescence** (220360), que desbloquea la runa 7009022 (el Grabador la sigue vendiendo para las pruebas), o **Seed of Renewal** (219326, trinket raro **sin efecto implementado**: sus estadísticas están a 0).
+6. No verificado: probabilidad y condiciones reales del botín del corazón (se usa 100 % solo con la misión activa), botín de desuello (se copia el de «Hakkari Frostwing», 5291), estadísticas y efecto del trinket (a 0), frases de Blightbark (no constan), modelos (todos stock), la z de los cinco spawns y las coordenadas de los santuarios.
+7. Los marcadores `<name>` y `<class>` de la fuente se escriben como `$N` y `$C` (la sintaxis del cliente). Nutrir los dejó literales; es un error que aquí no se repite.
 
 ## Pendiente de encontrar información
 
