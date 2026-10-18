@@ -13,6 +13,7 @@ VALUES
     (214099, 'esES', 'Tamelyn Aldridge', 'Oficial de suministros', 0),
     (214101, 'esES', 'Marcy Baker', 'Oficial de suministros', 0),
     (222286, 'esES', 'Namida Tótem Siniestro', '', 0),
+    (228814, 'esES', 'Arcterris', '', 0),
     (700200, 'esES', 'Llama viviente', '', 0),
     (700210, 'esES', 'Aprendiz polimorfado', '', 0);
 

@@ -43,11 +43,11 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009022 | Floración | Muñecas | Runa de Floración (220360) | Grabador, 1 oro | Grabador |
 | 7009023 | Fuegos de Elune | Muñecas | Runa de la diosa de la luna (221020) | Grabador, 1 oro | Grabador |
 | 7009024 | Eclipse | Cintura | Runa de Eclipse (212548) | Grabador, 1 oro | Grabador |
-| 7009025 | Lluvia de estrellas | Espalda | Runa de la estrella fugaz (227749) | Grabador, 1 oro | Grabador |
+| 7009025 | Lluvia de estrellas | Espalda | Runa de la estrella fugaz (227749) | Botín de Arcterris (228814), 66,67 % | Botín |
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
 | 7009027 | Nutrir | Cintura | Runa de Nutrir (7009027, propia) | Grabador, 1 oro | Grabador |
 
-**Totales:** 9 runas de botín, 2 de vendedor (Testarazo también se vende en el Grabador), 16 solo en el Grabador. Ninguna se consigue por misión.
+**Totales:** 10 runas de botín, 2 de vendedor (Testarazo también se vende en el Grabador), 15 solo en el Grabador. Ninguna se consigue por misión.
 
 ---
 
@@ -147,6 +147,14 @@ En SoD estos worgen sueltan un Unbalanced Idol. Aquí sueltan la runa directamen
 
 **Nota:** requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar).
 
+### Lluvia de estrellas (7009025), ítem Runa de la estrella fugaz (227749)
+
+| Criatura (id) | Zona | Probabilidad | Nota |
+|---|---|---|---|
+| Arcterris (228814) | Vallefresno | 66,67 % | Solo druidas. Nivel 58, élite. Muestra de Wowhead 2/3, sin fiabilidad |
+
+**Nota:** la criatura no existía en el core; la crea `sod_druid_starfall_source.sql`. Su plantilla copia los valores de «Elder Shardtooth» (7445, nivel 57-58, bestia, facción 16, mismo Vallefresno) y su modelo (8837, un oso) es un sustituto stock, no el de SoD. Wowhead lista diez puntos de Vallefresno repartidos en algo más de 200 m alrededor de (7700, -4860) que son la misma criatura patrullando o cubriendo una zona: se ha creado un solo spawn en ese centro (guid 8820030, respawn 3600 s por ser élite) y no se ha inventado la ruta. La z no se conoce y el SQL la toma del PNJ de mapa 1 más cercano en distancia plana, así que conviene revisarla en juego.
+
 ---
 
 ## 3. Requisitos de uso de los ídolos
@@ -185,7 +193,6 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 | Rey de la selva | Canje en Rune Broker con el ítem 232456. Supply Bag (217014) | Sin programar | Grabador |
 | Eclipse | Jewel-Encrusted Box (212553, ~9 % en la muestra) y canje en Rune Broker | Sin programar | Grabador |
 | Árbol de la vida | Gift of the Wisp (464128, Felwood) | Sin programar | Grabador |
-| Lluvia de estrellas | *Arcterris* (228814, Vallefresco, nivel 58) | Sin programar | Grabador |
 | Fuego solar | Lunar Chest (404433, Mulgore y Teldrassil) | Sin programar | Grabador |
 | Estado onírico | Blooming Satyrweed (404402, Desolace) | Sin programar | Grabador |
 | Floración | Misión *Wisdom of the Guardians* (81924, nivel 50) | Sin programar | Grabador |
@@ -218,6 +225,7 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
 - **Vientos galernos (7009016):** la criatura es nueva en el core y la crea `sod_druid_gale_winds_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los tres puntos de Wowhead solo se ha creado uno (el PNJ patrulla y la ruta no se conoce) y el modelo es un sustituto stock, no el de SoD.
+- **Lluvia de estrellas (7009025):** la criatura es nueva en el core y la crea `sod_druid_starfall_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los diez puntos de Wowhead solo se ha creado uno (el PNJ patrulla o cubre una zona y la ruta no se conoce), el modelo es un sustituto stock y el botín sale del 66,67 % de una muestra de 2/3, sin fiabilidad.
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
 - **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
 
@@ -259,11 +267,11 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 | Floración (7009022) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Fuegos de Elune (7009023) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Eclipse (7009024) | Grabador, 1 oro | — | Cualquiera | — | — |
-| Lluvia de estrellas (7009025) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Lluvia de estrellas (7009025) | Arcterris | Vallefresno, mapa 1, (7700, -4860) | 58 (élite) | ~1,5 (66,67 %) | — |
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
 
-**Recomendación general:** para las 16 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 15 runas del Grabador y para Supervivencia del más fuerte, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -331,6 +339,8 @@ Los nombres de Rune Broker, de los intendentes y de los objetos de mundo no est�
 **Vientos galernos (7009016)**, ítem Runa de la tormenta de viento (220754): Namida Tótem Siniestro (222286), Feralas, mapa 1, (-4146, 827), nivel 43 (élite), 100 %, ~1 muerte, 1 spawn (los tres puntos de Wowhead son la misma criatura patrullando), 3600 s de respawn. Solo druidas. Muestra de Wowhead 1/1, sin fiabilidad.
 
 **Furia de Tempestira (7009018)**, ítem Ídolo lunar (208414): Grellín (1989), Teldrassil, mapa 1, (10465, 967), nivel 3–4, 4 %, ~25 muertes, 31 spawns. Requisito de uso aplicado (derrotar a 6 criaturas afectadas por tu Fuego lunar).
+
+**Lluvia de estrellas (7009025)**, ítem Runa de la estrella fugaz (227749): Arcterris (228814), Vallefresno, mapa 1, (7700, -4860), nivel 58 (élite), 66,67 %, ~1,5 muertes, 1 spawn (los diez puntos de Wowhead son la misma criatura patrullando o cubriendo una zona), 3600 s de respawn. Solo druidas. Muestra de Wowhead 2/3, sin fiabilidad.
 
 ### 8.3. Vendedores
 
