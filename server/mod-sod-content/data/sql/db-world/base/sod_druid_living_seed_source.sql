@@ -16,8 +16,8 @@
 -- Spawns: dos en Mulgore (mapa 1) en las coordenadas verificadas. La z NO se
 -- conoce, así que se toma del `creature` de mapa 1 más cercano en distancia
 -- plana con un SELECT; conviene revisarla en juego (`.npc move`). En SoD hay
--- otros dos spawns en Teldrassil cuyas coordenadas no se conocen: quedan
--- pendientes, no se inventan.
+-- otros dos spawns en Teldrassil, añadidos también (Wowhead, 2026-10-18); así la
+-- runa llega a los druidas de las dos facciones (tauren y elfos de la noche).
 --
 -- Display: 28980 (Creature\Ent\Ent.mdx, el mismo modelo que usa «Angry Oak
 -- Spirit», criatura elemental del core). El modelo real de SoD no está
@@ -89,4 +89,24 @@ SELECT 8820011, 206245, 1, 0, 0, 1, 1, 0, -1965, 106, `position_z`, 0, 300, 0, 0
 FROM `creature`
 WHERE `map` = 1 AND `guid` < 8820000
 ORDER BY POW(`position_x` + 1965, 2) + POW(`position_y` - 106, 2)
+LIMIT 1;
+
+INSERT IGNORE INTO `creature`
+    (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
+     `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+     `spawntimesecs`, `wander_distance`, `MovementType`)
+SELECT 8820012, 206245, 1, 0, 0, 1, 1, 0, 9863, 403, `position_z`, 0, 300, 0, 0
+FROM `creature`
+WHERE `map` = 1 AND `guid` < 8820000
+ORDER BY POW(`position_x` - 9863, 2) + POW(`position_y` - 403, 2)
+LIMIT 1;
+
+INSERT IGNORE INTO `creature`
+    (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`,
+     `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+     `spawntimesecs`, `wander_distance`, `MovementType`)
+SELECT 8820013, 206245, 1, 0, 0, 1, 1, 0, 9843, 403, `position_z`, 0, 300, 0, 0
+FROM `creature`
+WHERE `map` = 1 AND `guid` < 8820000
+ORDER BY POW(`position_x` - 9843, 2) + POW(`position_y` - 403, 2)
 LIMIT 1;
