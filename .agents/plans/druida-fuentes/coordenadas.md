@@ -50,3 +50,12 @@ Dos spawns por intendente en Falinar son dos puntos distintos (~60 m de separaci
 - Coordenadas de Teldrassil del Unleashed Nature Spirit.
 - Requisito de nivel/reputación de los intendentes y la unidad del precio.
 - Existencia de un repositorio público con `creature.sql` de SoD (no encontrado).
+
+## Unleashed Nature Spirit en Teldrassil
+
+Consulta: 2026-10-18. Fuente: HTML de `https://www.wowhead.com/classic/npc=206245` (con `curl -L` y User-Agent de navegador; WebFetch no ve el JSON). Contiene `mapperData = {"141":[{"count":2,"coords":[[67,58],[67,58.6]],"uiMapId":1438,"uiMapName":"Teldrassil"}],"215":[{...Mulgore: [37.6,49.6],[37.8,49.4]}]}`, coherente con los datos de Mulgore ya recogidos. El endpoint `nether.wowhead.com/.../tooltip/npc/206245` solo devuelve Mulgore con `dataEnv=0` y `Entity not found` con `dataEnv` 1, 2, 3 y 5 (el 4 ya se probó antes).
+
+- Teldrassil (WorldMapArea area 141, mapa 1): (67, 58) % y (67, 58.6) %.
+- Mundo (mapa 1), con límites del DBC (Left 3814.58, Right -1277.08, Top 11831.25, Bottom 8437.5) y el mismo método de arriba: **(x=9863, y=403)** y **(x=9843, y=403)**. Z no verificado. Los dos puntos están a ~20 m uno del otro.
+- Verosimilitud: no comprobado contra un PNJ conocido de esa zona; solo se aplicó la misma fórmula que en el resto de entradas.
+- La guía de Warcraft Tavern probada (URL adivinada) dio 404; no se contrastó con guías.

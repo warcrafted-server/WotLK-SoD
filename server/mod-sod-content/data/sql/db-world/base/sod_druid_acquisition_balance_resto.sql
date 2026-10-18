@@ -106,7 +106,7 @@ REPLACE INTO `conditions`
     (1, 9396, 220915, 0, 0, 15, 0, 1024, 0, 0, 0, 'mod-sod-druid: Improved Barkskin item for class only');
 
 -- Fuente real implementada (botín o vendedor): el Grabador ya no las vende.
-DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206963, 208414, 220915);
+DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206963, 208414, 220754, 220915);
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 206989, 0, 0, 0),
@@ -114,7 +114,6 @@ REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Ext
     (700000, 0, 212548, 0, 0, 0),
     (700000, 0, 213120, 0, 0, 0),
     (700000, 0, 220360, 0, 0, 0),
-    (700000, 0, 220754, 0, 0, 0),
     (700000, 0, 221020, 0, 0, 0),
     (700000, 0, 227746, 0, 0, 0),
     (700000, 0, 227749, 0, 0, 0);
