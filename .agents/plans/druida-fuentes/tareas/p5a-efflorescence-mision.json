@@ -1,0 +1,25 @@
+{
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream"
+ ],
+ "effort": "high",
+ "validation": [
+  "tools/sod-data/validar_sql.sh"
+ ],
+ "objective": "Efflorescence (Floración, rune 7009022), parte A: la misión «Wisdom of the Guardians» (81924), el PNJ Tyrisius y TODAS las plantillas de criatura y objeto que usarán los tres santuarios (sin la lógica de los santuarios, que van en tareas posteriores).",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md y, entero, .agents/plans/druida-fuentes/misiones.md §3 (fuente de textos, ids y coordenadas; no lo contradigas). Módulo server/mod-sod-content. Precedentes: la cadena de Nutrir en el commit e3fb98b (sod_druid_nourish_source.sql: misiones, PNJ, spawns con z calculada por INSERT...SELECT de la fila `creature` más cercana del mapa, guids 8820000+, RewardXPDifficulty aproximada, objeto-runa con ScriptName item_rune_unlock y mapeo rune_item_unlock guardado, traducciones esES, notas en docs/progreso/druida.md §9) y src/druid/spell_sod_druid_water_of_eluneara.cpp (script C++ del módulo registrado en src/sod_content_loader.cpp), y src/mage/sod_mage_azora_event.cpp (evento con criaturas invocadas por script). El usuario mantiene el Grabador intacto: no lo toques. Ids de SoD (criaturas, objetos, misiones) se usan como ids propios; comprueba con grep que no chocan. Sin DELETE salvo lo imprescindible; idempotente. Todo en castellano salvo identificadores. No hagas commit ni push. Esta parte: (1) creature_template + spawn de Tyrisius (221985, nivel 40, quest giver con npcflag 2, civil, Feralas mapa 1, (-5564, 1466)); (2) quest_template 81924 (nivel 50, mínimo 45, sin previa, clase druida como QuestSortID -263 igual que en Nutrir; texto, progreso y finalización de misiones.md §3), que se da y se entrega en Tyrisius, con tres objetivos de crédito de muerte de criatura: Treant Avatar 221935, Moonkin Avatar 221933 y Hippogryph Avatar 221928; recompensa a elegir ninguna fija: el objeto-runa Rune of Efflorescence (220360, BoP, único, nivel 50, solo druida, ScriptName item_rune_unlock, mapeo rune_item_unlock → 7009022 con el mismo mecanismo guardado; el objeto propio actual de la runa sigue en el Grabador, no lo toques) y el trinket Seed of Renewal (219326, rareza rara, BoP, nivel 50: crea el item_template con su descripción y estadísticas desconocidas a 0, SIN efecto: anótalo como pendiente), XP aproximada a 4700 con RewardXPDifficulty (anota la aproximación), dinero 0 (unidad no verificada); (3) SOLO las plantillas de criatura (sin spawns, los invocan los scripts) de: Treant Avatar 221935 (nivel 50, elemental, hostil), Moonkin Avatar 221933 (nivel 50, humanoide, hostil), Hippogryph Avatar 221928 (nivel 50, bestia, hostil), Blightbark 222705, Sagefeather 222704, Whisperwing 222703 (espíritus: élite nivel 50, neutrales, no atacables, con las frases de misiones.md si constan; si no constan, sin texto), y Child of Apa'ro 222580 (ciervo blanco nivel 50 bestia, desollable, inmune a magia, hostil, 18 spawns no: crea UN spawn en el centro (4293, -5458) mapa 1 con respawn 1800 s y z calculada por SELECT; suelta Sacred Stag Heart 221326 al 100 % solo a druidas con la misión 81924 activa; crea el item 221326 BoP, «Present as an offering at the Shrine of the Beast»), y los objetos de mundo (gameobject_template + spawn) Shrine of the Warden 441948 (Feralas mapa 1 (-4785, 1369)), Shrine of the Moon 441946 (Hinterlands mapa 0 (104, -4124)) y Shrine of the Beast 441947 (Azshara mapa 1 (3685, -5032)) como objetos interactivos tipo GENÉRICO/botón sin lógica (las acciones las añaden las tareas siguientes con un ScriptName que tú dejas ya puesto en el gameobject_template: sod_druid_shrine_warden, sod_druid_shrine_moon, sod_druid_shrine_beast; no los implementes), con z calculada por INSERT...SELECT. Displays: stock del core, justifica en comentarios. Traducciones esES. Documenta en una sección nueva de docs/progreso/druida.md (§10) la misión y deja claro qué lo no verificado.",
+ "files": [
+  "server/mod-sod-content/data/sql/db-world/base/sod_content_locale_world_es.sql",
+  "docs/progreso/druida.md"
+ ],
+ "constraints": [
+  "Crea el fichero nuevo server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql.",
+  "Actualiza docs/progreso/druida.md: tabla 1 (Floración pasa a «Misión»), totales, sección 5 (quitar fila), nueva §10, y el aviso de que los santuarios se implementan en pasos posteriores y la misión aún no es completable hasta entonces."
+ ],
+ "acceptanceCriteria": [
+  "quest_template 81924, Tyrisius, 3 avatares, 3 espíritus, ciervo, 3 santuarios con ScriptName, items 220360/219326/221326 existen.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ]
+}
