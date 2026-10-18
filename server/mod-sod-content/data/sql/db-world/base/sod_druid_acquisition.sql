@@ -1,7 +1,10 @@
 -- mod-sod-druid: WotLK-supported item acquisition for SoD runes.
--- Real Rune Brokers sell these items throughout the capitals and starting zones;
--- the summoned Rune Engraver is the local substitute. Broker-only vendor stock uses 10000 copper
--- because this core has no per-vendor price hook. Grizzby's recorded coin cost overrides ItemSparse.
+-- En SoD real estos ítems los venden los Rune Brokers de las capitales y de las zonas
+-- iniciales; el Grabador invocado es el sustituto local. El stock que solo tiene el Grabador
+-- cuesta 10000 cobre (1 oro) porque este core no tiene gancho de precio por vendedor; el Corredor de
+-- runas de sod_world_rune_broker.sql vende Rune of Berserk (213117) y Rune of Primal Energy
+-- (221516) al mismo precio (1 oro), pues el vendedor cobra el `BuyPrice` del ítem. El coste
+-- en monedas que registra Grizzby pisa el del ItemSparse.
 -- Lacerate: SoD drops Unbalanced Idol (210195) from Silverpine Moonrage worgen; this core lacks that item, so they drop rune item 208687.
 -- Wowhead samples per NPC are tiny (1/2, 1/8...), so all four use the pooled rate 5/469 = 1.0661 %.
 -- Tablas de botín del Cofre de Kolkar: 3318 (3642, 25 %), 3319 (152608, 33,3333 %) y 3320 (152618, 25 %).
@@ -23,9 +26,6 @@ VALUES
 REPLACE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES
     (7009026, 'esES', 'Runa de Flor de vida', 'Te enseña una nueva facultad de grabado.', 0),
     (7009027, 'esES', 'Runa de Nutrir', 'Te enseña una nueva facultad de grabado.', 0);
-
--- Fuente real implementada (botín o vendedor): el Grabador ya no las vende.
-DELETE FROM `npc_vendor` WHERE `entry` = 700000 AND `item` IN (206954, 208687, 208689, 210534, 210817, 221517, 227444);
 
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 7009026, 0, 0, 0),
@@ -212,10 +212,8 @@ REPLACE INTO `conditions`
 REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (700000, 0, 206992, 0, 0, 0),
     (700000, 0, 210137, 0, 0, 0),
-    (700000, 0, 213117, 0, 0, 0),
     (700000, 0, 213118, 0, 0, 0),
-    (700000, 0, 213119, 0, 0, 0),
-    (700000, 0, 221516, 0, 0, 0);
+    (700000, 0, 213119, 0, 0, 0);
 
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
     (211653, 0, 210817, 0, 0, 0)
@@ -244,3 +242,20 @@ SET @sql := IF(@item_unlock_tbl > 0,
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
+
+-- Pruebas: el Grabador conserva todas las runas aunque ya tengan fuente real.
+REPLACE INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+    (700000, 0, 206954, 0, 0, 0),
+    (700000, 0, 208687, 0, 0, 0),
+    (700000, 0, 208689, 0, 0, 0),
+    (700000, 0, 210534, 0, 0, 0),
+    (700000, 0, 210817, 0, 0, 0),
+    (700000, 0, 213117, 0, 0, 0),
+    (700000, 0, 221516, 0, 0, 0),
+    (700000, 0, 221517, 0, 0, 0),
+    (700000, 0, 227444, 0, 0, 0),
+    (700000, 0, 206963, 0, 0, 0),
+    (700000, 0, 208414, 0, 0, 0),
+    (700000, 0, 220754, 0, 0, 0),
+    (700000, 0, 220915, 0, 0, 0),
+    (700000, 0, 227749, 0, 0, 0);

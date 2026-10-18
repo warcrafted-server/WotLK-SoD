@@ -6,7 +6,7 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 - Nombres de criaturas, objetos y runas en español: base de desarrollo `acore_world_test` (reino 2) y `rune_template_locale`. La base de producción (`acore_world`) aún no tiene el contenido de SoD.
 - Qué se implementa y qué no: SQL del módulo en `server/mod-sod-content/data/sql/db-world/base/` (commit `fdf51f4`).
 - Probabilidades: las tasas de Wowhead guardadas en `docs/runas/fuentes-sod.json`, las mismas que usa el SQL.
-- Lo que no aparece en la base de datos (misiones, Rune Broker, objetos de mundo) figura en inglés y marcado como «sin nombre en BD».
+- Lo que no aparece en la base de datos (misiones, objetos de mundo) figura en inglés y marcado como «sin nombre en BD».
 
 **Leyenda de estado**
 - **Botín:** la runa cae de criaturas del servidor.
@@ -23,14 +23,14 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009002 | Supervivencia del más fuerte | Pecho | Runa de supervivencia (210817) | Grizzby (Ratchet), 3 oro 15 plata 78 cobre | Vendedor |
 | 7009003 | Lacerar | Piernas | Runa de Lacerar (208687) | Botín de los Canosos y Correoscuros Furia Lunar, 1,07 % | Botín |
 | 7009004 | Rugido salvaje | Piernas | Ídolo de ferocidad (208689) | Botín de Zarparrío y otros, más el Botín de Kolkar | Botín |
-| 7009005 | Rabia | Cintura | Runa de Rabia (213117) | Grabador, 1 oro | Grabador |
+| 7009005 | Rabia | Cintura | Runa de Rabia (213117) | Corredor de runas (seis capitales), 1 oro | Vendedor |
 | 7009006 | Instintos de supervivencia | Pies | Runa de instinto (213119) | Grabador, 1 oro | Grabador |
 | 7009007 | Destrozar | Manos | Ídolo de ira osuna (206954) | Botín de 8 criaturas de Mulgore, Thunder Bluff y Teldrassil | Botín |
 | 7009008 | Cornada | Cabeza | Runa de Escabechina (221517) | Intendentes (Falinar, Kyleen, Alandra y Valdane), 1 oro 60 plata | Vendedor |
 | 7009009 | Golpes descontrolados | Pecho | Ídolo de las fieras (210534) | Botín de los Tótem Siniestro de Crestagua | Botín |
 | 7009010 | Rey de la selva | Pies | Runa del rey de la selva (213118) | Grabador, 1 oro | Grabador |
 | 7009011 | Testarazo | Manos | Runa de Testarazo (206992) | Oficiales de suministro (rango 4) y Grabador, 2 oro | Vendedor |
-| 7009012 | Regeneración frenética mejorada | Muñecas | Runa de energía primigenia (221516) | Grabador, 1 oro | Grabador |
+| 7009012 | Regeneración frenética mejorada | Muñecas | Runa de energía primigenia (221516) | Corredor de runas (seis capitales), 1 oro | Vendedor |
 | 7009013 | Flagelo mejorado | Espalda | Ídolo de la cazadora (227444) | Botín de los Ravasaurio de Un'Goro | Botín |
 | 7009014 | Piel de corteza mejorada | Cabeza | Ídolo de arrastrapiés furibundo (220915) | Botín de los Cardizal de Tanaris | Botín |
 | 7009015 | Semilla viviente | Pecho | Runa de Potencial natural (206963) | Botín de Espíritu de la naturaleza desatado (206245), 100 % | Botín |
@@ -47,7 +47,9 @@ Estado a 2026-10-18. Druida completo en código (27 runas), **sin compilar ni pr
 | 7009026 | Flor de vida | Piernas | Runa de Flor de vida (7009026, propia) | Grabador, 1 oro | Grabador |
 | 7009027 | Nutrir | Cintura | Runa de Nutrir (7009027, propia) | Grabador, 1 oro | Grabador |
 
-**Totales:** 10 runas de botín, 3 de vendedor (Testarazo también se vende en el Grabador), 14 solo en el Grabador. Ninguna se consigue por misión.
+**Totales:** 10 runas de botín, 5 de vendedor (Testarazo también se vende en el Grabador), 12 solo en el Grabador. Ninguna se consigue por misión.
+
+**Pruebas:** por decisión del usuario, el Grabador sigue vendiendo todas las runas de druida aunque ya tengan fuente real (las filas están al final de `sod_druid_acquisition.sql`). Cuando acaben las pruebas se vuelven a quitar las que tengan fuente real; la columna «Cómo se consigue hoy» describe la fuente real, no el Grabador.
 
 ---
 
@@ -182,8 +184,12 @@ El ídolo no se usa hasta cumplir el requisito. Solo se aplican los que están e
 | Cornada (7009008) | Kyleen (222685) | Vallefresno | 16842 cobre en Wowhead, sin confirmar la unidad; en el core 16000 |
 | Cornada (7009008) | Alandra (222686) | Tierras del Interior | 16842 cobre en Wowhead, sin confirmar la unidad; en el core 16000 |
 | Cornada (7009008) | Valdane (222687) | Feralas | 16000 cobre (1 oro 60 plata) |
+| Rabia (7009005) | Corredor de runas (700201) | Una en cada capital (seis) | 1 oro |
+| Regeneración frenética mejorada (7009012) | Corredor de runas (700201) | Una en cada capital (seis) | 1 oro; Wowhead pide 1 emblema (232454) |
 
 Los cuatro intendentes de Cornada son de la facción Guardianes Esmeralda. El core no permite precios distintos por vendedor, así que los cuatro cobran el precio único del ítem (16000 cobre) y la diferencia de 842 cobre de Kyleen y Alandra queda sin efecto.
+
+El Corredor de runas (`sod_world_rune_broker.sql`) es un solo PNJ (700201) con seis spawns, uno en cada capital, a 4 yardas del oficial de suministros de esa ciudad. En SoD vende desde la fase 6 a 1 cobre; aquí cuesta 1 oro por decisión del usuario (lo dice una guía de 2024, sin URL en el repositorio), y el core cobra el `BuyPrice` del ítem: las dos runas van a 1 cobre. Aquí solo vende las runas de las que no tenemos otra fuente real; cada clase irá añadiendo las suyas con filas de `npc_vendor` del entry 700201. Para Regeneración frenética mejorada, Wowhead no da cobre sino 1 unidad del ítem 232454 (Emblem of the Wild Gods), que no existe en este core: la contradicción entre la guía y Wowhead queda sin resolver.
 
 ---
 
@@ -195,7 +201,6 @@ Los cuatro intendentes de Cornada son de la facción Guardianes Esmeralda. El co
 |---|---|---|---|
 | Crecimiento salvaje | Misión *Trial of the Owls* (78229, nivel 25) | Sin programar | Grabador |
 | Nutrir | Misión *The Lost Saplings* (79377, nivel 40) | Sin programar | Grabador |
-| Regeneración frenética mejorada | Canje en Rune Broker con el ítem 232454 | Sin programar | Grabador |
 | Rey de la selva | Canje en Rune Broker con el ítem 232456. Supply Bag (217014) | Sin programar | Grabador |
 | Eclipse | Jewel-Encrusted Box (212553, ~9 % en la muestra) y canje en Rune Broker | Sin programar | Grabador |
 | Árbol de la vida | Gift of the Wisp (464128, Felwood) | Sin programar | Grabador |
@@ -203,12 +208,11 @@ Los cuatro intendentes de Cornada son de la facción Guardianes Esmeralda. El co
 | Estado onírico | Blooming Satyrweed (404402, Desolace) | Sin programar | Grabador |
 | Floración | Misión *Wisdom of the Guardians* (81924, nivel 50) | Sin programar | Grabador |
 | Fuegos de Elune | Evento *Elune's Favor* (446288) | Sin programar | Grabador |
-| Rabia | Rune Broker | Sin programar | Grabador |
 | Instintos de supervivencia | Rune Broker y evento *Amaryllis* | Sin programar | Grabador |
 | Oleada de estrellas | Rune Broker | Sin programar | Grabador |
 | Lifebloom y Nutrir | Objetos propios (7009026 y 7009027). En SoD son 206970 y 213074 | Sin verificar | Grabador |
 
-Los nombres de Rune Broker y de los objetos de mundo no están en la base de datos. Quedan en inglés.
+Los nombres de los objetos de mundo no están en la base de datos. Quedan en inglés.
 
 ---
 
@@ -226,14 +230,15 @@ Los nombres de Rune Broker y de los objetos de mundo no están en la base de dat
 
 - **Sin compilar ni probar.** El druida necesita compilar, desplegar el parche de cliente y probarse en juego.
 - **Misiones:** ninguna programada. Las runas de misión se consiguen por el Grabador hasta que se programen.
-- **Rune Broker:** no existe en el servidor. El Grabador hace de sustituto.
+- **Rune Broker:** existe desde este cambio como «Corredor de runas» (npc 700201, `sod_world_rune_broker.sql`), con un spawn en cada capital. Hoy solo vende Rabia y Regeneración frenética mejorada, las dos runas de las que no tenemos otra fuente real; para las demás fuentes que Wowhead atribuye al Rune Broker, el Grabador sigue haciendo de sustituto.
 - **Tasas de Wowhead:** algunas vienen de muestras pequeñas (1/15, 2/2, 1/1).
 - **Semilla viviente (7009015):** la criatura es nueva en el core y la crea `sod_druid_living_seed_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. Las coordenadas de Teldrassil vienen de Wowhead convertidas con `WorldMapArea.dbc`, sin contrastar con un PNJ conocido. El modelo es un sustituto stock, no el de SoD.
 - **Vientos galernos (7009016):** la criatura es nueva en el core y la crea `sod_druid_gale_winds_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los tres puntos de Wowhead solo se ha creado uno (el PNJ patrulla y la ruta no se conoce) y el modelo es un sustituto stock, no el de SoD.
 - **Lluvia de estrellas (7009025):** la criatura es nueva en el core y la crea `sod_druid_starfall_source.sql`. Su z se calcula con el PNJ de mapa 1 más cercano, así que hay que revisarla en juego. De los diez puntos de Wowhead solo se ha creado uno (el PNJ patrulla o cubre una zona y la ruta no se conoce), el modelo es un sustituto stock y el botín sale del 66,67 % de una muestra de 2/3, sin fiabilidad.
 - **Cornada (7009008):** los cuatro intendentes son PNJ nuevos y los crea `sod_druid_gore_source.sql`. Su z se calcula con el PNJ del mismo mapa más cercano, así que hay que revisarla en juego. El subnombre «Quartermaster» y el modelo (una elfa de la noche stock, la de Jaeana) son suposiciones razonables: Wowhead no da el subnombre exacto y el modelo de SoD no está en 3.3.5a. Wowhead da precios distintos por intendente (16000 y 16842 cobre, sin confirmar la unidad) y el core solo admite el precio del ítem: la diferencia de 842 cobre no se aplica. El requisito de nivel de compra no está verificado y no se ha inventado.
+- **Rabia (7009005) y Regeneración frenética mejorada (7009012):** el Corredor de runas es un PNJ nuevo y lo crea `sod_world_rune_broker.sql`: un solo `creature_template` (700201, nivel 60, facción 35) y seis spawns a 4 yardas del oficial de suministros de cada capital, con la z y la orientación de ese oficial. Hay que revisar las seis posiciones en juego (`.npc move`). El modelo es un sustituto stock (7099, el mercader goblin de Grizzby), no el de SoD. Precio: 1 oro para las dos por decisión del usuario (el vendedor cobra el `BuyPrice` del ítem), pero Wowhead solo da ese «1» para Rabia: para Regeneración frenética mejorada pide 1 unidad del ítem 232454 (Emblem of the Wild Gods), que no existe en el core. La contradicción con la guía de 2024 (1 cobre desde la fase 6) queda sin resolver.
 - **Producción:** `acore_world` no tiene el contenido SoD. Hace falta aplicarlo con el despliegue.
-- **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014.
+- **Documentación desfasada:** [docs/runas/obtencion.md](../runas/obtencion.md) dice que Lacerar, Rugido salvaje, Destrozar, Furia de Tempestira y Supervivencia del más fuerte también se venden en el Grabador. El commit `fdf51f4` los quitó de ahí. Esa tabla tampoco tiene las filas 7009009 a 7009014, y sigue dando Rabia (7009005) y Regeneración frenética mejorada (7009012) como compra en el Grabador cuando ya las vende el Corredor de runas a 1 cobre.
 
 ---
 
@@ -253,14 +258,14 @@ Los nombres de Rune Broker y de los objetos de mundo no están en la base de dat
 | Supervivencia del más fuerte (7009002) | Grizzby, 31578 cobre | Los Baldíos, Ratchet (npc 211653) | Cualquiera | — | — |
 | Lacerar (7009003) | Worgen Furia Lunar | Bosque de Argénteos, mapa 0, x 300–1150, y 900–1900 | 10–16 | ~94 (4 mobs, ~119 spawns) | — |
 | Rugido salvaje (7009004) | Madre del cubil | Costa Oscura, mapa 1, (6663, -430), spawn único | 18–19 | ~5 (1 spawn) | 20 golpes de sangrado a humanoides |
-| Rabia (7009005) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Rabia (7009005) | Corredor de runas, 1 oro | Una en cada capital, junto al oficial de suministros (mapas 0 y 1) | Cualquiera | — | — |
 | Instintos de supervivencia (7009006) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Destrozar (7009007) | Rageclaw | Teldrassil, mapa 1, (9843, 1496), spawn único | 10 | ~3,5 (1 spawn) | Rabia ≥ 50 en oso durante 60 s |
 | Cornada (7009008) | Falinar (intendente) | Bosque del Ocaso, mapa 0, (-10638, -398); Kyleen: Vallefresno, mapa 1, (3112, -3455); Alandra: Tierras del Interior, mapa 0, (584, -3939); Valdane: Feralas, mapa 1, (-2941, 2078) | Cualquiera | — | — |
 | Golpes descontrolados (7009009) | Tótem Siniestro Mercenario | Montañas Crestagua, mapa 1, (55, -769) | 14–15 | ~39 (33 spawns) | Curar a 10 bestias distintas |
 | Rey de la selva (7009010) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Testarazo (7009011) | Grabador, 2 oro | — | Cualquiera | — | — |
-| Regeneración frenética mejorada (7009012) | Grabador, 1 oro | — | Cualquiera | — | — |
+| Regeneración frenética mejorada (7009012) | Corredor de runas, 1 oro | Una en cada capital, junto al oficial de suministros (mapas 0 y 1) | Cualquiera | — | — |
 | Flagelo mejorado (7009013) | Venomhide Ravasaur | Cráter de Un'Goro, mapa 1, (-7254, -1995) | 50–51 | ~28 (22 spawns) | 5 objetivos dormidos muertos en forma felina |
 | Piel de corteza mejorada (7009014) | Enraizador Cardizal | Tanaris, mapa 1, (-8888, -2246) | 49–50 | ~19 (11 spawns) | 5 muertes con Naturaleza bajo Piel de corteza |
 | Semilla viviente (7009015) | Espíritu de la naturaleza desatado | Mulgore, mapa 1, (-1972, 116) y (-1965, 106); Teldrassil, (9863, 403) y (9843, 403) | 7 | 1 (100 %) | — |
@@ -277,7 +282,7 @@ Los nombres de Rune Broker y de los objetos de mundo no están en la base de dat
 | Flor de vida (7009026) | Grabador, 1 oro | — | Cualquiera | — | — |
 | Nutrir (7009027) | Grabador, 1 oro | — | Cualquiera | — | — |
 
-**Recomendación general:** para las 14 runas del Grabador, y para Supervivencia del más fuerte y Cornada, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
+**Recomendación general:** para las 12 runas del Grabador, y para Supervivencia del más fuerte, Cornada y las dos del Corredor de runas, lo más fácil es comprar. Para las de botín, la que menos muertes cuesta es Destrozar (Rageclaw). Como es un spawn único, en la práctica depende de cuánto tarde en repetir (300 s).
 
 ### 8.2. Botín: todas las fuentes con su zona y nivel
 
@@ -353,8 +358,16 @@ Los nombres de Rune Broker y de los objetos de mundo no están en la base de dat
 - **Supervivencia del más fuerte (7009002):** Grizzby (npc 211653), Los Baldíos (Ratchet), 3 oro 15 plata 78 cobre. Sin requisito de nivel en la base.
 - **Testarazo (7009011):** 2 oro en el Grabador. También lo venden los seis oficiales de suministro si tienes el rango 4 con su ciudad (Elaine Compton, Jornah, Dokimi, Gishah, Tamelyn Aldridge y Marcy Baker).
 - **Cornada (7009008):** 1 oro 60 plata (16000 cobre). La venden cuatro intendentes de los Guardianes Esmeralda: Falinar (npc 222684, Bosque del Ocaso), Kyleen (222685, Vallefresno), Alandra (222686, Tierras del Interior) y Valdane (222687, Feralas). Wowhead da 16842 cobre para Kyleen y Alandra, sin confirmar la unidad, pero el core no permite precios distintos por vendedor: los cuatro cobran el precio único del ítem (16000).
+- **Rabia (7009005) y Regeneración frenética mejorada (7009012):** 1 oro (en SoD, 1 cobre). Las vende el Corredor de runas (npc 700201) en las seis capitales, a 4 yardas del oficial de suministros. Wowhead recoge el coste de Rabia como «1», pero para Regeneración frenética mejorada pide 1 unidad del ítem 232454 (Emblem of the Wild Gods), que no existe en el core; la contradicción queda anotada en `sod_world_rune_broker.sql`.
 
 ### 8.4. Notas sobre el nivel
 
 - Los `spell_dbc` de las runas tienen `BaseLevel` de WotLK (0, 1, 20, 60, 75, 80…) que no sirve como nivel de uso. No he encontrado en el repo un nivel mínimo para usar las runas. Hasta que se confirme en juego, las runas del Grabador son usables a cualquier nivel.
 - Los `RequiredLevel` de todos los ítems son 1, salvo el ítem de Supervivencia del más fuerte, que no tiene nivel mínimo en la base (`RequiredLevel` = 1 con precio 31578).
+
+---
+
+## Pendiente de encontrar información
+
+- **Rabia (Berserk, 417141, objeto Rune of Berserk 213117):** Wowhead solo muestra el Rune Broker como vendedor. No consta ninguna fuente anterior a la fase 6; falta por encontrar.
+- **Regeneración frenética mejorada (431389, objeto Rune of Primal Energy 221516):** solo consta el Rune Broker, con 1 unidad del Emblem of the Wild Gods (232454) como coste. Falta por encontrar la fuente anterior a la fase 6.
