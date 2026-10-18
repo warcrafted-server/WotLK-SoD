@@ -376,17 +376,40 @@ Implementada en `server/mod-sod-content/data/sql/db-world/base/sod_druid_nourish
 4. La z de todos los spawns sale del PNJ más cercano del mismo mapa y debe revisarse en juego. Dinero de recompensa: 0 (la unidad del dato de SoD, 50, no consta).
 5. No verificado: probabilidad de la semilla, si el agua la da Orokai o se recoge en el lago (Wowhead y la wiki dicen lo primero; una guía, lo segundo), y el modelo de cada criatura (stock).
 
-## 10. Misión de Floración (7009022), parte A
+## 10. Misión de Floración (7009022)
 
-Primera parte implementada en `server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql`. Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §3. Sin compilar ni probar en juego. **Los santuarios se implementan en pasos posteriores: la misión aún no es completable** (los tres avatares no tienen spawn ni forma de aparecer, y los santuarios todavía no tienen lógica).
+Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §3. Sin compilar ni probar en juego.
+
+- **Parte A (Tyrisius y las plantillas):** `server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql`, la misión 81924, los tres avatares, los tres espíritus y los tres santuarios sin lógica todavía.
+- **Parte B (lógica de un santuario):** solo el Shrine of the Warden de Feralas, en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_warden.sql` y `src/druid/spell_sod_druid_shrine_warden.cpp` (registrado en `src/sod_content_loader.cpp`).
+
+**La misión aún no es completable**: solo tiene lógica el santuario de Feralas; los santuarios de la Luna (Hinterlands) y de la Bestia (Azshara) siguen sin implementar y sus avatares (221933 y 221928) no tienen spawn ni forma de aparecer.
+
+### Parte A: Tyrisius y las plantillas
 
 1. **Tyrisius** (221985, nivel 40, Feralas, mapa 1, (-5564, 1466), respawn 300 s) da y entrega **Wisdom of the Guardians** (81924, nivel 50, mínimo 45, categoría Druida, sin misión previa). XP aproximada a 4700: se usa el índice 4 de QuestXP.dbc de nivel 50 (5100), una aproximación de +400. Dinero 0 (la unidad del dato de SoD, 75, no consta).
 2. Objetivos (crédito de muerte, 1 de cada): **Treant Avatar** (221935, Feralas), **Moonkin Avatar** (221933, Tierras del Interior) y **Hippogryph Avatar** (221928, Azshara). Nivel 50, no élite y hostiles. **No tienen spawn**: los invoca su santuario.
-3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos sin lógica, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`, todavía sin implementar en C++). Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
+3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`). Solo el del Celador tiene lógica (parte B); los otros dos siguen inertes. Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
 4. **Child of Apa'ro** (222580, ciervo, Azshara, mapa 1, (4293, -5458), respawn 1800 s): hostil, desollable e inmune a la magia; suelta **Sacred Stag Heart** (221326) al 100 %, solo a druidas y solo con 81924 activa. El corazón se ofrece en el Santuario de la Bestia (lógica pendiente).
 5. Recompensa a elegir: **Rune of Efflorescence** (220360), que desbloquea la runa 7009022 (el Grabador la sigue vendiendo para las pruebas), o **Seed of Renewal** (219326, trinket raro **sin efecto implementado**: sus estadísticas están a 0).
 6. No verificado: probabilidad y condiciones reales del botín del corazón (se usa 100 % solo con la misión activa), botín de desuello (se copia el de «Hakkari Frostwing», 5291), estadísticas y efecto del trinket (a 0), frases de Blightbark (no constan), modelos (todos stock), la z de los cinco spawns y las coordenadas de los santuarios.
 7. Los marcadores `<name>` y `<class>` de la fuente se escriben como `$N` y `$C` (la sintaxis del cliente). Nutrir los dejó literales; es un error que aquí no se repite.
+
+### Parte B: santuario del Celador (Feralas, 441948)
+
+Solo el santuario de Feralas. Lógica en `server/mod-sod-content/src/druid/spell_sod_druid_shrine_warden.cpp` (registrado como `AddSC_sod_druid_shrine_warden` en `src/sod_content_loader.cpp`) y, en el SQL, los dos hechizos propios en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_warden.sql`. La parte A no se toca.
+
+1. **Interactuar** con el santuario (441948) con la misión 81924 activa y el objetivo del Treant Avatar sin cumplir aplica **Duty of the Warden** (446448) y reinicia su progreso de dispensa. Sin la misión activa el santuario no hace nada.
+2. Con Duty, **curarse una maldición Y un veneno** (en cualquier orden) lo transforma en **Mark of the Warden** (446467). No se ata a ningún hechizo concreto: se cuenta cualquier aura de tipo maldición o veneno que el jugador pierda **por dispensa** (`AURA_REMOVE_BY_ENEMY_SPELL`), que es como el core marca el dispel de `Remove Curse`/`Cure Poison` y sus equivalentes. Al perder Duty (expiración, muerte o transformación) se borra el progreso.
+3. Con Mark, **acercarse** al santuario (a ≤15 m, comprobado como mucho una vez por segundo y solo en el mapa 1, el de Feralas) **o interactuar** de nuevo invoca al **Treant Avatar** (221935) como `TempSummon` hostil junto al santuario, que ataca al jugador. No se invoca si ya hay un avatar vivo a menos de 15 m del santuario (la comprobación es por cercanía, no por mapa: uno que haya perseguido a un jugador lejos del santuario no lo bloquea). El avatar lanza **Enredaderas (11922)** y, al morir, deja a **Blightbark** (222705) 60 s. La Marca no se consume al invocar (la fuente no dice que se gaste).
+4. Los dos hechizos (446448 y 446467) son auras propias sin efecto de combate: `APPLY_AURA` con `SPELL_AURA_DUMMY` sobre el lanzador. Sus índices de lanzamiento, alcance y duración y sus iconos (`SpellIconID` 10 y 2013, dos iconos de naturaleza) están comprobados contra los DBC del cliente; la duración (índice 30 = 30 min) es provisional, la real de SoD no consta.
+5. **No verificado / pendiente:**
+   - **Sin compilar ni probar en juego.** Los dos comandos de validación (`tools/sod-data/validar_sql.sh` y `python3 tools/sod-data/check_syntax.py`) pasan, pero `check_syntax.py` usa una plantilla del módulo para este archivo (no está todavía en `compile_commands.json`), así que no es una compilación completa.
+   - **Nombre e icono de los buffs en el cliente:** las dos filas de `spell_dbc` están escritas a mano en el SQL de la parte B (no se han añadido al generador `server/mod-sod-content/tools/sod_spells_druid.py` para no duplicarlas). Para que el cliente los muestre hay que añadirlos al `.py` y regenerar el parche de cliente; mientras tanto, no añadirlos también al `.py`.
+   - **Frases de Blightbark:** no constan en `misiones.md`, así que no se le añade `creature_text` (no se inventan).
+   - **Duración de Duty y Mark, y si Mark hereda lo que le quedaba a Duty:** no consta en la fuente; Mark se aplica con su propia duración.
+   - **Comportamiento exacto del aggro del avatar** (se le hace atacar al invocarlo), el radio de «acercarse» (15 m, elegido a ojo) y que la Marca no se gaste al invocar: no verificados.
+   - **Cómo se cuenta el crédito de la misión** (al matar al avatar, no al hablar con el espíritu): no verificado, igual que en la parte A.
 
 ## Pendiente de encontrar información
 

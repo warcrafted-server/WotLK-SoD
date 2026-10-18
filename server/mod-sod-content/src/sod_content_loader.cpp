@@ -54,6 +54,7 @@ void AddSC_sod_druid_eclipse();
 void AddSC_sod_druid_starfall();
 void AddSC_sod_druid_requirements();
 void AddSC_sod_druid_water_of_eluneara();
+void AddSC_sod_druid_shrine_warden();
 void AddSC_sod_paladin_art_of_war();
 void AddSC_sod_paladin_righteous_vengeance();
 void AddSC_sod_paladin_improved_hammer_of_wrath();
@@ -209,6 +210,7 @@ void Addmod_sod_contentScripts()
     AddSC_sod_druid_starfall();
     AddSC_sod_druid_requirements();
     AddSC_sod_druid_water_of_eluneara();
+    AddSC_sod_druid_shrine_warden();
 
     AddSC_sod_shaman_dual_wield_specialization();
     AddSC_sod_shaman_overload();
