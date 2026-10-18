@@ -1,0 +1,31 @@
+{
+ "objective": "Crear el PNJ «Rune Broker» (vendedor de runas de SoD) en las seis capitales y hacer que de momento venda SOLO dos runas de druida: Rabia (objeto 213117 «Rune of Berserk») y Regeneración frenética mejorada (objeto 221516 «Rune of Primal Energy»). Quitar esos dos objetos del Grabador (npc 700000).",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md. Módulo: server/mod-sod-content. Precedentes: data/sql/db-world/base/sod_world_grizzby.sql (vendedor civil simple) y sod_world_supply_officers.sql (seis PNJ, una por capital, con sus coordenadas de mundo en las líneas 117-122 y guids 8820001-8820006) y los commits a8d25c1 (intendentes de Gore) y 24fe772. En SoD el Rune Broker es un vendedor de las capitales que, desde la fase 6, vende las runas a 1 cobre. Por decisión del usuario, el Broker solo vende hoy las runas de las que no tenemos otra fuente real (estas dos); las demás se irán añadiendo con cada clase, así que debe quedar fácil añadir filas de npc_vendor sin tocar la plantilla (cada clase añadirá las suyas en su propio SQL, con REPLACE INTO npc_vendor del entry del Broker; explícalo en un comentario del SQL). Id de creature: busca una libre en la banda propia del módulo (700200-700299; comprueba con grep en server/ qué ids están usados, p. ej. 700200, 700210, 700220 ya lo están) o un id real de SoD si lo conoces verificado (no lo inventes: usa la banda propia). Un solo creature_template para todas las capitales (nombre «Rune Broker», esES «Corredor de runas», subname vacío), civil y no atacable, npcflag 128 (vendedor), faction 35, display stock de humanoide adecuado (justifícalo; busca uno existente del core). Seis spawns, uno por capital, a 4 yardas aprox. de distancia de la posición del oficial de suministros de esa ciudad (mismas map/x/y/z base +4 en x, mismo z, para no inventar altura), guids 8820050-8820055: Stormwind, Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity. Precio: el vendedor cobra el BuyPrice del objeto; ponlo en 1 cobre para esos dos objetos (modifica su BuyPrice en sod_druid_acquisition.sql, que hoy es 10000) y documenta que Wowhead lo recoge como coste «1» y que una guía de 2024 dice que el Broker vende a 1 cobre desde la fase 6; además Wowhead pide un emblema para Regeneración frenética mejorada (232454): contradicción sin resolver, anótala. Idempotente, sin DELETE salvo el del npc_vendor del Grabador (añade 213117 y 221516 al DELETE existente y quita sus REPLACE INTO npc_vendor del Grabador, líneas ~215 y ~218 de sod_druid_acquisition.sql).",
+ "files": [
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_content_locale_world_es.sql",
+  "docs/progreso/druida.md",
+  "TODO.md"
+ ],
+ "constraints": [
+  "Crea el fichero nuevo server/mod-sod-content/data/sql/db-world/base/sod_world_rune_broker.sql; en los demás solo lo mínimo.",
+  "No hagas commit ni push.",
+  "Actualiza docs/progreso/druida.md como en el commit a8d25c1 (tabla 1, totales, sección 4 de vendedores, sección 5 quitando las filas de Rabia y Regeneración frenética mejorada, 7 y 8). TODO.md ya tiene cambios ajenos sin confirmar: no los toques; en su lugar crea, al final de docs/progreso/druida.md, una sección «Pendiente de encontrar información» con: Rabia (Berserk): Wowhead solo muestra el Rune Broker, fuente previa a la fase 6 desconocida; Regeneración frenética mejorada: solo consta el Broker con el Emblem of the Wild Gods (232454), fuente previa desconocida. Mantén TODO.md SIN modificar (quítalo de tus archivos).",
+  "Todo en castellano salvo identificadores."
+ ],
+ "acceptanceCriteria": [
+  "El nuevo SQL crea el creature_template del Broker, sus locales, el npc_vendor con solo 213117 y 221516 y 6 spawns.",
+  "El Grabador ya no vende 213117 ni 221516.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ],
+ "validation": [
+  "tools/sod-data/validar_sql.sh"
+ ],
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream",
+  "TODO.md"
+ ],
+ "effort": "medium"
+}
