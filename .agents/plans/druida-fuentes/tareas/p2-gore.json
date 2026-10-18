@@ -1,0 +1,29 @@
+{
+ "objective": "Implementar la fuente real de la runa Gore (druida, rune 7009008, objeto 221517 «Rune of Bloodshed», es «Runa de Escabechina»): cuatro intendentes (Quartermaster) que la venden en el mundo, y quitar el objeto del vendedor del Grabador (npc 700000).",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md. Módulo: server/mod-sod-content. Precedente exacto de un vendedor simple: data/sql/db-world/base/sod_world_grizzby.sql (PNJ civil no atacable con npcflag 128, REPLACE de plantilla, INSERT IGNORE de spawn, npc_vendor, guids en la banda 8820000+) y los commits aa091b9/115a7c7/24fe772 (z de los spawns calculada con INSERT...SELECT de la fila `creature` más cercana del mismo mapa en distancia plana, `guid` < 8820000). Datos verificados (tooltip/NPC de Wowhead, 2026-10-18): los cuatro pertenecen a la facción Emerald Wardens, no son élite y venden el objeto 221517. Usa para todos faction 35 (amistoso con ambas facciones: los druidas son tauren y elfos de la noche, así que la runa debe estar al alcance de las dos facciones), civiles y no atacables como Grizzby, con un display stock de humanoide/elfo de la noche adecuado a un intendente (busca el de un vendedor existente de 3.3.5a, justifícalo en un comentario). PNJ: Falinar entry 222684, nivel 25, Duskwood, mapa 0, (-10638, -398) y (-10574, -430): crea UN spawn en el primero (el segundo es del mismo PNJ); Kyleen 222685, nivel 40, Ashenvale, mapa 1, (3112, -3455); Alandra 222686, nivel 50, Hinterlands, mapa 0, (584, -3939); Valdane 222687, nivel 50, Feralas, mapa 1, (-2941, 2078). La z NO se conoce: cálculala con el INSERT...SELECT como en los otros commits (usa el `map` correcto de cada PNJ). Subnombre «Quartermaster» (esES «Intendente»; Wowhead no da el subnombre exacto, es una suposición razonable: anótalo). Nombres esES = el nombre propio sin traducir. Precio: el core no permite precios distintos por vendedor; el ítem ya tiene BuyPrice 16000 en sod_druid_acquisition.sql (Falinar y Valdane la venden a 16000 cobre, Kyleen y Alandra a 16842 según Wowhead, sin confirmar la unidad): déjalo en 16000 y documenta la diferencia de 842 cobre. Requisito de nivel de compra: no verificado, no inventes. Ids de spawn propios: guids 8820040-8820043. Idempotente, sin DELETE salvo el del npc_vendor del Grabador (añade 221517 al DELETE del fichero que lo defina y quita su REPLACE INTO npc_vendor del Grabador; hoy en sod_druid_acquisition.sql línea ~219).",
+ "files": [
+  "server/mod-sod-content/data/sql/db-world/base/sod_druid_acquisition.sql",
+  "server/mod-sod-content/data/sql/db-world/base/sod_content_locale_world_es.sql",
+  "docs/progreso/druida.md"
+ ],
+ "constraints": [
+  "Crea el fichero nuevo server/mod-sod-content/data/sql/db-world/base/sod_druid_gore_source.sql; en los demás solo lo mínimo.",
+  "No hagas commit ni push.",
+  "Actualiza docs/progreso/druida.md como en el commit 24fe772 (tabla 1, totales, sección 4 «Vendedores» con los cuatro intendentes, sección 5 quitando la fila de Cornada, 7 y 8).",
+  "Todo en castellano salvo identificadores."
+ ],
+ "acceptanceCriteria": [
+  "El nuevo SQL crea 4 creature_template, sus npc_vendor con 221517, sus locales y 4 spawns con z calculada.",
+  "El Grabador ya no vende 221517.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ],
+ "validation": [
+  "tools/sod-data/validar_sql.sh"
+ ],
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream"
+ ],
+ "effort": "medium"
+}
