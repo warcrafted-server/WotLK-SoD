@@ -1,0 +1,26 @@
+{
+ "objective": "Efflorescence, parte B: Shrine of the Warden (Feralas, objeto 441948, ScriptName sod_druid_shrine_warden) que invoca al Treant Avatar (221935).",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md y, entero, .agents/plans/druida-fuentes/misiones.md §3 (no lo contradigas). Módulo server/mod-sod-content. El commit 409e1d9 ya creó la misión 81924, Tyrisius, las plantillas de los tres avatares (221935 Treant, 221933 Moonkin, 221928 Hippogryph; hostiles, nivel 50; matarlos da el crédito de la misión), los tres espíritus (Blightbark 222705, Sagefeather 222704, Whisperwing 222703: neutrales, no atacables) y los gameobjects de los santuarios con sus ScriptName (sod_druid_shrine_warden/_moon/_beast); lee sod_druid_efflorescence_source.sql. Esta tarea implementa SOLO la lógica de un santuario en C++ (src/druid/, registrado en src/sod_content_loader.cpp con AddSC_..., patrón de src/druid/spell_sod_druid_water_of_eluneara.cpp y src/mage/sod_mage_azora_event.cpp) y el SQL mínimo que necesite (spell_dbc propios: mira cómo se generan en tools/sod_spells_druid.py/sod_content_spell_dbc.sql y por qué se editan en el .py y se regeneran con tools/sod-data/regenerar_sql_hechizos.sh; o texto de gossip, creature_text). Todo lo que el avatar invocado hace: se invoca como TempSummon (TEMPSUMMON_CORPSE_TIMED_DESPAWN o similar) junto al santuario, hostil, y al morir el avatar aparece el espíritu (TempSummon de 60 s en su posición) que dice sus frases (si constan en misiones.md); solo se puede invocar con la misión 81924 activa y el objetivo de ese guardián sin cumplir, y no puede haber ya un avatar de ese santuario vivo. Las comprobaciones de clase no hacen falta (la misión ya es solo druida). El usuario mantiene el Grabador intacto. Idempotente; sin DELETE. Todo en castellano salvo identificadores. No hagas commit ni push. Documenta en docs/progreso/druida.md §10 qué hace el santuario y qué no está verificado. Valida con tools/sod-data/validar_sql.sh (si tocas SQL) y python3 tools/sod-data/check_syntax.py (C++). Mecánica (misiones.md §3, Feralas): interactuar con el santuario da el buff «Duty of the Warden» (hechizo 446448: aura propia, texto en el libro del santuario «Cast out what rots away the body, and that which corrupts the spirit. Only then may you return.»); si el jugador tiene ese buff y se cura de una maldición y de un veneno (Remove Curse y Cure Poison, o los equivalentes de 3.3.5a: Remove Curse y Abolish/Cure Poison; usa el dispel genérico de hechizo de tipo maldición/veneno, a tu criterio y documentado), el buff se transforma en «Mark of the Warden» (446467). Acercarse al santuario con Mark of the Warden (o interactuar de nuevo) invoca al Treant Avatar, que usa Entangling Roots (11922) y al morir deja al espíritu Blightbark (que dice 3 frases si constan). Crea los hechizos 446448 y 446467 (auras sin efecto de combate, iconos de naturaleza) y registra los scripts.",
+ "files": [
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "docs/progreso/druida.md"
+ ],
+ "constraints": [
+  "No hagas commit ni push.",
+  "Código nuevo solo en server/mod-sod-content/src/druid/ y SQL nuevo en server/mod-sod-content/data/sql/db-world/base/ con prefijo sod_druid_shrine_."
+ ],
+ "acceptanceCriteria": [
+  "El script está registrado y pasa check_syntax.py.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ],
+ "validation": [
+  "tools/sod-data/validar_sql.sh",
+  "python3 tools/sod-data/check_syntax.py"
+ ],
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream"
+ ],
+ "effort": "high"
+}

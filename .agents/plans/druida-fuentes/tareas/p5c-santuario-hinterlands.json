@@ -1,0 +1,26 @@
+{
+ "objective": "Efflorescence, parte C: Shrine of the Moon (Hinterlands, objeto 441946, ScriptName sod_druid_shrine_moon) que invoca al Moonkin Avatar (221933).",
+ "context": "Proyecto AzerothCore WotLK con módulos propios; lee AGENTS.md y, entero, .agents/plans/druida-fuentes/misiones.md §3 (no lo contradigas). Módulo server/mod-sod-content. El commit 409e1d9 ya creó la misión 81924, Tyrisius, las plantillas de los tres avatares (221935 Treant, 221933 Moonkin, 221928 Hippogryph; hostiles, nivel 50; matarlos da el crédito de la misión), los tres espíritus (Blightbark 222705, Sagefeather 222704, Whisperwing 222703: neutrales, no atacables) y los gameobjects de los santuarios con sus ScriptName (sod_druid_shrine_warden/_moon/_beast); lee sod_druid_efflorescence_source.sql. Esta tarea implementa SOLO la lógica de un santuario en C++ (src/druid/, registrado en src/sod_content_loader.cpp con AddSC_..., patrón de src/druid/spell_sod_druid_water_of_eluneara.cpp y src/mage/sod_mage_azora_event.cpp) y el SQL mínimo que necesite (spell_dbc propios: mira cómo se generan en tools/sod_spells_druid.py/sod_content_spell_dbc.sql y por qué se editan en el .py y se regeneran con tools/sod-data/regenerar_sql_hechizos.sh; o texto de gossip, creature_text). Todo lo que el avatar invocado hace: se invoca como TempSummon (TEMPSUMMON_CORPSE_TIMED_DESPAWN o similar) junto al santuario, hostil, y al morir el avatar aparece el espíritu (TempSummon de 60 s en su posición) que dice sus frases (si constan en misiones.md); solo se puede invocar con la misión 81924 activa y el objetivo de ese guardián sin cumplir, y no puede haber ya un avatar de ese santuario vivo. Las comprobaciones de clase no hacen falta (la misión ya es solo druida). El usuario mantiene el Grabador intacto. Idempotente; sin DELETE. Todo en castellano salvo identificadores. No hagas commit ni push. Documenta en docs/progreso/druida.md §10 qué hace el santuario y qué no está verificado. Valida con tools/sod-data/validar_sql.sh (si tocas SQL) y python3 tools/sod-data/check_syntax.py (C++). Mecánica (misiones.md §3, Hinterlands): lanzar Tranquility y después Hurricane sobre el santuario (Hurricane centrado a menos de 10 yardas del objeto, tras Tranquility lanzada por el mismo jugador a menos de 40 yardas del santuario y en los 30 s anteriores; usa PlayerScript/hook de lanzamiento de hechizo o un SpellScript sobre los hechizos de WotLK de Tranquility y Hurricane, a tu criterio y documentado) invoca al Moonkin Avatar (habilidades Rend 13445, Strike 13584, Tendon Rip 3604, configúralas en SmartAI/AI de C++), y al morir deja a Sagefeather. Texto del libro: «The calm comes before the storm.» (al interactuar con el santuario sin la misión, muéstralo como mensaje del sistema). No hay mecánica de buff.",
+ "files": [
+  "server/mod-sod-content/src/sod_content_loader.cpp",
+  "docs/progreso/druida.md"
+ ],
+ "constraints": [
+  "No hagas commit ni push.",
+  "Código nuevo solo en server/mod-sod-content/src/druid/ y SQL nuevo en server/mod-sod-content/data/sql/db-world/base/ con prefijo sod_druid_shrine_."
+ ],
+ "acceptanceCriteria": [
+  "El script está registrado y pasa check_syntax.py.",
+  "tools/sod-data/validar_sql.sh sale con código 0."
+ ],
+ "validation": [
+  "tools/sod-data/validar_sql.sh",
+  "python3 tools/sod-data/check_syntax.py"
+ ],
+ "doNotModify": [
+  "server/mod-rune-engraving",
+  "core",
+  "upstream"
+ ],
+ "effort": "high"
+}
