@@ -383,15 +383,16 @@ Datos y textos: `.agents/plans/druida-fuentes/misiones.md` §3. Sin compilar ni 
 - **Parte A (Tyrisius y las plantillas):** `server/mod-sod-content/data/sql/db-world/base/sod_druid_efflorescence_source.sql`, la misión 81924, los tres avatares, los tres espíritus y los tres santuarios sin lógica todavía.
 - **Parte B (lógica de un santuario):** solo el Shrine of the Warden de Feralas, en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_warden.sql` y `src/druid/spell_sod_druid_shrine_warden.cpp` (registrado en `src/sod_content_loader.cpp`).
 - **Parte C (lógica de un santuario):** solo el Shrine of the Moon de Tierras del Interior, en `src/druid/spell_sod_druid_shrine_moon.cpp` (registrado en `src/sod_content_loader.cpp`) y, en el SQL, la frase del libro en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_moon.sql`.
+- **Parte D (lógica de un santuario):** solo el Shrine of the Beast de Azshara, en `src/druid/spell_sod_druid_shrine_beast.cpp` (registrado en `src/sod_content_loader.cpp`) y, en el SQL, la frase del libro en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_beast.sql`.
 
-**La misión aún no es completable**: tienen lógica los santuarios de Feralas y de la Luna; el de la Bestia (Azshara) sigue sin implementar y el Hippogryph Avatar (221928) no tiene spawn ni forma de aparecer.
+**La misión ya es completable en teoría**: los tres santuarios tienen lógica (Feralas, Tierras del Interior y Azshara). Sigue **sin compilar ni probar en juego**.
 
 ### Parte A: Tyrisius y las plantillas
 
 1. **Tyrisius** (221985, nivel 40, Feralas, mapa 1, (-5564, 1466), respawn 300 s) da y entrega **Wisdom of the Guardians** (81924, nivel 50, mínimo 45, categoría Druida, sin misión previa). XP aproximada a 4700: se usa el índice 4 de QuestXP.dbc de nivel 50 (5100), una aproximación de +400. Dinero 0 (la unidad del dato de SoD, 75, no consta).
 2. Objetivos (crédito de muerte, 1 de cada): **Treant Avatar** (221935, Feralas), **Moonkin Avatar** (221933, Tierras del Interior) y **Hippogryph Avatar** (221928, Azshara). Nivel 50, no élite y hostiles. **No tienen spawn**: los invoca su santuario.
-3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`). Solo el del Celador tiene lógica (parte B) y el de la Luna (parte C); el de la Bestia sigue inerte. Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
-4. **Child of Apa'ro** (222580, ciervo, Azshara, mapa 1, (4293, -5458), respawn 1800 s): hostil, desollable e inmune a la magia; suelta **Sacred Stag Heart** (221326) al 100 %, solo a druidas y solo con 81924 activa. El corazón se ofrece en el Santuario de la Bestia (lógica pendiente).
+3. **Santuarios**: Shrine of the Warden (441948, Feralas, mapa 1, (-4785, 1369)), Shrine of the Moon (441946, Tierras del Interior, mapa 0, (104, -4124)) y Shrine of the Beast (441947, Azshara, mapa 1, (3685, -5032)). Son objetos interactivos, con el ScriptName ya puesto (`sod_druid_shrine_warden`, `sod_druid_shrine_moon` y `sod_druid_shrine_beast`). Los tres tienen lógica (partes B, C y D). Al morir un avatar aparece su espíritu: **Blightbark** (222705), **Sagefeather** (222704) y **Whisperwing** (222703), élite nivel 50, neutrales y no atacables.
+4. **Child of Apa'ro** (222580, ciervo, Azshara, mapa 1, (4293, -5458), respawn 1800 s): hostil, desollable e inmune a la magia; suelta **Sacred Stag Heart** (221326) al 100 %, solo a druidas y solo con 81924 activa. El corazón se ofrece en el Santuario de la Bestia (parte D).
 5. Recompensa a elegir: **Rune of Efflorescence** (220360), que desbloquea la runa 7009022 (el Grabador la sigue vendiendo para las pruebas), o **Seed of Renewal** (219326, trinket raro **sin efecto implementado**: sus estadísticas están a 0).
 6. No verificado: probabilidad y condiciones reales del botín del corazón (se usa 100 % solo con la misión activa), botín de desuello (se copia el de «Hakkari Frostwing», 5291), estadísticas y efecto del trinket (a 0), frases de Blightbark (no constan), modelos (todos stock), la z de los cinco spawns y las coordenadas de los santuarios.
 7. Los marcadores `<name>` y `<class>` de la fuente se escriben como `$N` y `$C` (la sintaxis del cliente). Nutrir los dejó literales; es un error que aquí no se repite.
@@ -428,6 +429,23 @@ Solo el santuario de Tierras del Interior. Toda la lógica va en `server/mod-sod
    - **Traducción al español de la frase del libro** («La calma precede a la tormenta.»): es nuestra, no consta ninguna oficial.
    - **Si el juego exige que Tranquility o Hurricane alcancen el objeto**, más allá de la distancia de lanzamiento: no verificado.
    - **Cómo se cuenta el crédito de la misión** (al matar al avatar, no al hablar con el espíritu): no verificado, igual que en las partes A y B.
+
+### Parte D: santuario de la Bestia (Azshara, 441947)
+
+Solo el santuario de Azshara. Toda la lógica va en `server/mod-sod-content/src/druid/spell_sod_druid_shrine_beast.cpp` (registrado como `AddSC_sod_druid_shrine_beast` en `src/sod_content_loader.cpp`). En el SQL solo hace falta la frase del libro, en `server/mod-sod-content/data/sql/db-world/base/sod_druid_shrine_beast.sql` (`module_string` 1011 y su fila en esES): la mecánica no necesita ningún hechizo propio (el disparo es la interacción) y la fuente no transcribe ninguna frase de Whisperwing, así que no se añade `creature_text`. La parte A no se toca.
+
+1. Con la misión 81924 activa, el objetivo del Hippogryph Avatar sin cumplir y el **Sacred Stag Heart (221326)** en la mochila, **interactuar** con el santuario (441947) consume el corazón e invoca al **Hippogryph Avatar** (221928) como `TempSummon` hostil junto al santuario, que ataca al jugador. El disparo es `OnGossipHello` (el santuario es un libro, no hay hechizo ni secuencia que enganchar).
+2. No se invoca sin la misión activa, sin el corazón, ni si ya hay un avatar vivo a menos de 15 m del santuario (la comprobación es por cercanía, no por mapa). Si ya hay uno vivo **no se gasta el corazón**: solo se repite la frase del libro.
+3. El avatar lanza **Rend (13445)** y, al morir, deja a **Whisperwing** (222703) 60 s.
+4. Interactuar **sin el corazón** (o sin la misión pendiente) muestra el texto de la fuente («Hunt the white stag with tooth and claw.») como mensaje del sistema, desde `module_string` (el C++ del módulo no guarda textos para el jugador).
+5. **No verificado / pendiente:**
+   - **Sin compilar ni probar en juego.** `python3 tools/sod-data/check_syntax.py` pasa para este archivo, pero usa una plantilla del módulo (no está en `compile_commands.json`), así que no es una compilación completa.
+   - **Cuándo y cómo se consume el corazón** (al interactuar, sin condiciones extra de fase de misión) y **que la ofrenda no se gaste si ya hay un avatar vivo**: lo fija el encargo, no `misiones.md`, que solo dice que se ofrece.
+   - **Qué pasa si se interactúa con un avatar vivo sin el corazón** (aquí se muestra la frase del libro): no consta.
+   - **Reutilización de Rend** (10 s): no consta en la fuente; es provisional, como en las partes B y C.
+   - **Frases de Whisperwing:** no constan en `misiones.md`, así que no se le añade `creature_text` (no se inventan).
+   - **Traducción al español de la frase del libro** («Caza al venado blanco con dientes y garras.»): es nuestra, no consta ninguna oficial.
+   - **Cómo se cuenta el crédito de la misión** (al matar al avatar, no al hablar con el espíritu): no verificado, igual que en las partes A, B y C.
 
 ## Pendiente de encontrar información
 
